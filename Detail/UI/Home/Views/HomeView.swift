@@ -30,6 +30,9 @@ class HomeView: UIView {
     
     lazy var clock: ClockNeumorphismBuilder = {
         let clock = ClockNeumorphismBuilder()
+//            .setShape(.flat)
+//            .setShadowDistance(5)
+//            .setColor(hexColor: "#ffffff")
             .setConstraints { build in
                 build
                     .setTop.setTrailing.equalToSafeArea(24)
@@ -45,6 +48,7 @@ class HomeView: UIView {
     private func configure() {
         addElements()
         configConstraints()
+        startClock()
     }
     
     private func addElements() {
@@ -55,6 +59,10 @@ class HomeView: UIView {
     private func configConstraints() {
         backgroundView.applyConstraint()
         clock.applyConstraint()
+    }
+    
+    private func startClock() {
+        clock.startClock()
     }
     
     

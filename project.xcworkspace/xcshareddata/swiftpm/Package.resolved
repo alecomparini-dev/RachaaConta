@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "customcomponentssdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alecomparini-dev/CustomComponentsSDK.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "0d45b14e987aa6324726d26aa4856704336bc248"
+      }
+    }
+  ],
+  "version" : 2
+}

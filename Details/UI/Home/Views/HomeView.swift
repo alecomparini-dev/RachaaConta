@@ -28,33 +28,13 @@ class HomeView: UIView {
         return comp
     }()
     
-    
-    lazy var sideBarView: SideBarView = {
-        let comp = SideBarView()
-            .setShadow({ build in
-                build
-                    .setOffset(width: 0, height: -5)
-                    .setColor(Theme.shared.currentTheme.surfaceContainerLowest)
-                    .setRadius(3)
-                    .apply()
-            })
-            .setConstraints { build in
-                build
-                    .setPinRight.equalToSuperView
-                    .setWidth.equalToConstant(75)
-            }
-        return comp
-    }()
-    
     lazy var clock: ClockNeumorphismBuilder = {
         let clock = ClockNeumorphismBuilder()
-            .setEnabledDay(false)
             .setConstraints { build in
                 build
-                    .setTop.equalToSafeArea(24)
-                    .setTrailing.equalTo(sideBarView.get, .leading, -16 )
-                    .setWidth.equalToConstant(110)
-                    .setHeight.equalToConstant(40)
+                    .setTop.setTrailing.equalToSafeArea(24)
+                    .setWidth.equalToConstant(100)
+                    .setHeight.equalToConstant(35)
             }
         return clock
     }()
@@ -69,13 +49,11 @@ class HomeView: UIView {
     
     private func addElements() {
         backgroundView.add(insideTo: self)
-        sideBarView.add(insideTo: self)
         clock.add(insideTo: self)
     }
     
     private func configConstraints() {
         backgroundView.applyConstraint()
-        sideBarView.applyConstraint()
         clock.applyConstraint()
     }
     

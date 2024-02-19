@@ -9,7 +9,7 @@ public struct ThemeDark: ThemeProtocol {
     
     public init () {}
     
-    public var backgroundColor: UIColor { UIColor.HEX("#161515")}
+    public var backgroundColor: UIColor { UIColor.HEX("#292D2E")}
     public var error: UIColor { UIColor.HEX("#c81b1a") }
     public var onError: UIColor { UIColor.HEX("#d3d3d3") }
 }
@@ -36,7 +36,7 @@ extension ThemeDark: ThemeTertiaryColor {
 }
 
 extension ThemeDark: ThemeGradientColor {
-    public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-20)] }
+    public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-70)] }
     public var primaryGradient: [UIColor] { [primary, UIColor.HEX("#006270")] }
     public var secondaryGradient: [UIColor] { [secondary, UIColor.HEX("#eeeeee")] }
     public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#ff6b00")] }

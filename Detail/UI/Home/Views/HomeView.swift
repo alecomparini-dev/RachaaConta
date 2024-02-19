@@ -30,13 +30,17 @@ class HomeView: UIView {
     
     lazy var clock: ClockNeumorphismBuilder = {
         let clock = ClockNeumorphismBuilder()
-//            .setShape(.flat)
-//            .setShadowDistance(5)
-//            .setColor(hexColor: "#ffffff")
+            .setColor(hexColor: Theme.shared.currentTheme.backgroundColor.adjustBrightness(20).toHexString)
+            .setColonsStyle({ build in
+                build
+                    .setRadius(5)
+                    .setColor(hexColor: Theme.shared.currentTheme.primary.toHexString)
+                    .setShadowColor(hexColor: "#000000")
+            })
             .setConstraints { build in
                 build
                     .setTop.setTrailing.equalToSafeArea(24)
-                    .setWidth.equalToConstant(100)
+                    .setWidth.equalToConstant(120)
                     .setHeight.equalToConstant(35)
             }
         return clock
@@ -48,7 +52,6 @@ class HomeView: UIView {
     private func configure() {
         addElements()
         configConstraints()
-        startClock()
     }
     
     private func addElements() {
@@ -59,10 +62,6 @@ class HomeView: UIView {
     private func configConstraints() {
         backgroundView.applyConstraint()
         clock.applyConstraint()
-    }
-    
-    private func startClock() {
-        clock.startClock()
     }
     
     

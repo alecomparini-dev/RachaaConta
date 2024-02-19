@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				02BD95032B83762800539FDE /* Detail */,
-				02BD951B2B83773600539FDE /* RachaaConta */,
+				02BD95372B837A3D00539FDE /* Main */,
 				02BD94EE2B8375BA00539FDE /* Products */,
 				02BD95302B83779A00539FDE /* Frameworks */,
 			);
@@ -173,6 +173,14 @@
 				02BD952A2B83773700539FDE /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		02BD95372B837A3D00539FDE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				02BD951B2B83773600539FDE /* RachaaConta */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,7 +541,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2HCBZJR5K3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RachaaConta/Resources/Info.plist;
+				INFOPLIST_FILE = Main/RachaaConta/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -563,7 +571,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2HCBZJR5K3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RachaaConta/Resources/Info.plist;
+				INFOPLIST_FILE = Main/RachaaConta/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

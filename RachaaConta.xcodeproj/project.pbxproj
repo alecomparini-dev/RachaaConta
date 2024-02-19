@@ -18,7 +18,6 @@
 		02E3B6EE2B7EB7730088558D /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E3B66D2B7E99AF0088558D /* UI.framework */; };
 		02E3B6EF2B7EB7730088558D /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02E3B66D2B7E99AF0088558D /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02E3B6F52B7EBAB80088558D /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3B6F42B7EBAB80088558D /* BackgroundView.swift */; };
-		02E3B6F92B7EC5510088558D /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3B6F82B7EC5510088558D /* SideBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +56,6 @@
 		02E3B6E82B7EB7480088558D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02E3B6EA2B7EB7480088558D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02E3B6F42B7EBAB80088558D /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		02E3B6F82B7EC5510088558D /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,17 +171,8 @@
 		02E3B6F62B7EBD3D0088558D /* HomeViewComponentes */ = {
 			isa = PBXGroup;
 			children = (
-				02E3B6F72B7EC23E0088558D /* SideBarView */,
 			);
 			path = HomeViewComponentes;
-			sourceTree = "<group>";
-		};
-		02E3B6F72B7EC23E0088558D /* SideBarView */ = {
-			isa = PBXGroup;
-			children = (
-				02E3B6F82B7EC5510088558D /* SideBarView.swift */,
-			);
-			path = SideBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +296,6 @@
 				02E3B6782B7E9A440088558D /* HomeViewController.swift in Sources */,
 				02E3B67A2B7E9B5E0088558D /* HomeView.swift in Sources */,
 				02E3B6F52B7EBAB80088558D /* BackgroundView.swift in Sources */,
-				02E3B6F92B7EC5510088558D /* SideBarView.swift in Sources */,
 				02E3B6802B7EA15D0088558D /* ThemeDark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

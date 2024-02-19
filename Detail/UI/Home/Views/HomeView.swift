@@ -39,8 +39,9 @@ class HomeView: UIView {
             })
             .setConstraints { build in
                 build
-                    .setTop.setTrailing.equalToSafeArea(24)
-                    .setWidth.equalToConstant(120)
+                    .setTop.equalToSafeArea(16)
+                    .setTrailing.equalToSafeArea(-24)
+                    .setWidth.equalToConstant(110)
                     .setHeight.equalToConstant(35)
             }
         return clock

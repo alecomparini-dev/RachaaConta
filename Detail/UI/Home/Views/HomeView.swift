@@ -63,7 +63,7 @@ class HomeView: UIView {
             .setConstraints { build in
                 build
                     .setTrailing.equalToSuperView(-24)
-                    .setBottom.equalToSuperView(-56)
+                    .setBottom.equalToSafeArea(-24)
                     .setWidth.setHeight.equalToConstant(60)
             }
         return view

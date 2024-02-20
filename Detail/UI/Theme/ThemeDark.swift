@@ -29,14 +29,14 @@ extension ThemeDark: ThemeSecondaryColor {
 }
 
 extension ThemeDark: ThemeTertiaryColor {
-    public var tertiary: UIColor { UIColor.HEX("#ff6f26") }
+    public var tertiary: UIColor { UIColor.HEX("#ee975a") }
     public var onTertiary: UIColor { UIColor.HEX("#eeeeee") }
     public var tertiaryContainer: UIColor { .black }
     public var onTertiaryContainer: UIColor { .black }
 }
 
 extension ThemeDark: ThemeGradientColor {
-    public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-70)] }
+    public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-80)] }
     public var primaryGradient: [UIColor] { [primary, UIColor.HEX("#006270")] }
     public var secondaryGradient: [UIColor] { [secondary, UIColor.HEX("#eeeeee")] }
     public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#ff6b00")] }

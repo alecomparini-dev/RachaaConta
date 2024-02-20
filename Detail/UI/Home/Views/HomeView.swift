@@ -17,7 +17,6 @@ class HomeView: UIView {
     }
     
     
-    
 //  MARK: - LAZY PROPERTIES
     lazy var backgroundView: BackgroundView = {
         let comp = BackgroundView()
@@ -47,6 +46,28 @@ class HomeView: UIView {
         return clock
     }()
     
+    lazy var sideBarMenuView: SideBarMenuView = {
+        let view = SideBarMenuView()
+            .setConstraints { build in
+                build
+                    .setVerticalAlignmentY.equalTo(clock.getClock.get)
+                    .setLeading.equalToSuperView
+                    .setWidth.equalToConstant(58)
+                    .setHeight.equalToConstant(50)
+            }
+        return view
+    }()
+    
+    lazy var buttonFloat: ButtonFloatView = {
+        let view = ButtonFloatView()
+            .setConstraints { build in
+                build
+                    .setTrailing.equalToSuperView(-24)
+                    .setBottom.equalToSuperView(-56)
+                    .setWidth.setHeight.equalToConstant(60)
+            }
+        return view
+    }()
     
     
 //  MARK: - PRIVATE AREA
@@ -58,11 +79,15 @@ class HomeView: UIView {
     private func addElements() {
         backgroundView.add(insideTo: self)
         clock.add(insideTo: self)
+        sideBarMenuView.add(insideTo: self)
+        buttonFloat.add(insideTo: self)
     }
     
     private func configConstraints() {
         backgroundView.applyConstraint()
         clock.applyConstraint()
+        sideBarMenuView.applyConstraint()
+        buttonFloat.applyConstraint()
     }
     
     

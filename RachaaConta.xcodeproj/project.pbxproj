@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */; };
+		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
 		02BD95102B8376C600539FDE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD950A2B8376C600539FDE /* HomeView.swift */; };
 		02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD950C2B8376C600539FDE /* ThemeDark.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuView.swift; sourceTree = "<group>"; };
+		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BD95082B8376C600539FDE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		02BD950A2B8376C600539FDE /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -78,6 +82,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B4D60C2B8401A0005DF70B /* SideBarMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */,
+			);
+			path = SideBarMenuView;
+			sourceTree = "<group>";
+		};
+		02B4D6112B842132005DF70B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		02B4D6122B842476005DF70B /* ButtonFloatView */ = {
+			isa = PBXGroup;
+			children = (
+				02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */,
+			);
+			path = ButtonFloatView;
+			sourceTree = "<group>";
+		};
 		02BD94E32B8375BA00539FDE = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +145,7 @@
 		02BD95072B8376C600539FDE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				02B4D6112B842132005DF70B /* Cells */,
 				02BD95092B8376C600539FDE /* Views */,
 				02BD95082B8376C600539FDE /* HomeViewController.swift */,
 			);
@@ -127,6 +155,8 @@
 		02BD95092B8376C600539FDE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02B4D6122B842476005DF70B /* ButtonFloatView */,
+				02B4D60C2B8401A0005DF70B /* SideBarMenuView */,
 				02BD950A2B8376C600539FDE /* HomeView.swift */,
 			);
 			path = Views;
@@ -301,7 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */,
+				02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */,
 				02BD95102B8376C600539FDE /* HomeView.swift in Sources */,
+				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 			);

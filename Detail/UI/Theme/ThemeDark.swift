@@ -18,12 +18,12 @@ extension ThemeDark: ThemePrimaryColor {
     public var primary: UIColor { UIColor.HEX("#00e0c7") }
     public var onPrimary:UIColor { backgroundColor }
     public var primaryContainer: UIColor { UIColor.HEX("#28364d") }
-    public var onPrimaryContainer: UIColor { UIColor.HEX("#eeeeee") }
+    public var onPrimaryContainer: UIColor { UIColor.HEX("#d1d3d2") }
 }
 
 extension ThemeDark: ThemeSecondaryColor {
     public var secondary: UIColor { UIColor.HEX("#006270") }
-    public var onSecondary: UIColor { UIColor.HEX("#FFFFFF") }
+    public var onSecondary: UIColor { UIColor.HEX("#d1d3d2") }
     public var secondaryContainer: UIColor { .black }
     public var onSecondaryContainer: UIColor { .black }
 }
@@ -37,9 +37,9 @@ extension ThemeDark: ThemeTertiaryColor {
 
 extension ThemeDark: ThemeGradientColor {
     public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-80)] }
-    public var primaryGradient: [UIColor] { [primary, UIColor.HEX("#006270")] }
+    public var primaryGradient: [UIColor] { [primary, secondary] }
     public var secondaryGradient: [UIColor] { [secondary, UIColor.HEX("#eeeeee")] }
-    public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#ff6b00")] }
+    public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#eeeeee")] }
 }
 
 
@@ -50,7 +50,7 @@ extension ThemeDark: ThemeSurface {
     public var surfaceContainerLow: UIColor { surfaceContainerHighest.adjustBrightness(-60) }
     public var surfaceContainerLowest: UIColor { surfaceContainerHighest.adjustBrightness(-80) }
 
-    public var onSurface: UIColor { UIColor.HEX("#eeeeee") }
+    public var onSurface: UIColor { UIColor.HEX("#d1d3d2") }
     public var onSurfaceInverse: UIColor { UIColor.HEX("#050505") }
     public var onSurfaceVariant: UIColor { onSurface.adjustBrightness(-40) }
 }

@@ -38,6 +38,7 @@ public class HomeViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configDelegate()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -48,7 +49,11 @@ public class HomeViewController: UIViewController {
     
 //  MARK: - PRIVATE AREA
     private func configure() {
-        configDelegate()
+        fetchBills()
+    }
+    
+    public func fetchBills() {
+        homeViewModel.fetchBills()
     }
     
     private func configDelegate() {
@@ -56,12 +61,16 @@ public class HomeViewController: UIViewController {
         screen.listBillTableView.setDataSource(dataSource: self)
     }
     
+    
 }
 
 
 //  MARK: - EXTENSION - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return homeViewModel.heightForRowAt(indexPath.row)
+    }
     
 }
 
@@ -74,9 +83,9 @@ extension HomeViewController: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: BillTableCellView.identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BillTableCellView.identifier) as? BillTableCellView
         
-        
+        cell?.setupCell(homeViewModel.getBill(indexPath.row))
         
         return cell ?? UITableViewCell()
         

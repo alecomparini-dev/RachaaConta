@@ -17,8 +17,8 @@ class ButtonFloatView: ButtonImageBuilder {
     lazy var image: ImageViewBuilder = {
         let img = ImageViewBuilder(systemName: "plus")
             .setTintColor(Theme.shared.currentTheme.onSurface)
-            .setTintColor(Theme.shared.currentTheme.primary)
-            .setWeight(.ultraLight)
+//            .setTintColor(Theme.shared.currentTheme.primary)
+            .setWeight(.black)
 //            .setSize(20)
             .setConstraints { build in
                 build

@@ -9,7 +9,9 @@ class HomeViewControllerFactory {
     
     static func make() -> HomeViewController {
         
-        let homeVM = HomeViewModelImpl()
+        let fetchBillPresenter = FetchBillPresenterImpl()
+        
+        let homeVM = HomeViewModelImpl(fetchBillPresenter: fetchBillPresenter)
         
         return HomeViewController(homeViewModel: homeVM)
         

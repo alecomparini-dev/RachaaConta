@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023C63A32B8635B10009C432 /* FetchBillPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */; };
+		023C63A62B8635C40009C432 /* FetchBillPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63A52B8635C40009C432 /* FetchBillPresenterImpl.swift */; };
+		023C63A92B8638B80009C432 /* BillPresenterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63A82B8638B80009C432 /* BillPresenterDTO.swift */; };
+		023C63AC2B863A680009C432 /* AddressPresenterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63AB2B863A680009C432 /* AddressPresenterDTO.swift */; };
+		023C63B52B864DA80009C432 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63B32B864BAF0009C432 /* DotView.swift */; };
+		023C63BD2B865FED0009C432 /* TitilliumWeb-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63B72B865FEC0009C432 /* TitilliumWeb-ExtraLight.ttf */; };
+		023C63BE2B865FED0009C432 /* TitilliumWeb-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63B82B865FEC0009C432 /* TitilliumWeb-Black.ttf */; };
+		023C63BF2B865FED0009C432 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63B92B865FED0009C432 /* TitilliumWeb-Bold.ttf */; };
+		023C63C02B865FED0009C432 /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63BA2B865FED0009C432 /* TitilliumWeb-Light.ttf */; };
+		023C63C12B865FED0009C432 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63BB2B865FED0009C432 /* TitilliumWeb-SemiBold.ttf */; };
+		023C63C22B865FED0009C432 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63BC2B865FED0009C432 /* TitilliumWeb-Regular.ttf */; };
+		023C63C42B8661590009C432 /* BillTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF271A2B854DA6003A5979 /* BillTableCellView.swift */; };
+		023C63CC2B86683C0009C432 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023C63BB2B865FED0009C432 /* TitilliumWeb-SemiBold.ttf */; };
+		023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63CD2B866B610009C432 /* LineVerticalView.swift */; };
+		023C63D02B868E240009C432 /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; };
+		023C63D12B868E240009C432 /* Presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
@@ -20,16 +36,21 @@
 		02BD95292B83773700539FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02BD95272B83773700539FDE /* LaunchScreen.storyboard */; };
 		02BD95312B83779A00539FDE /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BD94FC2B8375F800539FDE /* UI.framework */; };
 		02BD95322B83779A00539FDE /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02BD94FC2B8375F800539FDE /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02DF271B2B854DA6003A5979 /* BillTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF271A2B854DA6003A5979 /* BillTableCellView.swift */; };
 		02DF27292B8551D7003A5979 /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; platformFilters = (macos, ); };
 		02DF272A2B8551D7003A5979 /* Presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27312B855247003A5979 /* HomeViewModel.swift */; };
 		02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */; };
 		02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */; };
-		02DF27402B8632E9003A5979 /* ListBillPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273F2B8632E9003A5979 /* ListBillPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		023C63D22B868E240009C432 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02BD94E42B8375BA00539FDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02DF27212B8551CD003A5979;
+			remoteInfo = Presenter;
+		};
 		02BD95332B83779A00539FDE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02BD94E42B8375BA00539FDE /* Project object */;
@@ -54,6 +75,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				02BD95322B83779A00539FDE /* UI.framework in Embed Frameworks */,
+				023C63D12B868E240009C432 /* Presenter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +94,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		023C63A52B8635C40009C432 /* FetchBillPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenterImpl.swift; sourceTree = "<group>"; };
+		023C63A82B8638B80009C432 /* BillPresenterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillPresenterDTO.swift; sourceTree = "<group>"; };
+		023C63AB2B863A680009C432 /* AddressPresenterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPresenterDTO.swift; sourceTree = "<group>"; };
+		023C63B32B864BAF0009C432 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		023C63B72B865FEC0009C432 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
+		023C63B82B865FEC0009C432 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
+		023C63B92B865FED0009C432 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		023C63BA2B865FED0009C432 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		023C63BB2B865FED0009C432 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
+		023C63BC2B865FED0009C432 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		023C63CD2B866B610009C432 /* LineVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineVerticalView.swift; sourceTree = "<group>"; };
 		02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +123,7 @@
 		02DF27312B855247003A5979 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelImpl.swift; sourceTree = "<group>"; };
 		02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
-		02DF273F2B8632E9003A5979 /* ListBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBillPresenter.swift; sourceTree = "<group>"; };
+		02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02BD95312B83779A00539FDE /* UI.framework in Frameworks */,
+				023C63D02B868E240009C432 /* Presenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +155,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023C63A42B8635B80009C432 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				023C63A52B8635C40009C432 /* FetchBillPresenterImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		023C63A72B8638A00009C432 /* BillPresenterDTO */ = {
+			isa = PBXGroup;
+			children = (
+				023C63A82B8638B80009C432 /* BillPresenterDTO.swift */,
+			);
+			path = BillPresenterDTO;
+			sourceTree = "<group>";
+		};
+		023C63AA2B8639410009C432 /* CommonsDTO */ = {
+			isa = PBXGroup;
+			children = (
+				023C63AB2B863A680009C432 /* AddressPresenterDTO.swift */,
+			);
+			path = CommonsDTO;
+			sourceTree = "<group>";
+		};
+		023C63AD2B8647E40009C432 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				023C63AE2B8647EC0009C432 /* DotView */,
+				023C63AF2B8647F40009C432 /* LineVerticalView */,
+				023C63B12B86481B0009C432 /* ButtonSeeBillView */,
+				023C63B22B8648410009C432 /* PersonView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		023C63AE2B8647EC0009C432 /* DotView */ = {
+			isa = PBXGroup;
+			children = (
+				023C63B32B864BAF0009C432 /* DotView.swift */,
+			);
+			path = DotView;
+			sourceTree = "<group>";
+		};
+		023C63AF2B8647F40009C432 /* LineVerticalView */ = {
+			isa = PBXGroup;
+			children = (
+				023C63CD2B866B610009C432 /* LineVerticalView.swift */,
+			);
+			path = LineVerticalView;
+			sourceTree = "<group>";
+		};
+		023C63B12B86481B0009C432 /* ButtonSeeBillView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ButtonSeeBillView;
+			sourceTree = "<group>";
+		};
+		023C63B22B8648410009C432 /* PersonView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PersonView;
+			sourceTree = "<group>";
+		};
+		023C63B62B865FD10009C432 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				023C63BB2B865FED0009C432 /* TitilliumWeb-SemiBold.ttf */,
+				023C63B82B865FEC0009C432 /* TitilliumWeb-Black.ttf */,
+				023C63B92B865FED0009C432 /* TitilliumWeb-Bold.ttf */,
+				023C63B72B865FEC0009C432 /* TitilliumWeb-ExtraLight.ttf */,
+				023C63BA2B865FED0009C432 /* TitilliumWeb-Light.ttf */,
+				023C63BC2B865FED0009C432 /* TitilliumWeb-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		02B4D60C2B8401A0005DF70B /* SideBarMenuView */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +351,7 @@
 		02BD95362B8377E300539FDE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				023C63B62B865FD10009C432 /* Fonts */,
 				02BD951C2B83773600539FDE /* AppDelegate.swift */,
 				02BD951E2B83773600539FDE /* SceneDelegate.swift */,
 				02BD95252B83773700539FDE /* Assets.xcassets */,
@@ -251,6 +364,7 @@
 		02DF271C2B854DB1003A5979 /* BillCellView */ = {
 			isa = PBXGroup;
 			children = (
+				023C63AD2B8647E40009C432 /* Components */,
 				02DF271A2B854DA6003A5979 /* BillTableCellView.swift */,
 			);
 			path = BillCellView;
@@ -259,6 +373,7 @@
 		02DF27232B8551CD003A5979 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				023C63AA2B8639410009C432 /* CommonsDTO */,
 				02DF273B2B8615BF003A5979 /* BillPresenter */,
 				02DF272F2B85522A003A5979 /* HomeViewModel */,
 			);
@@ -317,17 +432,19 @@
 		02DF273B2B8615BF003A5979 /* BillPresenter */ = {
 			isa = PBXGroup;
 			children = (
-				02DF273C2B862825003A5979 /* ListBillPresenter */,
+				023C63A72B8638A00009C432 /* BillPresenterDTO */,
+				02DF273C2B862825003A5979 /* FetchBillPresenter */,
 			);
 			path = BillPresenter;
 			sourceTree = "<group>";
 		};
-		02DF273C2B862825003A5979 /* ListBillPresenter */ = {
+		02DF273C2B862825003A5979 /* FetchBillPresenter */ = {
 			isa = PBXGroup;
 			children = (
-				02DF273F2B8632E9003A5979 /* ListBillPresenter.swift */,
+				023C63A42B8635B80009C432 /* Impl */,
+				02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */,
 			);
-			path = ListBillPresenter;
+			path = FetchBillPresenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +503,7 @@
 			);
 			dependencies = (
 				02BD95342B83779A00539FDE /* PBXTargetDependency */,
+				023C63D32B868E240009C432 /* PBXTargetDependency */,
 			);
 			name = RachaaConta;
 			productName = RachaaConta;
@@ -459,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023C63CC2B86683C0009C432 /* TitilliumWeb-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,8 +585,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023C63C02B865FED0009C432 /* TitilliumWeb-Light.ttf in Resources */,
+				023C63C12B865FED0009C432 /* TitilliumWeb-SemiBold.ttf in Resources */,
+				023C63BF2B865FED0009C432 /* TitilliumWeb-Bold.ttf in Resources */,
 				02BD95292B83773700539FDE /* LaunchScreen.storyboard in Resources */,
+				023C63BD2B865FED0009C432 /* TitilliumWeb-ExtraLight.ttf in Resources */,
 				02BD95262B83773700539FDE /* Assets.xcassets in Resources */,
+				023C63C22B865FED0009C432 /* TitilliumWeb-Regular.ttf in Resources */,
+				023C63BE2B865FED0009C432 /* TitilliumWeb-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,12 +610,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023C63C42B8661590009C432 /* BillTableCellView.swift in Sources */,
 				02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */,
 				02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */,
-				02DF271B2B854DA6003A5979 /* BillTableCellView.swift in Sources */,
+				023C63B52B864DA80009C432 /* DotView.swift in Sources */,
 				02BD95102B8376C600539FDE /* HomeView.swift in Sources */,
 				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,
+				023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,7 +627,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
-				02DF27402B8632E9003A5979 /* ListBillPresenter.swift in Sources */,
 				02BD951F2B83773600539FDE /* SceneDelegate.swift in Sources */,
 				02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */,
 			);
@@ -511,13 +637,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */,
+				023C63A92B8638B80009C432 /* BillPresenterDTO.swift in Sources */,
+				023C63A32B8635B10009C432 /* FetchBillPresenter.swift in Sources */,
 				02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */,
+				023C63A62B8635C40009C432 /* FetchBillPresenterImpl.swift in Sources */,
+				023C63AC2B863A680009C432 /* AddressPresenterDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		023C63D32B868E240009C432 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02DF27212B8551CD003A5979 /* Presenter */;
+			targetProxy = 023C63D22B868E240009C432 /* PBXContainerItemProxy */;
+		};
 		02BD95342B83779A00539FDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02BD94FB2B8375F800539FDE /* UI */;

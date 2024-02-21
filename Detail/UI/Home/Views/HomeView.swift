@@ -72,10 +72,10 @@ class HomeView: UIView {
     lazy var listBillTableView: TableViewBuilder = {
         let comp = TableViewBuilder()
             .setBackgroundColor(.clear)
-            .setTableFooter(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 1, height: 80))))
             .setShowsScroll(false, .both)
             .setSeparatorStyle(.none)
-            .setPadding(top: 0, left: 16, bottom: 0, right: 16)
+            .setPadding(top: 180, left: 0, bottom: 100, right: 0)
+            .setRegisterCell(BillTableCellView.self)
             .setConstraints { build in
                 build
                     .setPin.equalToSuperView

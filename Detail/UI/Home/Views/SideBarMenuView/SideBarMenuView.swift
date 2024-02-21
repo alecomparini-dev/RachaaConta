@@ -16,7 +16,6 @@ class SideBarMenuView: ViewBuilder {
 //  MARK: - LAZY PROPERTIES
     lazy var menuImage: ImageViewBuilder = {
         let img = ImageViewBuilder(systemName: "line.3.horizontal")
-//            .setTintColor(Theme.shared.currentTheme.backgroundColor)
             .setTintColor(Theme.shared.currentTheme.primary)
             .setWeight(.bold)
             .setSize(22)
@@ -30,7 +29,6 @@ class SideBarMenuView: ViewBuilder {
     
     lazy var arrowOpenImageView: ImageViewBuilder = {
         let img = ImageViewBuilder(systemName: "chevron.forward")
-//            .setTintColor(Theme.shared.currentTheme.secondary)
             .setTintColor(Theme.shared.currentTheme.onSurfaceInverse)
             .setSize(12)
             .setWeight(.bold)

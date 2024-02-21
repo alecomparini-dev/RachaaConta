@@ -63,10 +63,24 @@ class HomeView: UIView {
             .setConstraints { build in
                 build
                     .setTrailing.equalToSuperView(-24)
-                    .setBottom.equalToSuperView(-56)
+                    .setBottom.equalToSafeArea(-24)
                     .setWidth.setHeight.equalToConstant(60)
             }
         return view
+    }()
+    
+    lazy var listBillTableView: TableViewBuilder = {
+        let comp = TableViewBuilder()
+            .setBackgroundColor(.clear)
+            .setTableFooter(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 1, height: 80))))
+            .setShowsScroll(false, .both)
+            .setSeparatorStyle(.none)
+            .setPadding(top: 0, left: 16, bottom: 0, right: 16)
+            .setConstraints { build in
+                build
+                    .setPin.equalToSuperView
+            }
+        return comp
     }()
     
     
@@ -78,6 +92,7 @@ class HomeView: UIView {
     
     private func addElements() {
         backgroundView.add(insideTo: self)
+        listBillTableView.add(insideTo: self)
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         buttonFloat.add(insideTo: self)
@@ -85,6 +100,7 @@ class HomeView: UIView {
     
     private func configConstraints() {
         backgroundView.applyConstraint()
+        listBillTableView.applyConstraint()
         clock.applyConstraint()
         sideBarMenuView.applyConstraint()
         buttonFloat.applyConstraint()

@@ -2,11 +2,14 @@
 //
 
 import UIKit
-
+import Presenter
 
 public class HomeViewController: UIViewController {
 
-    public init() {
+    private let homeViewModel: HomeViewModel
+    
+    public init(homeViewModel: HomeViewModel) {
+        self.homeViewModel = homeViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,6 +33,7 @@ public class HomeViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +44,44 @@ public class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         screen.clock.startClock()
     }
+    
+    
+//  MARK: - PRIVATE AREA
+    private func configure() {
+        configDelegate()
+    }
+    
+    private func configDelegate() {
+        screen.listBillTableView.setDelegate(delegate: self)
+        screen.listBillTableView.setDataSource(dataSource: self)
+    }
+    
+}
+
+
+//  MARK: - EXTENSION - UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+    
+    
+}
+
+
+//  MARK: - EXTENSION - UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        homeViewModel.numberOfRowsInSection()
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: BillTableCellView.identifier)
+        
+        
+        
+        return cell ?? UITableViewCell()
+        
+    }
+    
     
     
 }

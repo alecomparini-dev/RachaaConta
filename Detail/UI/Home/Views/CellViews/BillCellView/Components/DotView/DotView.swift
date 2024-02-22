@@ -38,7 +38,6 @@ class DotView: ViewBuilder {
         self.setNeumorphism { build in
             build
                 .setReferenceColor(Theme.shared.currentTheme.primary)
-//                .setReferenceColor(Theme.shared.currentTheme.backgroundColor)
                 .setLightPosition(.leftTop)
                 .setShape(.convex)
                 .setIntensity(to: .light, percent: 70)

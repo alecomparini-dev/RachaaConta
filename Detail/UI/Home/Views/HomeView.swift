@@ -83,7 +83,7 @@ class HomeView: UIView {
     }()
     
     lazy var filterBillView: FilterBillView = {
-        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 210)))
+        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 190)))
         return comp
     }()
     
@@ -102,7 +102,7 @@ class HomeView: UIView {
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         buttonFloat.add(insideTo: self)
-        listBillTableView.setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 180))))
+        listBillTableView.setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 190))))
     }
     
     private func configConstraints() {

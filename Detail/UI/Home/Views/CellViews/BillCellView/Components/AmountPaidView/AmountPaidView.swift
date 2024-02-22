@@ -22,6 +22,7 @@ class AmountPaidView: ViewBuilder {
         let comp = ImageViewBuilder(systemName: "checkmark.diamond.fill")
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setWeight(.bold)
+            .setSize(14)
             .setConstraints { build in
                 build
                     .setVerticalAlignmentY.equalToSuperView
@@ -47,7 +48,7 @@ class AmountPaidView: ViewBuilder {
     lazy var amountTitleLabel: LabelBuilder = {
         let comp = LabelBuilder("Valor Pago")
             .setTextAlignment(.natural)
-            .setFontFamily("TitilliumWeb-Light", 14)
+            .setFontFamily("TitilliumWeb-Light", 16)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()
@@ -55,7 +56,7 @@ class AmountPaidView: ViewBuilder {
     lazy var amountLabel: LabelBuilder = {
         let comp = LabelBuilder(amount)
             .setTextAlignment(.natural)
-            .setFontFamily("TitilliumWeb-SemiBold", 14)
+            .setFontFamily("TitilliumWeb-SemiBold", 18)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()

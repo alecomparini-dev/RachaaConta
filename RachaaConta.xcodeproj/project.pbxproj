@@ -23,6 +23,10 @@
 		023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63CD2B866B610009C432 /* LineVerticalView.swift */; };
 		023C63D02B868E240009C432 /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; };
 		023C63D12B868E240009C432 /* Presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		023C63D72B869C6E0009C432 /* BillAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63D52B8698950009C432 /* BillAddressView.swift */; };
+		023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63D92B86A2860009C432 /* AmountPaidView.swift */; };
+		023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63DD2B86C0100009C432 /* FilterBillView.swift */; };
+		023C63E22B877D7E0009C432 /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E02B877D6F0009C432 /* UnderlineView.swift */; };
 		02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
@@ -105,6 +109,10 @@
 		023C63BB2B865FED0009C432 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
 		023C63BC2B865FED0009C432 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		023C63CD2B866B610009C432 /* LineVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineVerticalView.swift; sourceTree = "<group>"; };
+		023C63D52B8698950009C432 /* BillAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillAddressView.swift; sourceTree = "<group>"; };
+		023C63D92B86A2860009C432 /* AmountPaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountPaidView.swift; sourceTree = "<group>"; };
+		023C63DD2B86C0100009C432 /* FilterBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBillView.swift; sourceTree = "<group>"; };
+		023C63E02B877D6F0009C432 /* UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
 		02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +190,8 @@
 		023C63AD2B8647E40009C432 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				023C63D82B86A2720009C432 /* AmountPaidView */,
+				023C63D42B8698150009C432 /* BillAddressView */,
 				023C63AE2B8647EC0009C432 /* DotView */,
 				023C63AF2B8647F40009C432 /* LineVerticalView */,
 				023C63B12B86481B0009C432 /* ButtonSeeBillView */,
@@ -231,6 +241,30 @@
 				023C63BC2B865FED0009C432 /* TitilliumWeb-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		023C63D42B8698150009C432 /* BillAddressView */ = {
+			isa = PBXGroup;
+			children = (
+				023C63D52B8698950009C432 /* BillAddressView.swift */,
+			);
+			path = BillAddressView;
+			sourceTree = "<group>";
+		};
+		023C63D82B86A2720009C432 /* AmountPaidView */ = {
+			isa = PBXGroup;
+			children = (
+				023C63D92B86A2860009C432 /* AmountPaidView.swift */,
+			);
+			path = AmountPaidView;
+			sourceTree = "<group>";
+		};
+		023C63DC2B86BFB50009C432 /* FilterBillView */ = {
+			isa = PBXGroup;
+			children = (
+				023C63DD2B86C0100009C432 /* FilterBillView.swift */,
+			);
+			path = FilterBillView;
 			sourceTree = "<group>";
 		};
 		02B4D60C2B8401A0005DF70B /* SideBarMenuView */ = {
@@ -308,6 +342,7 @@
 		02BD95092B8376C600539FDE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				023C63DC2B86BFB50009C432 /* FilterBillView */,
 				02B4D6112B842132005DF70B /* CellViews */,
 				02B4D6122B842476005DF70B /* ButtonFloatView */,
 				02B4D60C2B8401A0005DF70B /* SideBarMenuView */,
@@ -328,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				02BD950E2B8376C600539FDE /* BackgroundView.swift */,
+				023C63E02B877D6F0009C432 /* UnderlineView.swift */,
 			);
 			path = CommonsView;
 			sourceTree = "<group>";
@@ -614,11 +650,15 @@
 				02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */,
 				02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */,
 				023C63B52B864DA80009C432 /* DotView.swift in Sources */,
+				023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */,
 				02BD95102B8376C600539FDE /* HomeView.swift in Sources */,
 				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
+				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
+				023C63D72B869C6E0009C432 /* BillAddressView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,
 				023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
+				023C63E22B877D7E0009C432 /* UnderlineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

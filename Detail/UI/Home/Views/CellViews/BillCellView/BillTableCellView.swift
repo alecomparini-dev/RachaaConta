@@ -62,6 +62,32 @@ class BillTableCellView: UITableViewCell {
         return comp
     }()
     
+    lazy var billAddress: BillAddressView = {
+        let comp = BillAddressView(address: billPresenterDTO.address)
+            .setConstraints { build in
+                build
+                    .setTop.equalTo(titleLabel.get, .bottom)
+                    .setLeading.equalTo(titleLabel.get, .leading)
+                    .setTrailing.equalToSuperView(-80)
+                    .setHeight.equalToConstant(50)
+            }
+        return comp
+    }()
+    
+    lazy var amountPaid: AmountPaidView = {
+        let comp = AmountPaidView(amount: billPresenterDTO.amountPaid)
+            .setConstraints { build in
+                build
+                    .setTop.equalTo(billAddress.get, .bottom, 12)
+                    .setLeading.equalTo(billAddress.get, .leading)
+                    .setTrailing.equalToSuperView(-80)
+                    .setHeight.equalToConstant(45)
+            }
+        return comp
+    }()
+    
+    
+    
     
 //  MARK: - PRIVATE AREA
     private func configure() {
@@ -79,12 +105,16 @@ class BillTableCellView: UITableViewCell {
         dotView.add(insideTo: self.contentView)
         lineVerticalView.add(insideTo: self.contentView)
         titleLabel.add(insideTo: self.contentView)
+        billAddress.add(insideTo: self.contentView)
+        amountPaid.add(insideTo: self.contentView)
     }
     
     private func configConstraints() {
         dotView.applyConstraint()
         lineVerticalView.applyConstraint()
         titleLabel.applyConstraint()
+        billAddress.applyConstraint()
+        amountPaid.applyConstraint()
     }
     
     

@@ -7,6 +7,8 @@ import CustomComponentsSDK
 
 class HomeView: UIView {
 
+    var filter: FilterBillView!
+    
     init() {
         super.init(frame: .zero)
         configure()
@@ -62,8 +64,7 @@ class HomeView: UIView {
         let view = ButtonFloatView()
             .setConstraints { build in
                 build
-                    .setTrailing.equalToSuperView(-24)
-                    .setBottom.equalToSafeArea(-24)
+                    .setTrailing.setBottom.equalToSafeArea(16)
                     .setWidth.setHeight.equalToConstant(60)
             }
         return view
@@ -74,7 +75,7 @@ class HomeView: UIView {
             .setBackgroundColor(.clear)
             .setShowsScroll(false, .both)
             .setSeparatorStyle(.none)
-            .setPadding(top: 180, left: 0, bottom: 100, right: 0)
+            .setPadding(top: 70, left: 0, bottom: 100, right: 0)
             .setRegisterCell(BillTableCellView.self)
             .setConstraints { build in
                 build
@@ -82,6 +83,19 @@ class HomeView: UIView {
             }
         return comp
     }()
+//    
+//    lazy var tableHeaderView: ViewBuilder = {
+//        let comp = ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 210)))
+//        return comp
+//    }()
+    
+    public func configFilterBillView() {
+        filter = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 210)))
+        
+        listBillTableView.get.tableHeaderView = filter.get
+        
+    }
+    
     
     
 //  MARK: - PRIVATE AREA
@@ -96,6 +110,7 @@ class HomeView: UIView {
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         buttonFloat.add(insideTo: self)
+        
     }
     
     private func configConstraints() {

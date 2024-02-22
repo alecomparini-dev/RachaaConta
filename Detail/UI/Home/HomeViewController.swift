@@ -39,11 +39,18 @@ public class HomeViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configDelegate()
+//        configurationsDidAppear()
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        configurationsDidAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        screen.clock.startClock()
+        configurationsDidAppear()
+//        screen.filter.insertTextField()
     }
     
     
@@ -56,9 +63,18 @@ public class HomeViewController: UIViewController {
         homeViewModel.fetchBills()
     }
     
+    private func configurationsDidAppear() {
+        screen.clock.startClock()
+        configFilterBillView()
+    }
+    
     private func configDelegate() {
         screen.listBillTableView.setDelegate(delegate: self)
         screen.listBillTableView.setDataSource(dataSource: self)
+    }
+    
+    private func configFilterBillView() {
+        screen.configFilterBillView()
     }
     
     
@@ -77,6 +93,7 @@ extension HomeViewController: UITableViewDelegate {
 
 //  MARK: - EXTENSION - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         homeViewModel.numberOfRowsInSection()
     }
@@ -90,6 +107,7 @@ extension HomeViewController: UITableViewDataSource {
         return cell ?? UITableViewCell()
         
     }
+    
     
     
     

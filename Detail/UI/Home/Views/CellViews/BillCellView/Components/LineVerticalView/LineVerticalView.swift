@@ -16,10 +16,7 @@ class LineVerticalView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         configGradient()
-//        self.setBackgroundColor(Theme.shared.currentTheme.onSurface)
-//        self.setBackgroundColor(Theme.shared.currentTheme.backgroundColor)
         configBorder()
-//        configShadow()
     }
     
     
@@ -39,15 +36,5 @@ class LineVerticalView: ViewBuilder {
         })
     }
     
-    private func configShadow() {
-        self.setShadow({ build in
-            build
-                .setOffset(width: 4, height: 4)
-                .setColor(.black)
-                .setOpacity(1)
-                .setRadius(3)
-                .apply()
-        })
-    }
     
 }

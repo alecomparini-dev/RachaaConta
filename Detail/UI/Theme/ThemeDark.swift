@@ -39,7 +39,7 @@ extension ThemeDark: ThemeGradientColor {
     public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-80)] }
     public var primaryGradient: [UIColor] { [primary, secondary] }
     public var secondaryGradient: [UIColor] { [secondary, UIColor.HEX("#eeeeee")] }
-    public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#eeeeee")] }
+    public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#ff6b00")] }
 }
 
 

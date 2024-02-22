@@ -1,7 +1,7 @@
 //  Created by Alessandro Comparini on 21/02/24.
 //
 
-import Foundation
+import UIKit
 import CustomComponentsSDK
 
 class FilterBillView: ViewBuilder {
@@ -11,14 +11,11 @@ class FilterBillView: ViewBuilder {
     override init(frame: CGRect) {
         self.frame = frame
         super.init(frame: frame)
-        self.initialization()
+        self.configure()
     }
     
-    private func initialization() {
-        addElements()
-        configConstraints()
-        self.setTranslatesAutoresizingMaskIntoConstraints(true)
-    }
+
+//  MARK: - LAZY PROPERTIES
     
     lazy var backgroundView: ViewBuilder = {
         let comp = ViewBuilder()
@@ -52,45 +49,51 @@ class FilterBillView: ViewBuilder {
             .setFontFamily("TitilliumWeb-ExtraLight", 18)
             .setConstraints { build in
                 build
-                    .setTop.equalTo(backgroundView.get, .top, 16)
+                    .setTop.equalTo(backgroundView.get, .top, 18)
                     .setLeading.equalTo(backgroundView.get, .leading, 24)
             }
     }()
     
     lazy var underLineView: StrokeView = {
-        return StrokeView()
+        return StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
             .setConstraints { build in
                 build
-                    .setTop.equalTo(filterLabel.get, .bottom)
+                    .setTop.equalTo(filterLabel.get, .bottom, 1)
                     .setLeading.equalTo(filterLabel.get, .leading, -2)
                     .setHeight.equalToConstant(2)
-                    .setWidth.equalToConstant(45)
+                    .setWidth.equalToConstant(65)
             }
     }()
     
     lazy var filterTextField: TextFieldBuilder = {
-        return TextFieldBuilder(placeHolder: "Digite aqui...")
-            .setPadding(15, .left)
-            .setPadding(50, .right)
-            .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.5))
+        let comp = TextFieldBuilder(placeHolder: "Pesquisar...")
+            .setPadding(15)
+//            .setPadding(50, .right)
+            .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.8))
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setTextColor(Theme.shared.currentTheme.onSurface)
             .setBorder { build in
                 build
-                    .setCornerRadius(10)
-                    .setWidth(1)
+                    .setCornerRadius(8)
             }
             .setConstraints { build in
                 build
-                    .setTop.equalTo(underLineView.get, .bottom , 16)
-                    .setLeading.setTrailing.equalToSuperView(56)
+                    .setTop.equalTo(underLineView.get, .bottom , 20)
+                    .setLeading.setTrailing.equalToSuperView(40)
                     .setHeight.equalToConstant(45)
             }
+        comp.get.font = UIFont(name: "TitilliumWeb-Light", size: 16)
+        return comp
     }()
     
     
     
 //  MARK: - Private Area
+    private func configure() {
+        addElements()
+        configConstraints()
+        self.setTranslatesAutoresizingMaskIntoConstraints(true)
+    }
     
     private func addElements() {
         backgroundView.add(insideTo: self.get)

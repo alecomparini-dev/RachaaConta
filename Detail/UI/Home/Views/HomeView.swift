@@ -7,8 +7,6 @@ import CustomComponentsSDK
 
 class HomeView: UIView {
 
-    var filter: FilterBillView!
-    
     init() {
         super.init(frame: .zero)
         configure()
@@ -83,18 +81,12 @@ class HomeView: UIView {
             }
         return comp
     }()
-//    
-//    lazy var tableHeaderView: ViewBuilder = {
-//        let comp = ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 210)))
-//        return comp
-//    }()
     
-    public func configFilterBillView() {
-        filter = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 210)))
-        
-        listBillTableView.get.tableHeaderView = filter.get
-        
-    }
+    lazy var filterBillView: FilterBillView = {
+        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 210)))
+        return comp
+    }()
+    
     
     
     
@@ -110,7 +102,7 @@ class HomeView: UIView {
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         buttonFloat.add(insideTo: self)
-        
+        listBillTableView.setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 180))))
     }
     
     private func configConstraints() {
@@ -121,5 +113,8 @@ class HomeView: UIView {
         buttonFloat.applyConstraint()
     }
     
+    public func configFilterBillView() {
+        listBillTableView.setTableHeaderView(filterBillView)
+    }
     
 }

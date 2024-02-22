@@ -39,18 +39,16 @@ public class HomeViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configDelegate()
-//        configurationsDidAppear()
     }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        configurationsDidAppear()
+        
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configurationsDidAppear()
-//        screen.filter.insertTextField()
     }
     
     
@@ -65,7 +63,8 @@ public class HomeViewController: UIViewController {
     
     private func configurationsDidAppear() {
         screen.clock.startClock()
-        configFilterBillView()
+        screen.configFilterBillView()
+        NeumorphismTextFieldView.set(screen.filterBillView.filterTextField)
     }
     
     private func configDelegate() {
@@ -73,10 +72,7 @@ public class HomeViewController: UIViewController {
         screen.listBillTableView.setDataSource(dataSource: self)
     }
     
-    private func configFilterBillView() {
-        screen.configFilterBillView()
-    }
-    
+
     
 }
 

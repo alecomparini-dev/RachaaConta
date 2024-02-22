@@ -67,22 +67,26 @@ class FilterBillView: ViewBuilder {
     
     lazy var filterTextField: TextFieldBuilder = {
         let comp = TextFieldBuilder(placeHolder: "Pesquisar...")
+            .setFontFamily("TitilliumWeb-Light", 16)
             .setPadding(15)
-//            .setPadding(50, .right)
             .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.8))
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setTextColor(Theme.shared.currentTheme.onSurface)
+            .setKeyboard({ build in
+                build
+                    .setKeyboardType(.default)
+            })
             .setBorder { build in
                 build
                     .setCornerRadius(8)
             }
+            .setClearButtonMode()
             .setConstraints { build in
                 build
                     .setTop.equalTo(underLineView.get, .bottom , 20)
                     .setLeading.setTrailing.equalToSuperView(40)
                     .setHeight.equalToConstant(45)
             }
-        comp.get.font = UIFont(name: "TitilliumWeb-Light", size: 16)
         return comp
     }()
     

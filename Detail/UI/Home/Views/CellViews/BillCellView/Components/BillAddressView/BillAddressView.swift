@@ -19,10 +19,9 @@ class BillAddressView: ViewBuilder {
 //  MARK: - LAZY PROPERTIES
 
     lazy var addressImage: ImageViewBuilder = {
-        let comp = ImageViewBuilder(systemName: "mappin.and.ellipse")
+        let comp = ImageViewBuilder(systemName: "pin.fill")
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
-            .setWeight(.bold)
-            .setSize(18)
+            .setWeight(.black)
             .setConstraints { build in
                 build
                     .setVerticalAlignmentY.equalToSuperView

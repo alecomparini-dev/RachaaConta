@@ -14,6 +14,23 @@ class SideBarMenuView: ViewBuilder {
     
     
 //  MARK: - LAZY PROPERTIES
+    
+    lazy var stackView: StackViewBuilder = {
+        let comp = StackViewBuilder()
+            .setAxis(.vertical)
+            .setAlignment(.fill)
+            .setSpacing(3)
+            .setDistribution(.fillEqually)
+            .setConstraints { build in
+                build
+                    .setLeading.equalToSuperView(8)
+                    .setVerticalAlignmentY.equalToSuperView(-1)
+                    .setWidth.equalToConstant(22)
+                    .setHeight.equalToConstant(12)
+            }
+        return comp
+    }()
+    
     lazy var menuImage: ImageViewBuilder = {
         let img = ImageViewBuilder(systemName: "line.3.horizontal")
             .setTintColor(Theme.shared.currentTheme.primary)
@@ -27,6 +44,7 @@ class SideBarMenuView: ViewBuilder {
         return img
     }()
     
+    
     lazy var arrowOpenImageView: ImageViewBuilder = {
         let img = ImageViewBuilder(systemName: "chevron.forward")
             .setTintColor(Theme.shared.currentTheme.onSurfaceInverse)
@@ -36,7 +54,8 @@ class SideBarMenuView: ViewBuilder {
             .setConstraints { build in
                 build
                     .setTrailing.equalToSuperView(-10)
-                    .setVerticalAlignmentY.equalTo(menuImage.get)
+                    .setVerticalAlignmentY.equalTo(stackView.get)
+//                    .setVerticalAlignmentY.equalTo(menuImage.get)
             }
         return img
     }()
@@ -51,12 +70,17 @@ class SideBarMenuView: ViewBuilder {
     }
     
     private func addElements() {
-        menuImage.add(insideTo: self.get)
+        stackView.add(insideTo: self.get)
+        createUnderline().add(insideTo: stackView.get)
+        createUnderline().add(insideTo: stackView.get)
+        createUnderline().add(insideTo: stackView.get)
+//        menuImage.add(insideTo: self.get)
         arrowOpenImageView.add(insideTo: self.get)
     }
     
     private func configConstraints() {
-        menuImage.applyConstraint()
+        stackView.applyConstraint()
+//        menuImage.applyConstraint()
         arrowOpenImageView.applyConstraint()
     }
 
@@ -71,7 +95,6 @@ class SideBarMenuView: ViewBuilder {
     private func configNeumorphism() {
         self.setNeumorphism { build in
             build
-//                .setReferenceColor(Theme.shared.currentTheme.primary)
                 .setReferenceColor(Theme.shared.currentTheme.backgroundColor)
                 .setShape(.convex)
                 .setLightPosition(.leftTop)
@@ -86,5 +109,9 @@ class SideBarMenuView: ViewBuilder {
         }
     }
     
+    private func createUnderline() -> StrokeView {
+        return StrokeView(gradientColor: [Theme.shared.currentTheme.primary,Theme.shared.currentTheme.primary])
+//        return StrokeView()
+    }
     
 }

@@ -74,6 +74,18 @@ class BillTableCellView: UITableViewCell {
         return comp
     }()
     
+    lazy var amountPaid: AmountPaidView = {
+        let comp = AmountPaidView(amount: billPresenterDTO.amountPaid)
+            .setConstraints { build in
+                build
+                    .setTop.equalTo(billAddress.get, .bottom, 12)
+                    .setLeading.equalTo(billAddress.get, .leading)
+                    .setTrailing.equalToSuperView(-80)
+                    .setHeight.equalToConstant(45)
+            }
+        return comp
+    }()
+    
     
     
     
@@ -94,6 +106,7 @@ class BillTableCellView: UITableViewCell {
         lineVerticalView.add(insideTo: self.contentView)
         titleLabel.add(insideTo: self.contentView)
         billAddress.add(insideTo: self.contentView)
+        amountPaid.add(insideTo: self.contentView)
     }
     
     private func configConstraints() {
@@ -101,6 +114,7 @@ class BillTableCellView: UITableViewCell {
         lineVerticalView.applyConstraint()
         titleLabel.applyConstraint()
         billAddress.applyConstraint()
+        amountPaid.applyConstraint()
     }
     
     

@@ -8,6 +8,7 @@ import CustomComponentsSDK
 class HomeView: UIView {
 
     private let constantHeight: CGFloat = 190
+    var height: NSLayoutConstraint!
     
     init() {
         super.init(frame: .zero)
@@ -31,6 +32,27 @@ class HomeView: UIView {
     
     lazy var topBlur: BlurBuilder = {
         let comp = BlurBuilder(style: .dark)
+            .setBackgroundColor(.red)
+            .setHidden(false)
+            .setAlpha(1)
+            .setConstraints { build in
+                build
+                    .setPinTop.equalToSuperView
+            }
+        return comp
+    }()
+    
+    lazy var _topBlur: ViewBuilder = {
+        let comp = ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 500)))
+//            .setTranslatesAutoresizingMaskIntoConstraints(true)
+//            .setBackgroundColor(Theme.shared.currentTheme.surfaceContainerLowest)
+            .setBackgroundColor(.red)
+            .setOpacity(1)
+            .setConstraints { build in
+                build
+                    .setPinTop.equalToSuperView
+//                    .setBottom.equalTo(sideBarMenuView.get, .bottom, 8)
+            }
         return comp
     }()
     
@@ -69,7 +91,9 @@ class HomeView: UIView {
         let view = ButtonFloatView()
             .setConstraints { build in
                 build
-                    .setTrailing.setBottom.equalToSafeArea(8)
+//                    .setTrailing.setBottom.equalToSafeArea(8)
+                    .setBottom.equalToSafeArea(8)
+                    .setHorizontalAlignmentX.equalToSuperView
                     .setWidth.setHeight.equalToConstant(60)
             }
         return view
@@ -97,6 +121,13 @@ class HomeView: UIView {
     
     lazy var bottomBlur: BlurBuilder = {
         let comp = BlurBuilder(style: .dark)
+            .setHidden(false)
+            .setAlpha(1)
+            .setConstraints { build in
+                build
+                    .setTop.equalTo(buttonFloat.get, .top, -8)
+                    .setPinBottom.equalToSuperView
+            }
         return comp
     }()
     
@@ -111,9 +142,12 @@ class HomeView: UIView {
     private func addElements() {
         backgroundView.add(insideTo: self)
         listBillTableView.add(insideTo: self)
+        topBlur.add(insideTo: self)
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
+        bottomBlur.add(insideTo: self)
         buttonFloat.add(insideTo: self)
+
     }
     
     private func configConstraints() {
@@ -122,6 +156,14 @@ class HomeView: UIView {
         clock.applyConstraint()
         sideBarMenuView.applyConstraint()
         buttonFloat.applyConstraint()
+        bottomBlur.applyConstraint()
+        
+        topBlur.applyConstraint()
+        self.height = NSLayoutConstraint.init(item: topBlur.get, attribute: .height, relatedBy: .equal, toItem: nil,  attribute: .height, multiplier: 1, constant: 125)
+        
+        self.height.isActive = true
+        
+        
     }
     
     public func configFilterBillView() {

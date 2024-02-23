@@ -74,8 +74,6 @@ class BillTableCellView: UITableViewCell {
     }()
     
     
-    
-    
     lazy var backgroundColorView: ViewBuilder = {
         let comp = ViewBuilder()
             .setGradient({ build in

@@ -6,6 +6,16 @@ import Presenter
 
 public class HomeViewController: UIViewController {
 
+    let animationThreshold: CGFloat = 150.0
+    var originalAnimatedViewY: CGFloat!
+    var animatedView: UIView!
+    
+    
+    var delta = 0
+    var initialOffset: CGFloat?
+    var lastContentOffset: CGFloat = 0.0
+    
+    
     private let homeViewModel: HomeViewModel
     
     public init(homeViewModel: HomeViewModel) {
@@ -49,12 +59,17 @@ public class HomeViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configurationsDidAppear()
+        
     }
     
     
 //  MARK: - PRIVATE AREA
     private func configure() {
         fetchBills()
+        
+        animatedView = screen.topBlur.get
+        animatedView.frame =  CGRect(origin: .zero, size: CGSize(width: 200, height: 500))
+        
     }
     
     public func fetchBills() {
@@ -79,9 +94,73 @@ public class HomeViewController: UIViewController {
 
 //  MARK: - EXTENSION - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
+
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return homeViewModel.heightForRowAt(indexPath.row)
+    }
+    
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if initialOffset == nil {
+            initialOffset = scrollView.contentOffset.y
+        }
+    }
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let currentOffset = scrollView.contentOffset.y
+        
+        if currentOffset < lastContentOffset {
+//            print("Scroll para baixo")
+        } else if currentOffset > lastContentOffset {
+//            print("Scroll para cima")
+        }
+        
+        lastContentOffset = currentOffset
+        
+        guard let initialOffset else {return}
+        
+        let invert = false
+        
+        if invert {
+            let animationInit: CGFloat = 125
+            let animationFinal: CGFloat = 0
+            let animationThreshold: CGFloat = animationInit - animationFinal
+
+            let rolou = (currentOffset - initialOffset)
+            
+            let completed = (rolou/animationThreshold)
+            
+            print("rolou:", rolou, "completed:", completed*100)
+            
+            if rolou >= 0 {
+                screen.height.constant = max( min( animationInit - (animationThreshold*completed), animationThreshold), animationFinal)
+            } else {
+                screen.height.constant = animationInit
+            }
+            return
+        }
+        
+        
+        //NORMAL JÁ FUNCIONANDO
+        let animationInit: CGFloat = 0
+        let animationFinal: CGFloat = -125
+        let animationThreshold: CGFloat = animationInit - animationFinal
+        
+        let rolou = (currentOffset - initialOffset)
+        let completed = (rolou/animationThreshold)
+        
+        print("INICIO:", initialOffset, "CAMINHOU:", rolou, "COMPLETO:", completed*100)
+        
+        if rolou > 0 {
+            screen.height.constant = min((animationThreshold)*completed, animationThreshold)
+        } else {
+            screen.height.constant = animationInit
+        }
+        
+        
+        
+        
     }
     
 }

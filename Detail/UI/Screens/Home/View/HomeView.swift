@@ -5,7 +5,13 @@ import UIKit
 import CustomComponentsSDK
 
 
+protocol HomeViewDelegate: AnyObject {
+    func createBillButtonFloatTapped()
+}
+
+
 class HomeView: UIView {
+    weak var delegate: HomeViewDelegate?
 
     private let constantHeight: CGFloat = 190
     var height: NSLayoutConstraint!
@@ -42,20 +48,6 @@ class HomeView: UIView {
         return comp
     }()
     
-    lazy var _topBlur: ViewBuilder = {
-        let comp = ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 500)))
-//            .setTranslatesAutoresizingMaskIntoConstraints(true)
-//            .setBackgroundColor(Theme.shared.currentTheme.surfaceContainerLowest)
-            .setBackgroundColor(.red)
-            .setOpacity(1)
-            .setConstraints { build in
-                build
-                    .setPinTop.equalToSuperView
-//                    .setBottom.equalTo(sideBarMenuView.get, .bottom, 8)
-            }
-        return comp
-    }()
-    
     lazy var clock: ClockNeumorphismBuilder = {
         let clock = ClockNeumorphismBuilder()
             .setColor(hexColor: Theme.shared.currentTheme.backgroundColor.adjustBrightness(20).toHexString)
@@ -87,14 +79,19 @@ class HomeView: UIView {
         return view
     }()
     
-    lazy var buttonFloat: ButtonFloatView = {
+    lazy var createBillButtonFloat: ButtonFloatView = {
         let view = ButtonFloatView()
             .setConstraints { build in
                 build
                     .setTrailing.setBottom.equalToSafeArea(16)
-//                    .setBottom.equalToSafeArea(8)
-//                    .setHorizontalAlignmentX.equalToSuperView
                     .setWidth.setHeight.equalToConstant(55)
+            }
+            .setActions { build in
+                build
+                    .setTap { [weak self] _, _ in
+                        guard let self else {return}
+                        delegate?.createBillButtonFloatTapped()
+                    }
             }
         return view
     }()
@@ -124,7 +121,7 @@ class HomeView: UIView {
             .setHidden(true)
             .setConstraints { build in
                 build
-                    .setTop.equalTo(buttonFloat.get, .top, -8)
+                    .setTop.equalTo(createBillButtonFloat.get, .top, -8)
                     .setPinBottom.equalToSuperView
             }
         return comp
@@ -145,8 +142,7 @@ class HomeView: UIView {
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         bottomBlur.add(insideTo: self)
-        buttonFloat.add(insideTo: self)
-
+        createBillButtonFloat.add(insideTo: self)
     }
     
     private func configConstraints() {
@@ -154,15 +150,12 @@ class HomeView: UIView {
         listBillTableView.applyConstraint()
         clock.applyConstraint()
         sideBarMenuView.applyConstraint()
-        buttonFloat.applyConstraint()
+        createBillButtonFloat.applyConstraint()
         bottomBlur.applyConstraint()
         
         topBlur.applyConstraint()
         self.height = NSLayoutConstraint.init(item: topBlur.get, attribute: .height, relatedBy: .equal, toItem: nil,  attribute: .height, multiplier: 1, constant: 0)
-        
         self.height.isActive = true
-        
-        
     }
     
     public func configFilterBillView() {

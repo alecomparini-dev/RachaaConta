@@ -8,7 +8,6 @@ import CustomComponentsSDK
 class ButtonFloatView: ButtonImageBuilder {
     
 //    private let gradientColor = [Theme.shared.currentTheme.surfaceContainerLow, Theme.shared.currentTheme.surfaceContainerHighest]
-//    private let gradientColor = Theme.shared.currentTheme.secondaryGradient
     private let gradientColor = [Theme.shared.currentTheme.secondary, Theme.shared.currentTheme.primary.adjustBrightness(-10)]
     
     override init() {
@@ -93,10 +92,10 @@ class ButtonFloatView: ButtonImageBuilder {
     private func configNeumorphism() {
         self.setNeumorphism { build in
             build
-                .setReferenceColor(Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(-10))
                 .setReferenceColor(Theme.shared.currentTheme.primary)
                 .setLightPosition(.leftTop)
                 .setShape(.convex)
+
                 .setIntensity(to: .light, percent: 20)
                 .setIntensity(to: .dark, percent: 100)
                 .setBlur(to: .light, percent: 40)
@@ -105,13 +104,13 @@ class ButtonFloatView: ButtonImageBuilder {
                 .setDistance(to: .dark, percent: 10)
                 .setShadowColor(to: .light, hexColor: "#FFFFFF")
                 .setShadowColor(to: .dark, hexColor: "#000000")
-                .apply()
             
             
 //                //BOTÃO CLICADO
-//                .setReferenceColor(Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(-20))
+//                .setReferenceColor(Theme.shared.currentTheme.primary)
+//                .setLightPosition(.rightBottom)
 //                .setShape(.flat)
-//                .setIntensity(percent: 30)
+//                .setIntensity(percent: 80)
 //                .setBlur(percent: 8)
 //                .setDistance(percent: 4)
 //                .setShadowColor( Theme.shared.currentTheme.tertiary)

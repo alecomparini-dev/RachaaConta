@@ -4,7 +4,14 @@
 import UIKit
 import Presenter
 
+public protocol HomeViewControllerCoordinator: AnyObject {
+    func gotoCreateBill()
+}
+
+
 public class HomeViewController: UIViewController {
+    
+    public weak var coordinator: HomeViewControllerCoordinator?
 
     let animationThreshold: CGFloat = 150.0
     var originalAnimatedViewY: CGFloat!

@@ -21,6 +21,7 @@ class BillAddressView: ViewBuilder {
     lazy var addressImage: ImageViewBuilder = {
         let comp = ImageViewBuilder(systemName: "pin.fill")
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
+            .setSize(14)
             .setWeight(.black)
             .setConstraints { build in
                 build
@@ -34,6 +35,7 @@ class BillAddressView: ViewBuilder {
         let comp = LabelBuilder()
             .setFontFamily("TitilliumWeb-SemiBold", 14)
             .setNumberOfLines(2)
+            .setTextAlignment(.left)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setConstraints { build in
                 build

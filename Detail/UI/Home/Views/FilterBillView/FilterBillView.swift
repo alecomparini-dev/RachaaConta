@@ -19,10 +19,6 @@ class FilterBillView: ViewBuilder {
     
     lazy var backgroundView: ViewBuilder = {
         let comp = ViewBuilder()
-            .setBorder({ build in
-                build
-                    .setCornerRadius(20)
-            })
             .setGradient({ build in
                 build
                     .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -20)
@@ -36,7 +32,7 @@ class FilterBillView: ViewBuilder {
             .setConstraints { build in
                 build
                     .setTop.equalToSuperView(16)
-                    .setLeading.setTrailing.equalToSuperView(20)
+                    .setLeading.setTrailing.equalToSuperView(16)
                     .setBottom.equalToSuperView(-24)
             }
         return comp

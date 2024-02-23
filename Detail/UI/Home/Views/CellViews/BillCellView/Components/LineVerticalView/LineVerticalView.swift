@@ -19,7 +19,6 @@ class LineVerticalView: ViewBuilder {
         configBorder()
     }
     
-    
     private func configGradient() {
         self.setGradient({ build in
             build

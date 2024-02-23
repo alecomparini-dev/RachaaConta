@@ -1,15 +1,17 @@
 //  Created by Alessandro Comparini on 21/02/24.
 //
 
-import Foundation
+import UIKit
 import CustomComponentsSDK
 
 class DotView: ViewBuilder {
     
     private let size: CGFloat
+    private let color: UIColor
     
-    init(size: CGFloat) {
+    init(size: CGFloat, _ color: UIColor = Theme.shared.currentTheme.primary) {
         self.size = size
+        self.color = color
         super.init()
         configure()
     }
@@ -37,8 +39,7 @@ class DotView: ViewBuilder {
     private func configNeumorphism() {
         self.setNeumorphism { build in
             build
-                .setReferenceColor(Theme.shared.currentTheme.primary)
-//                .setReferenceColor(Theme.shared.currentTheme.backgroundColor)
+                .setReferenceColor(color)
                 .setLightPosition(.leftTop)
                 .setShape(.convex)
                 .setIntensity(to: .light, percent: 70)

@@ -24,7 +24,7 @@ class SideBarMenuView: ViewBuilder {
             .setConstraints { build in
                 build
                     .setLeading.equalToSuperView(8)
-                    .setVerticalAlignmentY.equalToSuperView(-1)
+                    .setVerticalAlignmentY.equalToSuperView
                     .setWidth.equalToConstant(22)
                     .setHeight.equalToConstant(12)
             }
@@ -38,8 +38,8 @@ class SideBarMenuView: ViewBuilder {
             .setSize(22)
             .setConstraints { build in
                 build
-                    .setLeading.equalToSuperView(8)
                     .setVerticalAlignmentY.equalToSuperView
+                    .setLeading.equalToSuperView(8)
             }
         return img
     }()

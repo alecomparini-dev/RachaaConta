@@ -73,7 +73,7 @@ class HomeView: UIView {
             .setBackgroundColor(.clear)
             .setShowsScroll(false, .both)
             .setSeparatorStyle(.none)
-            .setPadding(top: 70, left: 0, bottom: 100, right: 0)
+            .setPadding(top: 65, left: 0, bottom: 100, right: 0)
             .setRegisterCell(BillTableCellView.self)
             .setConstraints { build in
                 build

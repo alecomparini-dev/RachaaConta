@@ -15,6 +15,7 @@ class BillTableCellView: UITableViewCell {
         configure()
     }
     
+    
 //  MARK: - LAZY PROPERTIES
     
     lazy var dotView: DotView = {
@@ -73,6 +74,8 @@ class BillTableCellView: UITableViewCell {
     }()
     
     
+    
+    
     lazy var backgroundColorView: ViewBuilder = {
         let comp = ViewBuilder()
             .setGradient({ build in
@@ -95,12 +98,22 @@ class BillTableCellView: UITableViewCell {
         return comp
     }()
     
+    lazy var buttonSeeBillView: ButtonSeeBillView = {
+        let comp = ButtonSeeBillView()
+            .setConstraints { build in
+                build
+                    .setTop.equalToSuperView(4)
+                    .setTrailing.equalToSuperView(-8)
+                    .setWidth.setHeight.equalToConstant(45)
+            }
+        return comp
+    }()
     
     lazy var amountPaid: AmountPaidView = {
         let comp = AmountPaidView(amount: billPresenterDTO.amountPaid)
             .setConstraints { build in
                 build
-                    .setTop.equalToSuperView(8)
+                    .setTop.equalToSuperView(14)
                     .setLeading.equalToSuperView(16)
                     .setTrailing.equalToSuperView(-50)
                     .setHeight.equalToConstant(50)
@@ -155,9 +168,11 @@ class BillTableCellView: UITableViewCell {
         dateTimeBillView.add(insideTo: self.contentView)
 
         backgroundColorView.add(insideTo: self.contentView)
+        buttonSeeBillView.add(insideTo: backgroundColorView.get)
         billAddress.add(insideTo: backgroundColorView.get)
         amountPaid.add(insideTo: backgroundColorView.get)
         personBillView.add(insideTo: backgroundColorView.get)
+
     }
     
     private func configConstraints() {
@@ -165,6 +180,7 @@ class BillTableCellView: UITableViewCell {
         lineVerticalView.applyConstraint()
         titleLabel.applyConstraint()
         dateTimeBillView.applyConstraint()
+        buttonSeeBillView.applyConstraint()
         backgroundColorView.applyConstraint()
         billAddress.applyConstraint()
         amountPaid.applyConstraint()

@@ -18,7 +18,7 @@ class PersonBillView: ViewBuilder {
 //  MARK: - LAZY PROPERTIES
     
     lazy var strokeVertical: StrokeView = {
-        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient, cornerRadius: 2)
+        let comp = StrokeView(gradientColor: [Theme.shared.currentTheme.surfaceContainer, Theme.shared.currentTheme.surfaceContainerHigh], cornerRadius: 2)
             .setConstraints { build in
                 build
                     .setPinLeft.equalToSuperView(2)

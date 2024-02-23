@@ -90,13 +90,25 @@ public class HomeViewController: UIViewController {
     }
     
     private func configDelegate() {
+        screen.delegate = self
         screen.listBillTableView.setDelegate(delegate: self)
         screen.listBillTableView.setDataSource(dataSource: self)
     }
     
+}
 
+
+
+//  MARK: - EXTENSION - HomeViewDelegate
+extension HomeViewController: HomeViewDelegate {
+    
+    func createBillButtonFloatTapped() {
+        coordinator?.gotoCreateBill()
+    }
+    
     
 }
+
 
 
 //  MARK: - EXTENSION - UITableViewDelegate
@@ -138,8 +150,6 @@ extension HomeViewController: UITableViewDelegate {
             
             let completed = (rolou/animationThreshold)
             
-            print("rolou:", rolou, "completed:", completed*100)
-            
             if rolou >= 0 {
                 screen.height.constant = max( min( animationInit - (animationThreshold*completed), animationThreshold), animationFinal)
             } else {
@@ -157,7 +167,6 @@ extension HomeViewController: UITableViewDelegate {
         let rolou = (currentOffset - initialOffset)
         let completed = (rolou/animationThreshold)
         
-        print("INICIO:", initialOffset, "CAMINHOU:", rolou, "COMPLETO:", completed*100)
         
         if rolou > 0 {
             screen.height.constant = min((animationThreshold)*completed, animationThreshold)

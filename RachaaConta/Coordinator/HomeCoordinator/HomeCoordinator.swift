@@ -37,7 +37,8 @@ class HomeCoordinator: Coordinator {
 extension HomeCoordinator: HomeViewControllerCoordinator {
     
     func gotoCreateBill() {
-        
+        let coordinator = CreateBillCoordinator(navigationController)
+        coordinator.start()
     }
     
     

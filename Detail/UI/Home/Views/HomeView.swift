@@ -7,6 +7,8 @@ import CustomComponentsSDK
 
 class HomeView: UIView {
 
+    private let constantHeight: CGFloat = 190
+    
     init() {
         super.init(frame: .zero)
         configure()
@@ -24,6 +26,11 @@ class HomeView: UIView {
                 build
                     .setPin.equalToSuperView
             }
+        return comp
+    }()
+    
+    lazy var topBlur: BlurBuilder = {
+        let comp = BlurBuilder(style: .dark)
         return comp
     }()
     
@@ -62,7 +69,7 @@ class HomeView: UIView {
         let view = ButtonFloatView()
             .setConstraints { build in
                 build
-                    .setTrailing.setBottom.equalToSafeArea(16)
+                    .setTrailing.setBottom.equalToSafeArea(8)
                     .setWidth.setHeight.equalToConstant(60)
             }
         return view
@@ -75,6 +82,7 @@ class HomeView: UIView {
             .setSeparatorStyle(.none)
             .setPadding(top: 65, left: 0, bottom: 100, right: 0)
             .setRegisterCell(BillTableCellView.self)
+            .setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 1 , height: constantHeight))))
             .setConstraints { build in
                 build
                     .setPin.equalToSuperView
@@ -83,10 +91,14 @@ class HomeView: UIView {
     }()
     
     lazy var filterBillView: FilterBillView = {
-        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 190)))
+        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: constantHeight)))
         return comp
     }()
     
+    lazy var bottomBlur: BlurBuilder = {
+        let comp = BlurBuilder(style: .dark)
+        return comp
+    }()
     
     
     
@@ -102,7 +114,6 @@ class HomeView: UIView {
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         buttonFloat.add(insideTo: self)
-        listBillTableView.setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: 190))))
     }
     
     private func configConstraints() {

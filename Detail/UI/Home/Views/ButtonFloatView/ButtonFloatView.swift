@@ -7,6 +7,8 @@ import CustomComponentsSDK
 
 class ButtonFloatView: ButtonImageBuilder {
     
+    private let gradientColor = [Theme.shared.currentTheme.primary.adjustBrightness(-30), Theme.shared.currentTheme.primary]
+    
     override init() {
         super.init()
         configure()
@@ -15,17 +17,37 @@ class ButtonFloatView: ButtonImageBuilder {
 
 //  MARK: - LAZY PROPERTIES
     lazy var image: ImageViewBuilder = {
-        let img = ImageViewBuilder(systemName: "plus")
+//        let img = ImageViewBuilder(systemName: "plus")
+        let img = ImageViewBuilder(systemName: "")
             .setTintColor(Theme.shared.currentTheme.onSurface)
-//            .setTintColor(Theme.shared.currentTheme.primary)
             .setWeight(.black)
-//            .setSize(20)
             .setConstraints { build in
                 build
                     .setAlignmentCenterXY.equalToSuperView(-1)
-//                    .setAlignmentCenterXY.equalToSuperView
             }
         return img
+    }()
+    
+    lazy var vStroke: StrokeView = {
+        let comp = StrokeView(gradientColor: gradientColor)
+            .setConstraints { build in
+                build
+                    .setAlignmentCenterXY.equalToSuperView(-1)
+                    .setHeight.equalToConstant(20)
+                    .setWidth.equalToConstant(3)
+            }
+        return comp
+    }()
+    
+    lazy var hStroke: StrokeView = {
+        let comp = StrokeView(gradientColor: gradientColor)
+            .setConstraints { build in
+                build
+                    .setAlignmentCenterXY.equalToSuperView(-1)
+                    .setHeight.equalToConstant(3)
+                    .setWidth.equalToConstant(20)
+            }
+        return comp
     }()
     
     
@@ -39,10 +61,14 @@ class ButtonFloatView: ButtonImageBuilder {
     
     private func addElements() {
         image.add(insideTo: self.get)
+        hStroke.add(insideTo: self.get)
+        vStroke.add(insideTo: self.get)
     }
     
     private func configConstraints() {
         image.applyConstraint()
+        vStroke.applyConstraint()
+        hStroke.applyConstraint()
     }
 
     private func configBorder() {

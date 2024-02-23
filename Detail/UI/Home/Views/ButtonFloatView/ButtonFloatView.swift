@@ -7,7 +7,9 @@ import CustomComponentsSDK
 
 class ButtonFloatView: ButtonImageBuilder {
     
-    private let gradientColor = [Theme.shared.currentTheme.primary.adjustBrightness(-30), Theme.shared.currentTheme.primary]
+//    private let gradientColor = [Theme.shared.currentTheme.surfaceContainerLow, Theme.shared.currentTheme.surfaceContainerHighest]
+//    private let gradientColor = Theme.shared.currentTheme.secondaryGradient
+    private let gradientColor = [Theme.shared.currentTheme.secondary, Theme.shared.currentTheme.primary.adjustBrightness(-10)]
     
     override init() {
         super.init()
@@ -30,22 +32,32 @@ class ButtonFloatView: ButtonImageBuilder {
     
     lazy var vStroke: StrokeView = {
         let comp = StrokeView(gradientColor: gradientColor)
+            .setShadow({ build in
+                build
+                    .setOpacity(0)
+                    .apply()
+            })
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView(-1)
-                    .setHeight.equalToConstant(20)
-                    .setWidth.equalToConstant(3)
+                    .setAlignmentCenterXY.equalToSuperView
+                    .setHeight.equalToConstant(24)
+                    .setWidth.equalToConstant(4)
             }
         return comp
     }()
     
     lazy var hStroke: StrokeView = {
         let comp = StrokeView(gradientColor: gradientColor)
+            .setShadow({ build in
+                build
+                    .setOpacity(0)
+                    .apply()
+            })
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView(-1)
-                    .setHeight.equalToConstant(3)
-                    .setWidth.equalToConstant(20)
+                    .setAlignmentCenterXY.equalToSuperView
+                    .setHeight.equalToConstant(4)
+                    .setWidth.equalToConstant(24)
             }
         return comp
     }()
@@ -82,15 +94,18 @@ class ButtonFloatView: ButtonImageBuilder {
         self.setNeumorphism { build in
             build
                 .setReferenceColor(Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(-10))
-                .setShape(.concave)
+                .setReferenceColor(Theme.shared.currentTheme.primary)
                 .setLightPosition(.leftTop)
-                .setIntensity(to: .light, percent: 100)
+                .setShape(.convex)
+                .setIntensity(to: .light, percent: 20)
                 .setIntensity(to: .dark, percent: 100)
-                .setBlur(to: .light, percent: 4)
+                .setBlur(to: .light, percent: 40)
                 .setBlur(to: .dark, percent: 8)
-                .setDistance(to: .light,percent: 8)
-                .setDistance(to: .dark,percent: 10)
-                .setShadowColor(to: .dark, color: .black)
+                .setDistance(to: .light, percent: 2)
+                .setDistance(to: .dark, percent: 10)
+                .setShadowColor(to: .light, hexColor: "#FFFFFF")
+                .setShadowColor(to: .dark, hexColor: "#000000")
+                .apply()
             
             
 //                //BOTÃO CLICADO

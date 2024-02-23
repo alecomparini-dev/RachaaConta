@@ -32,9 +32,9 @@ class HomeView: UIView {
     
     lazy var topBlur: BlurBuilder = {
         let comp = BlurBuilder(style: .dark)
-            .setBackgroundColor(.red)
+//            .setBackgroundColor(.red)
             .setHidden(false)
-            .setAlpha(1)
+            .setAlpha(0.8)
             .setConstraints { build in
                 build
                     .setPinTop.equalToSuperView
@@ -91,10 +91,10 @@ class HomeView: UIView {
         let view = ButtonFloatView()
             .setConstraints { build in
                 build
-//                    .setTrailing.setBottom.equalToSafeArea(8)
-                    .setBottom.equalToSafeArea(8)
-                    .setHorizontalAlignmentX.equalToSuperView
-                    .setWidth.setHeight.equalToConstant(60)
+                    .setTrailing.setBottom.equalToSafeArea(16)
+//                    .setBottom.equalToSafeArea(8)
+//                    .setHorizontalAlignmentX.equalToSuperView
+                    .setWidth.setHeight.equalToConstant(55)
             }
         return view
     }()
@@ -121,8 +121,7 @@ class HomeView: UIView {
     
     lazy var bottomBlur: BlurBuilder = {
         let comp = BlurBuilder(style: .dark)
-            .setHidden(false)
-            .setAlpha(1)
+            .setHidden(true)
             .setConstraints { build in
                 build
                     .setTop.equalTo(buttonFloat.get, .top, -8)
@@ -159,7 +158,7 @@ class HomeView: UIView {
         bottomBlur.applyConstraint()
         
         topBlur.applyConstraint()
-        self.height = NSLayoutConstraint.init(item: topBlur.get, attribute: .height, relatedBy: .equal, toItem: nil,  attribute: .height, multiplier: 1, constant: 125)
+        self.height = NSLayoutConstraint.init(item: topBlur.get, attribute: .height, relatedBy: .equal, toItem: nil,  attribute: .height, multiplier: 1, constant: 0)
         
         self.height.isActive = true
         

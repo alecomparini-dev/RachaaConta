@@ -38,9 +38,16 @@ class HomeView: UIView {
     
     lazy var topBlur: BlurBuilder = {
         let comp = BlurBuilder(style: .dark)
-//            .setBackgroundColor(.red)
             .setHidden(false)
             .setAlpha(0.8)
+        return comp
+    }()
+
+    lazy var topViewAnimation: TopViewAnimationHeightWithScrollBuilder = {
+        let comp = TopViewAnimationHeightWithScrollBuilder(height: (ini: 0, end: 130))
+//        let comp = TopViewAnimationHeightWithScrollBuilder(height: (ini: 130, end: 0))
+            .setView(topBlur)
+//            .setAnimation(.decreasing)
             .setConstraints { build in
                 build
                     .setPinTop.equalToSuperView
@@ -139,6 +146,7 @@ class HomeView: UIView {
         backgroundView.add(insideTo: self)
         listBillTableView.add(insideTo: self)
         topBlur.add(insideTo: self)
+        topViewAnimation.add(insideTo: self)
         clock.add(insideTo: self)
         sideBarMenuView.add(insideTo: self)
         bottomBlur.add(insideTo: self)
@@ -153,9 +161,9 @@ class HomeView: UIView {
         createBillButtonFloat.applyConstraint()
         bottomBlur.applyConstraint()
         
-        topBlur.applyConstraint()
-        self.height = NSLayoutConstraint.init(item: topBlur.get, attribute: .height, relatedBy: .equal, toItem: nil,  attribute: .height, multiplier: 1, constant: 0)
-        self.height.isActive = true
+        
+        topViewAnimation.applyConstraint()
+        
     }
     
     public func configFilterBillView() {

@@ -11,6 +11,8 @@
 		<string>TitilliumWeb-Light.ttf</string>
 		<string>TitilliumWeb-Regular.ttf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Permita que o aplicativo acesse sua localização para listar os estabelecimentos próximos à sua localização.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

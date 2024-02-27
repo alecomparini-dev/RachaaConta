@@ -20,15 +20,7 @@ class CreateBillCoordinator: Coordinator {
         
         var controller = CreateBillViewController()
         
-//        controller = navigationController.pushViewController(controller)
-        navigationController.present(controller)
-        
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.navigationController.dismiss()
-        })
-        
+        controller = navigationController.pushViewController(controller)
     }
     
 }

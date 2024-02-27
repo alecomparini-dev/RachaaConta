@@ -5,7 +5,7 @@ import Foundation
 
 import CustomComponentsSDK
 
-class SideBarMenuView: ViewBuilder {
+class ButtonSideBarMenuView: ViewBuilder {
     
     override init() {
         super.init()
@@ -74,13 +74,11 @@ class SideBarMenuView: ViewBuilder {
         createUnderline().add(insideTo: stackView.get)
         createUnderline().add(insideTo: stackView.get)
         createUnderline().add(insideTo: stackView.get)
-//        menuImage.add(insideTo: self.get)
         arrowOpenImageView.add(insideTo: self.get)
     }
     
     private func configConstraints() {
         stackView.applyConstraint()
-//        menuImage.applyConstraint()
         arrowOpenImageView.applyConstraint()
     }
 
@@ -111,7 +109,6 @@ class SideBarMenuView: ViewBuilder {
     
     private func createUnderline() -> StrokeView {
         return StrokeView(gradientColor: [Theme.shared.currentTheme.primary,Theme.shared.currentTheme.primary])
-//        return StrokeView()
     }
     
 }

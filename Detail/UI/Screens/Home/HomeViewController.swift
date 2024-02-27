@@ -112,48 +112,11 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
+        screen.topViewAnimation.setInitialOffsetScroll(scrollView)
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         screen.topViewAnimation.animation(scrollView)
-        
-
-        
-        
-        //        let currentOffset = scrollView.contentOffset.y
-//
-//        if currentOffset < lastContentOffset {
-////            print("Scroll para baixo")
-//        } else if currentOffset > lastContentOffset {
-////            print("Scroll para cima")
-//        }
-//        
-//        lastContentOffset = currentOffset
-//        
-//        guard let initialOffset else {return}
-//        
-//        let invert = false
-//        
-//        if invert {
-//            let animationInit: CGFloat = 125
-//            let animationFinal: CGFloat = 0
-//            let animationThreshold: CGFloat = animationInit - animationFinal
-//
-//            let rolou = (currentOffset - initialOffset)
-//            
-//            let completed = (rolou/animationThreshold)
-//            
-//            if rolou >= 0 {
-//                screen.height.constant = max( min( animationInit - (animationThreshold*completed), animationThreshold), animationFinal)
-//            } else {
-//                screen.height.constant = animationInit
-//            }
-//            return
-//        }
-//        
-//        
-        
     }
     
 }

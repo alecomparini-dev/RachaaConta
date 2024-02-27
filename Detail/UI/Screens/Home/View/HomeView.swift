@@ -45,9 +45,8 @@ class HomeView: UIView {
 
     lazy var topViewAnimation: TopViewAnimationHeightWithScrollBuilder = {
         let comp = TopViewAnimationHeightWithScrollBuilder(height: (ini: 0, end: 130))
-//        let comp = TopViewAnimationHeightWithScrollBuilder(height: (ini: 130, end: 0))
             .setView(topBlur)
-//            .setAnimation(.decreasing)
+            .setAnimationDirection(.topToBottom)
             .setConstraints { build in
                 build
                     .setPinTop.equalToSuperView
@@ -74,8 +73,8 @@ class HomeView: UIView {
         return clock
     }()
     
-    lazy var sideBarMenuView: SideBarMenuView = {
-        let view = SideBarMenuView()
+    lazy var buttonSideBarMenuView: ButtonSideBarMenuView = {
+        let view = ButtonSideBarMenuView()
             .setConstraints { build in
                 build
                     .setVerticalAlignmentY.equalTo(clock.getClock.get)
@@ -148,7 +147,7 @@ class HomeView: UIView {
         topBlur.add(insideTo: self)
         topViewAnimation.add(insideTo: self)
         clock.add(insideTo: self)
-        sideBarMenuView.add(insideTo: self)
+        buttonSideBarMenuView.add(insideTo: self)
         bottomBlur.add(insideTo: self)
         createBillButtonFloat.add(insideTo: self)
     }
@@ -157,7 +156,7 @@ class HomeView: UIView {
         backgroundView.applyConstraint()
         listBillTableView.applyConstraint()
         clock.applyConstraint()
-        sideBarMenuView.applyConstraint()
+        buttonSideBarMenuView.applyConstraint()
         createBillButtonFloat.applyConstraint()
         bottomBlur.applyConstraint()
         

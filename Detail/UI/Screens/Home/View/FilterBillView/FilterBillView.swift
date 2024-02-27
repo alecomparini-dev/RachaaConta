@@ -76,7 +76,7 @@ class FilterBillView: ViewBuilder {
                 build
                     .setCornerRadius(8)
             }
-            .setClearButtonMode()
+            .setClearButton()
             .setConstraints { build in
                 build
                     .setTop.equalTo(underLineView.get, .bottom , 20)

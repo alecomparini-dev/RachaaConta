@@ -56,13 +56,11 @@ public class HomeViewController: UIViewController {
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configurationsDidAppear()
-        
     }
     
     

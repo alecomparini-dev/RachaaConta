@@ -31,7 +31,7 @@
 		023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */; };
 		023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E72B87CC990009C432 /* DateTimeBillView.swift */; };
 		023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63EA2B87DC1D0009C432 /* PersonBillView.swift */; };
-		02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */; };
+		02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
 		02BD95102B8376C600539FDE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD950A2B8376C600539FDE /* HomeView.swift */; };
@@ -127,7 +127,7 @@
 		023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismTextFieldView.swift; sourceTree = "<group>"; };
 		023C63E72B87CC990009C432 /* DateTimeBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeBillView.swift; sourceTree = "<group>"; };
 		023C63EA2B87DC1D0009C432 /* PersonBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBillView.swift; sourceTree = "<group>"; };
-		02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuView.swift; sourceTree = "<group>"; };
+		02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BD95082B8376C600539FDE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -298,14 +298,6 @@
 			path = DateTimeBillView;
 			sourceTree = "<group>";
 		};
-		02B4D60C2B8401A0005DF70B /* SideBarMenuView */ = {
-			isa = PBXGroup;
-			children = (
-				02B4D60D2B8401B6005DF70B /* SideBarMenuView.swift */,
-			);
-			path = SideBarMenuView;
-			sourceTree = "<group>";
-		};
 		02B4D6112B842132005DF70B /* CellView */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				023C63DC2B86BFB50009C432 /* FilterBillView */,
-				02B4D60C2B8401A0005DF70B /* SideBarMenuView */,
 				02BD950A2B8376C600539FDE /* HomeView.swift */,
 			);
 			path = View;
@@ -433,6 +424,7 @@
 		02D97E642B89352D009F57F8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				02BD95072B8376C600539FDE /* Home */,
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
 				02D97E692B8935AA009F57F8 /* Individual */,
@@ -537,6 +529,30 @@
 				02D97E792B8941D8009F57F8 /* NavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		02D97E7F2B8D5937009F57F8 /* SideBarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				02D97E802B8D594B009F57F8 /* Views */,
+			);
+			path = SideBarMenu;
+			sourceTree = "<group>";
+		};
+		02D97E802B8D594B009F57F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02D97E812B8D5F40009F57F8 /* ButtonSideBarMenuView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02D97E812B8D5F40009F57F8 /* ButtonSideBarMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */,
+			);
+			path = ButtonSideBarMenuView;
 			sourceTree = "<group>";
 		};
 		02DF271C2B854DB1003A5979 /* BillCellView */ = {
@@ -790,7 +806,7 @@
 			files = (
 				023C63C42B8661590009C432 /* BillTableCellView.swift in Sources */,
 				02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */,
-				02B4D60E2B8401B6005DF70B /* SideBarMenuView.swift in Sources */,
+				02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */,
 				023C63B52B864DA80009C432 /* DotView.swift in Sources */,
 				023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */,
 				02D97E702B8936CA009F57F8 /* CreateBillViewController.swift in Sources */,

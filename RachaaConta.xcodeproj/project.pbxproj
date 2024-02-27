@@ -50,6 +50,9 @@
 		02D97E7A2B8941D8009F57F8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D97E792B8941D8009F57F8 /* NavigationController.swift */; };
 		02D97E7C2B894C58009F57F8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D97E7B2B894C58009F57F8 /* HomeCoordinator.swift */; };
 		02D97E7E2B89505E009F57F8 /* CreateBillCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D97E7D2B89505E009F57F8 /* CreateBillCoordinator.swift */; };
+		02D97E862B8D68A2009F57F8 /* SideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D97E822B8D6020009F57F8 /* SideBarMenuView.swift */; };
+		02D97E872B8D68A7009F57F8 /* SideBarMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D97E842B8D6037009F57F8 /* SideBarMenuViewController.swift */; };
+		02D97E892B8DF913009F57F8 /* SideBarMenu+NavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D97E882B8DF913009F57F8 /* SideBarMenu+NavigationController+Extension.swift */; };
 		02DF27292B8551D7003A5979 /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; platformFilters = (macos, ); };
 		02DF272A2B8551D7003A5979 /* Presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27312B855247003A5979 /* HomeViewModel.swift */; };
@@ -146,6 +149,9 @@
 		02D97E792B8941D8009F57F8 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		02D97E7B2B894C58009F57F8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		02D97E7D2B89505E009F57F8 /* CreateBillCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillCoordinator.swift; sourceTree = "<group>"; };
+		02D97E822B8D6020009F57F8 /* SideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuView.swift; sourceTree = "<group>"; };
+		02D97E842B8D6037009F57F8 /* SideBarMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuViewController.swift; sourceTree = "<group>"; };
+		02D97E882B8DF913009F57F8 /* SideBarMenu+NavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarMenu+NavigationController+Extension.swift"; sourceTree = "<group>"; };
 		02DF271A2B854DA6003A5979 /* BillTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTableCellView.swift; sourceTree = "<group>"; };
 		02DF27222B8551CD003A5979 /* Presenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DF27312B855247003A5979 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -424,8 +430,8 @@
 		02D97E642B89352D009F57F8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				02BD95072B8376C600539FDE /* Home */,
+				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
 				02D97E692B8935AA009F57F8 /* Individual */,
 				02D97E682B89359C009F57F8 /* Everyone */,
@@ -527,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				02D97E792B8941D8009F57F8 /* NavigationController.swift */,
+				02D97E882B8DF913009F57F8 /* SideBarMenu+NavigationController+Extension.swift */,
 			);
 			path = NavigationController;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				02D97E802B8D594B009F57F8 /* Views */,
+				02D97E842B8D6037009F57F8 /* SideBarMenuViewController.swift */,
 			);
 			path = SideBarMenu;
 			sourceTree = "<group>";
@@ -543,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				02D97E812B8D5F40009F57F8 /* ButtonSideBarMenuView */,
+				02D97E822B8D6020009F57F8 /* SideBarMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -806,6 +815,7 @@
 			files = (
 				023C63C42B8661590009C432 /* BillTableCellView.swift in Sources */,
 				02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */,
+				02D97E862B8D68A2009F57F8 /* SideBarMenuView.swift in Sources */,
 				02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */,
 				023C63B52B864DA80009C432 /* DotView.swift in Sources */,
 				023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */,
@@ -821,6 +831,7 @@
 				023C63D72B869C6E0009C432 /* BillAddressView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,
 				023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */,
+				02D97E872B8D68A7009F57F8 /* SideBarMenuViewController.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 				023C63E22B877D7E0009C432 /* StrokeView.swift in Sources */,
 			);
@@ -831,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D97E782B8941B1009F57F8 /* Coordinator.swift in Sources */,
+				02D97E892B8DF913009F57F8 /* SideBarMenu+NavigationController+Extension.swift in Sources */,
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
 				02D97E7E2B89505E009F57F8 /* CreateBillCoordinator.swift in Sources */,
 				02D97E7A2B8941D8009F57F8 /* NavigationController.swift in Sources */,

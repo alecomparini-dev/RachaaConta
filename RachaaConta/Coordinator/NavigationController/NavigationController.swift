@@ -5,6 +5,8 @@ import UIKit
 
 public final class NavigationController: UINavigationController {
     
+    weak var viewControllerToPresent: UIViewController?
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -39,6 +41,8 @@ public final class NavigationController: UINavigationController {
         }
         return nil
     }
+    
+    
     
     
 //  MARK: - PRIVATE AREA

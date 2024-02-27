@@ -21,7 +21,6 @@ class CreateBillCoordinator: Coordinator {
         var controller = CreateBillViewController()
         
         controller = navigationController.pushViewController(controller)
-        
     }
     
 }

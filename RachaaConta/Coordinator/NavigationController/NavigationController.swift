@@ -5,6 +5,8 @@ import UIKit
 
 public final class NavigationController: UINavigationController {
     
+    private weak var viewControllerToPresent: UIViewController?
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -38,6 +40,32 @@ public final class NavigationController: UINavigationController {
             return controller as? T
         }
         return nil
+    }
+    
+    public func present(_ viewControllerToPresent: UIViewController) {
+        self.viewControllerToPresent = viewControllerToPresent
+        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromLeft
+        
+        viewControllerToPresent.modalPresentationStyle = .fullScreen
+        
+        let controller = viewControllers.last
+        controller?.view.window?.layer.add(transition, forKey: kCATransition)
+        controller?.present(viewControllerToPresent, animated: false)
+    }
+    
+    public func dismiss() {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+
+        viewControllerToPresent?.modalPresentationStyle = .fullScreen
+        viewControllerToPresent?.view.window?.layer.add(transition, forKey: kCATransition)
+        viewControllerToPresent?.dismiss(animated: false)                
     }
     
     

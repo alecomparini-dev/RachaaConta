@@ -9,6 +9,7 @@ import CustomComponentsSDK
 
 public protocol SearchPlaceOnMapViewControllerCoordinator: AnyObject {
     func gotoHome()
+    func gotoCreateBill()
 }
 
 
@@ -53,6 +54,7 @@ public class SearchPlaceOnMapViewController: UIViewController {
     }
 
     private func configDelegate() {
+        screen.delegate = self
         screen.lightMapView.delegate = self
         screen.backButtonView.delegate = self
         screen.mapView.setOutput(self)
@@ -62,15 +64,36 @@ public class SearchPlaceOnMapViewController: UIViewController {
         screen.configMapConstraint()
     }
     
-    private func showContainerSearchMapAnimation() {
-        UIView.animate(withDuration: 0.5, delay: 0.5, animations: { [weak self] in
+    private func showComponentsAnimation() {
+        UIView.animate(withDuration: 1, delay: 1, animations: { [weak self] in
             guard let self else {return}
             screen.containerSearchBlurView.get.alpha = 1
+            screen.skipStepButton.get.alpha = 1
         })
     }
     
-   
 }
+
+
+//  MARK: - EXTENSION - SearchPlaceOnMapViewDelegate
+extension SearchPlaceOnMapViewController: SearchPlaceOnMapViewDelegate {
+    
+    func skipStepButtonTapped() {
+        coordinator?.gotoCreateBill()
+    }
+    
+}
+
+
+//  MARK: - EXTENSION - BackButtonViewDelegate
+extension SearchPlaceOnMapViewController: BackButtonViewDelegate {
+    
+    public func backButtonImageTapped() {
+        coordinator?.gotoHome()
+    }
+    
+}
+
 
 
 //  MARK: - EXTENSION - CreateBillViewDelegate
@@ -93,22 +116,11 @@ extension SearchPlaceOnMapViewController: LightMapViewDelegate {
 }
 
 
-//  MARK: - EXTENSION - BackButtonViewDelegate
-extension SearchPlaceOnMapViewController: BackButtonViewDelegate {
-    
-    public func backButtonImageTapped() {
-        coordinator?.gotoHome()
-    }
-    
-}
-
-
-
 //  MARK: - EXTENSION - MapBuilderOutput
 extension SearchPlaceOnMapViewController: MapBuilderOutput {
     public func finishLoadingMap() {
         screen.loadingMap.setStopAnimating()
-        showContainerSearchMapAnimation()
+        showComponentsAnimation()
     }
     
 }

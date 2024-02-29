@@ -32,12 +32,18 @@ class SearchPlaceOnMapCoordinator: Coordinator {
 //  MARK: - EXTENSION - SearchPlaceOnMapViewControllerCoordinator
 
 extension SearchPlaceOnMapCoordinator: SearchPlaceOnMapViewControllerCoordinator {
+    
     func gotoHome() {
         let coordinator = HomeCoordinator(navigationController)
         coordinator.start()
         self.coordinator = nil
     }
     
+    func gotoCreateBill() {
+        let coodinator = CreateBillCoordinator(navigationController)
+        coodinator.start()
+        self.coordinator = nil
+    }
     
 }
 

@@ -80,7 +80,7 @@ class SearchPlaceOnMapView: UIView {
     
     lazy var mapView: MapBuilder = {
         let comp = MapBuilder()
-            .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife], 200)
+            .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife, .store, .winery, .theater, .movieTheater], 200)
             .setPinNaturalLanguage("fast-food", 200)
             .setOverrideUserInterfaceStyle(.dark)
             .setConstraints { build in
@@ -92,16 +92,16 @@ class SearchPlaceOnMapView: UIView {
     
     
     lazy var skipStepButton: ButtonBuilder = {
-        let comp = ButtonBuilder()
-            .setFontFamily("TitilliumWeb-ExtraLight", 14)
-            .setTitle("Coco Bambu")
-            .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
+        let comp = ButtonBuilder("Pular Etapa")
+            .setAlpha(0)
+            .setFontFamily("TitilliumWeb-Light", 14)
+            .setTintColor(Theme.shared.currentTheme.onSurface)
             .setBackgroundColor(Theme.shared.currentTheme.surfaceContainer.withAlphaComponent(0.7))
             .setConstraints { build in
                 build
                     .setBottom.setTrailing.equalToSafeArea(16)
-                    .setWidth.equalToConstant(120)
-                    .setHeight.equalToConstant(35)
+                    .setWidth.equalToConstant(110)
+                    .setHeight.equalToConstant(32)
             }
         comp.get.addTarget(self, action: #selector(skipStepButtonTapped), for: .touchUpInside)
         return comp

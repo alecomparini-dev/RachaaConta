@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alecomparini-dev/CustomComponentsSDK.git",
       "state" : {
-        "branch" : "feature/02-29/maps",
-        "revision" : "e590b909314f0ab474a1388a7178ce3791503b2e"
+        "branch" : "develop",
+        "revision" : "aaa1cbe14face62a92e5354ed8092b37c064e3bc"
       }
     }
   ],

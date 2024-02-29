@@ -10,8 +10,8 @@ public protocol CreateBillViewControllerCoordinator: AnyObject {
 public class CreateBillViewController: UIViewController {
     public weak var coordinator: CreateBillViewControllerCoordinator?
     
-    lazy var screen: SearchPlaceOnMapView = {
-        let comp = SearchPlaceOnMapView()
+    lazy var screen: CreateBillView = {
+        let comp = CreateBillView()
         return comp
     }()
     

@@ -9,10 +9,10 @@ class StrokeView: ViewBuilder {
     private let gradientColor: [UIColor]
     private var cornerRadius: CGFloat
     
-    init(gradientColor: [UIColor] = Theme.shared.currentTheme.primaryGradient, cornerRadius: CGFloat = 2) {
+    init(gradientColor: [UIColor] = Theme.shared.currentTheme.primaryGradient, cornerRadius: CGFloat = 2, frame: CGRect = .zero) {
         self.gradientColor = gradientColor
         self.cornerRadius = cornerRadius
-        super.init()
+        super.init(frame: frame)
         configure()
     }
     

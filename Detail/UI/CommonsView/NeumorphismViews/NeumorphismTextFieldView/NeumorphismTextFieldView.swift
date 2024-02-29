@@ -1,7 +1,6 @@
 //  Created by Alessandro Comparini on 22/02/24.
 //
 
-import Foundation
 import CustomComponentsSDK
 
 class NeumorphismTextFieldView {

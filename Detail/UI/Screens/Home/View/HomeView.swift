@@ -54,6 +54,18 @@ class HomeView: UIView {
         return comp
     }()
     
+    lazy var buttonSideBarMenuView: ButtonSideBarMenuView = {
+        let view = ButtonSideBarMenuView()
+            .setConstraints { build in
+                build
+                    .setTop.equalToSafeArea(16)
+                    .setLeading.equalToSuperView
+                    .setWidth.equalToConstant(58)
+                    .setHeight.equalToConstant(50)
+            }
+        return view
+    }()
+    
     lazy var clock: ClockNeumorphismBuilder = {
         let clock = ClockNeumorphismBuilder()
             .setColor(hexColor: Theme.shared.currentTheme.backgroundColor.adjustBrightness(20).toHexString)
@@ -65,24 +77,12 @@ class HomeView: UIView {
             })
             .setConstraints { build in
                 build
-                    .setTop.equalToSafeArea(16)
+                    .setVerticalAlignmentY.equalTo(buttonSideBarMenuView.get)
                     .setTrailing.equalToSafeArea(-24)
                     .setWidth.equalToConstant(110)
                     .setHeight.equalToConstant(35)
             }
         return clock
-    }()
-    
-    lazy var buttonSideBarMenuView: ButtonSideBarMenuView = {
-        let view = ButtonSideBarMenuView()
-            .setConstraints { build in
-                build
-                    .setVerticalAlignmentY.equalTo(clock.getClock.get)
-                    .setLeading.equalToSuperView
-                    .setWidth.equalToConstant(58)
-                    .setHeight.equalToConstant(50)
-            }
-        return view
     }()
     
     lazy var createBillButtonFloat: ButtonFloatView = {
@@ -159,8 +159,6 @@ class HomeView: UIView {
         buttonSideBarMenuView.applyConstraint()
         createBillButtonFloat.applyConstraint()
         bottomBlur.applyConstraint()
-        
-        
         topViewAnimation.applyConstraint()
         
     }

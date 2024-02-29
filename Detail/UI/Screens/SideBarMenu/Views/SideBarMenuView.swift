@@ -45,5 +45,4 @@ public class SideBarMenuView: UIView {
         backgroundView.applyConstraint()
     }
     
-    
 }

@@ -49,13 +49,14 @@ public class HomeViewController: UIViewController {
         configure()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configDelegate()
-    }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configDelegate()
     }
     
     public override func viewDidAppear(_ animated: Bool) {

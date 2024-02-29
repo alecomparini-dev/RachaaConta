@@ -21,6 +21,23 @@ class CreateBillCoordinator: Coordinator {
         var controller = CreateBillViewController()
         
         controller = navigationController.pushViewController(controller)
+        
+        controller.coordinator = self
+        
     }
     
 }
+
+
+//  MARK: - EXTENSION - CreateBillViewControllerCoordinator
+
+extension CreateBillCoordinator: CreateBillViewControllerCoordinator {
+    func gotoHome() {
+        let coordinator = HomeCoordinator(navigationController)
+        coordinator.start()
+        self.coordinator = nil
+    }
+    
+    
+}
+

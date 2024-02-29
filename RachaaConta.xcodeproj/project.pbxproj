@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022731392B88036700E34668 /* ButtonSeeBillView.swift */; };
+		022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F19182B8FB29C00474CE7 /* NeumorphismSideBarView.swift */; };
+		022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F191B2B8FB3BE00474CE7 /* BackButtonView.swift */; };
 		023C63A32B8635B10009C432 /* FetchBillPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */; };
 		023C63A62B8635C40009C432 /* FetchBillPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63A52B8635C40009C432 /* FetchBillPresenterImpl.swift */; };
 		023C63A92B8638B80009C432 /* BillPresenterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63A82B8638B80009C432 /* BillPresenterDTO.swift */; };
@@ -112,6 +114,8 @@
 
 /* Begin PBXFileReference section */
 		022731392B88036700E34668 /* ButtonSeeBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSeeBillView.swift; sourceTree = "<group>"; };
+		022F19182B8FB29C00474CE7 /* NeumorphismSideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismSideBarView.swift; sourceTree = "<group>"; };
+		022F191B2B8FB3BE00474CE7 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		023C63A52B8635C40009C432 /* FetchBillPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenterImpl.swift; sourceTree = "<group>"; };
 		023C63A82B8638B80009C432 /* BillPresenterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillPresenterDTO.swift; sourceTree = "<group>"; };
 		023C63AB2B863A680009C432 /* AddressPresenterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPresenterDTO.swift; sourceTree = "<group>"; };
@@ -189,6 +193,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022F19152B8FB12700474CE7 /* BackButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				022F191B2B8FB3BE00474CE7 /* BackButtonView.swift */,
+			);
+			path = BackButtonView;
+			sourceTree = "<group>";
+		};
+		022F19162B8FB1D400474CE7 /* NeumorphismSideBarView */ = {
+			isa = PBXGroup;
+			children = (
+				022F19182B8FB29C00474CE7 /* NeumorphismSideBarView.swift */,
+			);
+			path = NeumorphismSideBarView;
+			sourceTree = "<group>";
+		};
+		022F19172B8FB22E00474CE7 /* NeumorphismViews */ = {
+			isa = PBXGroup;
+			children = (
+				02D97E672B893581009F57F8 /* NeumorphismTextFieldView */,
+				022F19162B8FB1D400474CE7 /* NeumorphismSideBarView */,
+			);
+			path = NeumorphismViews;
+			sourceTree = "<group>";
+		};
 		023C63A42B8635B80009C432 /* Impl */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,10 +418,11 @@
 		02BD950D2B8376C600539FDE /* CommonsView */ = {
 			isa = PBXGroup;
 			children = (
+				022F19152B8FB12700474CE7 /* BackButtonView */,
 				02B4D6122B842476005DF70B /* ButtonFloatView */,
 				02D97E652B89356E009F57F8 /* BackgroundView */,
 				02D97E662B893577009F57F8 /* StrokeView */,
-				02D97E672B893581009F57F8 /* NeumorphismTextFieldView */,
+				022F19172B8FB22E00474CE7 /* NeumorphismViews */,
 			);
 			path = CommonsView;
 			sourceTree = "<group>";
@@ -431,8 +461,8 @@
 			isa = PBXGroup;
 			children = (
 				02BD95072B8376C600539FDE /* Home */,
-				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
+				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				02D97E692B8935AA009F57F8 /* Individual */,
 				02D97E682B89359C009F57F8 /* Everyone */,
 			);
@@ -826,7 +856,9 @@
 				023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */,
 				02BD95102B8376C600539FDE /* HomeView.swift in Sources */,
 				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
+				022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */,
 				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
+				022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */,
 				02D97E712B8936CC009F57F8 /* CreateBillView.swift in Sources */,
 				023C63D72B869C6E0009C432 /* BillAddressView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,

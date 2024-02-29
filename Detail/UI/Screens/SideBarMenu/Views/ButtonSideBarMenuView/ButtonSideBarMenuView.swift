@@ -5,7 +5,7 @@ import Foundation
 
 import CustomComponentsSDK
 
-class ButtonSideBarMenuView: ViewBuilder {
+class ButtonSideBarMenuView: NeumorphismSideBarView {
     
     override init() {
         super.init()
@@ -55,7 +55,6 @@ class ButtonSideBarMenuView: ViewBuilder {
                 build
                     .setTrailing.equalToSuperView(-10)
                     .setVerticalAlignmentY.equalTo(stackView.get)
-//                    .setVerticalAlignmentY.equalTo(menuImage.get)
             }
         return img
     }()
@@ -65,8 +64,6 @@ class ButtonSideBarMenuView: ViewBuilder {
     private func configure() {
         addElements()
         configConstraints()
-        configBorder()
-        configNeumorphism()
     }
     
     private func addElements() {
@@ -82,31 +79,6 @@ class ButtonSideBarMenuView: ViewBuilder {
         arrowOpenImageView.applyConstraint()
     }
 
-    private func configBorder() {
-        self.setBorder({ build in
-            build
-                .setCornerRadius(25)
-                .setRoundedCorners([.right])
-        })
-    }
-    
-    private func configNeumorphism() {
-        self.setNeumorphism { build in
-            build
-                .setReferenceColor(Theme.shared.currentTheme.backgroundColor)
-                .setShape(.convex)
-                .setLightPosition(.leftTop)
-                .setIntensity(to: .light, percent: 30)
-                .setIntensity(to: .dark, percent: 100)
-                .setBlur(to: .light, percent: 8)
-                .setBlur(to: .dark, percent: 10)
-                .setDistance(to: .light, percent: 4)
-                .setDistance(to: .dark, percent: 10)
-                .setShadowColor(to: .dark, color: .black)
-                .apply()
-        }
-    }
-    
     private func createUnderline() -> StrokeView {
         return StrokeView(gradientColor: [Theme.shared.currentTheme.primary,Theme.shared.currentTheme.primary])
     }

@@ -267,9 +267,15 @@ public class CreateBillViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    private func showContainerSearchMapAnimation() {
+        UIView.animate(withDuration: 0.5, delay: 0.5, animations: { [weak self] in
+            guard let self else {return}
+            screen.containerSearchBlurView.get.alpha = 1
+        })
+    }
+    
    
 }
-
 
 
 //  MARK: - EXTENSION - CreateBillViewDelegate
@@ -307,7 +313,7 @@ extension CreateBillViewController: BackButtonViewDelegate {
 extension CreateBillViewController: MapBuilderOutput {
     public func finishLoadingMap() {
         screen.loadingMap.setStopAnimating()
-        
+        showContainerSearchMapAnimation()
     }
     
 }
@@ -320,24 +326,6 @@ extension CreateBillViewController: MapBuilderOutput {
 
 
 
-
-
-
-
-
-extension CreateBillViewController: UITextFieldDelegate {
-    
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(textField.text ?? "" )
-        return true
-    }
-    
-    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        print(textField.text ?? "" )
-        searchForLocations(query: textField.text ?? "" )
-    }
-    
-}
 
 
 extension CreateBillViewController: CLLocationManagerDelegate {

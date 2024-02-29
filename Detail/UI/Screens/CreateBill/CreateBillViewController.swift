@@ -76,39 +76,6 @@ public class CreateBillViewController: UIViewController {
         })
     }
     
-    
-    
-    
-    
-    
-//
-//    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
-//        let locationInView = gestureRecognizer.location(in: mapView)
-//        let coordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
-//        
-//        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-//        mapView.setRegion(region, animated: true)
-//                
-//        // Adiciona um pino ao mapa com as coordenadas
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = coordinate
-//        mapView.addAnnotation(annotation)
-//        
-//        let request = MKLocalSearch.Request()
-//        request.naturalLanguageQuery = ""
-//        request.region = mapView.region
-//        
-//        let search = MKLocalSearch(request: request)
-//        search.start { (response, error) in
-//            print(response)
-//            guard let response = response else { return }
-//            let firstResult = response.mapItems.first
-//        }
-//        
-//    }
-//        
-
-    
    
 }
 

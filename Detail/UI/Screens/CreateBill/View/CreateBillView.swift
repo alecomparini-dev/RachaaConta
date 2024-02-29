@@ -68,7 +68,7 @@ class CreateBillView: UIView {
             }
             .setConstraints { build in
                 build
-                    .setVerticalAlignmentY.equalTo(backButtonView.get, -4)
+                    .setVerticalAlignmentY.equalTo(backButtonView.get, -2)
                     .setTrailing.equalToSafeArea(-24)
                     .setSize.equalToConstant(30)
             }
@@ -99,13 +99,13 @@ class CreateBillView: UIView {
             .setOpacity(0.8)
             .setBorder({ build in
                 build
-                    .setCornerRadius(20)
+                    .setCornerRadius(12)
             })
             .setConstraints { build in
                 build
                     .setTop.equalTo(backButtonView.get, .bottom, 8)
                     .setLeading.setTrailing.equalToSuperView(24)
-                    .setHeight.equalToConstant(80)
+                    .setHeight.equalToConstant(60)
             }
         return comp
     }()
@@ -114,7 +114,6 @@ class CreateBillView: UIView {
         let comp = ViewBuilder()
             .setBorder({ build in
                 build
-                    .setCornerRadius(20)
                     .setRoundedCorners([.bottom])
             })
             .setShadow({ build in

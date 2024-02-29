@@ -4,10 +4,10 @@
 import Foundation
 import UI
 
-class HomeCoordinator: Coordinator {
+class SearchPlaceOnMapCoordinator: Coordinator {
     var coordinator: Coordinator?
     
-    var navigationController: NavigationController
+    let navigationController: NavigationController
     
     var dataTransfer: Any?
     
@@ -17,30 +17,27 @@ class HomeCoordinator: Coordinator {
     
     func start() {
         coordinator = self
-                
-        var controller: HomeViewController!
         
-        controller = HomeViewControllerFactory.make()
+        var controller = SearchPlaceOnMapViewController()
         
         controller = navigationController.pushViewController(controller)
-                
+        
         controller.coordinator = self
+        
     }
     
-        
 }
 
 
+//  MARK: - EXTENSION - SearchPlaceOnMapViewControllerCoordinator
 
-//  MARK: - EXTENSION - HomeViewControllerCoordinator
-
-extension HomeCoordinator: HomeViewControllerCoordinator {
-    
-    func gotoCreateBill() {
-        let coordinator = SearchPlaceOnMapCoordinator(navigationController)
+extension SearchPlaceOnMapCoordinator: SearchPlaceOnMapViewControllerCoordinator {
+    func gotoHome() {
+        let coordinator = HomeCoordinator(navigationController)
         coordinator.start()
         self.coordinator = nil
     }
     
     
 }
+

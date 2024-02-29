@@ -1,4 +1,4 @@
-//  Created by Alessandro Comparini on 23/02/24.
+//  Created by Alessandro Comparini on 29/02/24.
 //
 
 import Foundation
@@ -23,21 +23,22 @@ class CreateBillCoordinator: Coordinator {
         controller = navigationController.pushViewController(controller)
         
         controller.coordinator = self
-        
     }
+    
     
 }
 
 
 //  MARK: - EXTENSION - CreateBillViewControllerCoordinator
-
 extension CreateBillCoordinator: CreateBillViewControllerCoordinator {
-    func gotoHome() {
-        let coordinator = HomeCoordinator(navigationController)
+    
+    func gotoSearchPlaceOnMap() {
+        let coordinator = SearchPlaceOnMapCoordinator(navigationController)
+        
         coordinator.start()
+        
         self.coordinator = nil
     }
     
     
 }
-

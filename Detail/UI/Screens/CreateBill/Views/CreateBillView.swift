@@ -66,6 +66,7 @@ class CreateBillView: UIView {
    
     lazy var containerSearchBlurView: ContainerSearchMapView = {
         let comp = ContainerSearchMapView()
+            .setAlpha(0)
             .setConstraints { build in
                 build
                     .setTop.equalTo(backButtonView.get, .bottom, 8)

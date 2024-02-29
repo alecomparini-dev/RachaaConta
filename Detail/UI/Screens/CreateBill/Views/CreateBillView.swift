@@ -78,6 +78,8 @@ class CreateBillView: UIView {
     
     lazy var mapView: MapBuilder = {
         let comp = MapBuilder()
+            .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife], 200)
+            .setPinNaturalLanguage("fast-food", 200)
             .setOverrideUserInterfaceStyle(.dark)
             .setConstraints { build in
                 build

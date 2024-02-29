@@ -1,10 +1,10 @@
-//  Created by Alessandro Comparini on 29/02/24.
+//  Created by Alessandro Comparini on 23/02/24.
 //
 
 import Foundation
 import UI
 
-class CreateBillCoordinator: Coordinator {
+class SearchPlaceOnMapCoordinator: Coordinator {
     var coordinator: Coordinator?
     
     let navigationController: NavigationController
@@ -18,27 +18,32 @@ class CreateBillCoordinator: Coordinator {
     func start() {
         coordinator = self
         
-        var controller = CreateBillViewController()
+        var controller = SearchPlaceOnMapViewController()
         
         controller = navigationController.pushViewController(controller)
         
         controller.coordinator = self
+        
     }
-    
     
 }
 
 
-//  MARK: - EXTENSION - CreateBillViewControllerCoordinator
-extension CreateBillCoordinator: CreateBillViewControllerCoordinator {
+//  MARK: - EXTENSION - SearchPlaceOnMapViewControllerCoordinator
+
+extension SearchPlaceOnMapCoordinator: SearchPlaceOnMapViewControllerCoordinator {
     
-    func gotoSearchPlaceOnMap() {
-        let coordinator = SearchPlaceOnMapCoordinator(navigationController)
-        
+    func gotoHome() {
+        let coordinator = HomeCoordinator(navigationController)
         coordinator.start()
-        
         self.coordinator = nil
     }
     
+    func gotoCreateBill() {
+        let coodinator = CreateBillCoordinator(navigationController)
+        coodinator.start()
+        self.coordinator = nil
+    }
     
 }
+

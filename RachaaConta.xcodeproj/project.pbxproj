@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0210784A2B90B75C00201704 /* LightMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021078482B90B69600201704 /* LightMapView.swift */; };
+		0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210784C2B90B93100201704 /* ContainerSearchMapView.swift */; };
 		0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022731392B88036700E34668 /* ButtonSeeBillView.swift */; };
 		022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F19182B8FB29C00474CE7 /* NeumorphismSideBarView.swift */; };
 		022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F191B2B8FB3BE00474CE7 /* BackButtonView.swift */; };
@@ -113,6 +115,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		021078482B90B69600201704 /* LightMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMapView.swift; sourceTree = "<group>"; };
+		0210784C2B90B93100201704 /* ContainerSearchMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchMapView.swift; sourceTree = "<group>"; };
 		022731392B88036700E34668 /* ButtonSeeBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSeeBillView.swift; sourceTree = "<group>"; };
 		022F19182B8FB29C00474CE7 /* NeumorphismSideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismSideBarView.swift; sourceTree = "<group>"; };
 		022F191B2B8FB3BE00474CE7 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
@@ -193,6 +197,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021078472B90B67600201704 /* LightMapView */ = {
+			isa = PBXGroup;
+			children = (
+				021078482B90B69600201704 /* LightMapView.swift */,
+			);
+			path = LightMapView;
+			sourceTree = "<group>";
+		};
+		0210784B2B90B8CE00201704 /* ContainerSearchMapView */ = {
+			isa = PBXGroup;
+			children = (
+				0210784C2B90B93100201704 /* ContainerSearchMapView.swift */,
+			);
+			path = ContainerSearchMapView;
+			sourceTree = "<group>";
+		};
 		022F19152B8FB12700474CE7 /* BackButtonView */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,19 +412,19 @@
 			isa = PBXGroup;
 			children = (
 				02B4D6112B842132005DF70B /* CellView */,
-				02BD95092B8376C600539FDE /* View */,
+				02BD95092B8376C600539FDE /* Views */,
 				02BD95082B8376C600539FDE /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		02BD95092B8376C600539FDE /* View */ = {
+		02BD95092B8376C600539FDE /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				023C63DC2B86BFB50009C432 /* FilterBillView */,
 				02BD950A2B8376C600539FDE /* HomeView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		02BD950B2B8376C600539FDE /* Theme */ = {
@@ -510,18 +530,20 @@
 		02D97E6A2B89363E009F57F8 /* CreateBill */ = {
 			isa = PBXGroup;
 			children = (
-				02D97E6B2B89365B009F57F8 /* View */,
+				02D97E6B2B89365B009F57F8 /* Views */,
 				02D97E6C2B89369F009F57F8 /* CreateBillViewController.swift */,
 			);
 			path = CreateBill;
 			sourceTree = "<group>";
 		};
-		02D97E6B2B89365B009F57F8 /* View */ = {
+		02D97E6B2B89365B009F57F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0210784B2B90B8CE00201704 /* ContainerSearchMapView */,
+				021078472B90B67600201704 /* LightMapView */,
 				02D97E6E2B8936C0009F57F8 /* CreateBillView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		02D97E722B8940E5009F57F8 /* Coordinator */ = {
@@ -854,9 +876,11 @@
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
 				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
 				023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */,
+				0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */,
 				02BD95102B8376C600539FDE /* HomeView.swift in Sources */,
 				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
 				022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */,
+				0210784A2B90B75C00201704 /* LightMapView.swift in Sources */,
 				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
 				022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */,
 				02D97E712B8936CC009F57F8 /* CreateBillView.swift in Sources */,

@@ -57,7 +57,9 @@ public class CreateBillViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        configurationsDidAppear()
     }
+    
         
 //  MARK: - PRIVATE AREA
     private func configure() {
@@ -65,10 +67,14 @@ public class CreateBillViewController: UIViewController {
     }
 
     private func configDelegate() {
-        screen.delegate = self
+        screen.lightMapView.delegate = self
         screen.backButtonView.delegate = self
+        screen.mapView.setOutput(self)
     }
 
+    private func configurationsDidAppear() {
+        screen.configMapConstraint()
+    }
     
     
     private func setupUI() {
@@ -267,17 +273,18 @@ public class CreateBillViewController: UIViewController {
 
 
 //  MARK: - EXTENSION - CreateBillViewDelegate
-extension CreateBillViewController: CreateBillViewDelegate {
+extension CreateBillViewController: LightMapViewDelegate {
+    
     func lightMapButton() {
         if screen.mapView.get.overrideUserInterfaceStyle == .dark {
             screen.mapView.setOverrideUserInterfaceStyle(.light)
-            screen.lightMapButton.setImageButton(ImageViewBuilder(systemName: "moon.fill"))
+            screen.lightMapView.lightMapButton.setImageButton(ImageViewBuilder(systemName: "moon.fill"))
                 .setImageSize(12)
                 .setTintColor(Theme.shared.currentTheme.primary)
             return
         }
         screen.mapView.setOverrideUserInterfaceStyle(.dark)
-        screen.lightMapButton.setImageButton(ImageViewBuilder(systemName: "sun.max"))
+        screen.lightMapView.lightMapButton.setImageButton(ImageViewBuilder(systemName: "sun.max"))
             .setImageSize(12)
             .setTintColor(Theme.shared.currentTheme.onSurface)
     }
@@ -290,6 +297,17 @@ extension CreateBillViewController: BackButtonViewDelegate {
     
     public func backButtonImageTapped() {
         coordinator?.gotoHome()
+    }
+    
+}
+
+
+
+//  MARK: - EXTENSION - MapBuilderOutput
+extension CreateBillViewController: MapBuilderOutput {
+    public func finishLoadingMap() {
+        screen.loadingMap.setStopAnimating()
+        
     }
     
 }

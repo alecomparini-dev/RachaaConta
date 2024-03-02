@@ -3,6 +3,7 @@
 
 import UIKit
 import CustomComponentsSDK
+import Handler
 
 class DateTimeBillView: ViewBuilder {
     
@@ -31,16 +32,16 @@ class DateTimeBillView: ViewBuilder {
             .setTextAttributed({ build in
                 build
                     .setText(text: "\(day) / " )
-                    .setAttributed(key: .font, value: UIFont(name: "TitilliumWeb-Bold", size: 18) ?? UIFont())
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebBold, size: 18) ?? UIFont())
                     .setAttributed(key: .foregroundColor, value: Theme.shared.currentTheme.onSurfaceVariant)
                     .setText(text: "\(month)" )
-                    .setAttributed(key: .font, value: UIFont(name: "TitilliumWeb-Bold", size: 17) ?? UIFont())
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebBold, size: 17) ?? UIFont())
                     .setText(text: "  \(dayWeek) \(time)")
-                    .setAttributed(key: .font, value: UIFont(name: "TitilliumWeb-ExtraLight", size: 16) ?? UIFont())
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebExtraLight, size: 16) ?? UIFont())
             })
             .setConstraints { build in
                 build
-                    .setPin.equalToSuperView(2)
+                    .setPin.equalToSuperview(2)
             }
         return comp
     }()

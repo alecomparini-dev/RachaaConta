@@ -3,6 +3,7 @@
 
 import UIKit
 import CustomComponentsSDK
+import Handler
 
 class ButtonSeeBillView: ViewBuilder {
     
@@ -19,7 +20,7 @@ class ButtonSeeBillView: ViewBuilder {
         let comp = ViewBuilder()
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView
+                    .setAlignmentCenterXY.equalToSuperview
                     .setWidth.equalToConstant(35)
                     .setHeight.equalToConstant(16)
             }
@@ -28,7 +29,7 @@ class ButtonSeeBillView: ViewBuilder {
     
     lazy var seeBillLabel: LabelBuilder = {
         let comp = LabelBuilder("ver conta")
-            .setFontFamily("TitilliumWeb-Regular", 12)
+            .setFontFamily(Const.Font.titilliumWebRegular, 12)
             .setColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setConstraints { build in
                 build
@@ -46,7 +47,7 @@ class ButtonSeeBillView: ViewBuilder {
             .setSpacing(6)
             .setConstraints { build in
                 build
-                    .setPin.equalToSuperView
+                    .setPin.equalToSuperview
             }
         return comp
     }()

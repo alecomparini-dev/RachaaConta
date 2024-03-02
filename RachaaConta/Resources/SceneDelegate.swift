@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = win
         
         let coordinator = HomeCoordinator(nav)
+//        let coordinator = CreateBillCoordinator(nav)
         coordinator.start()
         
     }

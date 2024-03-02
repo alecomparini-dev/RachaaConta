@@ -23,8 +23,8 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
             .setDistribution(.fillEqually)
             .setConstraints { build in
                 build
-                    .setLeading.equalToSuperView(8)
-                    .setVerticalAlignmentY.equalToSuperView
+                    .setLeading.equalToSuperview(8)
+                    .setVerticalAlignmentY.equalToSuperview
                     .setWidth.equalToConstant(22)
                     .setHeight.equalToConstant(12)
             }
@@ -38,8 +38,8 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
             .setSize(22)
             .setConstraints { build in
                 build
-                    .setVerticalAlignmentY.equalToSuperView
-                    .setLeading.equalToSuperView(8)
+                    .setVerticalAlignmentY.equalToSuperview
+                    .setLeading.equalToSuperview(8)
             }
         return img
     }()
@@ -53,7 +53,7 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
             .setContentMode(.center)
             .setConstraints { build in
                 build
-                    .setTrailing.equalToSuperView(-10)
+                    .setTrailing.equalToSuperview(-10)
                     .setVerticalAlignmentY.equalTo(stackView.get)
             }
         return img

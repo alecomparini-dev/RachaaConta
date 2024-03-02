@@ -2,7 +2,9 @@
 //
 
 import Foundation
+
 import CustomComponentsSDK
+import Handler
 import Presenter
 
 class BillAddressView: ViewBuilder {
@@ -25,15 +27,15 @@ class BillAddressView: ViewBuilder {
             .setWeight(.black)
             .setConstraints { build in
                 build
-                    .setVerticalAlignmentY.equalToSuperView
-                    .setLeading.equalToSuperView
+                    .setVerticalAlignmentY.equalToSuperview
+                    .setLeading.equalToSuperview
             }
         return comp
     }()
         
     lazy var addressLabel: LabelBuilder = {
         let comp = LabelBuilder()
-            .setFontFamily("TitilliumWeb-SemiBold", 14)
+            .setFontFamily(Const.Font.titilliumWebSemiBold, 14)
             .setNumberOfLines(2)
             .setTextAlignment(.left)
             .setColor(Theme.shared.currentTheme.onSurface)
@@ -41,7 +43,7 @@ class BillAddressView: ViewBuilder {
                 build
                     .setVerticalAlignmentY.equalTo(addressImage.get)
                     .setLeading.equalTo(addressImage.get, .trailing, 12)
-                    .setTrailing.equalToSuperView
+                    .setTrailing.equalToSuperview
             }
         return comp
     }()

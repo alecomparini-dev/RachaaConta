@@ -2,7 +2,9 @@
 //
 
 import UIKit
+
 import CustomComponentsSDK
+import Handler
 
 protocol SearchPlaceOnMapViewDelegate: AnyObject {
     func skipStepButtonTapped()
@@ -26,7 +28,7 @@ class SearchPlaceOnMapView: UIView {
         let comp = BackgroundView()
             .setConstraints { build in
                 build
-                    .setPin.equalToSuperView
+                    .setPin.equalToSuperview
             }
         return comp
     }()
@@ -36,7 +38,7 @@ class SearchPlaceOnMapView: UIView {
             .setConstraints { build in
                 build
                     .setTop.equalToSafeArea(16)
-                    .setLeading.equalToSuperView
+                    .setLeading.equalToSuperview
                     .setWidth.equalToConstant(50)
                     .setHeight.equalToConstant(50)
             }
@@ -72,7 +74,7 @@ class SearchPlaceOnMapView: UIView {
             .setConstraints { build in
                 build
                     .setTop.equalTo(backButtonView.get, .bottom, 8)
-                    .setLeading.setTrailing.equalToSuperView(24)
+                    .setLeading.setTrailing.equalToSuperview(24)
                     .setHeight.equalToConstant(80)
             }
         return comp
@@ -85,7 +87,7 @@ class SearchPlaceOnMapView: UIView {
             .setOverrideUserInterfaceStyle(.dark)
             .setConstraints { build in
                 build
-                    .setPin.equalToSuperView
+                    .setPin.equalToSuperview
             }
         return comp
     }()
@@ -94,7 +96,7 @@ class SearchPlaceOnMapView: UIView {
     lazy var skipStepButton: ButtonBuilder = {
         let comp = ButtonBuilder("Pular Etapa")
             .setAlpha(0)
-            .setFontFamily("TitilliumWeb-Light", 14)
+            .setFontFamily(Const.Font.titilliumWebLight, 14)
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setBackgroundColor(Theme.shared.currentTheme.surfaceContainer.withAlphaComponent(0.7))
             .setConstraints { build in

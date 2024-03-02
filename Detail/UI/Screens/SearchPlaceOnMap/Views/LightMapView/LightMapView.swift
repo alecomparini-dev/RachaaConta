@@ -24,10 +24,14 @@ class LightMapView: ViewBuilder {
             .setImageButton(ImageViewBuilder(systemName: "sun.max"))
             .setImageSize(12)
             .setTintColor(Theme.shared.currentTheme.onSurface)
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView(1)
-            }
+                    .centerAlignXY.equalToSuperview(1)
+            })
+//            .setConstraints { build in
+//                build
+//                    .setAlignmentCenterXY.equalToSuperview(1)
+//            }
             .setActions { build in
                 build
                     .setTap { [weak self] _, _ in
@@ -51,7 +55,7 @@ class LightMapView: ViewBuilder {
     }
     
     private func configConstraints() {
-        lightMapButton.applyConstraint()
+        lightMapButton.applyAutoLayout()
     }
 
     private func configBorder() {

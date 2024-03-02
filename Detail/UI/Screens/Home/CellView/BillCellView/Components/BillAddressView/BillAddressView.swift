@@ -25,10 +25,10 @@ class BillAddressView: ViewBuilder {
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setSize(14)
             .setWeight(.black)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setVerticalAlignmentY.equalToSuperview
-                    .setLeading.equalToSuperview
+                    .verticalAlignY.equalToSuperview()
+                    .leading.equalToSuperview()
             }
         return comp
     }()
@@ -39,11 +39,11 @@ class BillAddressView: ViewBuilder {
             .setNumberOfLines(2)
             .setTextAlignment(.left)
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setVerticalAlignmentY.equalTo(addressImage.get)
-                    .setLeading.equalTo(addressImage.get, .trailing, 12)
-                    .setTrailing.equalToSuperview
+                    .verticalAlignY.equalTo(addressImage.get, .centerY)
+                    .leading.equalTo(addressImage.get, .trailing, 12)
+                    .trailing.equalToSuperview()
             }
         return comp
     }()
@@ -52,7 +52,7 @@ class BillAddressView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
         configAddress()
     }
     
@@ -61,9 +61,9 @@ class BillAddressView: ViewBuilder {
         addressLabel.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        addressImage.applyConstraint()
-        addressLabel.applyConstraint()
+    private func configAutoLayout() {
+        addressImage.applyAutoLayout()
+        addressLabel.applyAutoLayout()
     }
     
     private func configAddress() {

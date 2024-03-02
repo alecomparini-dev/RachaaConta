@@ -39,9 +39,8 @@ class DateTimeBillView: ViewBuilder {
                     .setText(text: "  \(dayWeek) \(time)")
                     .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebExtraLight, size: 16) ?? UIFont())
             })
-            .setConstraints { build in
-                build
-                    .setPin.equalToSuperview(2)
+            .setAutoLayout { build in
+                build.pin.equalToSuperview(2)
             }
         return comp
     }()
@@ -50,15 +49,15 @@ class DateTimeBillView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
         dateTimeLabel.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        dateTimeLabel.applyConstraint()
+    private func configAutoLayout() {
+        dateTimeLabel.applyAutoLayout()
     }
     
 }

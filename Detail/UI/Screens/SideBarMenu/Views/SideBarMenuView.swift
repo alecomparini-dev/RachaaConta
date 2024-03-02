@@ -33,14 +33,14 @@ public class SideBarMenuView: UIView {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
         backgroundView.add(insideTo: self)
     }
     
-    private func configConstraints() {
+    private func configAutoLayout() {
         backgroundView.applyAutoLayout()
     }
     

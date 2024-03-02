@@ -21,29 +21,15 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
             .setAlignment(.fill)
             .setSpacing(3)
             .setDistribution(.fillEqually)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setLeading.equalToSuperview(8)
-                    .setVerticalAlignmentY.equalToSuperview
-                    .setWidth.equalToConstant(22)
-                    .setHeight.equalToConstant(12)
+                    .leading.equalToSuperview(8)
+                    .verticalAlignY.equalToSuperview()
+                    .width.equalToConstant(22)
+                    .height.equalToConstant(12)
             }
         return comp
     }()
-    
-    lazy var menuImage: ImageViewBuilder = {
-        let img = ImageViewBuilder(systemName: "line.3.horizontal")
-            .setTintColor(Theme.shared.currentTheme.primary)
-            .setWeight(.bold)
-            .setSize(22)
-            .setConstraints { build in
-                build
-                    .setVerticalAlignmentY.equalToSuperview
-                    .setLeading.equalToSuperview(8)
-            }
-        return img
-    }()
-    
     
     lazy var arrowOpenImageView: ImageViewBuilder = {
         let img = ImageViewBuilder(systemName: "chevron.forward")
@@ -51,10 +37,10 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
             .setSize(12)
             .setWeight(.bold)
             .setContentMode(.center)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTrailing.equalToSuperview(-10)
-                    .setVerticalAlignmentY.equalTo(stackView.get)
+                    .trailing.equalToSuperview(-10)
+                    .verticalAlignY.equalTo(stackView.get, .centerY)
             }
         return img
     }()
@@ -63,7 +49,7 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -74,9 +60,9 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
         arrowOpenImageView.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        stackView.applyConstraint()
-        arrowOpenImageView.applyConstraint()
+    private func configAutoLayout() {
+        stackView.applyAutoLayout()
+        arrowOpenImageView.applyAutoLayout()
     }
 
     private func createUnderline() -> StrokeView {

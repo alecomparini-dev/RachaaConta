@@ -25,11 +25,11 @@ class BackButtonView: NeumorphismSideBarView {
         let comp = ButtonImageBuilder(imageView)
             .setTintColor(Theme.shared.currentTheme.primary)
             .setImageWeight(.bold)
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setVerticalAlignmentY.equalToSuperview
-                    .setHorizontalAlignmentX.equalToSuperview(-4)
-            }
+                    .verticalAlignY.equalToSuperview()
+                    .horizontalAlignX.equalToSuperview(-5)
+            })
             .setActions { build in
                 build
                     .setTap { [weak self] _, _ in
@@ -43,15 +43,15 @@ class BackButtonView: NeumorphismSideBarView {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
         backButtonImage.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        backButtonImage.applyConstraint()
+    private func configAutoLayout() {
+        backButtonImage.applyAutoLayout()
     }
     
 }

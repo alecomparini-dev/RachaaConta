@@ -21,19 +21,19 @@ class PersonBillView: ViewBuilder {
     
     lazy var strokeVertical: StrokeView = {
         let comp = StrokeView(gradientColor: [Theme.shared.currentTheme.surfaceContainer, Theme.shared.currentTheme.surfaceContainerHigh], cornerRadius: 2)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setPinLeft.equalToSuperview(2)
-                    .setWidth.equalToConstant(2)
+                    .pinLeft.equalToSuperview(2)
+                    .width.equalToConstant(2)
             }
         return comp
     }()
     
     lazy var container: ViewBuilder = {
         let comp = ViewBuilder()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperview
+                    .centerAlignXY.equalToSuperview()
             }
         return comp
     }()
@@ -44,10 +44,10 @@ class PersonBillView: ViewBuilder {
             .setAxis(.horizontal)
             .setDistribution(.fill)
             .setSpacing(4)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setLeading.equalToSuperview(4)
-                    .setTop.setTrailing.setBottom.equalToSuperview
+                    .leading.equalToSuperview(4)
+                    .pinRight.equalToSuperview()
             }
         return comp
     }()
@@ -74,7 +74,7 @@ class PersonBillView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -85,10 +85,10 @@ class PersonBillView: ViewBuilder {
         personImage.add(insideTo: stackView.get)
     }
     
-    private func configConstraints() {
-        strokeVertical.applyConstraint()
-        container.applyConstraint()
-        stackView.applyConstraint()
+    private func configAutoLayout() {
+        strokeVertical.applyAutoLayout()
+        container.applyAutoLayout()
+        stackView.applyAutoLayout()
     }
     
 }

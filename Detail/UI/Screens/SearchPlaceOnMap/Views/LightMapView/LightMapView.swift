@@ -28,10 +28,6 @@ class LightMapView: ViewBuilder {
                 build
                     .centerAlignXY.equalToSuperview(1)
             })
-//            .setConstraints { build in
-//                build
-//                    .setAlignmentCenterXY.equalToSuperview(1)
-//            }
             .setActions { build in
                 build
                     .setTap { [weak self] _, _ in
@@ -45,7 +41,7 @@ class LightMapView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
         configBorder()
         configNeumorphism()
     }
@@ -54,7 +50,7 @@ class LightMapView: ViewBuilder {
         lightMapButton.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
+    private func configAutoLayout() {
         lightMapButton.applyAutoLayout()
     }
 

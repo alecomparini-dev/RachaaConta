@@ -36,13 +36,6 @@ class CreateBillView: UIView {
                     .leading.equalToSuperview()
                     .size.equalToConstant(50)
             })
-            .setConstraints { build in
-                build
-                    .setTop.equalToSafeArea(16)
-                    .setLeading.equalToSuperview
-                    .setWidth.equalToConstant(50)
-                    .setHeight.equalToConstant(50)
-            }
         return comp
     }()
     
@@ -67,13 +60,6 @@ class CreateBillView: UIView {
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })
-            .setConstraints { build in
-                build
-                    .setTop.equalTo(backButtonView.get, .bottom, 56)
-                    .setLeading.equalToSafeArea(24)
-                    .setTrailing.equalToSafeArea(-24)
-                    .setHeight.equalToConstant(50)
-            }
         return comp
     }()
     
@@ -137,7 +123,7 @@ class CreateBillView: UIView {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -148,14 +134,12 @@ class CreateBillView: UIView {
         saveButton.add(insideTo: self)
     }
     
-    private func configConstraints() {
+    private func configAutoLayout() {
         backgroundView.applyAutoLayout()
         backButtonView.applyAutoLayout()
         nameBillTextField.applyAutoLayout()
         underline.applyAutoLayout()
         saveButton.applyAutoLayout()
-
-        
     }
         
     

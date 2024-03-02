@@ -24,7 +24,7 @@ class ButtonFloatView: ButtonImageBuilder {
             .setWeight(.black)
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView(-1)
+                    .setAlignmentCenterXY.equalToSuperview(-1)
             }
         return img
     }()
@@ -38,7 +38,7 @@ class ButtonFloatView: ButtonImageBuilder {
             })
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView
+                    .setAlignmentCenterXY.equalToSuperview
                     .setHeight.equalToConstant(24)
                     .setWidth.equalToConstant(4)
             }
@@ -54,7 +54,7 @@ class ButtonFloatView: ButtonImageBuilder {
             })
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView
+                    .setAlignmentCenterXY.equalToSuperview
                     .setHeight.equalToConstant(4)
                     .setWidth.equalToConstant(24)
             }

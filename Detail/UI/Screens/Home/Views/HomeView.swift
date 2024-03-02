@@ -29,10 +29,10 @@ class HomeView: UIView {
 //  MARK: - LAZY PROPERTIES
     lazy var backgroundView: BackgroundView = {
         let comp = BackgroundView()
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setPin.equalToSuperView
-            }
+                    .pin.equalToSuperview()
+            })
         return comp
     }()
     
@@ -47,21 +47,21 @@ class HomeView: UIView {
         let comp = TopViewAnimationHeightWithScrollBuilder(height: (ini: 0, end: 130))
             .setView(topBlur)
             .setAnimationDirection(.topToBottom)
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setPinTop.equalToSuperView
-            }
+                    .pinTop.equalToSuperview()
+            })
         return comp
     }()
     
     lazy var buttonSideBarMenuView: ButtonSideBarMenuView = {
         let view = ButtonSideBarMenuView()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalToSafeArea(16)
-                    .setLeading.equalToSuperView
-                    .setWidth.equalToConstant(58)
-                    .setHeight.equalToConstant(50)
+                    .top.equalToSafeArea(16)
+                    .leading.equalToSuperview()
+                    .width.equalToConstant(58)
+                    .height.equalToConstant(50)
             }
         return view
     }()
@@ -75,23 +75,23 @@ class HomeView: UIView {
                     .setColor(hexColor: Theme.shared.currentTheme.primary.toHexString)
                     .setShadowColor(hexColor: "#000000")
             })
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setVerticalAlignmentY.equalTo(buttonSideBarMenuView.get)
-                    .setTrailing.equalToSafeArea(-24)
-                    .setWidth.equalToConstant(110)
-                    .setHeight.equalToConstant(35)
-            }
+                    .verticalAlignY.equalTo(buttonSideBarMenuView.get)
+                    .trailing.equalToSafeArea(-24)
+                    .width.equalToConstant(110)
+                    .height.equalToConstant(35)
+            })
         return clock
     }()
     
     lazy var createBillButtonFloat: ButtonFloatView = {
         let view = ButtonFloatView()
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setTrailing.setBottom.equalToSafeArea(16)
-                    .setWidth.setHeight.equalToConstant(55)
-            }
+                    .trailing.bottom.equalToSafeArea(16)
+                    .size.equalToConstant(55)
+            })
             .setActions { build in
                 build
                     .setTap { [weak self] _, _ in
@@ -110,9 +110,9 @@ class HomeView: UIView {
             .setPadding(top: 65, left: 0, bottom: 100, right: 0)
             .setRegisterCell(BillTableCellView.self)
             .setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 1 , height: constantHeight))))
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setPin.equalToSuperView
+                    .pin.equalToSafeArea()
             }
         return comp
     }()
@@ -125,10 +125,10 @@ class HomeView: UIView {
     lazy var bottomBlur: BlurBuilder = {
         let comp = BlurBuilder(style: .dark)
             .setHidden(true)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(createBillButtonFloat.get, .top, -8)
-                    .setPinBottom.equalToSuperView
+                    .top.equalTo(createBillButtonFloat.get, .top, -8)
+                    .pinBottom.equalToSuperview()
             }
         return comp
     }()
@@ -153,13 +153,13 @@ class HomeView: UIView {
     }
     
     private func configConstraints() {
-        backgroundView.applyConstraint()
-        listBillTableView.applyConstraint()
-        clock.applyConstraint()
-        buttonSideBarMenuView.applyConstraint()
-        createBillButtonFloat.applyConstraint()
-        bottomBlur.applyConstraint()
-        topViewAnimation.applyConstraint()
+        backgroundView.applyAutoLayout()
+        listBillTableView.applyAutoLayout()
+        clock.applyAutoLayout()
+        buttonSideBarMenuView.applyAutoLayout()
+        createBillButtonFloat.applyAutoLayout()
+        bottomBlur.applyAutoLayout()
+        topViewAnimation.applyAutoLayout()
         
     }
     

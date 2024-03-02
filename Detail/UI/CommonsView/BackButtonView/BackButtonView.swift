@@ -27,8 +27,8 @@ class BackButtonView: NeumorphismSideBarView {
             .setImageWeight(.bold)
             .setConstraints { build in
                 build
-                    .setVerticalAlignmentY.equalToSuperView
-                    .setHorizontalAlignmentX.equalToSuperView(-4)
+                    .setVerticalAlignmentY.equalToSuperview
+                    .setHorizontalAlignmentX.equalToSuperview(-4)
             }
             .setActions { build in
                 build

@@ -2,7 +2,9 @@
 //
 
 import UIKit
+
 import CustomComponentsSDK
+import Handler
 
 class FilterBillView: ViewBuilder {
     
@@ -31,9 +33,9 @@ class FilterBillView: ViewBuilder {
             })
             .setConstraints { build in
                 build
-                    .setTop.equalToSuperView(16)
-                    .setLeading.setTrailing.equalToSuperView(16)
-                    .setBottom.equalToSuperView(-24)
+                    .setTop.equalToSuperview(16)
+                    .setLeading.setTrailing.equalToSuperview(16)
+                    .setBottom.equalToSuperview(-24)
             }
         return comp
     }()
@@ -42,7 +44,7 @@ class FilterBillView: ViewBuilder {
     lazy var filterLabel: LabelBuilder = {
         return LabelBuilder("Filtros:")
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setFontFamily("TitilliumWeb-ExtraLight", 18)
+            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
             .setConstraints { build in
                 build
                     .setTop.equalTo(backgroundView.get, .top, 18)
@@ -63,7 +65,7 @@ class FilterBillView: ViewBuilder {
     
     lazy var filterTextField: TextFieldBuilder = {
         let comp = TextFieldBuilder(placeHolder: "Pesquisar...")
-            .setFontFamily("TitilliumWeb-Light", 16)
+            .setFontFamily(Const.Font.titilliumWebLight, 16)
             .setPadding(15)
             .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.8))
             .setTintColor(Theme.shared.currentTheme.onSurface)
@@ -80,7 +82,7 @@ class FilterBillView: ViewBuilder {
             .setConstraints { build in
                 build
                     .setTop.equalTo(underLineView.get, .bottom , 20)
-                    .setLeading.setTrailing.equalToSuperView(40)
+                    .setLeading.setTrailing.equalToSuperview(40)
                     .setHeight.equalToConstant(45)
             }
         return comp

@@ -3,6 +3,7 @@
 
 import UIKit
 import CustomComponentsSDK
+import Handler
 import Presenter
 
 class BillTableCellView: UITableViewCell {
@@ -23,8 +24,8 @@ class BillTableCellView: UITableViewCell {
         let comp = DotView(size: size)
             .setConstraints { build in
                 build
-                    .setTop.equalToSuperView(16)
-                    .setLeading.equalToSuperView(16)
+                    .setTop.equalToSuperview(16)
+                    .setLeading.equalToSuperview(16)
                     .setSize.equalToConstant(size)
             }
         return comp
@@ -37,14 +38,14 @@ class BillTableCellView: UITableViewCell {
                     .setTop.equalTo(dotView.get, .bottom, 10)
                     .setHorizontalAlignmentX.equalTo(dotView.get, 1)
                     .setWidth.equalToConstant(7)
-                    .setBottom.equalToSuperView(-16)
+                    .setBottom.equalToSuperview(-16)
             }
         return comp
     }()
     
     lazy var titleLabel: LabelBuilder = {
         let comp = LabelBuilder(billPresenterDTO.title ?? "")
-            .setFontFamily("TitilliumWeb-SemiBold", 18)
+            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
             .setShadow({ build in
                 build
                     .setRadius(4)
@@ -57,7 +58,7 @@ class BillTableCellView: UITableViewCell {
                 build
                     .setVerticalAlignmentY.equalTo(dotView.get)
                     .setLeading.equalTo(dotView.get, .trailing, 12)
-                    .setTrailing.equalToSuperView(-16)
+                    .setTrailing.equalToSuperview(-16)
             }
         return comp
     }()
@@ -68,7 +69,7 @@ class BillTableCellView: UITableViewCell {
                 build
                     .setTop.equalTo(titleLabel.get, .bottom, -6)
                     .setLeading.equalTo(titleLabel.get, .leading, 8)
-                    .setTrailing.equalToSuperView(-80)
+                    .setTrailing.equalToSuperview(-80)
             }
         return comp
     }()
@@ -90,8 +91,8 @@ class BillTableCellView: UITableViewCell {
                 build
                     .setTop.equalTo(dateTimeBillView.get, .bottom, 4)
                     .setLeading.equalTo(lineVerticalView.get, .trailing, 16)
-                    .setTrailing.equalToSuperView(-16)
-                    .setBottom.equalToSuperView(-28)
+                    .setTrailing.equalToSuperview(-16)
+                    .setBottom.equalToSuperview(-28)
             }
         return comp
     }()
@@ -100,8 +101,8 @@ class BillTableCellView: UITableViewCell {
         let comp = ButtonSeeBillView()
             .setConstraints { build in
                 build
-                    .setTop.equalToSuperView(4)
-                    .setTrailing.equalToSuperView(-8)
+                    .setTop.equalToSuperview(4)
+                    .setTrailing.equalToSuperview(-8)
                     .setWidth.setHeight.equalToConstant(45)
             }
         return comp
@@ -111,9 +112,9 @@ class BillTableCellView: UITableViewCell {
         let comp = AmountPaidView(amount: billPresenterDTO.amountPaid)
             .setConstraints { build in
                 build
-                    .setTop.equalToSuperView(14)
-                    .setLeading.equalToSuperView(16)
-                    .setTrailing.equalToSuperView(-50)
+                    .setTop.equalToSuperview(14)
+                    .setLeading.equalToSuperview(16)
+                    .setTrailing.equalToSuperview(-50)
                     .setHeight.equalToConstant(50)
             }
         return comp
@@ -125,7 +126,7 @@ class BillTableCellView: UITableViewCell {
                 build
                     .setTop.equalTo(amountPaid.get, .bottom, 16)
                     .setLeading.equalTo(amountPaid.get, .leading)
-                    .setTrailing.equalToSuperView(-85)
+                    .setTrailing.equalToSuperview(-85)
                     .setHeight.equalToConstant(50)
 
             }
@@ -139,7 +140,7 @@ class BillTableCellView: UITableViewCell {
                 build
                     .setVerticalAlignmentY.equalTo(billAddress.get)
                     .setLeading.equalTo(billAddress.get, .trailing, 12)
-                    .setTrailing.equalToSuperView
+                    .setTrailing.equalToSuperview
                     .setHeight.equalTo(amountPaid.get)
             }
         return comp

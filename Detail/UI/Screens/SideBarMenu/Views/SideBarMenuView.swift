@@ -22,10 +22,9 @@ public class SideBarMenuView: UIView {
 //  MARK: - LAZY PROPERTIES
     lazy var backgroundView: BackgroundView = {
         let comp = BackgroundView()
-            .setConstraints { build in
-                build
-                    .setPin.equalToSuperView
-            }
+            .setAutoLayout({ build in
+                build.pin.equalToSuperview()
+            })
         return comp
     }()
     
@@ -42,7 +41,7 @@ public class SideBarMenuView: UIView {
     }
     
     private func configConstraints() {
-        backgroundView.applyConstraint()
+        backgroundView.applyAutoLayout()
     }
     
 }

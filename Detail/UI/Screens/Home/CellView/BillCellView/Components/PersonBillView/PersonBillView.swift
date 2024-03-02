@@ -2,7 +2,9 @@
 //
 
 import Foundation
+
 import CustomComponentsSDK
+import Handler
 
 class PersonBillView: ViewBuilder {
     
@@ -21,7 +23,7 @@ class PersonBillView: ViewBuilder {
         let comp = StrokeView(gradientColor: [Theme.shared.currentTheme.surfaceContainer, Theme.shared.currentTheme.surfaceContainerHigh], cornerRadius: 2)
             .setConstraints { build in
                 build
-                    .setPinLeft.equalToSuperView(2)
+                    .setPinLeft.equalToSuperview(2)
                     .setWidth.equalToConstant(2)
             }
         return comp
@@ -31,7 +33,7 @@ class PersonBillView: ViewBuilder {
         let comp = ViewBuilder()
             .setConstraints { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperView
+                    .setAlignmentCenterXY.equalToSuperview
             }
         return comp
     }()
@@ -44,8 +46,8 @@ class PersonBillView: ViewBuilder {
             .setSpacing(4)
             .setConstraints { build in
                 build
-                    .setLeading.equalToSuperView(4)
-                    .setTop.setTrailing.setBottom.equalToSuperView
+                    .setLeading.equalToSuperview(4)
+                    .setTop.setTrailing.setBottom.equalToSuperview
             }
         return comp
     }()
@@ -53,7 +55,7 @@ class PersonBillView: ViewBuilder {
     lazy var personLabel: LabelBuilder = {
         let comp = LabelBuilder(count)
             .setTextAlignment(.center)
-            .setFontFamily("TitilliumWeb-Regular", 24)
+            .setFontFamily(Const.Font.titilliumWebRegular, 24)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()

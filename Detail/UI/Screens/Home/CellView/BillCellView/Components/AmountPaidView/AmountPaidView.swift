@@ -4,6 +4,7 @@
 import Foundation
 
 import CustomComponentsSDK
+import Handler
 
 class AmountPaidView: ViewBuilder {
     
@@ -25,8 +26,8 @@ class AmountPaidView: ViewBuilder {
             .setSize(14)
             .setConstraints { build in
                 build
-                    .setVerticalAlignmentY.equalToSuperView
-                    .setLeading.equalToSuperView
+                    .setVerticalAlignmentY.equalToSuperview
+                    .setLeading.equalToSuperview
             }
         return comp
     }()
@@ -39,7 +40,7 @@ class AmountPaidView: ViewBuilder {
             .setSpacing(0)
             .setConstraints { build in
                 build
-                    .setPinRight.equalToSuperView
+                    .setPinRight.equalToSuperview
                     .setLeading.equalTo(amountImage.get, .trailing, 10)
             }
         return comp
@@ -48,7 +49,7 @@ class AmountPaidView: ViewBuilder {
     lazy var amountTitleLabel: LabelBuilder = {
         let comp = LabelBuilder("Valor Pago")
             .setTextAlignment(.natural)
-            .setFontFamily("TitilliumWeb-Light", 16)
+            .setFontFamily(Const.Font.titilliumWebLight, 16)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()
@@ -56,7 +57,7 @@ class AmountPaidView: ViewBuilder {
     lazy var amountLabel: LabelBuilder = {
         let comp = LabelBuilder(amount)
             .setTextAlignment(.natural)
-            .setFontFamily("TitilliumWeb-SemiBold", 18)
+            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()

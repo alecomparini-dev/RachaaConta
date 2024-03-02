@@ -24,7 +24,7 @@ class ContainerSearchMapView: ViewBuilder {
             })
             .setConstraints { build in
                 build
-                    .setPin.equalToSuperView
+                    .setPin.equalToSuperview
             }
         return comp
     }()

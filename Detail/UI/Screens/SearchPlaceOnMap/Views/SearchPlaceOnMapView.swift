@@ -26,32 +26,30 @@ class SearchPlaceOnMapView: UIView {
 //  MARK: - LAZY PROPERTIES
     lazy var backgroundView: BackgroundView = {
         let comp = BackgroundView()
-            .setConstraints { build in
-                build
-                    .setPin.equalToSuperview
+            .setAutoLayout { build in
+                build.pin.equalToSuperview()
             }
         return comp
     }()
     
     lazy var backButtonView: BackButtonView = {
         let comp = BackButtonView()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalToSafeArea(16)
-                    .setLeading.equalToSuperview
-                    .setWidth.equalToConstant(50)
-                    .setHeight.equalToConstant(50)
+                    .top.equalToSafeArea(16)
+                    .leading.equalToSuperview()
+                    .size.equalToConstant(50)
             }
         return comp
     }()
 
     lazy var lightMapView: LightMapView = {
         let comp = LightMapView()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setVerticalAlignmentY.equalTo(backButtonView.get, -2)
-                    .setTrailing.equalToSafeArea(-24)
-                    .setSize.equalToConstant(30)
+                    .verticalAlignY.equalTo(backButtonView.get, .centerY, -2)
+                    .trailing.equalToSafeArea(-24)
+                    .size.equalToConstant(30)
             }
         return comp
     }()
@@ -61,9 +59,9 @@ class SearchPlaceOnMapView: UIView {
             .setStartAnimating()
             .setHideWhenStopped(true)
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setAlignmentCenterXY.equalToSafeArea
+                    .centerAlignXY.equalToSafeArea()
             }
         return comp
     }()
@@ -71,11 +69,11 @@ class SearchPlaceOnMapView: UIView {
     lazy var containerSearchBlurView: ContainerSearchMapView = {
         let comp = ContainerSearchMapView()
             .setAlpha(0)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(backButtonView.get, .bottom, 8)
-                    .setLeading.setTrailing.equalToSuperview(24)
-                    .setHeight.equalToConstant(80)
+                    .top.equalTo(backButtonView.get, .bottom, 8)
+                    .leading.trailing.equalToSuperview(24)
+                    .height.equalToConstant(80)
             }
         return comp
     }()
@@ -85,9 +83,8 @@ class SearchPlaceOnMapView: UIView {
             .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife, .store, .winery, .theater, .movieTheater], 200)
             .setPinNaturalLanguage("fast-food", 200)
             .setOverrideUserInterfaceStyle(.dark)
-            .setConstraints { build in
-                build
-                    .setPin.equalToSuperview
+            .setAutoLayout { build in
+                build.pin.equalToSuperview()
             }
         return comp
     }()
@@ -99,11 +96,11 @@ class SearchPlaceOnMapView: UIView {
             .setFontFamily(Const.Font.titilliumWebLight, 14)
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setBackgroundColor(Theme.shared.currentTheme.surfaceContainer.withAlphaComponent(0.7))
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setBottom.setTrailing.equalToSafeArea(16)
-                    .setWidth.equalToConstant(110)
-                    .setHeight.equalToConstant(32)
+                    .bottom.trailing.equalToSafeArea(16)
+                    .width.equalToConstant(110)
+                    .height.equalToConstant(32)
             }
         comp.get.addTarget(self, action: #selector(skipStepButtonTapped), for: .touchUpInside)
         return comp
@@ -115,15 +112,15 @@ class SearchPlaceOnMapView: UIView {
     
     
 //  MARK: - PUBLIC AREA
-    func configMapConstraint() {
-        mapView.applyConstraint()
+    func configMapAutoLayout() {
+        mapView.applyAutoLayout()
     }
     
     
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -136,13 +133,13 @@ class SearchPlaceOnMapView: UIView {
         skipStepButton.add(insideTo: self)
     }
     
-    private func configConstraints() {
-        backgroundView.applyConstraint()
-        backButtonView.applyConstraint()
-        lightMapView.applyConstraint()
-        loadingMap.applyConstraint()
-        containerSearchBlurView.applyConstraint()
-        skipStepButton.applyConstraint()
+    private func configAutoLayout() {
+        backgroundView.applyAutoLayout()
+        backButtonView.applyAutoLayout()
+        lightMapView.applyAutoLayout()
+        loadingMap.applyAutoLayout()
+        containerSearchBlurView.applyAutoLayout()
+        skipStepButton.applyAutoLayout()
     }
     
 }

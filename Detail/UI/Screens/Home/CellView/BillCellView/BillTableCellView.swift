@@ -22,23 +22,22 @@ class BillTableCellView: UITableViewCell {
     lazy var dotView: DotView = {
         let size: CGFloat = 14
         let comp = DotView(size: size)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalToSuperview(16)
-                    .setLeading.equalToSuperview(16)
-                    .setSize.equalToConstant(size)
+                    .top.leading.equalToSuperview(16)
+                    .size.equalToConstant(size)
             }
         return comp
     }()
     
     lazy var lineVerticalView: LineVerticalView = {
         let comp = LineVerticalView()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(dotView.get, .bottom, 10)
-                    .setHorizontalAlignmentX.equalTo(dotView.get, 1)
-                    .setWidth.equalToConstant(7)
-                    .setBottom.equalToSuperview(-16)
+                    .top.equalTo(dotView.get, .bottom, 10)
+                    .horizontalAlignX.equalTo(dotView.get, .centerX, 1)
+                    .width.equalToConstant(7)
+                    .bottom.equalToSuperview(-16)
             }
         return comp
     }()
@@ -54,26 +53,25 @@ class BillTableCellView: UITableViewCell {
             })
             .setNumberOfLines(1)
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setVerticalAlignmentY.equalTo(dotView.get)
-                    .setLeading.equalTo(dotView.get, .trailing, 12)
-                    .setTrailing.equalToSuperview(-16)
+                    .verticalAlignY.equalTo(dotView.get, .centerY)
+                    .leading.equalTo(dotView.get, .trailing, 12)
+                    .trailing.equalToSuperview(-16)
             }
         return comp
     }()
     
     lazy var dateTimeBillView: DateTimeBillView = {
         let comp = DateTimeBillView(day: billPresenterDTO.day, month: billPresenterDTO.month, dayWeek: billPresenterDTO.dayOfWeek, time: billPresenterDTO.time)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(titleLabel.get, .bottom, -6)
-                    .setLeading.equalTo(titleLabel.get, .leading, 8)
-                    .setTrailing.equalToSuperview(-80)
+                    .top.equalTo(titleLabel.get, .bottom, -6)
+                    .leading.equalTo(titleLabel.get, .leading, 8)
+                    .trailing.equalToSuperview(-80)
             }
         return comp
     }()
-    
     
     lazy var backgroundColorView: ViewBuilder = {
         let comp = ViewBuilder()
@@ -87,61 +85,59 @@ class BillTableCellView: UITableViewCell {
                 build
                     .setCornerRadius(10)
             })
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(dateTimeBillView.get, .bottom, 4)
-                    .setLeading.equalTo(lineVerticalView.get, .trailing, 16)
-                    .setTrailing.equalToSuperview(-16)
-                    .setBottom.equalToSuperview(-28)
+                    .top.equalTo(dateTimeBillView.get, .bottom, 4)
+                    .leading.equalTo(lineVerticalView.get, .trailing, 16)
+                    .trailing.equalToSuperview(-16)
+                    .bottom.equalToSuperview(-28)
             }
         return comp
     }()
     
     lazy var buttonSeeBillView: ButtonSeeBillView = {
         let comp = ButtonSeeBillView()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalToSuperview(4)
-                    .setTrailing.equalToSuperview(-8)
-                    .setWidth.setHeight.equalToConstant(45)
+                    .top.equalToSuperview(4)
+                    .trailing.equalToSuperview(-8)
+                    .size.equalToConstant(45)
             }
         return comp
     }()
     
     lazy var amountPaid: AmountPaidView = {
         let comp = AmountPaidView(amount: billPresenterDTO.amountPaid)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalToSuperview(14)
-                    .setLeading.equalToSuperview(16)
-                    .setTrailing.equalToSuperview(-50)
-                    .setHeight.equalToConstant(50)
+                    .top.equalToSuperview(14)
+                    .leading.equalToSuperview(16)
+                    .trailing.equalToSuperview(-50)
+                    .height.equalToConstant(50)
             }
         return comp
     }()
     
     lazy var billAddress: BillAddressView = {
         let comp = BillAddressView(address: billPresenterDTO.address)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(amountPaid.get, .bottom, 16)
-                    .setLeading.equalTo(amountPaid.get, .leading)
-                    .setTrailing.equalToSuperview(-85)
-                    .setHeight.equalToConstant(50)
-
+                    .top.equalTo(amountPaid.get, .bottom, 16)
+                    .leading.equalTo(amountPaid.get, .leading)
+                    .trailing.equalToSuperview(-85)
+                    .height.equalToConstant(50)
             }
         return comp
     }()
-
     
     lazy var personBillView: PersonBillView = {
         let comp = PersonBillView(count: billPresenterDTO.countPerson)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setVerticalAlignmentY.equalTo(billAddress.get)
-                    .setLeading.equalTo(billAddress.get, .trailing, 12)
-                    .setTrailing.equalToSuperview
-                    .setHeight.equalTo(amountPaid.get)
+                    .verticalAlignY.equalTo(billAddress.get, .centerY)
+                    .leading.equalTo(billAddress.get, .trailing, 12)
+                    .trailing.equalToSuperview()
+                    .height.equalTo(amountPaid.get)
             }
         return comp
     }()
@@ -152,7 +148,7 @@ class BillTableCellView: UITableViewCell {
     private func configure() {
         configStyleCell()
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func configStyleCell() {
@@ -165,25 +161,23 @@ class BillTableCellView: UITableViewCell {
         lineVerticalView.add(insideTo: self.contentView)
         titleLabel.add(insideTo: self.contentView)
         dateTimeBillView.add(insideTo: self.contentView)
-
         backgroundColorView.add(insideTo: self.contentView)
         buttonSeeBillView.add(insideTo: backgroundColorView.get)
         billAddress.add(insideTo: backgroundColorView.get)
         amountPaid.add(insideTo: backgroundColorView.get)
         personBillView.add(insideTo: backgroundColorView.get)
-
     }
     
-    private func configConstraints() {
-        dotView.applyConstraint()
-        lineVerticalView.applyConstraint()
-        titleLabel.applyConstraint()
-        dateTimeBillView.applyConstraint()
-        buttonSeeBillView.applyConstraint()
-        backgroundColorView.applyConstraint()
-        billAddress.applyConstraint()
-        amountPaid.applyConstraint()
-        personBillView.applyConstraint()
+    private func configAutoLayout() {
+        dotView.applyAutoLayout()
+        lineVerticalView.applyAutoLayout()
+        titleLabel.applyAutoLayout()
+        dateTimeBillView.applyAutoLayout()
+        buttonSeeBillView.applyAutoLayout()
+        backgroundColorView.applyAutoLayout()
+        billAddress.applyAutoLayout()
+        amountPaid.applyAutoLayout()
+        personBillView.applyAutoLayout()
     }
     
     

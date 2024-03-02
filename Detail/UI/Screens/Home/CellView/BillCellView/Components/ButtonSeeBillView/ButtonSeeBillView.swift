@@ -18,11 +18,11 @@ class ButtonSeeBillView: ViewBuilder {
 
     lazy var containerButton: ViewBuilder = {
         let comp = ViewBuilder()
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperview
-                    .setWidth.equalToConstant(35)
-                    .setHeight.equalToConstant(16)
+                    .centerAlignXY.equalToSuperview()
+                    .width.equalToConstant(35)
+                    .height.equalToConstant(16)
             }
         return comp
     }()
@@ -31,10 +31,10 @@ class ButtonSeeBillView: ViewBuilder {
         let comp = LabelBuilder("ver conta")
             .setFontFamily(Const.Font.titilliumWebRegular, 12)
             .setColor(Theme.shared.currentTheme.onSurfaceVariant)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(containerButton.get, .bottom, 8)
-                    .setHorizontalAlignmentX.equalTo(containerButton.get, -4)
+                    .top.equalTo(containerButton.get, .bottom, 8)
+                    .horizontalAlignX.equalTo(containerButton.get, .centerX, -4)
             }
         return comp
     }()
@@ -45,9 +45,9 @@ class ButtonSeeBillView: ViewBuilder {
             .setAxis(.horizontal)
             .setDistribution(.fillEqually)
             .setSpacing(6)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setPin.equalToSuperview
+                    .pin.equalToSuperview()
             }
         return comp
     }()
@@ -75,7 +75,7 @@ class ButtonSeeBillView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -84,14 +84,13 @@ class ButtonSeeBillView: ViewBuilder {
         hStackContainer.add(insideTo: containerButton.get)
         vStackLeftView.add(insideTo: hStackContainer.get)
         hStackRightView.add(insideTo: hStackContainer.get)
-
         addDots()
     }
     
-    private func configConstraints() {
-        containerButton.applyConstraint()
-        seeBillLabel.applyConstraint()
-        hStackContainer.applyConstraint()
+    private func configAutoLayout() {
+        containerButton.applyAutoLayout()
+        seeBillLabel.applyAutoLayout()
+        hStackContainer.applyAutoLayout()
     }
     
     private func addDots() {
@@ -112,9 +111,6 @@ class ButtonSeeBillView: ViewBuilder {
         let dot3 = DotView(size: size, color)
         dot3.add(insideTo: viewDot3.get)
         viewDot3.add(insideTo: hStackRightView.get)
-
     }
-    
-    
     
 }

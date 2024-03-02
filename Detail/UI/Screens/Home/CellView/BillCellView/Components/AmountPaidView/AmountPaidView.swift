@@ -24,10 +24,10 @@ class AmountPaidView: ViewBuilder {
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setWeight(.bold)
             .setSize(14)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setVerticalAlignmentY.equalToSuperview
-                    .setLeading.equalToSuperview
+                    .verticalAlignY.equalToSuperview()
+                    .leading.equalToSuperview()
             }
         return comp
     }()
@@ -38,10 +38,10 @@ class AmountPaidView: ViewBuilder {
             .setAxis(.vertical)
             .setDistribution(.fillEqually)
             .setSpacing(0)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setPinRight.equalToSuperview
-                    .setLeading.equalTo(amountImage.get, .trailing, 10)
+                    .pinRight.equalToSuperview()
+                    .leading.equalTo(amountImage.get, .trailing, 10)
             }
         return comp
     }()
@@ -66,7 +66,7 @@ class AmountPaidView: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -76,9 +76,9 @@ class AmountPaidView: ViewBuilder {
         amountLabel.add(insideTo: stackView.get)
     }
     
-    private func configConstraints() {
-        amountImage.applyConstraint()
-        stackView.applyConstraint()
+    private func configAutoLayout() {
+        amountImage.applyAutoLayout()
+        stackView.applyAutoLayout()
     }
     
 }

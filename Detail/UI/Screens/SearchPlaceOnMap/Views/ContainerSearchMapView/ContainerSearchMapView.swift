@@ -22,9 +22,8 @@ class ContainerSearchMapView: ViewBuilder {
                 build
                     .setCornerRadius(12)
             })
-            .setConstraints { build in
-                build
-                    .setPin.equalToSuperview
+            .setAutoLayout { build in
+                build.pin.equalToSuperview()
             }
         return comp
     }()
@@ -42,12 +41,12 @@ class ContainerSearchMapView: ViewBuilder {
                     .setOffset(width: 0, height: 0)
                     .apply()
             })
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(containerSearchBlurView.get, .bottom)
-                    .setLeading.equalTo(containerSearchBlurView.get, .leading, 16)
-                    .setTrailing.equalTo(containerSearchBlurView.get, .trailing, 6)
-                    .setHeight.equalToConstant(24)
+                    .top.equalTo(containerSearchBlurView.get, .bottom)
+                    .leading.equalTo(containerSearchBlurView.get, .leading, 16)
+                    .trailing.equalTo(containerSearchBlurView.get, .trailing, 6)
+                    .height.equalToConstant(24)
             }
         return comp
     }()
@@ -57,7 +56,7 @@ class ContainerSearchMapView: ViewBuilder {
     private func configure() {
         configBackgroundColor()
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func configBackgroundColor() {
@@ -69,29 +68,10 @@ class ContainerSearchMapView: ViewBuilder {
         containerShadow.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        containerSearchBlurView.applyConstraint()
-        containerShadow.applyConstraint()
+    private func configAutoLayout() {
+        containerSearchBlurView.applyAutoLayout()
+        containerShadow.applyAutoLayout()
     }
 
-
-    
-//    private func configNeumorphism() {
-//        self.setNeumorphism { build in
-//            build
-//                .setReferenceColor(Theme.shared.currentTheme.backgroundColor)
-//                .setShape(.concave)
-//                .setLightPosition(.leftTop)
-//                .setIntensity(to: .light, percent: 30)
-//                .setIntensity(to: .dark, percent: 100)
-//                .setBlur(to: .light, percent: 8)
-//                .setBlur(to: .dark, percent: 10)
-//                .setDistance(to: .light, percent: 4)
-//                .setDistance(to: .dark, percent: 10)
-//                .setShadowColor(to: .dark, color: .black)
-//                .apply()
-//        }
-//    }
-//
     
 }

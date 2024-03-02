@@ -31,7 +31,6 @@ class DotView: ViewBuilder {
     private func configBorder() {
         self.setBorder({ build in
             build
-//                .setCornerRadius(size * 0.2)
                 .setCornerRadius(size * 0.5)
         })
     }

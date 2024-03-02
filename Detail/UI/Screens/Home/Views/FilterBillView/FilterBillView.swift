@@ -31,11 +31,10 @@ class FilterBillView: ViewBuilder {
                 build
                     .setCornerRadius(20)
             })
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalToSuperview(16)
-                    .setLeading.setTrailing.equalToSuperview(16)
-                    .setBottom.equalToSuperview(-24)
+                    .top.leading.trailing.equalToSuperview(16)
+                    .bottom.equalToSuperview(-24)
             }
         return comp
     }()
@@ -45,21 +44,21 @@ class FilterBillView: ViewBuilder {
         return LabelBuilder("Filtros:")
             .setColor(Theme.shared.currentTheme.onSurface)
             .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(backgroundView.get, .top, 18)
-                    .setLeading.equalTo(backgroundView.get, .leading, 24)
+                    .top.equalTo(backgroundView.get, .top , 18)
+                    .leading.equalTo(backgroundView.get, .leading, 24)
             }
     }()
     
     lazy var underLineView: StrokeView = {
         return StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setTop.equalTo(filterLabel.get, .bottom, 1)
-                    .setLeading.equalTo(filterLabel.get, .leading, -2)
-                    .setHeight.equalToConstant(2)
-                    .setWidth.equalToConstant(65)
+                    .top.equalTo(filterLabel.get, .bottom,  1)
+                    .leading.equalTo(filterLabel.get, .leading , -2)
+                    .width.equalToConstant(65)
+                    .height.equalToConstant(2)
             }
     }()
     
@@ -79,12 +78,12 @@ class FilterBillView: ViewBuilder {
                     .setCornerRadius(8)
             }
             .setClearButton()
-            .setConstraints { build in
+            .setAutoLayout({ build in
                 build
-                    .setTop.equalTo(underLineView.get, .bottom , 20)
-                    .setLeading.setTrailing.equalToSuperview(40)
-                    .setHeight.equalToConstant(45)
-            }
+                    .top.equalTo(underLineView.get, .bottom, 20)
+                    .leading.trailing.equalToSuperview(40)
+                    .height.equalToConstant(45)
+            })
         return comp
     }()
     
@@ -93,7 +92,7 @@ class FilterBillView: ViewBuilder {
 //  MARK: - Private Area
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
         self.setTranslatesAutoresizingMaskIntoConstraints(true)
     }
     
@@ -104,11 +103,11 @@ class FilterBillView: ViewBuilder {
         filterTextField.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        backgroundView.applyConstraint()
-        filterLabel.applyConstraint()
-        underLineView.applyConstraint()
-        filterTextField.applyConstraint()
+    private func configAutoLayout() {
+        backgroundView.applyAutoLayout()
+        filterLabel.applyAutoLayout()
+        underLineView.applyAutoLayout()
+        filterTextField.applyAutoLayout()
     }
     
     

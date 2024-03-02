@@ -17,17 +17,6 @@ class ButtonFloatView: ButtonImageBuilder {
     
 
 //  MARK: - LAZY PROPERTIES
-    lazy var image: ImageViewBuilder = {
-//        let img = ImageViewBuilder(systemName: "plus")
-        let img = ImageViewBuilder(systemName: "")
-            .setTintColor(Theme.shared.currentTheme.onSurface)
-            .setWeight(.black)
-            .setConstraints { build in
-                build
-                    .setAlignmentCenterXY.equalToSuperview(-1)
-            }
-        return img
-    }()
     
     lazy var vStroke: StrokeView = {
         let comp = StrokeView(gradientColor: gradientColor)
@@ -36,11 +25,11 @@ class ButtonFloatView: ButtonImageBuilder {
                     .setOpacity(0)
                     .apply()
             })
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperview
-                    .setHeight.equalToConstant(24)
-                    .setWidth.equalToConstant(4)
+                    .centerAlignXY.equalToSuperview()
+                    .height.equalToConstant(24)
+                    .width.equalToConstant(4)
             }
         return comp
     }()
@@ -52,12 +41,13 @@ class ButtonFloatView: ButtonImageBuilder {
                     .setOpacity(0)
                     .apply()
             })
-            .setConstraints { build in
+            .setAutoLayout { build in
                 build
-                    .setAlignmentCenterXY.equalToSuperview
-                    .setHeight.equalToConstant(4)
-                    .setWidth.equalToConstant(24)
+                    .centerAlignXY.equalToSuperview()
+                    .height.equalToConstant(4)
+                    .width.equalToConstant(24)
             }
+
         return comp
     }()
     
@@ -65,21 +55,19 @@ class ButtonFloatView: ButtonImageBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
         configBorder()
         configNeumorphism()
     }
     
     private func addElements() {
-        image.add(insideTo: self.get)
         hStroke.add(insideTo: self.get)
         vStroke.add(insideTo: self.get)
     }
     
-    private func configConstraints() {
-        image.applyConstraint()
-        vStroke.applyConstraint()
-        hStroke.applyConstraint()
+    private func configAutoLayout() {
+        vStroke.applyAutoLayout()
+        hStroke.applyAutoLayout()
     }
 
     private func configBorder() {

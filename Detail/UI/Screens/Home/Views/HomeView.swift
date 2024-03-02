@@ -77,7 +77,7 @@ class HomeView: UIView {
             })
             .setAutoLayout({ build in
                 build
-                    .verticalAlignY.equalTo(buttonSideBarMenuView.get)
+                    .verticalAlignY.equalTo(buttonSideBarMenuView.get, .centerY)
                     .trailing.equalToSafeArea(-24)
                     .width.equalToConstant(110)
                     .height.equalToConstant(35)
@@ -127,7 +127,7 @@ class HomeView: UIView {
             .setHidden(true)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(createBillButtonFloat.get, .top, -8)
+                    .top.equalTo(createBillButtonFloat.get, .top , -8)
                     .pinBottom.equalToSuperview()
             }
         return comp
@@ -138,7 +138,7 @@ class HomeView: UIView {
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
-        configConstraints()
+        configAutoLayout()
     }
     
     private func addElements() {
@@ -152,7 +152,7 @@ class HomeView: UIView {
         createBillButtonFloat.add(insideTo: self)
     }
     
-    private func configConstraints() {
+    private func configAutoLayout() {
         backgroundView.applyAutoLayout()
         listBillTableView.applyAutoLayout()
         clock.applyAutoLayout()

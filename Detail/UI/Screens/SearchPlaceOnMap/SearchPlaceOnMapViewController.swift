@@ -61,7 +61,7 @@ public class SearchPlaceOnMapViewController: UIViewController {
     }
 
     private func configurationsDidAppear() {
-        screen.configMapConstraint()
+        screen.configMapAutoLayout()
     }
     
     private func showComponentsAnimation() {

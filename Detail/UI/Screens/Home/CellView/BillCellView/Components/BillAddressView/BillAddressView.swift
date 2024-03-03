@@ -21,7 +21,7 @@ class BillAddressView: ViewBuilder {
 //  MARK: - LAZY PROPERTIES
 
     lazy var addressImage: ImageViewBuilder = {
-        let comp = ImageViewBuilder(systemName: "pin.fill")
+        let comp = ImageViewBuilder(systemName: Const.Images.addressBill)
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setSize(14)
             .setWeight(.black)

@@ -1,18 +1,18 @@
-//  Created by Alessandro Comparini on 29/02/24.
+//  Created by Alessandro Comparini on 04/03/24.
 //
 
 import UIKit
 
-public protocol CreateBillViewControllerCoordinator: AnyObject {
-    func gotoSearchPlaceOnMap()
-    func gotoAddEveryoneItems()
+public protocol AddEveryoneItensViewControllerCoordinator: AnyObject {
+    func gotoTrocar()
 }
 
-public class CreateBillViewController: UIViewController {
-    public weak var coordinator: CreateBillViewControllerCoordinator?
+
+public class AddEveryoneItensViewController: UIViewController {
+    public weak var coordinator: AddEveryoneItensViewControllerCoordinator?
     
-    lazy var screen: CreateBillView = {
-        let comp = CreateBillView()
+    lazy var screen: AddEveryoneItemsView = {
+        let comp = AddEveryoneItemsView()
         return comp
     }()
     
@@ -47,34 +47,18 @@ public class CreateBillViewController: UIViewController {
     }
     
     private func configDelegate() {
-        screen.delegate = self
         screen.backButtonView.delegate = self
     }
     
 }
 
 
-//  MARK: - EXTENSION - BackButtonViewDelegate
-extension CreateBillViewController: CreateBillViewDelegate {
-    func addAddressButtonTapped() {
-        print("ADD ADDRESS BUTTON ")
-    }
-    
-    func saveButtonTapped() {
-        debugPrint("CREATE SAVE METHOD")
-        coordinator?.gotoAddEveryoneItems()
-    }
-    
-    
-    
-}
-
 
 //  MARK: - EXTENSION - BackButtonViewDelegate
-extension CreateBillViewController: BackButtonViewDelegate {
+extension AddEveryoneItensViewController: BackButtonViewDelegate {
     
     public func backButtonImageTapped() {
-        coordinator?.gotoSearchPlaceOnMap()
+        coordinator?.gotoTrocar()
     }
     
 }

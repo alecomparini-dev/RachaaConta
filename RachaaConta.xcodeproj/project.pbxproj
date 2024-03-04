@@ -68,6 +68,9 @@
 		02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27312B855247003A5979 /* HomeViewModel.swift */; };
 		02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */; };
 		02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */; };
+		02E9E09D2B9654890059E85A /* AddEveryoneItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */; };
+		02E9E09E2B96555C0059E85A /* AddEveryoneItensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* AddEveryoneItensViewController.swift */; };
+		02E9E0A12B9657230059E85A /* AddEveryoneItensCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* AddEveryoneItensCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +188,9 @@
 		02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelImpl.swift; sourceTree = "<group>"; };
 		02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
 		02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenter.swift; sourceTree = "<group>"; };
+		02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsView.swift; sourceTree = "<group>"; };
+		02E9E09B2B9652D40059E85A /* AddEveryoneItensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItensViewController.swift; sourceTree = "<group>"; };
+		02E9E0A02B9657230059E85A /* AddEveryoneItensCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItensCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,8 +560,9 @@
 				0210784F2B91039300201704 /* SearchPlaceOnMap */,
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
 				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
-				02D97E692B8935AA009F57F8 /* Individual */,
-				02D97E682B89359C009F57F8 /* Everyone */,
+				02D97E682B89359C009F57F8 /* EveryoneItens */,
+				02E9E0972B9652B10059E85A /* AddEveryoneItems */,
+				02D97E692B8935AA009F57F8 /* IndividualItens */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -584,18 +591,18 @@
 			path = NeumorphismTextFieldView;
 			sourceTree = "<group>";
 		};
-		02D97E682B89359C009F57F8 /* Everyone */ = {
+		02D97E682B89359C009F57F8 /* EveryoneItens */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Everyone;
+			path = EveryoneItens;
 			sourceTree = "<group>";
 		};
-		02D97E692B8935AA009F57F8 /* Individual */ = {
+		02D97E692B8935AA009F57F8 /* IndividualItens */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Individual;
+			path = IndividualItens;
 			sourceTree = "<group>";
 		};
 		02D97E6A2B89363E009F57F8 /* CreateBill */ = {
@@ -620,6 +627,7 @@
 		02D97E722B8940E5009F57F8 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				02E9E09F2B96570A0059E85A /* AddEveryoneItensCoordinator */,
 				02D97E732B8940F0009F57F8 /* Protocol */,
 				02D97E762B894180009F57F8 /* NavigationController */,
 				02D97E742B8940FA009F57F8 /* HomeCoordinator */,
@@ -772,6 +780,31 @@
 				02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */,
 			);
 			path = FetchBillPresenter;
+			sourceTree = "<group>";
+		};
+		02E9E0972B9652B10059E85A /* AddEveryoneItems */ = {
+			isa = PBXGroup;
+			children = (
+				02E9E0982B9652BB0059E85A /* Views */,
+				02E9E09B2B9652D40059E85A /* AddEveryoneItensViewController.swift */,
+			);
+			path = AddEveryoneItems;
+			sourceTree = "<group>";
+		};
+		02E9E0982B9652BB0059E85A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02E9E09F2B96570A0059E85A /* AddEveryoneItensCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				02E9E0A02B9657230059E85A /* AddEveryoneItensCoordinator.swift */,
+			);
+			path = AddEveryoneItensCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -992,6 +1025,7 @@
 				02D97E702B8936CA009F57F8 /* SearchPlaceOnMapViewController.swift in Sources */,
 				023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */,
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
+				02E9E09D2B9654890059E85A /* AddEveryoneItemsView.swift in Sources */,
 				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
 				023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */,
 				0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */,
@@ -1007,6 +1041,7 @@
 				021078562B910EE300201704 /* CreateBillView.swift in Sources */,
 				023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */,
 				021078572B910EE600201704 /* CreateBillViewController.swift in Sources */,
+				02E9E09E2B96555C0059E85A /* AddEveryoneItensViewController.swift in Sources */,
 				02D97E872B8D68A7009F57F8 /* SideBarMenuViewController.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 				023C63E22B877D7E0009C432 /* StrokeView.swift in Sources */,
@@ -1022,6 +1057,7 @@
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
 				02D97E7E2B89505E009F57F8 /* SearchPlaceOnMapCoordinator.swift in Sources */,
 				02D97E7A2B8941D8009F57F8 /* NavigationController.swift in Sources */,
+				02E9E0A12B9657230059E85A /* AddEveryoneItensCoordinator.swift in Sources */,
 				02BD951F2B83773600539FDE /* SceneDelegate.swift in Sources */,
 				02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */,
 				02D97E7C2B894C58009F57F8 /* HomeCoordinator.swift in Sources */,

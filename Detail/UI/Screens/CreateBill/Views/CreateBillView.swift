@@ -122,7 +122,7 @@ class CreateBillView: UIView {
 //    }()
     
     lazy var addressLabel: LabelBuilder = {
-        let comp = LabelBuilder("Deseja adicionar o endereço?")
+        let comp = LabelBuilder("Deseja adicionar o endereço ?")
             .setFontFamily(Const.Font.titilliumWebExtraLight, 16)
             .setNumberOfLines(2)
             .setTextAlignment(.left)

@@ -31,12 +31,16 @@ class CreateBillCoordinator: Coordinator {
 
 //  MARK: - EXTENSION - CreateBillViewControllerCoordinator
 extension CreateBillCoordinator: CreateBillViewControllerCoordinator {
+    func gotoAddEveryoneItems() {
+        let coordinator = AddEveryoneItensCoordinator(navigationController)
+        coordinator.start()
+        self.coordinator = nil
+    }
+    
     
     func gotoSearchPlaceOnMap() {
         let coordinator = SearchPlaceOnMapCoordinator(navigationController)
-        
         coordinator.start()
-        
         self.coordinator = nil
     }
     

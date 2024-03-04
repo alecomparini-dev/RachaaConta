@@ -6,7 +6,14 @@ import UIKit
 import CustomComponentsSDK
 import Handler
 
+
+protocol CreateBillViewDelegate: AnyObject {
+    func addAddressButtonTapped()
+    func saveButtonTapped()
+}
+
 class CreateBillView: UIView {
+    weak var delegate: CreateBillViewDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -171,7 +178,7 @@ class CreateBillView: UIView {
                 build
                     .setTap { [weak self] component, tapGesture in
                         guard let self else {return}
-                        nameBillTextField.setHideKeyboard()
+                        delegate?.addAddressButtonTapped()
                     }
             }
         return comp
@@ -183,11 +190,11 @@ class CreateBillView: UIView {
     lazy var saveButton: ButtonImageBuilder = {
         let comp = ButtonImageBuilder(ImageViewBuilder(systemName: Const.Images.checkmark))
             .setTitle("Salvar")
+            .setFontFamily(Const.Font.titilliumWebRegular, 18)
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setImageSize(12)
             .setImageWeight(.thin)
             .setImagePadding(10)
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
             .setBorder({ build in
                 build
                     .setCornerRadius(8)
@@ -216,6 +223,7 @@ class CreateBillView: UIView {
                 build
                     .setTap { [weak self] component, tapGesture in
                         guard let self else {return}
+                        delegate?.saveButtonTapped()
                         nameBillTextField.setHideKeyboard()
                     }
             }

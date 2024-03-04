@@ -21,8 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         win.makeKeyAndVisible()
         window = win
         
-//        let coordinator = HomeCoordinator(nav)
-        let coordinator = CreateBillCoordinator(nav)
+        var coordinator: Coordinator = HomeCoordinator(nav)
+        
+        #if DEBUG
+            coordinator = CreateBillCoordinator(nav)
+        #endif
+        
         coordinator.start()
         
     }

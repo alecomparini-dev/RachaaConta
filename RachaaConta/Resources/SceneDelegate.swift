@@ -24,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var coordinator: Coordinator = HomeCoordinator(nav)
         
         #if DEBUG
-            coordinator = CreateBillCoordinator(nav)
+//            coordinator = CreateBillCoordinator(nav)
+            coordinator = AddEveryoneItensCoordinator(nav)
         #endif
         
         coordinator.start()

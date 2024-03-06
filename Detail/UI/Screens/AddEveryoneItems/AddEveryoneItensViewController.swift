@@ -2,6 +2,7 @@
 //
 
 import UIKit
+import CustomComponentsSDK
 
 public protocol AddEveryoneItensViewControllerCoordinator: AnyObject {
     func gotoTrocar()
@@ -44,14 +45,53 @@ public class AddEveryoneItensViewController: UIViewController {
 //  MARK: - PRIVATE AREA
     private func configure() {
         configDelegate()
+        showKeyboardCollection()
     }
     
     private func configDelegate() {
         screen.backButtonView.delegate = self
+        screen.keyboardList.setDelegate(self)
+    }
+    
+    private func showKeyboardCollection() {
+        screen.keyboardList.show()
     }
     
 }
 
+
+
+//  MARK: - EXTENSION - BackButtonViewDelegate
+extension AddEveryoneItensViewController: ListDelegate {
+    public func numberOfSections(_ list: CustomComponentsSDK.ListBuilder) -> Int {
+        1
+    }
+    
+    public func numberOfRows(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> Int {
+        3
+    }
+    
+    public func rowViewCallBack(_ list: CustomComponentsSDK.ListBuilder, section: Int, row: Int) -> UIView {
+        switch row {
+        case 0:
+            return Line0KeyboardView().get
+            
+        case 1:
+            return Line1KeyboardView().get
+            
+        case 2:
+            return Line2KeyboardView().get
+                        
+        default:
+            return UIView()
+        }
+    }
+
+    public func sectionViewCallback(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> UIView? {
+        nil
+    }
+    
+}
 
 
 //  MARK: - EXTENSION - BackButtonViewDelegate

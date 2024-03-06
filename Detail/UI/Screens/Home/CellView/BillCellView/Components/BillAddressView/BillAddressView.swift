@@ -57,8 +57,8 @@ class BillAddressView: ViewBuilder {
     }
     
     private func addElements() {
-        addressImage.add(insideTo: self.get)
-        addressLabel.add(insideTo: self.get)
+        addressImage.add(insideTo: self)
+        addressLabel.add(insideTo: self)
     }
     
     private func configAutoLayout() {

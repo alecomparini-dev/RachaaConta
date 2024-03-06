@@ -58,7 +58,7 @@ class HomeView: UIView {
         let view = ButtonSideBarMenuView()
             .setAutoLayout { build in
                 build
-                    .top.equalToSafeArea(16)
+                    .top.equalToSafeArea(8)
                     .leading.equalToSuperview()
                     .width.equalToConstant(58)
                     .height.equalToConstant(50)
@@ -89,7 +89,8 @@ class HomeView: UIView {
         let view = ButtonFloatView()
             .setAutoLayout({ build in
                 build
-                    .trailing.bottom.equalToSafeArea(16)
+                    .trailing.equalToSafeArea(-18)
+                    .bottom.equalToSafeArea(-16)
                     .size.equalToConstant(55)
             })
             .setActions { build in

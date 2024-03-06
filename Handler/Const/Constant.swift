@@ -4,7 +4,10 @@
 import Foundation
 
 public struct Const {
-    public struct Default {    }
+    public struct Default {
+        public static let sizeButtonKeyboard: CGSize = CGSize(width: 60, height: 42)
+    }
+    
     
     public struct Images {
         public static let checkmark = "checkmark"

@@ -39,7 +39,7 @@ class CreateBillView: UIView {
         let comp = BackButtonView()
             .setAutoLayout({ build in
                 build
-                    .top.equalToSafeArea(16)
+                    .top.equalToSafeArea(8)
                     .leading.equalToSuperview()
                     .size.equalToConstant(50)
             })
@@ -242,13 +242,10 @@ class CreateBillView: UIView {
         backButtonView.add(insideTo: self)
         nameBillTextField.add(insideTo: self)
         underline.add(insideTo: self)
-        
         painelAddress.add(insideTo: self)
-        addressImage.add(insideTo: painelAddress.get)
-        addressLabel.add(insideTo: painelAddress.get)
-        addAddressButton.add(insideTo: painelAddress.get)
-        
-        
+        addressImage.add(insideTo: painelAddress)
+        addressLabel.add(insideTo: painelAddress)
+        addAddressButton.add(insideTo: painelAddress)
         saveButton.add(insideTo: self)
     }
     
@@ -257,13 +254,10 @@ class CreateBillView: UIView {
         backButtonView.applyAutoLayout()
         nameBillTextField.applyAutoLayout()
         underline.applyAutoLayout()
-        
         painelAddress.applyAutoLayout()
         addressImage.applyAutoLayout()
         addressLabel.applyAutoLayout()
         addAddressButton.applyAutoLayout()
-        
-        
         saveButton.applyAutoLayout()
     }
         

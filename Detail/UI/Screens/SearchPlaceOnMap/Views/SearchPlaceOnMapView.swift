@@ -36,7 +36,7 @@ class SearchPlaceOnMapView: UIView {
         let comp = BackButtonView()
             .setAutoLayout { build in
                 build
-                    .top.equalToSafeArea(16)
+                    .top.equalToSafeArea(8)
                     .leading.equalToSuperview()
                     .size.equalToConstant(50)
             }

@@ -79,6 +79,54 @@ class Line2KeyboardView: ViewBuilder {
         let comp = ViewBuilder()
         return comp
     }()
+    
+    lazy var _buttonSaveItem: ButtonDefaultView = {
+        let comp = ButtonDefaultView(color: Theme.shared.currentTheme.primary, "SALVAR")
+            .setAutoLayout { build in
+                build
+                    .verticalAlignY.equalToSuperview()
+                    .trailing.equalToSuperview(-18)
+                    .width.equalTo(buttonNo0.get, multiplier: 1.9)
+                    .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
+            }
+        comp.button.setFontFamily(Const.Font.titilliumWebBold, 18)
+        comp.button.setTintColor(Theme.shared.currentTheme.onPrimary)
+        comp.button.setTitleColor(Theme.shared.currentTheme.onPrimary)
+//        comp.button.setTitleWeight(.heavy)
+        return comp
+    }()
+    
+    lazy var buttonSaveItem: ButtonBuilder = {
+        let comp = ButtonBuilder("OK")
+            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
+            .setTintColor(Theme.shared.currentTheme.onPrimary)
+            .setBorder({ build in
+                build
+                    .setCornerRadius(4)
+            })
+            .setNeumorphism { build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.primary)
+                    .setShape(.convex)
+                    .setLightPosition(.leftTop)
+                    .setIntensity(to: .light, percent: 30)
+                    .setIntensity(to: .dark, percent: 100)
+                    .setBlur(to: .light, percent: 2)
+                    .setBlur(to: .dark, percent: 10)
+                    .setDistance(to: .light, percent: 4)
+                    .setDistance(to: .dark, percent: 10)
+                    .setShadowColor(to: .dark, color: .black)
+                    .apply()
+            }
+            .setAutoLayout { build in
+                build
+                    .verticalAlignY.equalToSuperview()
+                    .trailing.equalToSuperview(-18)
+                    .width.equalTo(viewComma.get, multiplier: 1.35)
+                    .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
+            }
+        return comp
+    }()
 
     
 //  MARK: - PRIVATE AREA
@@ -88,25 +136,38 @@ class Line2KeyboardView: ViewBuilder {
     }
     
     private func addElements() {
+        addStacks()
+        addButtonComma()
+        addButonNo0()
+        addButtonSaveItem()
+    }
+    
+    private func addStacks() {
         stackView.add(insideTo: self)
         stackLeft.add(insideTo: stackView)
         stackRight.add(insideTo: stackView)
-        
+    }
+    
+    private func addButtonComma() {
         viewComma.add(insideTo: stackLeft)
         buttonComma.add(insideTo: viewComma)
-        
+    }
+
+    private func addButonNo0() {
         viewNo0.add(insideTo: stackLeft)
         buttonNo0.add(insideTo: viewNo0)
-        
+    }
+    
+    private func addButtonSaveItem() {
         viewSaveItem.add(insideTo: stackRight)
-
+        buttonSaveItem.add(insideTo: viewSaveItem)
     }
     
     private func configAutoLayout() {
         stackView.applyAutoLayout()
-        
         buttonNo0.applyAutoLayout()
         buttonComma.applyAutoLayout()
+        buttonSaveItem.applyAutoLayout()
     }
     
     

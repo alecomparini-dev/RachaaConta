@@ -98,7 +98,7 @@ class AddEveryoneItemsView: UIView {
 
 
     lazy var underlineItem: StrokeView = {
-        let comp = StrokeView()
+        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
             .setAutoLayout { build in
                 build
                     .bottom.equalTo(keyboardList.get, .top, -20)

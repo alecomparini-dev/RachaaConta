@@ -147,7 +147,7 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonMultiply: ButtonImageBuilder = {
+    lazy var _buttonMultiply: ButtonImageBuilder = {
         let img = ImageViewBuilder(systemName: "xmark")
         let comp = ButtonImageBuilder(img)
             .setImageSize(14)
@@ -159,14 +159,14 @@ class Line1KeyboardView: ViewBuilder {
             })
             .setNeumorphism { build in
                 build
-                    .setReferenceColor(Theme.shared.currentTheme.tertiary)
+                    .setReferenceColor(Theme.shared.currentTheme.primary)
                     .setShape(.convex)
                     .setLightPosition(.leftTop)
                     .setIntensity(to: .light, percent: 30)
                     .setIntensity(to: .dark, percent: 100)
-                    .setBlur(to: .light, percent: 5)
+                    .setBlur(to: .light, percent: 2)
                     .setBlur(to: .dark, percent: 10)
-                    .setDistance(to: .light, percent: 5)
+                    .setDistance(to: .light, percent: 3)
                     .setDistance(to: .dark, percent: 10)
                     .setShadowColor(to: .dark, color: .black)
                     .apply()
@@ -179,6 +179,20 @@ class Line1KeyboardView: ViewBuilder {
             }
         return comp
     }()
+    
+    lazy var buttonMultiply: ButtonDefaultView = {
+        let img = ImageViewBuilder(systemName: "xmark")
+        let comp = ButtonDefaultView(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
+            .setAutoLayout { build in
+                build
+                    .horizontalAlignX.equalToSuperview()
+                    .verticalAlignY.equalToSuperview(-2)
+                    .size.equalToConstant(Const.Default.sizeButtonKeyboard.width*0.8)
+            }
+        comp.button.setTintColor(Theme.shared.currentTheme.onPrimary)
+        comp.button.setImageWeight(.black)
+        return comp
+    }()
 
     
 //  MARK: - PRIVATE AREA
@@ -188,28 +202,44 @@ class Line1KeyboardView: ViewBuilder {
     }
     
     private func addElements() {
+        addStacks()
+        addButtons1And4()
+        addButtons2And5()
+        addButtons3And6()
+        addButtonMultiply()
+    }
+    
+    private func addStacks() {
         stackView.add(insideTo: self.get)
         stackNo4_1.add(insideTo: stackView)
         stackNo5_2.add(insideTo: stackView)
         stackNo6_3.add(insideTo: stackView)
-        
-        viewMultiply.add(insideTo: stackView)
-        buttonMultiply.add(insideTo: viewMultiply)
-        
+    }
+    
+    private func addButtons1And4() {
         viewNo4.add(insideTo: stackNo4_1)
         viewNo1.add(insideTo: stackNo4_1)
         buttonNo4.add(insideTo: viewNo4)
         buttonNo1.add(insideTo: viewNo1)
-        
+    }
+    
+    private func addButtons2And5() {
         viewNo5.add(insideTo: stackNo5_2)
         viewNo2.add(insideTo: stackNo5_2)
         buttonNo5.add(insideTo: viewNo5)
         buttonNo2.add(insideTo: viewNo2)
+    }
         
+    private func addButtons3And6() {
         viewNo6.add(insideTo: stackNo6_3)
         viewNo3.add(insideTo: stackNo6_3)
         buttonNo6.add(insideTo: viewNo6)
         buttonNo3.add(insideTo: viewNo3)
+    }
+    
+    private func addButtonMultiply() {
+        viewMultiply.add(insideTo: stackView)
+        buttonMultiply.add(insideTo: viewMultiply)
     }
     
     private func configAutoLayout() {

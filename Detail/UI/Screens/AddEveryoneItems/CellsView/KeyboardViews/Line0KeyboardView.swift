@@ -83,6 +83,7 @@ class Line0KeyboardView: ViewBuilder {
     lazy var backspace: ButtonImageBuilder = {
         let img = ImageViewBuilder(systemName: "delete.backward")
         let btn = ButtonImageBuilder(img)
+            .setImageSize(18)
             .setBorder({ build in
                 build
                     .setCornerRadius(8)

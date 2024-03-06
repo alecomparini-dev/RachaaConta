@@ -162,10 +162,10 @@ class BillTableCellView: UITableViewCell {
         titleLabel.add(insideTo: self.contentView)
         dateTimeBillView.add(insideTo: self.contentView)
         backgroundColorView.add(insideTo: self.contentView)
-        buttonSeeBillView.add(insideTo: backgroundColorView.get)
-        billAddress.add(insideTo: backgroundColorView.get)
-        amountPaid.add(insideTo: backgroundColorView.get)
-        personBillView.add(insideTo: backgroundColorView.get)
+        buttonSeeBillView.add(insideTo: backgroundColorView)
+        billAddress.add(insideTo: backgroundColorView)
+        amountPaid.add(insideTo: backgroundColorView)
+        personBillView.add(insideTo: backgroundColorView)
     }
     
     private func configAutoLayout() {

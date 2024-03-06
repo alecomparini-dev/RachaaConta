@@ -53,7 +53,7 @@ class DateTimeBillView: ViewBuilder {
     }
     
     private func addElements() {
-        dateTimeLabel.add(insideTo: self.get)
+        dateTimeLabel.add(insideTo: self)
     }
     
     private func configAutoLayout() {

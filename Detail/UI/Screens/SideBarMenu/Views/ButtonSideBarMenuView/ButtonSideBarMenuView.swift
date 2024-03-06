@@ -54,10 +54,10 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
     
     private func addElements() {
         stackView.add(insideTo: self.get)
-        createUnderline().add(insideTo: stackView.get)
-        createUnderline().add(insideTo: stackView.get)
-        createUnderline().add(insideTo: stackView.get)
-        arrowOpenImageView.add(insideTo: self.get)
+        createUnderline().add(insideTo: stackView)
+        createUnderline().add(insideTo: stackView)
+        createUnderline().add(insideTo: stackView)
+        arrowOpenImageView.add(insideTo: self)
     }
     
     private func configAutoLayout() {

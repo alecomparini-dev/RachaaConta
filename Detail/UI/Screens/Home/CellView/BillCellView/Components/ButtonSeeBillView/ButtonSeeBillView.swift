@@ -79,11 +79,11 @@ class ButtonSeeBillView: ViewBuilder {
     }
     
     private func addElements() {
-        containerButton.add(insideTo: self.get)
-        seeBillLabel.add(insideTo: self.get)
-        hStackContainer.add(insideTo: containerButton.get)
-        vStackLeftView.add(insideTo: hStackContainer.get)
-        hStackRightView.add(insideTo: hStackContainer.get)
+        containerButton.add(insideTo: self)
+        seeBillLabel.add(insideTo: self)
+        hStackContainer.add(insideTo: containerButton)
+        vStackLeftView.add(insideTo: hStackContainer)
+        hStackRightView.add(insideTo: hStackContainer)
         addDots()
     }
     
@@ -100,17 +100,17 @@ class ButtonSeeBillView: ViewBuilder {
         let viewDot1 = ViewBuilder()
         let dot1 = DotView(size: size, color)
         dot1.add(insideTo: viewDot1.get)
-        viewDot1.add(insideTo: vStackLeftView.get)
+        viewDot1.add(insideTo: vStackLeftView)
         
         let viewDot2 = ViewBuilder()
         let dot2 = DotView(size: size, color)
         dot2.add(insideTo: viewDot2.get)
-        viewDot2.add(insideTo: vStackLeftView.get)
+        viewDot2.add(insideTo: vStackLeftView)
         
         let viewDot3 = ViewBuilder()
         let dot3 = DotView(size: size, color)
         dot3.add(insideTo: viewDot3.get)
-        viewDot3.add(insideTo: hStackRightView.get)
+        viewDot3.add(insideTo: hStackRightView)
     }
     
 }

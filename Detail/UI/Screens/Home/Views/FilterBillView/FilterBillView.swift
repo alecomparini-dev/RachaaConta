@@ -97,10 +97,10 @@ class FilterBillView: ViewBuilder {
     }
     
     private func addElements() {
-        backgroundView.add(insideTo: self.get)
-        filterLabel.add(insideTo: self.get)
-        underLineView.add(insideTo: self.get)
-        filterTextField.add(insideTo: self.get)
+        backgroundView.add(insideTo: self)
+        filterLabel.add(insideTo: self)
+        underLineView.add(insideTo: self)
+        filterTextField.add(insideTo: self)
     }
     
     private func configAutoLayout() {

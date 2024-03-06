@@ -78,11 +78,11 @@ class PersonBillView: ViewBuilder {
     }
     
     private func addElements() {
-        strokeVertical.add(insideTo: self.get)
-        container.add(insideTo: self.get)
-        stackView.add(insideTo: container.get)
-        personLabel.add(insideTo: stackView.get)
-        personImage.add(insideTo: stackView.get)
+        strokeVertical.add(insideTo: self)
+        container.add(insideTo: self)
+        stackView.add(insideTo: container)
+        personLabel.add(insideTo: stackView)
+        personImage.add(insideTo: stackView)
     }
     
     private func configAutoLayout() {

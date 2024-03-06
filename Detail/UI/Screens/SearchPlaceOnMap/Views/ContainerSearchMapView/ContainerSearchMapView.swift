@@ -64,8 +64,8 @@ class ContainerSearchMapView: ViewBuilder {
     }
     
     private func addElements() {
-        containerSearchBlurView.add(insideTo: self.get)
-        containerShadow.add(insideTo: self.get)
+        containerSearchBlurView.add(insideTo: self)
+        containerShadow.add(insideTo: self)
     }
     
     private func configAutoLayout() {

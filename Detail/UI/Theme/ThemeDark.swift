@@ -23,14 +23,14 @@ extension ThemeDark: ThemePrimaryColor {
 
 extension ThemeDark: ThemeSecondaryColor {
     public var secondary: UIColor { UIColor.HEX("#006270") }
-    public var onSecondary: UIColor { UIColor.HEX("#d1d3d2") }
+    public var onSecondary: UIColor { UIColor.HEX("#ffffff") }
     public var secondaryContainer: UIColor { .black }
     public var onSecondaryContainer: UIColor { .black }
 }
 
 extension ThemeDark: ThemeTertiaryColor {
     public var tertiary: UIColor { UIColor.HEX("#ee975a") }
-    public var onTertiary: UIColor { UIColor.HEX("#eeeeee") }
+    public var onTertiary: UIColor { backgroundColor }
     public var tertiaryContainer: UIColor { .black }
     public var onTertiaryContainer: UIColor { .black }
 }

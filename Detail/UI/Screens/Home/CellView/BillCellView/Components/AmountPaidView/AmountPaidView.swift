@@ -70,10 +70,10 @@ class AmountPaidView: ViewBuilder {
     }
     
     private func addElements() {
-        amountImage.add(insideTo: self.get)
-        stackView.add(insideTo: self.get)
-        amountTitleLabel.add(insideTo: stackView.get)
-        amountLabel.add(insideTo: stackView.get)
+        amountImage.add(insideTo: self)
+        stackView.add(insideTo: self)
+        amountTitleLabel.add(insideTo: stackView)
+        amountLabel.add(insideTo: stackView)
     }
     
     private func configAutoLayout() {

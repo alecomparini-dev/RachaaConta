@@ -46,8 +46,8 @@ class FilterBillView: ViewBuilder {
             .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(backgroundView.get, .top , 18)
-                    .leading.equalTo(backgroundView.get, .leading, 24)
+                    .top.equalTo(backgroundView, .top , 18)
+                    .leading.equalTo(backgroundView, .leading, 24)
             }
     }()
     
@@ -55,8 +55,8 @@ class FilterBillView: ViewBuilder {
         return StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(filterLabel.get, .bottom,  1)
-                    .leading.equalTo(filterLabel.get, .leading , -2)
+                    .top.equalTo(filterLabel, .bottom,  1)
+                    .leading.equalTo(filterLabel, .leading , -2)
                     .width.equalToConstant(65)
                     .height.equalToConstant(2)
             }
@@ -80,7 +80,7 @@ class FilterBillView: ViewBuilder {
             .setClearButton()
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(underLineView.get, .bottom, 20)
+                    .top.equalTo(underLineView, .bottom, 20)
                     .leading.trailing.equalToSuperview(40)
                     .height.equalToConstant(45)
             })

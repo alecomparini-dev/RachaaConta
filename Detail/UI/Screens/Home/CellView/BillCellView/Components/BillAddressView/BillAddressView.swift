@@ -41,8 +41,8 @@ class BillAddressView: ViewBuilder {
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(addressImage.get, .centerY)
-                    .leading.equalTo(addressImage.get, .trailing, 12)
+                    .verticalAlignY.equalTo(addressImage, .centerY)
+                    .leading.equalTo(addressImage, .trailing, 12)
                     .trailing.equalToSuperview()
             }
         return comp

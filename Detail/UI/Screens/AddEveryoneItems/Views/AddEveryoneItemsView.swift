@@ -45,7 +45,7 @@ class AddEveryoneItemsView: UIView {
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(backButtonView.get, .centerY)
+                    .verticalAlignY.equalTo(backButtonView, .centerY)
                     .trailing.equalToSafeArea(-16)
             }
         return comp
@@ -55,8 +55,8 @@ class AddEveryoneItemsView: UIView {
        let comp = StrokeView()
             .setAutoLayout { build in
                 build
-                    .top.equalTo(nameBillLabel.get, .bottom, 4)
-                    .trailing.equalTo(nameBillLabel.get, .trailing, 2)
+                    .top.equalTo(nameBillLabel, .bottom, 4)
+                    .trailing.equalTo(nameBillLabel, .trailing, 2)
                     .width.equalToConstant(65)
                     .height.equalToConstant(2)
             }
@@ -77,8 +77,8 @@ class AddEveryoneItemsView: UIView {
             })
             .setAutoLayout { build in
                 build
-                    .top.equalTo(nameBillUnderline.get, .bottom, 6)
-                    .trailing.equalTo(nameBillLabel.get, .trailing)
+                    .top.equalTo(nameBillUnderline, .bottom, 6)
+                    .trailing.equalTo(nameBillLabel, .trailing)
                     .height.equalToConstant(76)
             }
         return comp
@@ -90,20 +90,31 @@ class AddEveryoneItemsView: UIView {
             .setFontFamily(Const.Font.titilliumWebExtraLight, 16)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(totalAmountBillLabel.get, .top, 6)
-                    .trailing.equalTo(totalAmountBillLabel.get, .leading, -4)
+                    .top.equalTo(totalAmountBillLabel, .top, 6)
+                    .trailing.equalTo(totalAmountBillLabel, .leading, -4)
             }
         return comp
     }()
 
 
+    lazy var displayCalculator: DisplayCalculatorItemValueView = {
+        let comp = DisplayCalculatorItemValueView()
+            .setAutoLayout { build in
+                build
+                    .bottom.equalTo(underlineItem, .top, -4)
+                    .leading.trailing.equalTo(underlineItem)
+                    .height.equalToConstant(35)
+            }
+        return comp
+    }()
+    
     lazy var underlineItem: StrokeView = {
         let comp = StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
             .setAutoLayout { build in
                 build
-                    .bottom.equalTo(keyboardList.get, .top, -20)
+                    .bottom.equalTo(keyboardList, .top, -20)
                     .leading.trailing.equalToSafeArea(8)
-                    .height.equalToConstant(2)
+                    .height.equalToConstant(1)
             }
         return comp
     }()
@@ -143,8 +154,9 @@ class AddEveryoneItemsView: UIView {
         nameBillUnderline.add(insideTo: self)
         totalAmountBillLabel.add(insideTo: self)
         symbolCurrencyLabel.add(insideTo: self)
-        keyboardList.add(insideTo: self)
+        displayCalculator.add(insideTo: self)
         underlineItem.add(insideTo: self)
+        keyboardList.add(insideTo: self)
     }
     
     private func configAutoLayout() {
@@ -154,6 +166,7 @@ class AddEveryoneItemsView: UIView {
         nameBillUnderline.applyAutoLayout()
         totalAmountBillLabel.applyAutoLayout()
         symbolCurrencyLabel.applyAutoLayout()
+        displayCalculator.applyAutoLayout()
         keyboardList.applyAutoLayout()
         underlineItem.applyAutoLayout()
     }

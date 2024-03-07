@@ -61,8 +61,8 @@ class ButtonFloatView: ButtonImageBuilder {
     }
     
     private func addElements() {
-        hStroke.add(insideTo: self.get)
-        vStroke.add(insideTo: self.get)
+        hStroke.add(insideTo: self)
+        vStroke.add(insideTo: self)
     }
     
     private func configAutoLayout() {

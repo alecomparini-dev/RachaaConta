@@ -32,7 +32,7 @@ class CreateBillCoordinator: Coordinator {
 //  MARK: - EXTENSION - CreateBillViewControllerCoordinator
 extension CreateBillCoordinator: CreateBillViewControllerCoordinator {
     func gotoAddEveryoneItems() {
-        let coordinator = AddEveryoneItensCoordinator(navigationController)
+        let coordinator = AddEveryoneItemsCoordinator(navigationController)
         coordinator.start()
         self.coordinator = nil
     }

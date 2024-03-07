@@ -86,7 +86,7 @@ class Line2KeyboardView: ViewBuilder {
                 build
                     .verticalAlignY.equalToSuperview()
                     .trailing.equalToSuperview(-18)
-                    .width.equalTo(buttonNo0.get, multiplier: 1.9)
+                    .width.equalTo(buttonNo0, multiplier: 1.9)
                     .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
             }
         comp.button.setFontFamily(Const.Font.titilliumWebBold, 18)
@@ -122,7 +122,7 @@ class Line2KeyboardView: ViewBuilder {
                 build
                     .verticalAlignY.equalToSuperview()
                     .trailing.equalToSuperview(-18)
-                    .width.equalTo(viewComma.get, multiplier: 1.35)
+                    .width.equalTo(viewComma, multiplier: 1.35)
                     .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
             }
         return comp

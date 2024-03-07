@@ -1,4 +1,5 @@
 {
+  "originHash" : "599b3eacda38963dc073ebbc14cce4e818f57b173e66ab910ca86f3f5c17f206",
   "pins" : [
     {
       "identity" : "customcomponentssdk",
@@ -6,9 +7,9 @@
       "location" : "https://github.com/alecomparini-dev/CustomComponentsSDK.git",
       "state" : {
         "branch" : "develop",
-        "revision" : "02567b3d379d3f37d749c786f579c8c968dc2b2d"
+        "revision" : "a7b802b5d25ae9969c87fc7e56afe48fbce63959"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

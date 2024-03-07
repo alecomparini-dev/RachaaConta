@@ -41,7 +41,7 @@ class AmountPaidView: ViewBuilder {
             .setAutoLayout { build in
                 build
                     .pinRight.equalToSuperview()
-                    .leading.equalTo(amountImage.get, .trailing, 10)
+                    .leading.equalTo(amountImage, .trailing, 10)
             }
         return comp
     }()

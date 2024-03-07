@@ -63,7 +63,7 @@ class CreateBillView: UIView {
             .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(backButtonView.get, .bottom, 56)
+                    .top.equalTo(backButtonView, .bottom, 56)
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })
@@ -74,8 +74,8 @@ class CreateBillView: UIView {
         let comp = StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(nameBillTextField.get, .bottom)
-                    .leading.trailing.equalTo(nameBillTextField.get)
+                    .top.equalTo(nameBillTextField, .bottom)
+                    .leading.trailing.equalTo(nameBillTextField)
                     .height.equalToConstant(2)
             })
         return comp
@@ -91,8 +91,8 @@ class CreateBillView: UIView {
             })
             .setAutoLayout { build in
                 build
-                    .top.equalTo(underline.get, .bottom, 24)
-                    .leading.trailing.equalTo(underline.get)
+                    .top.equalTo(underline, .bottom, 24)
+                    .leading.trailing.equalTo(underline)
                     .height.equalToConstant(110)
             }
         return comp
@@ -107,26 +107,11 @@ class CreateBillView: UIView {
             .setAutoLayout { build in
                 build
                     .top.leading.equalToSuperview(16)
-//                    .verticalAlignY.equalTo(painelAddress.get, .centerY)
-//                    .leading.equalTo(painelAddress.get, .leading, 16)
+//                    .verticalAlignY.equalTo(painelAddress, .centerY)
+//                    .leading.equalTo(painelAddress, .leading, 16)
             }
         return comp
     }()
-    
-//    lazy var addressLabel: LabelBuilder = {
-//        let comp = LabelBuilder("Avenida Marcos de Freitas Costas, 1228 - Uberlândia/MG")
-//            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
-//            .setNumberOfLines(2)
-//            .setTextAlignment(.left)
-//            .setColor(Theme.shared.currentTheme.onSurface)
-//            .setAutoLayout { build in
-//                build
-//                    .verticalAlignY.equalTo(addressImage.get, .centerY)
-//                    .leading.equalTo(addressImage.get, .trailing, 16)
-//                    .trailing.equalTo(painelAddress.get, .trailing, -8)
-//            }
-//        return comp
-//    }()
     
     lazy var addressLabel: LabelBuilder = {
         let comp = LabelBuilder("Deseja adicionar o endereço ?")
@@ -136,9 +121,9 @@ class CreateBillView: UIView {
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(addressImage.get, .centerY)
-                    .leading.equalTo(addressImage.get, .trailing, 8)
-                    .trailing.equalTo(painelAddress.get, .trailing, -8)
+                    .verticalAlignY.equalTo(addressImage, .centerY)
+                    .leading.equalTo(addressImage, .trailing, 8)
+                    .trailing.equalTo(painelAddress, .trailing, -8)
             }
         return comp
     }()

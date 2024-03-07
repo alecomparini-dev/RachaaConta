@@ -93,7 +93,7 @@ class Line0KeyboardView: ViewBuilder {
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
-                    .width.equalTo(buttonNo9.get, multiplier: 1.2)
+                    .width.equalTo(buttonNo9, multiplier: 1.2)
                     .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
             }
         return btn

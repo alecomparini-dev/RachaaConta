@@ -47,7 +47,7 @@ class BackButtonView: NeumorphismSideBarView {
     }
     
     private func addElements() {
-        backButtonImage.add(insideTo: self.get)
+        backButtonImage.add(insideTo: self)
     }
     
     private func configAutoLayout() {

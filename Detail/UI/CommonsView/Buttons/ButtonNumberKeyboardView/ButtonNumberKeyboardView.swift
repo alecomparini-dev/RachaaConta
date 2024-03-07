@@ -48,7 +48,7 @@ class ButtonDefaultView: ViewBuilder {
                     .setBlur(to: .light, percent: 3)
                     .setBlur(to: .dark, percent: 5)
                     .setDistance(to: .light, percent: 3)
-                    .setDistance(to: .dark, percent: 10)
+                    .setDistance(to: .dark, percent: 12)
                     .apply()
             }
             .setAutoLayout { build in
@@ -71,7 +71,7 @@ class ButtonDefaultView: ViewBuilder {
             .setTitleWeight(.regular)
             .setAutoLayout { build in
                 build
-                    .pin.equalToSuperview()
+                    .pin.equalToSuperview(-1)
             }
         return btn
     }()

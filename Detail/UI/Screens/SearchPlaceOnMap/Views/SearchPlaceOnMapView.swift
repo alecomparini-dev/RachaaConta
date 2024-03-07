@@ -47,7 +47,7 @@ class SearchPlaceOnMapView: UIView {
         let comp = LightMapView()
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(backButtonView.get, .centerY, -2)
+                    .verticalAlignY.equalTo(backButtonView, .centerY, -2)
                     .trailing.equalToSafeArea(-24)
                     .size.equalToConstant(30)
             }
@@ -71,7 +71,7 @@ class SearchPlaceOnMapView: UIView {
             .setAlpha(0)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(backButtonView.get, .bottom, 8)
+                    .top.equalTo(backButtonView, .bottom, 8)
                     .leading.trailing.equalToSuperview(24)
                     .height.equalToConstant(80)
             }

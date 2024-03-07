@@ -33,8 +33,8 @@ class ButtonSeeBillView: ViewBuilder {
             .setColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(containerButton.get, .bottom, 8)
-                    .horizontalAlignX.equalTo(containerButton.get, .centerX, -4)
+                    .top.equalTo(containerButton, .bottom, 8)
+                    .horizontalAlignX.equalTo(containerButton, .centerX, -4)
             }
         return comp
     }()
@@ -99,17 +99,17 @@ class ButtonSeeBillView: ViewBuilder {
         
         let viewDot1 = ViewBuilder()
         let dot1 = DotView(size: size, color)
-        dot1.add(insideTo: viewDot1.get)
+        dot1.add(insideTo: viewDot1)
         viewDot1.add(insideTo: vStackLeftView)
         
         let viewDot2 = ViewBuilder()
         let dot2 = DotView(size: size, color)
-        dot2.add(insideTo: viewDot2.get)
+        dot2.add(insideTo: viewDot2)
         viewDot2.add(insideTo: vStackLeftView)
         
         let viewDot3 = ViewBuilder()
         let dot3 = DotView(size: size, color)
-        dot3.add(insideTo: viewDot3.get)
+        dot3.add(insideTo: viewDot3)
         viewDot3.add(insideTo: hStackRightView)
     }
     

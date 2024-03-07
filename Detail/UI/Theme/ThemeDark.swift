@@ -16,30 +16,30 @@ public struct ThemeDark: ThemeProtocol {
 
 extension ThemeDark: ThemePrimaryColor {
     public var primary: UIColor { UIColor.HEX("#00e0c7") }
-    public var onPrimary:UIColor { backgroundColor }
+    public var onPrimary:UIColor { backgroundColor.withAlphaComponent(0.75) }
     public var primaryContainer: UIColor { UIColor.HEX("#28364d") }
     public var onPrimaryContainer: UIColor { UIColor.HEX("#d1d3d2") }
 }
 
 extension ThemeDark: ThemeSecondaryColor {
-    public var secondary: UIColor { UIColor.HEX("#006270") }
-    public var onSecondary: UIColor { UIColor.HEX("#ffffff") }
+    public var secondary: UIColor { UIColor.HEX("#ee975a") }
+    public var onSecondary: UIColor { backgroundColor.withAlphaComponent(0.75) }
     public var secondaryContainer: UIColor { .black }
     public var onSecondaryContainer: UIColor { .black }
 }
 
 extension ThemeDark: ThemeTertiaryColor {
-    public var tertiary: UIColor { UIColor.HEX("#ee975a") }
-    public var onTertiary: UIColor { backgroundColor }
+    public var tertiary: UIColor { UIColor.HEX("#006270") }
+    public var onTertiary:  UIColor { UIColor.HEX("#ffffff") }
     public var tertiaryContainer: UIColor { .black }
     public var onTertiaryContainer: UIColor { .black }
 }
 
 extension ThemeDark: ThemeGradientColor {
     public var backgroundColorGradient: [UIColor] { [backgroundColor, backgroundColor.adjustBrightness(-80)] }
-    public var primaryGradient: [UIColor] { [primary, secondary] }
-    public var secondaryGradient: [UIColor] { [secondary, UIColor.HEX("#00c7e3")] }
-    public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#ff6b00")] }
+    public var primaryGradient: [UIColor] { [primary, UIColor.HEX("#019f8e")] }
+    public var secondaryGradient: [UIColor] { [secondary, UIColor.HEX("#ff6b00")] }
+    public var tertiaryGradient: [UIColor] { [tertiary, UIColor.HEX("#00c7e3")] }
 }
 
 

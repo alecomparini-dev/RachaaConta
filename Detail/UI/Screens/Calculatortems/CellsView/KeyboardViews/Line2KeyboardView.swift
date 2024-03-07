@@ -44,8 +44,8 @@ class Line2KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo0: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("0")
+    lazy var buttonNo0: DefaultButton = {
+        let comp = DefaultButton(text: "0")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -74,50 +74,13 @@ class Line2KeyboardView: ViewBuilder {
         return comp
     }()
     
-    
     lazy var viewSaveItem: ViewBuilder = {
         let comp = ViewBuilder()
         return comp
     }()
     
-    lazy var _buttonSaveItem: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView(color: Theme.shared.currentTheme.primary, "SALVAR")
-            .setAutoLayout { build in
-                build
-                    .verticalAlignY.equalToSuperview()
-                    .trailing.equalToSuperview(-18)
-                    .width.equalTo(buttonNo0, multiplier: 1.9)
-                    .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
-            }
-        comp.button.setFontFamily(Const.Font.titilliumWebBold, 18)
-        comp.button.setTintColor(Theme.shared.currentTheme.onPrimary)
-        comp.button.setTitleColor(Theme.shared.currentTheme.onPrimary)
-//        comp.button.setTitleWeight(.heavy)
-        return comp
-    }()
-    
-    lazy var buttonSaveItem: ButtonBuilder = {
-        let comp = ButtonBuilder("OK")
-            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
-            .setTintColor(Theme.shared.currentTheme.onPrimary)
-            .setBorder({ build in
-                build
-                    .setCornerRadius(4)
-            })
-            .setNeumorphism { build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.primary)
-                    .setShape(.convex)
-                    .setLightPosition(.leftTop)
-                    .setIntensity(to: .light, percent: 30)
-                    .setIntensity(to: .dark, percent: 100)
-                    .setBlur(to: .light, percent: 2)
-                    .setBlur(to: .dark, percent: 10)
-                    .setDistance(to: .light, percent: 4)
-                    .setDistance(to: .dark, percent: 10)
-                    .setShadowColor(to: .dark, color: .black)
-                    .apply()
-            }
+    lazy var buttonSaveItem: PrimaryButton = {
+        let comp = PrimaryButton(text: "OK")
             .setAutoLayout { build in
                 build
                     .verticalAlignY.equalToSuperview()
@@ -127,7 +90,7 @@ class Line2KeyboardView: ViewBuilder {
             }
         return comp
     }()
-
+    
     
 //  MARK: - PRIVATE AREA
     private func configure() {

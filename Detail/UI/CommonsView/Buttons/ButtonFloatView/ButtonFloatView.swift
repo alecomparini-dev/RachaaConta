@@ -7,8 +7,7 @@ import CustomComponentsSDK
 
 class ButtonFloatView: ButtonImageBuilder {
     
-//    private let gradientColor = [Theme.shared.currentTheme.surfaceContainerLow, Theme.shared.currentTheme.surfaceContainerHighest]
-    private let gradientColor = [Theme.shared.currentTheme.secondary, Theme.shared.currentTheme.primary.adjustBrightness(-10)]
+    private let plusGradientColor = [Theme.shared.currentTheme.tertiary, Theme.shared.currentTheme.primary.adjustBrightness(-20)]
     
     override init() {
         super.init()
@@ -19,7 +18,7 @@ class ButtonFloatView: ButtonImageBuilder {
 //  MARK: - LAZY PROPERTIES
     
     lazy var vStroke: StrokeView = {
-        let comp = StrokeView(gradientColor: gradientColor)
+        let comp = StrokeView(gradientColor: plusGradientColor)
             .setShadow({ build in
                 build
                     .setOpacity(0)
@@ -35,7 +34,7 @@ class ButtonFloatView: ButtonImageBuilder {
     }()
     
     lazy var hStroke: StrokeView = {
-        let comp = StrokeView(gradientColor: gradientColor)
+        let comp = StrokeView(gradientColor: plusGradientColor)
             .setShadow({ build in
                 build
                     .setOpacity(0)

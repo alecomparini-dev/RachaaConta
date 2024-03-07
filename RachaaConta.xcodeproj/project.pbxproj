@@ -42,6 +42,9 @@
 		023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E72B87CC990009C432 /* DateTimeBillView.swift */; };
 		023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63EA2B87DC1D0009C432 /* PersonBillView.swift */; };
 		028A3D392B98FDF800AE764F /* DisplayCalculatorItemValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */; };
+		028A3D3D2B99E89A00AE764F /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D3B2B99E88D00AE764F /* DefaultButton.swift */; };
+		028A3D412B99EF6300AE764F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D3F2B99EF5400AE764F /* PrimaryButton.swift */; };
+		028A3D452B9A055400AE764F /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D432B9A054000AE764F /* SecondaryButton.swift */; };
 		02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
@@ -73,8 +76,8 @@
 		02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27312B855247003A5979 /* HomeViewModel.swift */; };
 		02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */; };
 		02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */; };
-		02E9E09D2B9654890059E85A /* AddEveryoneItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */; };
-		02E9E09E2B96555C0059E85A /* AddEveryoneItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* AddEveryoneItemsViewController.swift */; };
+		02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */; };
+		02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */; };
 		02E9E0A12B9657230059E85A /* AddEveryoneItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +169,9 @@
 		023C63E72B87CC990009C432 /* DateTimeBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeBillView.swift; sourceTree = "<group>"; };
 		023C63EA2B87DC1D0009C432 /* PersonBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBillView.swift; sourceTree = "<group>"; };
 		028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCalculatorItemValueView.swift; sourceTree = "<group>"; };
+		028A3D3B2B99E88D00AE764F /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+		028A3D3F2B99EF5400AE764F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		028A3D432B9A054000AE764F /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,8 +204,8 @@
 		02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelImpl.swift; sourceTree = "<group>"; };
 		02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
 		02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenter.swift; sourceTree = "<group>"; };
-		02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsView.swift; sourceTree = "<group>"; };
-		02E9E09B2B9652D40059E85A /* AddEveryoneItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsViewController.swift; sourceTree = "<group>"; };
+		02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsView.swift; sourceTree = "<group>"; };
+		02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewController.swift; sourceTree = "<group>"; };
 		02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -453,6 +459,37 @@
 			path = DisplayCalculatorItemValueView;
 			sourceTree = "<group>";
 		};
+		028A3D3A2B99E75B00AE764F /* DefaultButton */ = {
+			isa = PBXGroup;
+			children = (
+				028A3D3B2B99E88D00AE764F /* DefaultButton.swift */,
+			);
+			path = DefaultButton;
+			sourceTree = "<group>";
+		};
+		028A3D3E2B99ECC000AE764F /* PrimaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				028A3D3F2B99EF5400AE764F /* PrimaryButton.swift */,
+			);
+			path = PrimaryButton;
+			sourceTree = "<group>";
+		};
+		028A3D422B9A006B00AE764F /* SecondaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				028A3D432B9A054000AE764F /* SecondaryButton.swift */,
+			);
+			path = SecondaryButton;
+			sourceTree = "<group>";
+		};
+		028A3D462B9A27D700AE764F /* AddItems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddItems;
+			sourceTree = "<group>";
+		};
 		02B4D6112B842132005DF70B /* CellView */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,11 +619,12 @@
 			isa = PBXGroup;
 			children = (
 				02BD95072B8376C600539FDE /* Home */,
+				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				0210784F2B91039300201704 /* SearchPlaceOnMap */,
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
-				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
 				02D97E682B89359C009F57F8 /* EveryoneItems */,
-				02E9E0972B9652B10059E85A /* AddEveryoneItems */,
+				02E9E0972B9652B10059E85A /* Calculatortems */,
+				028A3D462B9A27D700AE764F /* AddItems */,
 				02D97E692B8935AA009F57F8 /* IndividualItems */,
 			);
 			path = Screens;
@@ -750,6 +788,9 @@
 		02DB78DE2B97AB3200253B9D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				028A3D3A2B99E75B00AE764F /* DefaultButton */,
+				028A3D3E2B99ECC000AE764F /* PrimaryButton */,
+				028A3D422B9A006B00AE764F /* SecondaryButton */,
 				02DB78DA2B9791D700253B9D /* ButtonKeyboardView */,
 				022F19152B8FB12700474CE7 /* BackButtonView */,
 				02B4D6122B842476005DF70B /* ButtonFloatView */,
@@ -843,21 +884,21 @@
 			path = FetchBillPresenter;
 			sourceTree = "<group>";
 		};
-		02E9E0972B9652B10059E85A /* AddEveryoneItems */ = {
+		02E9E0972B9652B10059E85A /* Calculatortems */ = {
 			isa = PBXGroup;
 			children = (
 				02DB78CF2B9745B400253B9D /* CellsView */,
 				02E9E0982B9652BB0059E85A /* Views */,
-				02E9E09B2B9652D40059E85A /* AddEveryoneItemsViewController.swift */,
+				02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */,
 			);
-			path = AddEveryoneItems;
+			path = Calculatortems;
 			sourceTree = "<group>";
 		};
 		02E9E0982B9652BB0059E85A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				028A3D352B98E49100AE764F /* Components */,
-				02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */,
+				02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1089,7 +1130,7 @@
 				023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */,
 				028A3D392B98FDF800AE764F /* DisplayCalculatorItemValueView.swift in Sources */,
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
-				02E9E09D2B9654890059E85A /* AddEveryoneItemsView.swift in Sources */,
+				02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */,
 				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
 				023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */,
 				0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */,
@@ -1097,20 +1138,23 @@
 				02DB78D32B976BC600253B9D /* Line0KeyboardView.swift in Sources */,
 				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
 				02DB78D62B976EBE00253B9D /* Line1KeyboardView.swift in Sources */,
+				028A3D412B99EF6300AE764F /* PrimaryButton.swift in Sources */,
 				022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */,
 				0210784A2B90B75C00201704 /* LightMapView.swift in Sources */,
 				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
 				022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */,
 				02DB78DD2B97921100253B9D /* ButtonKeyboardView.swift in Sources */,
 				02D97E712B8936CC009F57F8 /* SearchPlaceOnMapView.swift in Sources */,
+				028A3D452B9A055400AE764F /* SecondaryButton.swift in Sources */,
 				023C63D72B869C6E0009C432 /* BillAddressView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,
 				02DB78D92B978F9900253B9D /* Line2KeyboardView.swift in Sources */,
 				021078562B910EE300201704 /* CreateBillView.swift in Sources */,
 				023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */,
 				021078572B910EE600201704 /* CreateBillViewController.swift in Sources */,
-				02E9E09E2B96555C0059E85A /* AddEveryoneItemsViewController.swift in Sources */,
+				02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */,
 				02D97E872B8D68A7009F57F8 /* SideBarMenuViewController.swift in Sources */,
+				028A3D3D2B99E89A00AE764F /* DefaultButton.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 				023C63E22B877D7E0009C432 /* StrokeView.swift in Sources */,
 			);

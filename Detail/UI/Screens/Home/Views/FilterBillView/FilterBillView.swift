@@ -52,7 +52,7 @@ class FilterBillView: ViewBuilder {
     }()
     
     lazy var underLineView: StrokeView = {
-        return StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
+        return StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient)
             .setAutoLayout { build in
                 build
                     .top.equalTo(filterLabel, .bottom,  1)

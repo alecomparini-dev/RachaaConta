@@ -51,8 +51,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo4: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("4")
+    lazy var buttonNo4: DefaultButton = {
+        let comp = DefaultButton(text: "4")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -67,8 +67,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo5: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("5")
+    lazy var buttonNo5: DefaultButton = {
+        let comp = DefaultButton(text: "5")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -83,8 +83,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo6: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("6")
+    lazy var buttonNo6: DefaultButton = {
+        let comp = DefaultButton(text: "6")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -99,8 +99,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo1: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("1")
+    lazy var buttonNo1: DefaultButton = {
+        let comp = DefaultButton(text: "1")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -115,8 +115,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo2: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("2")
+    lazy var buttonNo2: DefaultButton = {
+        let comp = DefaultButton(text: "2")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -131,8 +131,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo3: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("3")
+    lazy var buttonNo3: DefaultButton = {
+        let comp = DefaultButton(text: "3")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -147,17 +147,31 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonMultiply: ButtonKeyboardView = {
+//    lazy var buttonMultiply: DefaultButton = {
+//        let img = ImageViewBuilder(systemName: "xmark")
+//        let comp = DefaultButton(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
+//            .setAutoLayout { build in
+//                build
+//                    .horizontalAlignX.equalToSuperview()
+//                    .verticalAlignY.equalToSuperview(-2)
+//                    .size.equalToConstant(Const.Default.sizeButtonKeyboard.width*0.8)
+//            }
+//        comp.button.setTintColor(Theme.shared.currentTheme.onPrimary)
+//        comp.button.setImageWeight(.black)
+//        return comp
+//    }()
+    
+    
+    lazy var buttonMultiply: PrimaryButton = {
         let img = ImageViewBuilder(systemName: "xmark")
-        let comp = ButtonKeyboardView(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
+        let size = Const.Default.sizeButtonKeyboard.width*0.8
+        let comp = PrimaryButton(cornerRadius: size/2, image: img)
             .setAutoLayout { build in
                 build
                     .horizontalAlignX.equalToSuperview()
                     .verticalAlignY.equalToSuperview(-2)
-                    .size.equalToConstant(Const.Default.sizeButtonKeyboard.width*0.8)
+                    .size.equalToConstant(size)
             }
-        comp.button.setTintColor(Theme.shared.currentTheme.onPrimary)
-        comp.button.setImageWeight(.black)
         return comp
     }()
 
@@ -220,5 +234,6 @@ class Line1KeyboardView: ViewBuilder {
         buttonMultiply.applyAutoLayout()
     }
     
+
     
 }

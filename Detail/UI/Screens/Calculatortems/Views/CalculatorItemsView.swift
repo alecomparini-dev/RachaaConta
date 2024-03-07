@@ -6,7 +6,7 @@ import UIKit
 import CustomComponentsSDK
 import Handler
 
-class AddEveryoneItemsView: UIView {
+class CalculatorItemsView: UIView {
     
     init() {
         super.init(frame: .zero)
@@ -96,7 +96,6 @@ class AddEveryoneItemsView: UIView {
         return comp
     }()
 
-
     lazy var displayCalculator: DisplayCalculatorItemValueView = {
         let comp = DisplayCalculatorItemValueView()
             .setAutoLayout { build in
@@ -109,7 +108,7 @@ class AddEveryoneItemsView: UIView {
     }()
     
     lazy var underlineItem: StrokeView = {
-        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient)
+        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient)
             .setAutoLayout { build in
                 build
                     .bottom.equalTo(keyboardList, .top, -20)

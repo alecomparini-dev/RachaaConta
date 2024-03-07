@@ -71,7 +71,7 @@ class CreateBillView: UIView {
     }()
     
     lazy var underline: StrokeView = {
-        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient)
+        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.primaryGradient)
             .setAutoLayout({ build in
                 build
                     .top.equalTo(nameBillTextField, .bottom)
@@ -140,7 +140,7 @@ class CreateBillView: UIView {
             })
             .setNeumorphism { build in
                 build
-                    .setReferenceColor(Theme.shared.currentTheme.tertiary)
+                    .setReferenceColor(Theme.shared.currentTheme.secondary)
                     .setShape(.convex)
                     .setLightPosition(.leftTop)
                     .setIntensity(to: .light, percent: 30)
@@ -172,7 +172,7 @@ class CreateBillView: UIView {
     
     
     //TODO: CORRIGIR TINTCOLOR E IMAGECOLOR
-    lazy var saveButton: ButtonImageBuilder = {
+    lazy var _saveButton: ButtonImageBuilder = {
         let comp = ButtonImageBuilder(ImageViewBuilder(systemName: Const.Images.checkmark))
             .setTitle("Salvar")
             .setFontFamily(Const.Font.titilliumWebRegular, 18)
@@ -212,6 +212,30 @@ class CreateBillView: UIView {
                         nameBillTextField.setHideKeyboard()
                     }
             }
+        return comp
+    }()
+    
+    lazy var saveButton: PrimaryButton = {
+        let comp = PrimaryButton(text: "Salvar", image: ImageViewBuilder(systemName: Const.Images.checkmark))
+            .setAutoLayout({ build in
+                build
+                    .trailing.equalToSafeArea(-24)
+                    .height.equalToConstant(45)
+                    .width.equalToConstant(130)
+                    .bottom.equalTo(keyboardLayoutGuide, .top, -16)
+            })
+        comp.button
+            .setImageSize(12)
+//            .setImageWeight(.thin)
+            .setImagePadding(10)
+            .setActions { build in
+            build
+                .setTap { [weak self] component, tapGesture in
+                    guard let self else {return}
+                    delegate?.saveButtonTapped()
+                    nameBillTextField.setHideKeyboard()
+                }
+        }
         return comp
     }()
     

@@ -30,8 +30,8 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo7: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("7")
+    lazy var buttonNo7: DefaultButton = {
+        let comp = DefaultButton(text: "7")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -47,8 +47,8 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo8: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("8")
+    lazy var buttonNo8: DefaultButton = {
+        let comp = DefaultButton(text: "8")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -63,8 +63,8 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo9: ButtonKeyboardView = {
-        let comp = ButtonKeyboardView("9")
+    lazy var buttonNo9: DefaultButton = {
+        let comp = DefaultButton(text: "9")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -74,7 +74,6 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
 
-    
     lazy var viewBackspace: ViewBuilder = {
         let comp = ViewBuilder()
         return comp
@@ -108,28 +107,23 @@ class Line0KeyboardView: ViewBuilder {
     
     private func addElements() {
         stackView.add(insideTo: self)
-        
         viewNo7.add(insideTo: stackView)
         buttonNo7.add(insideTo: viewNo7)
-        
         viewNo8.add(insideTo: stackView)
         buttonNo8.add(insideTo: viewNo8)
-        
         viewNo9.add(insideTo: stackView)
         buttonNo9.add(insideTo: viewNo9)
-        
         viewBackspace.add(insideTo: stackView)
         backspace.add(insideTo: viewBackspace)
     }
     
     private func configAutoLayout() {
         stackView.applyAutoLayout()
-        
         buttonNo7.applyAutoLayout()
         buttonNo8.applyAutoLayout()
         buttonNo9.applyAutoLayout()
         backspace.applyAutoLayout()
     }
     
-    
+
 }

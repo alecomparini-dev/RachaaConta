@@ -34,8 +34,8 @@ class BillTableCellView: UITableViewCell {
         let comp = LineVerticalView()
             .setAutoLayout { build in
                 build
-                    .top.equalTo(dotView.get, .bottom, 10)
-                    .horizontalAlignX.equalTo(dotView.get, .centerX, 1)
+                    .top.equalTo(dotView, .bottom, 10)
+                    .horizontalAlignX.equalTo(dotView, .centerX, 1)
                     .width.equalToConstant(7)
                     .bottom.equalToSuperview(-16)
             }
@@ -55,8 +55,8 @@ class BillTableCellView: UITableViewCell {
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(dotView.get, .centerY)
-                    .leading.equalTo(dotView.get, .trailing, 12)
+                    .verticalAlignY.equalTo(dotView, .centerY)
+                    .leading.equalTo(dotView, .trailing, 12)
                     .trailing.equalToSuperview(-16)
             }
         return comp
@@ -66,8 +66,8 @@ class BillTableCellView: UITableViewCell {
         let comp = DateTimeBillView(day: billPresenterDTO.day, month: billPresenterDTO.month, dayWeek: billPresenterDTO.dayOfWeek, time: billPresenterDTO.time)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(titleLabel.get, .bottom, -6)
-                    .leading.equalTo(titleLabel.get, .leading, 8)
+                    .top.equalTo(titleLabel, .bottom, -6)
+                    .leading.equalTo(titleLabel, .leading, 8)
                     .trailing.equalToSuperview(-80)
             }
         return comp
@@ -87,8 +87,8 @@ class BillTableCellView: UITableViewCell {
             })
             .setAutoLayout { build in
                 build
-                    .top.equalTo(dateTimeBillView.get, .bottom, 4)
-                    .leading.equalTo(lineVerticalView.get, .trailing, 16)
+                    .top.equalTo(dateTimeBillView, .bottom, 4)
+                    .leading.equalTo(lineVerticalView, .trailing, 16)
                     .trailing.equalToSuperview(-16)
                     .bottom.equalToSuperview(-28)
             }
@@ -122,8 +122,8 @@ class BillTableCellView: UITableViewCell {
         let comp = BillAddressView(address: billPresenterDTO.address)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(amountPaid.get, .bottom, 16)
-                    .leading.equalTo(amountPaid.get, .leading)
+                    .top.equalTo(amountPaid, .bottom, 16)
+                    .leading.equalTo(amountPaid, .leading)
                     .trailing.equalToSuperview(-85)
                     .height.equalToConstant(50)
             }
@@ -134,10 +134,10 @@ class BillTableCellView: UITableViewCell {
         let comp = PersonBillView(count: billPresenterDTO.countPerson)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(billAddress.get, .centerY)
-                    .leading.equalTo(billAddress.get, .trailing, 12)
+                    .verticalAlignY.equalTo(billAddress, .centerY)
+                    .leading.equalTo(billAddress, .trailing, 12)
                     .trailing.equalToSuperview()
-                    .height.equalTo(amountPaid.get)
+                    .height.equalTo(amountPaid)
             }
         return comp
     }()

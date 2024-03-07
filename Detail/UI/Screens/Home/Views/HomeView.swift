@@ -77,7 +77,7 @@ class HomeView: UIView {
             })
             .setAutoLayout({ build in
                 build
-                    .verticalAlignY.equalTo(buttonSideBarMenuView.get, .centerY)
+                    .verticalAlignY.equalTo(buttonSideBarMenuView, .centerY)
                     .trailing.equalToSafeArea(-24)
                     .width.equalToConstant(110)
                     .height.equalToConstant(35)
@@ -128,7 +128,7 @@ class HomeView: UIView {
             .setHidden(true)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(createBillButtonFloat.get, .top , -8)
+                    .top.equalTo(createBillButtonFloat, .top , -8)
                     .pinBottom.equalToSuperview()
             }
         return comp

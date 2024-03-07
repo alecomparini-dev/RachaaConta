@@ -40,7 +40,7 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
             .setAutoLayout { build in
                 build
                     .trailing.equalToSuperview(-10)
-                    .verticalAlignY.equalTo(stackView.get, .centerY)
+                    .verticalAlignY.equalTo(stackView, .centerY)
             }
         return img
     }()
@@ -53,7 +53,7 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
     }
     
     private func addElements() {
-        stackView.add(insideTo: self.get)
+        stackView.add(insideTo: self)
         createUnderline().add(insideTo: stackView)
         createUnderline().add(insideTo: stackView)
         createUnderline().add(insideTo: stackView)

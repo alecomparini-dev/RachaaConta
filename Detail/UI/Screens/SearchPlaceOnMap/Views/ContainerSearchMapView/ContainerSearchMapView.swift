@@ -43,9 +43,9 @@ class ContainerSearchMapView: ViewBuilder {
             })
             .setAutoLayout { build in
                 build
-                    .top.equalTo(containerSearchBlurView.get, .bottom)
-                    .leading.equalTo(containerSearchBlurView.get, .leading, 16)
-                    .trailing.equalTo(containerSearchBlurView.get, .trailing, 6)
+                    .top.equalTo(containerSearchBlurView, .bottom)
+                    .leading.equalTo(containerSearchBlurView, .leading, 16)
+                    .trailing.equalTo(containerSearchBlurView, .trailing, 6)
                     .height.equalToConstant(24)
             }
         return comp

@@ -4,7 +4,7 @@
 import Foundation
 import UI
 
-class AddEveryoneItensCoordinator: Coordinator {
+class AddEveryoneItemsCoordinator: Coordinator {
     var coordinator: Coordinator?
     let navigationController: NavigationController
     
@@ -17,7 +17,7 @@ class AddEveryoneItensCoordinator: Coordinator {
     func start() {
         coordinator = self
         
-        var controller = AddEveryoneItensViewController()
+        var controller = AddEveryoneItemsViewController()
         controller = navigationController.pushViewController(controller)
         controller.coordinator = self
     }
@@ -26,7 +26,7 @@ class AddEveryoneItensCoordinator: Coordinator {
 }
 
 
-extension AddEveryoneItensCoordinator: AddEveryoneItensViewControllerCoordinator {
+extension AddEveryoneItemsCoordinator: AddEveryoneItemsViewControllerCoordinator {
     
     func gotoTrocar() {
         let coordinator = CreateBillCoordinator(navigationController)

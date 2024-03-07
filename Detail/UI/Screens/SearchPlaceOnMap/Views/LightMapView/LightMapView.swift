@@ -47,7 +47,7 @@ class LightMapView: ViewBuilder {
     }
     
     private func addElements() {
-        lightMapButton.add(insideTo: self.get)
+        lightMapButton.add(insideTo: self)
     }
     
     private func configAutoLayout() {

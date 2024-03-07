@@ -4,13 +4,13 @@
 import UIKit
 import CustomComponentsSDK
 
-public protocol AddEveryoneItensViewControllerCoordinator: AnyObject {
+public protocol AddEveryoneItemsViewControllerCoordinator: AnyObject {
     func gotoTrocar()
 }
 
 
-public class AddEveryoneItensViewController: UIViewController {
-    public weak var coordinator: AddEveryoneItensViewControllerCoordinator?
+public class AddEveryoneItemsViewController: UIViewController {
+    public weak var coordinator: AddEveryoneItemsViewControllerCoordinator?
     
     lazy var screen: AddEveryoneItemsView = {
         let comp = AddEveryoneItemsView()
@@ -62,7 +62,7 @@ public class AddEveryoneItensViewController: UIViewController {
 
 
 //  MARK: - EXTENSION - BackButtonViewDelegate
-extension AddEveryoneItensViewController: ListDelegate {
+extension AddEveryoneItemsViewController: ListDelegate {
     public func numberOfSections(_ list: CustomComponentsSDK.ListBuilder) -> Int {
         1
     }
@@ -95,7 +95,7 @@ extension AddEveryoneItensViewController: ListDelegate {
 
 
 //  MARK: - EXTENSION - BackButtonViewDelegate
-extension AddEveryoneItensViewController: BackButtonViewDelegate {
+extension AddEveryoneItemsViewController: BackButtonViewDelegate {
     
     public func backButtonImageTapped() {
         coordinator?.gotoTrocar()

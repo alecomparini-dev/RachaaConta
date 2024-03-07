@@ -41,6 +41,7 @@
 		023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */; };
 		023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E72B87CC990009C432 /* DateTimeBillView.swift */; };
 		023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63EA2B87DC1D0009C432 /* PersonBillView.swift */; };
+		028A3D392B98FDF800AE764F /* DisplayCalculatorItemValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */; };
 		02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
@@ -73,8 +74,8 @@
 		02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */; };
 		02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */; };
 		02E9E09D2B9654890059E85A /* AddEveryoneItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */; };
-		02E9E09E2B96555C0059E85A /* AddEveryoneItensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* AddEveryoneItensViewController.swift */; };
-		02E9E0A12B9657230059E85A /* AddEveryoneItensCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* AddEveryoneItensCoordinator.swift */; };
+		02E9E09E2B96555C0059E85A /* AddEveryoneItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* AddEveryoneItemsViewController.swift */; };
+		02E9E0A12B9657230059E85A /* AddEveryoneItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismTextFieldView.swift; sourceTree = "<group>"; };
 		023C63E72B87CC990009C432 /* DateTimeBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeBillView.swift; sourceTree = "<group>"; };
 		023C63EA2B87DC1D0009C432 /* PersonBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBillView.swift; sourceTree = "<group>"; };
+		028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCalculatorItemValueView.swift; sourceTree = "<group>"; };
 		02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,8 +199,8 @@
 		02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
 		02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenter.swift; sourceTree = "<group>"; };
 		02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsView.swift; sourceTree = "<group>"; };
-		02E9E09B2B9652D40059E85A /* AddEveryoneItensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItensViewController.swift; sourceTree = "<group>"; };
-		02E9E0A02B9657230059E85A /* AddEveryoneItensCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItensCoordinator.swift; sourceTree = "<group>"; };
+		02E9E09B2B9652D40059E85A /* AddEveryoneItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsViewController.swift; sourceTree = "<group>"; };
+		02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +437,22 @@
 			path = DateTimeBillView;
 			sourceTree = "<group>";
 		};
+		028A3D352B98E49100AE764F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				028A3D362B98FB9500AE764F /* DisplayCalculatorItemValueView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		028A3D362B98FB9500AE764F /* DisplayCalculatorItemValueView */ = {
+			isa = PBXGroup;
+			children = (
+				028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */,
+			);
+			path = DisplayCalculatorItemValueView;
+			sourceTree = "<group>";
+		};
 		02B4D6112B842132005DF70B /* CellView */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,9 +585,9 @@
 				0210784F2B91039300201704 /* SearchPlaceOnMap */,
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
 				02D97E7F2B8D5937009F57F8 /* SideBarMenu */,
-				02D97E682B89359C009F57F8 /* EveryoneItens */,
+				02D97E682B89359C009F57F8 /* EveryoneItems */,
 				02E9E0972B9652B10059E85A /* AddEveryoneItems */,
-				02D97E692B8935AA009F57F8 /* IndividualItens */,
+				02D97E692B8935AA009F57F8 /* IndividualItems */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -598,18 +616,18 @@
 			path = NeumorphismTextFieldView;
 			sourceTree = "<group>";
 		};
-		02D97E682B89359C009F57F8 /* EveryoneItens */ = {
+		02D97E682B89359C009F57F8 /* EveryoneItems */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = EveryoneItens;
+			path = EveryoneItems;
 			sourceTree = "<group>";
 		};
-		02D97E692B8935AA009F57F8 /* IndividualItens */ = {
+		02D97E692B8935AA009F57F8 /* IndividualItems */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = IndividualItens;
+			path = IndividualItems;
 			sourceTree = "<group>";
 		};
 		02D97E6A2B89363E009F57F8 /* CreateBill */ = {
@@ -830,7 +848,7 @@
 			children = (
 				02DB78CF2B9745B400253B9D /* CellsView */,
 				02E9E0982B9652BB0059E85A /* Views */,
-				02E9E09B2B9652D40059E85A /* AddEveryoneItensViewController.swift */,
+				02E9E09B2B9652D40059E85A /* AddEveryoneItemsViewController.swift */,
 			);
 			path = AddEveryoneItems;
 			sourceTree = "<group>";
@@ -838,6 +856,7 @@
 		02E9E0982B9652BB0059E85A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				028A3D352B98E49100AE764F /* Components */,
 				02E9E0992B9652CC0059E85A /* AddEveryoneItemsView.swift */,
 			);
 			path = Views;
@@ -846,7 +865,7 @@
 		02E9E09F2B96570A0059E85A /* AddEveryoneItensCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				02E9E0A02B9657230059E85A /* AddEveryoneItensCoordinator.swift */,
+				02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */,
 			);
 			path = AddEveryoneItensCoordinator;
 			sourceTree = "<group>";
@@ -1068,6 +1087,7 @@
 				023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */,
 				02D97E702B8936CA009F57F8 /* SearchPlaceOnMapViewController.swift in Sources */,
 				023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */,
+				028A3D392B98FDF800AE764F /* DisplayCalculatorItemValueView.swift in Sources */,
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
 				02E9E09D2B9654890059E85A /* AddEveryoneItemsView.swift in Sources */,
 				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
@@ -1089,7 +1109,7 @@
 				021078562B910EE300201704 /* CreateBillView.swift in Sources */,
 				023C63CF2B86815B0009C432 /* LineVerticalView.swift in Sources */,
 				021078572B910EE600201704 /* CreateBillViewController.swift in Sources */,
-				02E9E09E2B96555C0059E85A /* AddEveryoneItensViewController.swift in Sources */,
+				02E9E09E2B96555C0059E85A /* AddEveryoneItemsViewController.swift in Sources */,
 				02D97E872B8D68A7009F57F8 /* SideBarMenuViewController.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 				023C63E22B877D7E0009C432 /* StrokeView.swift in Sources */,
@@ -1105,7 +1125,7 @@
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
 				02D97E7E2B89505E009F57F8 /* SearchPlaceOnMapCoordinator.swift in Sources */,
 				02D97E7A2B8941D8009F57F8 /* NavigationController.swift in Sources */,
-				02E9E0A12B9657230059E85A /* AddEveryoneItensCoordinator.swift in Sources */,
+				02E9E0A12B9657230059E85A /* AddEveryoneItemsCoordinator.swift in Sources */,
 				02BD951F2B83773600539FDE /* SceneDelegate.swift in Sources */,
 				02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */,
 				02D97E7C2B894C58009F57F8 /* HomeCoordinator.swift in Sources */,

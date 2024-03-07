@@ -147,39 +147,6 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var _buttonMultiply: ButtonImageBuilder = {
-        let img = ImageViewBuilder(systemName: "xmark")
-        let comp = ButtonImageBuilder(img)
-            .setImageSize(14)
-            .setImageWeight(.black)
-            .setTintColor(Theme.shared.currentTheme.onTertiary)
-            .setBorder({ build in
-                build
-                    .setCornerRadius((Const.Default.sizeButtonKeyboard.width*0.8)/2)
-            })
-            .setNeumorphism { build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.primary)
-                    .setShape(.convex)
-                    .setLightPosition(.leftTop)
-                    .setIntensity(to: .light, percent: 30)
-                    .setIntensity(to: .dark, percent: 100)
-                    .setBlur(to: .light, percent: 2)
-                    .setBlur(to: .dark, percent: 10)
-                    .setDistance(to: .light, percent: 3)
-                    .setDistance(to: .dark, percent: 10)
-                    .setShadowColor(to: .dark, color: .black)
-                    .apply()
-            }
-            .setAutoLayout { build in
-                build
-                    .horizontalAlignX.equalToSuperview()
-                    .verticalAlignY.equalToSuperview(-4)
-                    .size.equalToConstant(Const.Default.sizeButtonKeyboard.width*0.8)
-            }
-        return comp
-    }()
-    
     lazy var buttonMultiply: ButtonDefaultView = {
         let img = ImageViewBuilder(systemName: "xmark")
         let comp = ButtonDefaultView(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
@@ -210,7 +177,7 @@ class Line1KeyboardView: ViewBuilder {
     }
     
     private func addStacks() {
-        stackView.add(insideTo: self.get)
+        stackView.add(insideTo: self)
         stackNo4_1.add(insideTo: stackView)
         stackNo5_2.add(insideTo: stackView)
         stackNo6_3.add(insideTo: stackView)

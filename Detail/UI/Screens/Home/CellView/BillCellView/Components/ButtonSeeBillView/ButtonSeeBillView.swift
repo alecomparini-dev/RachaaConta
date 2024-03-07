@@ -95,7 +95,7 @@ class ButtonSeeBillView: ViewBuilder {
     
     private func addDots() {
         let size: CGFloat = 5
-        let color: UIColor = Theme.shared.currentTheme.secondary
+        let color: UIColor = Theme.shared.currentTheme.tertiary
         
         let viewDot1 = ViewBuilder()
         let dot1 = DotView(size: size, color)

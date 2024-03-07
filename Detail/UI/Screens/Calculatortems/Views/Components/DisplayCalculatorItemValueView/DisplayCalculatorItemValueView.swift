@@ -16,9 +16,9 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
 //  MARK: - LAZY PROPERTIES
     lazy var totalValueLabel: LabelBuilder = {
-//        let comp = LabelBuilder(" = 129,90")
+//        let comp = LabelBuilder(" = 397,50")
         let comp = LabelBuilder(" = total")
-            .setFontFamily(Const.Font.titilliumWebBold, 20)
+            .setFontFamily(Const.Font.titilliumWebBold, 26)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
@@ -29,9 +29,9 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     }()
 
     lazy var unitValueLabel: LabelBuilder = {
-        let comp = LabelBuilder("15,90")
-//        let comp = LabelBuilder("vlr unitário")
-            .setFontFamily(Const.Font.titilliumWebLight, 18)
+//        let comp = LabelBuilder("515,90")
+        let comp = LabelBuilder("vlr unitário")
+            .setFontFamily(Const.Font.titilliumWebLight, 22)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
                 build
@@ -44,7 +44,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
     lazy var multiplayLabel: LabelBuilder = {
         let comp = LabelBuilder(" x ")
-            .setFontFamily(Const.Font.titilliumWebBold, 16)
+            .setFontFamily(Const.Font.titilliumWebBold, 18)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
@@ -55,9 +55,9 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     }()
     
     lazy var quantityLabel: LabelBuilder = {
-        let comp = LabelBuilder("25")
-//        let comp = LabelBuilder("qtd")
-            .setFontFamily(Const.Font.titilliumWebLight, 18)
+//        let comp = LabelBuilder("25")
+        let comp = LabelBuilder("qtd")
+            .setFontFamily(Const.Font.titilliumWebLight, 22)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
                 build

@@ -1,38 +1,39 @@
-//  Created by Alessandro Comparini on 05/03/24.
+//  Created by Alessandro Comparini on 07/03/24.
 //
-
 import UIKit
 import Handler
 import CustomComponentsSDK
 
-class ButtonDefaultView: ViewBuilder {
+class DefaultButton: ViewBuilder {
     
+    private let text: String
     private let radius: CGFloat
+    private let image: ImageViewBuilder
+    private let neumorphism: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape)
     
-    private let colorButton: UIColor
-    private var image: ImageViewBuilder = ImageViewBuilder()
-    private var text: String = ""
-    
-    init(color: UIColor = Theme.shared.currentTheme.surfaceContainer, cornerRadius: CGFloat = 6 , _ image: ImageViewBuilder) {
-        self.colorButton = color
-        self.image = image
+    init(text: String = "",
+         cornerRadius: CGFloat = 6 ,
+         image: ImageViewBuilder = ImageViewBuilder(),
+         neumorphism: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape) = (color: Theme.shared.currentTheme.surfaceContainer, ligthPosition: .leftTop, shape: .concave) ) {
+        self.text = text
         self.radius = cornerRadius
+        self.image = image
+        self.neumorphism = neumorphism
         super.init()
         configure()
     }
 
-    init(color: UIColor = Theme.shared.currentTheme.surfaceContainer, cornerRadius: CGFloat = 6 , _ text: String) {
-        self.colorButton = color
-        self.text = text
-        self.radius = cornerRadius
-        super.init()
-        configure()
-    }
-        
+    
+    
+//  MARK: - GET PROPERTIES
+    var style: ViewBuilder { outlineView }
+    
+    var button: ButtonImageBuilder { _button }
+    
 
 //  MARK: - LAZY Area
     
-    lazy var outlineView: ViewBuilder = {
+    private lazy var outlineView: ViewBuilder = {
         let view = ViewBuilder()
             .setBorder({ build in
                 build
@@ -40,9 +41,9 @@ class ButtonDefaultView: ViewBuilder {
             })
             .setNeumorphism { build in
                 build
-                    .setReferenceColor(colorButton)
-                    .setShape(.concave)
-                    .setLightPosition(.leftTop)
+                    .setReferenceColor(neumorphism.color)
+                    .setShape(neumorphism.shape)
+                    .setLightPosition(neumorphism.ligthPosition)
                     .setIntensity(to: .light, percent: 80)
                     .setIntensity(to: .dark, percent: 100)
                     .setBlur(to: .light, percent: 3)
@@ -58,7 +59,7 @@ class ButtonDefaultView: ViewBuilder {
         return view
     }()
     
-    lazy var button: ButtonImageBuilder = {
+    private lazy var _button: ButtonImageBuilder = {
         var btn = ButtonImageBuilder(image)
             .setFontFamily(Const.Font.titilliumWebRegular, 18)
             .setImagePadding(0)
@@ -71,7 +72,7 @@ class ButtonDefaultView: ViewBuilder {
             .setTitleWeight(.regular)
             .setAutoLayout { build in
                 build
-                    .pin.equalToSuperview(-1)
+                    .pin.equalToSuperview()
             }
         return btn
     }()

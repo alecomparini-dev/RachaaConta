@@ -17,7 +17,7 @@ class AddEveryoneItemsCoordinator: Coordinator {
     func start() {
         coordinator = self
         
-        var controller = AddEveryoneItemsViewController()
+        var controller = CalculatorItemsViewController()
         controller = navigationController.pushViewController(controller)
         controller.coordinator = self
     }
@@ -26,7 +26,7 @@ class AddEveryoneItemsCoordinator: Coordinator {
 }
 
 
-extension AddEveryoneItemsCoordinator: AddEveryoneItemsViewControllerCoordinator {
+extension AddEveryoneItemsCoordinator: CalculatorItemsViewControllerCoordinator {
     
     func gotoTrocar() {
         let coordinator = CreateBillCoordinator(navigationController)

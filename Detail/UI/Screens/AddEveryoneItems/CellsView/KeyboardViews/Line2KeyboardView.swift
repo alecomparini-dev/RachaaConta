@@ -44,8 +44,8 @@ class Line2KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo0: ButtonDefaultView = {
-        let comp = ButtonDefaultView("0")
+    lazy var buttonNo0: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("0")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -80,8 +80,8 @@ class Line2KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var _buttonSaveItem: ButtonDefaultView = {
-        let comp = ButtonDefaultView(color: Theme.shared.currentTheme.primary, "SALVAR")
+    lazy var _buttonSaveItem: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView(color: Theme.shared.currentTheme.primary, "SALVAR")
             .setAutoLayout { build in
                 build
                     .verticalAlignY.equalToSuperview()

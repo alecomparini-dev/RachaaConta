@@ -67,7 +67,7 @@
 		02DB78D32B976BC600253B9D /* Line0KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB78D12B976B5800253B9D /* Line0KeyboardView.swift */; };
 		02DB78D62B976EBE00253B9D /* Line1KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB78D42B976D6C00253B9D /* Line1KeyboardView.swift */; };
 		02DB78D92B978F9900253B9D /* Line2KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB78D72B978EC700253B9D /* Line2KeyboardView.swift */; };
-		02DB78DD2B97921100253B9D /* ButtonNumberKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB78DB2B9791F800253B9D /* ButtonNumberKeyboardView.swift */; };
+		02DB78DD2B97921100253B9D /* ButtonKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB78DB2B9791F800253B9D /* ButtonKeyboardView.swift */; };
 		02DF27292B8551D7003A5979 /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; platformFilters = (macos, ); };
 		02DF272A2B8551D7003A5979 /* Presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02DF27222B8551CD003A5979 /* Presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27312B855247003A5979 /* HomeViewModel.swift */; };
@@ -191,7 +191,7 @@
 		02DB78D12B976B5800253B9D /* Line0KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line0KeyboardView.swift; sourceTree = "<group>"; };
 		02DB78D42B976D6C00253B9D /* Line1KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line1KeyboardView.swift; sourceTree = "<group>"; };
 		02DB78D72B978EC700253B9D /* Line2KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line2KeyboardView.swift; sourceTree = "<group>"; };
-		02DB78DB2B9791F800253B9D /* ButtonNumberKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNumberKeyboardView.swift; sourceTree = "<group>"; };
+		02DB78DB2B9791F800253B9D /* ButtonKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonKeyboardView.swift; sourceTree = "<group>"; };
 		02DF271A2B854DA6003A5979 /* BillTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTableCellView.swift; sourceTree = "<group>"; };
 		02DF27222B8551CD003A5979 /* Presenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DF27312B855247003A5979 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -739,18 +739,18 @@
 			path = KeyboardViews;
 			sourceTree = "<group>";
 		};
-		02DB78DA2B9791D700253B9D /* ButtonNumberKeyboardView */ = {
+		02DB78DA2B9791D700253B9D /* ButtonKeyboardView */ = {
 			isa = PBXGroup;
 			children = (
-				02DB78DB2B9791F800253B9D /* ButtonNumberKeyboardView.swift */,
+				02DB78DB2B9791F800253B9D /* ButtonKeyboardView.swift */,
 			);
-			path = ButtonNumberKeyboardView;
+			path = ButtonKeyboardView;
 			sourceTree = "<group>";
 		};
 		02DB78DE2B97AB3200253B9D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				02DB78DA2B9791D700253B9D /* ButtonNumberKeyboardView */,
+				02DB78DA2B9791D700253B9D /* ButtonKeyboardView */,
 				022F19152B8FB12700474CE7 /* BackButtonView */,
 				02B4D6122B842476005DF70B /* ButtonFloatView */,
 			);
@@ -1101,7 +1101,7 @@
 				0210784A2B90B75C00201704 /* LightMapView.swift in Sources */,
 				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
 				022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */,
-				02DB78DD2B97921100253B9D /* ButtonNumberKeyboardView.swift in Sources */,
+				02DB78DD2B97921100253B9D /* ButtonKeyboardView.swift in Sources */,
 				02D97E712B8936CC009F57F8 /* SearchPlaceOnMapView.swift in Sources */,
 				023C63D72B869C6E0009C432 /* BillAddressView.swift in Sources */,
 				02BD95122B8376C600539FDE /* BackgroundView.swift in Sources */,

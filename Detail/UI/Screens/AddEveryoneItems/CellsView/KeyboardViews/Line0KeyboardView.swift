@@ -30,8 +30,8 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo7: ButtonDefaultView = {
-        let comp = ButtonDefaultView("7")
+    lazy var buttonNo7: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("7")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -47,8 +47,8 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo8: ButtonDefaultView = {
-        let comp = ButtonDefaultView("8")
+    lazy var buttonNo8: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("8")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -63,8 +63,8 @@ class Line0KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo9: ButtonDefaultView = {
-        let comp = ButtonDefaultView("9")
+    lazy var buttonNo9: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("9")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()

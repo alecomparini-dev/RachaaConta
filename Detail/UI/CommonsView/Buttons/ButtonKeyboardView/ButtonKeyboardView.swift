@@ -5,7 +5,7 @@ import UIKit
 import Handler
 import CustomComponentsSDK
 
-class ButtonDefaultView: ViewBuilder {
+class ButtonKeyboardView: ViewBuilder {
     
     private let radius: CGFloat
     

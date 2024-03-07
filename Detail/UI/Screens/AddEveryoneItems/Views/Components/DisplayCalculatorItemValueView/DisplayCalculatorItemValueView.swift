@@ -16,8 +16,8 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
 //  MARK: - LAZY PROPERTIES
     lazy var totalValueLabel: LabelBuilder = {
-//        let comp = LabelBuilder(" = 129,90")
-        let comp = LabelBuilder(" = total")
+        let comp = LabelBuilder(" = 397,50")
+//        let comp = LabelBuilder(" = total")
             .setFontFamily(Const.Font.titilliumWebBold, 20)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in

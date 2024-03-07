@@ -51,8 +51,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo4: ButtonDefaultView = {
-        let comp = ButtonDefaultView("4")
+    lazy var buttonNo4: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("4")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -67,8 +67,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo5: ButtonDefaultView = {
-        let comp = ButtonDefaultView("5")
+    lazy var buttonNo5: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("5")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -83,8 +83,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo6: ButtonDefaultView = {
-        let comp = ButtonDefaultView("6")
+    lazy var buttonNo6: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("6")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -99,8 +99,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo1: ButtonDefaultView = {
-        let comp = ButtonDefaultView("1")
+    lazy var buttonNo1: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("1")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -115,8 +115,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonNo2: ButtonDefaultView = {
-        let comp = ButtonDefaultView("2")
+    lazy var buttonNo2: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("2")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -131,8 +131,8 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
 
-    lazy var buttonNo3: ButtonDefaultView = {
-        let comp = ButtonDefaultView("3")
+    lazy var buttonNo3: ButtonKeyboardView = {
+        let comp = ButtonKeyboardView("3")
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -147,9 +147,9 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonMultiply: ButtonDefaultView = {
+    lazy var buttonMultiply: ButtonKeyboardView = {
         let img = ImageViewBuilder(systemName: "xmark")
-        let comp = ButtonDefaultView(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
+        let comp = ButtonKeyboardView(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
             .setAutoLayout { build in
                 build
                     .horizontalAlignX.equalToSuperview()

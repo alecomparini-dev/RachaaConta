@@ -47,6 +47,8 @@
 		028A3D452B9A055400AE764F /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D432B9A054000AE764F /* SecondaryButton.swift */; };
 		02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
+		02B680072B9A29BA00BC0228 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B680052B9A298E00BC0228 /* AddItemView.swift */; };
+		02B680082B9A29C000BC0228 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B680002B9A28C100BC0228 /* AddItemViewController.swift */; };
 		02BD950F2B8376C600539FDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD95082B8376C600539FDE /* HomeViewController.swift */; };
 		02BD95102B8376C600539FDE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD950A2B8376C600539FDE /* HomeView.swift */; };
 		02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD950C2B8376C600539FDE /* ThemeDark.swift */; };
@@ -174,6 +176,8 @@
 		028A3D432B9A054000AE764F /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
+		02B680002B9A28C100BC0228 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		02B680052B9A298E00BC0228 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		02BD94FC2B8375F800539FDE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BD95082B8376C600539FDE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		02BD950A2B8376C600539FDE /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -265,7 +269,8 @@
 		0210784F2B91039300201704 /* SearchPlaceOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				02D97E6B2B89365B009F57F8 /* Views */,
+				02B680032B9A28F000BC0228 /* Components */,
+				02D97E6B2B89365B009F57F8 /* View */,
 				02D97E6C2B89369F009F57F8 /* SearchPlaceOnMapViewController.swift */,
 			);
 			path = SearchPlaceOnMap;
@@ -279,12 +284,12 @@
 			path = SearchPlaceOnMapCoordinator;
 			sourceTree = "<group>";
 		};
-		021078512B910E9700201704 /* Views */ = {
+		021078512B910E9700201704 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				021078542B910EB000201704 /* CreateBillView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		021078602B9145A500201704 /* Handler */ = {
@@ -483,11 +488,13 @@
 			path = SecondaryButton;
 			sourceTree = "<group>";
 		};
-		028A3D462B9A27D700AE764F /* AddItems */ = {
+		028A3D462B9A27D700AE764F /* AddItem */ = {
 			isa = PBXGroup;
 			children = (
+				02B680022B9A28C500BC0228 /* View */,
+				02B680002B9A28C100BC0228 /* AddItemViewController.swift */,
 			);
-			path = AddItems;
+			path = AddItem;
 			sourceTree = "<group>";
 		};
 		02B4D6112B842132005DF70B /* CellView */ = {
@@ -504,6 +511,31 @@
 				02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */,
 			);
 			path = ButtonFloatView;
+			sourceTree = "<group>";
+		};
+		02B680022B9A28C500BC0228 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02B680052B9A298E00BC0228 /* AddItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02B680032B9A28F000BC0228 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0210784B2B90B8CE00201704 /* ContainerSearchMapView */,
+				021078472B90B67600201704 /* LightMapView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		02B680042B9A291800BC0228 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				023C63DC2B86BFB50009C432 /* FilterBillView */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		02BD94E32B8375BA00539FDE = {
@@ -550,20 +582,20 @@
 		02BD95072B8376C600539FDE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				02B680042B9A291800BC0228 /* Components */,
 				02B4D6112B842132005DF70B /* CellView */,
-				02BD95092B8376C600539FDE /* Views */,
+				02BD95092B8376C600539FDE /* View */,
 				02BD95082B8376C600539FDE /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		02BD95092B8376C600539FDE /* Views */ = {
+		02BD95092B8376C600539FDE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				023C63DC2B86BFB50009C432 /* FilterBillView */,
 				02BD950A2B8376C600539FDE /* HomeView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		02BD950B2B8376C600539FDE /* Theme */ = {
@@ -624,7 +656,7 @@
 				02D97E6A2B89363E009F57F8 /* CreateBill */,
 				02D97E682B89359C009F57F8 /* EveryoneItems */,
 				02E9E0972B9652B10059E85A /* Calculatortems */,
-				028A3D462B9A27D700AE764F /* AddItems */,
+				028A3D462B9A27D700AE764F /* AddItem */,
 				02D97E692B8935AA009F57F8 /* IndividualItems */,
 			);
 			path = Screens;
@@ -671,20 +703,18 @@
 		02D97E6A2B89363E009F57F8 /* CreateBill */ = {
 			isa = PBXGroup;
 			children = (
-				021078512B910E9700201704 /* Views */,
+				021078512B910E9700201704 /* View */,
 				021078522B910EA700201704 /* CreateBillViewController.swift */,
 			);
 			path = CreateBill;
 			sourceTree = "<group>";
 		};
-		02D97E6B2B89365B009F57F8 /* Views */ = {
+		02D97E6B2B89365B009F57F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0210784B2B90B8CE00201704 /* ContainerSearchMapView */,
-				021078472B90B67600201704 /* LightMapView */,
 				02D97E6E2B8936C0009F57F8 /* SearchPlaceOnMapView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		02D97E722B8940E5009F57F8 /* Coordinator */ = {
@@ -887,20 +917,20 @@
 		02E9E0972B9652B10059E85A /* Calculatortems */ = {
 			isa = PBXGroup;
 			children = (
+				028A3D352B98E49100AE764F /* Components */,
 				02DB78CF2B9745B400253B9D /* CellsView */,
-				02E9E0982B9652BB0059E85A /* Views */,
+				02E9E0982B9652BB0059E85A /* View */,
 				02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */,
 			);
 			path = Calculatortems;
 			sourceTree = "<group>";
 		};
-		02E9E0982B9652BB0059E85A /* Views */ = {
+		02E9E0982B9652BB0059E85A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				028A3D352B98E49100AE764F /* Components */,
 				02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		02E9E09F2B96570A0059E85A /* AddEveryoneItensCoordinator */ = {
@@ -1125,10 +1155,12 @@
 				02D97E862B8D68A2009F57F8 /* SideBarMenuView.swift in Sources */,
 				02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */,
 				023C63B52B864DA80009C432 /* DotView.swift in Sources */,
+				02B680082B9A29C000BC0228 /* AddItemViewController.swift in Sources */,
 				023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */,
 				02D97E702B8936CA009F57F8 /* SearchPlaceOnMapViewController.swift in Sources */,
 				023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */,
 				028A3D392B98FDF800AE764F /* DisplayCalculatorItemValueView.swift in Sources */,
+				02B680072B9A29BA00BC0228 /* AddItemView.swift in Sources */,
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
 				02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */,
 				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
@@ -1681,7 +1713,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alecomparini-dev/CustomComponentsSDK.git";
 			requirement = {
-				branch = develop;
+				branch = "feature/03-07/list";
 				kind = branch;
 			};
 		};

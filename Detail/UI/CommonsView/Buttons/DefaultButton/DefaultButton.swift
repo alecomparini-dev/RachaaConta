@@ -6,10 +6,14 @@ import CustomComponentsSDK
 
 class DefaultButton: ViewBuilder {
     
+    typealias callbackAlias = (_ button: ButtonImageBuilder) -> Void
+    
     private let text: String
     private let radius: CGFloat
     private let image: ImageViewBuilder
     private let neumorphism: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape)
+    
+    private var callback: callbackAlias?
     
     init(text: String = "",
          cornerRadius: CGFloat = 6 ,
@@ -30,7 +34,7 @@ class DefaultButton: ViewBuilder {
     
     var button: ButtonImageBuilder { _button }
     
-
+    
 //  MARK: - LAZY Area
     
     private lazy var outlineView: ViewBuilder = {
@@ -59,7 +63,7 @@ class DefaultButton: ViewBuilder {
         return view
     }()
     
-    private lazy var _button: ButtonImageBuilder = {
+    lazy var _button: ButtonImageBuilder = {
         var btn = ButtonImageBuilder(image)
             .setFontFamily(Const.Font.titilliumWebRegular, 18)
             .setImagePadding(0)
@@ -76,6 +80,7 @@ class DefaultButton: ViewBuilder {
             }
         return btn
     }()
+    
     
     
 //  MARK: - PRIVATE Area

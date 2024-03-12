@@ -55,13 +55,14 @@ public class SearchPlaceOnMapViewController: UIViewController {
 
     private func configDelegate() {
         screen.delegate = self
-        screen.lightMapView.delegate = self
+        screen.map.setOutput(self)
+        screen.lightMapButtonView.delegate = self
         screen.backButtonView.delegate = self
-        screen.mapView.setOutput(self)
     }
 
     private func configurationsDidAppear() {
         screen.configMapAutoLayout()
+        screen.map.show()
     }
     
     private func showComponentsAnimation() {
@@ -100,15 +101,15 @@ extension SearchPlaceOnMapViewController: BackButtonViewDelegate {
 extension SearchPlaceOnMapViewController: LightMapViewDelegate {
     
     func lightMapButton() {
-        if screen.mapView.get.overrideUserInterfaceStyle == .dark {
-            screen.mapView.setOverrideUserInterfaceStyle(.light)
-            screen.lightMapView.lightMapButton.setImageButton(ImageViewBuilder(systemName: "moon.fill"))
+        if screen.map.get.overrideUserInterfaceStyle == .dark {
+            screen.map.setOverrideUserInterfaceStyle(.light)
+            screen.lightMapButtonView.lightMapButton.setImageButton(ImageViewBuilder(systemName: "moon.fill"))
                 .setImageSize(12)
                 .setTintColor(Theme.shared.currentTheme.primary)
             return
         }
-        screen.mapView.setOverrideUserInterfaceStyle(.dark)
-        screen.lightMapView.lightMapButton.setImageButton(ImageViewBuilder(systemName: "sun.max"))
+        screen.map.setOverrideUserInterfaceStyle(.dark)
+        screen.lightMapButtonView.lightMapButton.setImageButton(ImageViewBuilder(systemName: "sun.max"))
             .setImageSize(12)
             .setTintColor(Theme.shared.currentTheme.onSurface)
     }
@@ -118,6 +119,11 @@ extension SearchPlaceOnMapViewController: LightMapViewDelegate {
 
 //  MARK: - EXTENSION - MapBuilderOutput
 extension SearchPlaceOnMapViewController: MapBuilderOutput {
+    
+    public func localizationNotAuthorized() {
+        print("não autorizado, solicitar novamente, ou pular etapa")
+    }
+    
     public func finishLoadingMap() {
         screen.loadingMap.setStopAnimating()
         showComponentsAnimation()

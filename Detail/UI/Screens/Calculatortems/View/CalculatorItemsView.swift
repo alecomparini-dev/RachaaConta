@@ -120,6 +120,7 @@ class CalculatorItemsView: UIView {
     
     lazy var keyboardList: ListBuilder = {
         let comp = ListBuilder()
+            .setHidden(true)
             .setRowHeight(58)
             .setCustomRowHeight(forSection: 0, forRow: 1, 116)
             .setSectionHeaderHeight(0)
@@ -137,24 +138,12 @@ class CalculatorItemsView: UIView {
         return comp
     }()
     
-    lazy var teste: Line2KeyboardView = {
-        let comp = Line2KeyboardView()
-            .setAutoLayout { build in
-                build.pinTop.equalToSuperview()
-                    .height.equalToConstant(300)
-            }
-        return comp
-    }()
     
 
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
         configAutoLayout()
-        
-//        teste.add(insideTo: self)
-//        teste.applyAutoLayout()
-        
     }
     
     private func addElements() {
@@ -180,6 +169,5 @@ class CalculatorItemsView: UIView {
         keyboardList.applyAutoLayout()
         underlineItem.applyAutoLayout()
     }
-    
-    
+        
 }

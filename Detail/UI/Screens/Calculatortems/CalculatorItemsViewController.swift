@@ -90,7 +90,6 @@ extension CalculatorItemsViewController: ListDelegate {
     }
     
     public func didSelectItemAt(_ list: ListBuilder, _ section: Int, _ row: Int) {
-        print("SELECIONOU UMA LINHA ")
     }
     
 }
@@ -109,7 +108,7 @@ extension CalculatorItemsViewController: BackButtonViewDelegate {
 extension CalculatorItemsViewController: Line2KeyboardViewDelegate {
     
     func buttonSaveItemTapped(_ button: ButtonImageBuilder) {
-        print("A+3PERTOU A PORRA DO SALVAR")
+
     }
     
     

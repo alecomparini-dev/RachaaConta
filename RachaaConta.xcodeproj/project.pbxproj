@@ -81,7 +81,6 @@
 		02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */; };
 		02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */; };
 		02E9E0A12B9657230059E85A /* AddEveryoneItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */; };
-		02ECF1C02BA088CF0059795A /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ECF1BF2BA088CF0059795A /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +211,6 @@
 		02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsView.swift; sourceTree = "<group>"; };
 		02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewController.swift; sourceTree = "<group>"; };
 		02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsCoordinator.swift; sourceTree = "<group>"; };
-		02ECF1BF2BA088CF0059795A /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -805,7 +803,6 @@
 				02DB78D12B976B5800253B9D /* Line0KeyboardView.swift */,
 				02DB78D42B976D6C00253B9D /* Line1KeyboardView.swift */,
 				02DB78D72B978EC700253B9D /* Line2KeyboardView.swift */,
-				02ECF1BF2BA088CF0059795A /* ListCell.swift */,
 			);
 			path = KeyboardViews;
 			sourceTree = "<group>";
@@ -1166,7 +1163,6 @@
 				02B680072B9A29BA00BC0228 /* AddItemView.swift in Sources */,
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
 				02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */,
-				02ECF1C02BA088CF0059795A /* ListCell.swift in Sources */,
 				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
 				023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */,
 				0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */,

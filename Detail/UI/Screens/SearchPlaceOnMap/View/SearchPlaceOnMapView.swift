@@ -80,8 +80,8 @@ class SearchPlaceOnMapView: UIView {
     
     lazy var map: MapBuilder = {
         let comp = MapBuilder()
-            .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife, .store, .winery, .theater, .movieTheater], 200)
-            .setPinNaturalLanguage("fast-food", 200)
+//            .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife, .store, .winery, .theater, .movieTheater], 200)
+//            .setPinNaturalLanguage("fast-food", 200)
             .setOverrideUserInterfaceStyle(.dark)
             .setAutoLayout { build in
                 build.pin.equalToSuperview()

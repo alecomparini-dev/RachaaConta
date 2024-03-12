@@ -43,8 +43,8 @@ class SearchPlaceOnMapView: UIView {
         return comp
     }()
 
-    lazy var lightMapView: LightMapView = {
-        let comp = LightMapView()
+    lazy var lightMapButtonView: LightMapButtonView = {
+        let comp = LightMapButtonView()
             .setAutoLayout { build in
                 build
                     .verticalAlignY.equalTo(backButtonView, .centerY, -2)
@@ -78,7 +78,7 @@ class SearchPlaceOnMapView: UIView {
         return comp
     }()
     
-    lazy var mapView: MapBuilder = {
+    lazy var map: MapBuilder = {
         let comp = MapBuilder()
             .setPinPointsOfInterest([.restaurant, .bakery, .brewery, .foodMarket, .cafe, .gasStation, .nightlife, .store, .winery, .theater, .movieTheater], 200)
             .setPinNaturalLanguage("fast-food", 200)
@@ -88,7 +88,6 @@ class SearchPlaceOnMapView: UIView {
             }
         return comp
     }()
-    
     
     lazy var skipStepButton: ButtonBuilder = {
         let comp = ButtonBuilder("Pular Etapa")
@@ -113,7 +112,7 @@ class SearchPlaceOnMapView: UIView {
     
 //  MARK: - PUBLIC AREA
     func configMapAutoLayout() {
-        mapView.applyAutoLayout()
+        map.applyAutoLayout()
     }
     
     
@@ -125,9 +124,9 @@ class SearchPlaceOnMapView: UIView {
     
     private func addElements() {
         backgroundView.add(insideTo: self)
-        mapView.add(insideTo: self)
+        map.add(insideTo: self)
         backButtonView.add(insideTo: self)
-        lightMapView.add(insideTo: self)
+        lightMapButtonView.add(insideTo: self)
         loadingMap.add(insideTo: self)
         containerSearchBlurView.add(insideTo: self)
         skipStepButton.add(insideTo: self)
@@ -136,7 +135,7 @@ class SearchPlaceOnMapView: UIView {
     private func configAutoLayout() {
         backgroundView.applyAutoLayout()
         backButtonView.applyAutoLayout()
-        lightMapView.applyAutoLayout()
+        lightMapButtonView.applyAutoLayout()
         loadingMap.applyAutoLayout()
         containerSearchBlurView.applyAutoLayout()
         skipStepButton.applyAutoLayout()

@@ -9,7 +9,7 @@ protocol LightMapViewDelegate: AnyObject {
     func lightMapButton()
 }
 
-class LightMapView: ViewBuilder {
+class LightMapButtonView: ViewBuilder {
     weak var delegate: LightMapViewDelegate?
     
     override init() {

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0210784A2B90B75C00201704 /* LightMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021078482B90B69600201704 /* LightMapView.swift */; };
+		0210784A2B90B75C00201704 /* LightMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021078482B90B69600201704 /* LightMapButtonView.swift */; };
 		0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210784C2B90B93100201704 /* ContainerSearchMapView.swift */; };
 		021078562B910EE300201704 /* CreateBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021078542B910EB000201704 /* CreateBillView.swift */; };
 		021078572B910EE600201704 /* CreateBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021078522B910EA700201704 /* CreateBillViewController.swift */; };
@@ -142,7 +142,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		021078482B90B69600201704 /* LightMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMapView.swift; sourceTree = "<group>"; };
+		021078482B90B69600201704 /* LightMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMapButtonView.swift; sourceTree = "<group>"; };
 		0210784C2B90B93100201704 /* ContainerSearchMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchMapView.swift; sourceTree = "<group>"; };
 		021078522B910EA700201704 /* CreateBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillViewController.swift; sourceTree = "<group>"; };
 		021078542B910EB000201704 /* CreateBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillView.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 		021078472B90B67600201704 /* LightMapView */ = {
 			isa = PBXGroup;
 			children = (
-				021078482B90B69600201704 /* LightMapView.swift */,
+				021078482B90B69600201704 /* LightMapButtonView.swift */,
 			);
 			path = LightMapView;
 			sourceTree = "<group>";
@@ -1172,7 +1172,7 @@
 				02DB78D62B976EBE00253B9D /* Line1KeyboardView.swift in Sources */,
 				028A3D412B99EF6300AE764F /* PrimaryButton.swift in Sources */,
 				022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */,
-				0210784A2B90B75C00201704 /* LightMapView.swift in Sources */,
+				0210784A2B90B75C00201704 /* LightMapButtonView.swift in Sources */,
 				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
 				022F191D2B8FB3DC00474CE7 /* BackButtonView.swift in Sources */,
 				02DB78DD2B97921100253B9D /* ButtonKeyboardView.swift in Sources */,
@@ -1713,7 +1713,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alecomparini-dev/CustomComponentsSDK.git";
 			requirement = {
-				branch = develop;
+				branch = fix/map;
 				kind = branch;
 			};
 		};

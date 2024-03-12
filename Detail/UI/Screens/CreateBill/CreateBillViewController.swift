@@ -57,11 +57,10 @@ public class CreateBillViewController: UIViewController {
 //  MARK: - EXTENSION - BackButtonViewDelegate
 extension CreateBillViewController: CreateBillViewDelegate {
     func addAddressButtonTapped() {
-        print("ADD ADDRESS BUTTON ")
+
     }
     
     func saveButtonTapped() {
-        debugPrint("CREATE SAVE METHOD")
         coordinator?.gotoAddEveryoneItems()
     }
     

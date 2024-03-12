@@ -7,6 +7,7 @@ import CustomComponentsSDK
 import Handler
 
 class Line0KeyboardView: ViewBuilder {
+    static let identifier = String(describing: Line0KeyboardView.self)
     
     override init() {
         super.init()
@@ -71,6 +72,12 @@ class Line0KeyboardView: ViewBuilder {
                     .width.equalToConstant(Const.Default.sizeButtonKeyboard.width)
                     .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
             }
+            .setActions { build in
+                build
+                    .setTap ({ component, tapGesture in
+                        print("AGORAAA DEU TAPPP CARAIOOOO")
+                    }, false)
+            }
         return comp
     }()
 
@@ -95,8 +102,14 @@ class Line0KeyboardView: ViewBuilder {
                     .width.equalTo(buttonNo9, multiplier: 1.2)
                     .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
             }
+        btn.get.addTarget(self, action: #selector(teste), for: .touchUpInside)
         return btn
     }()
+
+    @objc
+    func teste() {
+        print("APERTOUUUUU SAPOOORRRRRRRRRRRRRRAAAAAAAAAAAAAAAAAAAAAAA")
+    }
     
     
 //  MARK: - PRIVATE AREA

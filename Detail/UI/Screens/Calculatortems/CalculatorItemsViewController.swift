@@ -67,18 +67,18 @@ extension CalculatorItemsViewController: ListDelegate {
     
     public func numberOfRows(_ list: ListBuilder, section: Int) -> Int { 3 }
     
-    public func rowViewCallBack(_ list: ListBuilder, section: Int, row: Int) -> UIView {
+    public func rowViewCallBack(_ list: ListBuilder, section: Int, row: Int) -> Any {
         switch row {
             case 0:
-                return Line0KeyboardView().get
+                return Line0KeyboardView()
                 
             case 1:
-                return Line1KeyboardView().get
+                return Line1KeyboardView()
                 
             case 2:
                 let line2 = Line2KeyboardView()
 //                line2.delegate = self
-                return line2.get
+                return line2
                             
         default:
             return UIView()
@@ -114,3 +114,4 @@ extension CalculatorItemsViewController: Line2KeyboardViewDelegate {
     
     
 }
+

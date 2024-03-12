@@ -63,32 +63,34 @@ public class CalculatorItemsViewController: UIViewController {
 
 //  MARK: - EXTENSION - BackButtonViewDelegate
 extension CalculatorItemsViewController: ListDelegate {
-    public func numberOfSections(_ list: CustomComponentsSDK.ListBuilder) -> Int {
-        1
-    }
+    public func numberOfSections(_ list: ListBuilder) -> Int { 1 }
     
-    public func numberOfRows(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> Int {
-        3
-    }
+    public func numberOfRows(_ list: ListBuilder, section: Int) -> Int { 3 }
     
-    public func rowViewCallBack(_ list: CustomComponentsSDK.ListBuilder, section: Int, row: Int) -> UIView {
+    public func rowViewCallBack(_ list: ListBuilder, section: Int, row: Int) -> UIView {
         switch row {
-        case 0:
-            return Line0KeyboardView().get
-            
-        case 1:
-            return Line1KeyboardView().get
-            
-        case 2:
-            return Line2KeyboardView().get
-                        
+            case 0:
+                return Line0KeyboardView().get
+                
+            case 1:
+                return Line1KeyboardView().get
+                
+            case 2:
+                let line2 = Line2KeyboardView()
+//                line2.delegate = self
+                return line2.get
+                            
         default:
             return UIView()
         }
     }
 
     public func sectionViewCallback(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> UIView? {
-        nil
+        nil       
+    }
+    
+    public func didSelectItemAt(_ list: ListBuilder, _ section: Int, _ row: Int) {
+        print("SELECIONOU UMA LINHA ")
     }
     
 }
@@ -100,5 +102,15 @@ extension CalculatorItemsViewController: BackButtonViewDelegate {
     public func backButtonImageTapped() {
         coordinator?.gotoTrocar()
     }
+    
+}
+
+//  MARK: - EXTENSION - BackButtonViewDelegate
+extension CalculatorItemsViewController: Line2KeyboardViewDelegate {
+    
+    func buttonSaveItemTapped(_ button: ButtonImageBuilder) {
+        print("A+3PERTOU A PORRA DO SALVAR")
+    }
+    
     
 }

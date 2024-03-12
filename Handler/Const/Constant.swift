@@ -8,6 +8,21 @@ public struct Const {
         public static let sizeButtonKeyboard: CGSize = CGSize(width: 60, height: 42)
     }
     
+    public struct CalculatorKeyboard {
+        public static let buttonNo0 = "buttonNo0"
+        public static let buttonNo1 = "buttonNo1"
+        public static let buttonNo2 = "buttonNo2"
+        public static let buttonNo3 = "buttonNo3"
+        public static let buttonNo4 = "buttonNo4"
+        public static let buttonNo5 = "buttonNo5"
+        public static let buttonNo6 = "buttonNo6"
+        public static let buttonNo7 = "buttonNo7"
+        public static let buttonNo8 = "buttonNo8"
+        public static let buttonNo9 = "buttonNo9"
+        public static let buttonComma = "buttonComma"
+        public static let buttonOK = "buttonOK"
+        public static let buttonBackspace = "buttonBackspace"
+    }
     
     public struct Images {
         public static let checkmark = "checkmark"

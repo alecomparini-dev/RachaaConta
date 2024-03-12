@@ -6,7 +6,14 @@ import UIKit
 import CustomComponentsSDK
 import Handler
 
+
+protocol Line2KeyboardViewDelegate: AnyObject {
+    func buttonSaveItemTapped(_ button: ButtonImageBuilder)    
+}
+
+
 class Line2KeyboardView: ViewBuilder {
+    weak var delegate: Line2KeyboardViewDelegate?
     
     override init() {
         super.init()
@@ -17,6 +24,7 @@ class Line2KeyboardView: ViewBuilder {
 //  MARK: - LAZY PROPERTIES
     lazy var stackView: StackViewBuilder = {
         let comp = StackViewBuilder()
+            .setIsUserInteractionEnabled(true)
             .setAxis(.horizontal)
             .setDistribution(.fillEqually)
             .setAutoLayout { build in
@@ -27,6 +35,7 @@ class Line2KeyboardView: ViewBuilder {
     
     lazy var stackLeft: StackViewBuilder = {
         let comp = StackViewBuilder()
+            .setIsUserInteractionEnabled(true)
             .setAxis(.horizontal)
             .setDistribution(.fillEqually)
         return comp
@@ -34,6 +43,7 @@ class Line2KeyboardView: ViewBuilder {
 
     lazy var stackRight: StackViewBuilder = {
         let comp = StackViewBuilder()
+            .setIsUserInteractionEnabled(true)
             .setAxis(.horizontal)
             .setDistribution(.fillEqually)
         return comp
@@ -41,11 +51,13 @@ class Line2KeyboardView: ViewBuilder {
 
     lazy var viewNo0: ViewBuilder = {
         let comp = ViewBuilder()
+            .setIsUserInteractionEnabled(true)
         return comp
     }()
     
     lazy var buttonNo0: DefaultButton = {
         let comp = DefaultButton(text: "0")
+            .setIsUserInteractionEnabled(true)
             .setAutoLayout { build in
                 build
                     .centerAlignXY.equalToSuperview()
@@ -88,14 +100,70 @@ class Line2KeyboardView: ViewBuilder {
                     .width.equalTo(viewComma, multiplier: 1.35)
                     .height.equalToConstant(Const.Default.sizeButtonKeyboard.height)
             }
+            .setActions { build in
+                build
+                    .setTap ({ component, tapGesture in
+                        print("AGORAAA DEU TAPPP CARAIOOOO")
+                    }, false)
+            }
         return comp
     }()
+    
+    lazy var favoriteView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    lazy var favoriteButton: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isUserInteractionEnabled = true
+        btn.setTitle("TESTE", for: .normal)
+        btn.backgroundColor = .red
+        btn.setTitleColor(.black, for: .normal)
+        btn.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+        return btn
+    }()
+    @objc private func favoriteButtonTapped(_ button: UIButton) {
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    }
     
     
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
         configAutoLayout()
+        
+//        self.get.addSubview(favoriteView)
+        
+//        favoriteView.addSubview(favoriteButton)
+        
+        self.get.addSubview(favoriteButton)
+        
+        NSLayoutConstraint.activate([
+//            favoriteView.centerXAnchor.constraint(equalTo:  self.get.safeAreaLayoutGuide.centerXAnchor),
+//            favoriteView.centerYAnchor.constraint(equalTo:  self.get.safeAreaLayoutGuide.centerYAnchor),
+//            favoriteView.widthAnchor.constraint(equalToConstant: 50),
+//            favoriteView.heightAnchor.constraint(equalToConstant: 50),
+//            
+//            favoriteButton.topAnchor.constraint(equalTo: favoriteView.topAnchor),
+//            favoriteButton.leadingAnchor.constraint(equalTo: favoriteView.leadingAnchor),
+//            favoriteButton.trailingAnchor.constraint(equalTo: favoriteView.trailingAnchor),
+//            favoriteButton.bottomAnchor.constraint(equalTo: favoriteView.bottomAnchor),
+            
+            favoriteButton.topAnchor.constraint(equalTo: self.get.topAnchor),
+            favoriteButton.leadingAnchor.constraint(equalTo: self.get.leadingAnchor),
+//            favoriteButton.trailingAnchor.constraint(equalTo: self.get.trailingAnchor),
+            favoriteButton.bottomAnchor.constraint(equalTo: self.get.bottomAnchor),
+            favoriteView.widthAnchor.constraint(equalToConstant: 200),
+//            favoriteView.heightAnchor.constraint(equalToConstant: 100),
+        ])
+        
+        self.setBackgroundColor(.yellow)
+        
+        
     }
     
     private func addElements() {

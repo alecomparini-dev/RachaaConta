@@ -5,6 +5,7 @@ import UIKit
 import CustomComponentsSDK
 
 public protocol CalculatorItemsViewControllerCoordinator: AnyObject {
+    func gotoAddItem()
     func gotoTrocar()
 }
 
@@ -77,7 +78,7 @@ extension CalculatorItemsViewController: ListDelegate {
                 
             case 2:
                 let line2 = Line2KeyboardView()
-//                line2.delegate = self
+                line2.delegate = self
                 return line2
                             
         default:
@@ -104,11 +105,12 @@ extension CalculatorItemsViewController: BackButtonViewDelegate {
     
 }
 
+
 //  MARK: - EXTENSION - BackButtonViewDelegate
 extension CalculatorItemsViewController: Line2KeyboardViewDelegate {
     
-    func buttonSaveItemTapped(_ button: ButtonImageBuilder) {
-
+    func saveItemButtonTapped() {
+        coordinator?.gotoAddItem()
     }
     
     

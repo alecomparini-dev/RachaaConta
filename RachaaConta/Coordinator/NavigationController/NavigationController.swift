@@ -20,6 +20,10 @@ public final class NavigationController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @discardableResult
     public func pushViewController<T>(_ viewController: UIViewController) -> T where T: UIViewController {
         if let controller = self.viewControllers.first(where: { $0.isKind(of: type(of: viewController))  }) {
@@ -30,16 +34,17 @@ public final class NavigationController: UINavigationController {
         return viewController as! T
     }
     
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
+    @discardableResult
     public func popToViewControllerIfNeeded<T>(_ viewController: AnyClass) -> T? {
         if let controller = viewControllers.first(where: { $0.isKind(of: viewController)  }) {
             popToViewController(controller, animated: true)
             return controller as? T
         }
         return nil
+    }
+    
+    public func popViewController() {
+        popViewController(animated: true)
     }
     
     

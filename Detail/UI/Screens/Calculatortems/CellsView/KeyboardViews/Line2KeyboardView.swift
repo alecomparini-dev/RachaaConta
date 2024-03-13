@@ -8,7 +8,7 @@ import Handler
 
 
 protocol Line2KeyboardViewDelegate: AnyObject {
-    func buttonSaveItemTapped(_ button: ButtonImageBuilder)    
+    func saveItemButtonTapped()
 }
 
 
@@ -91,7 +91,7 @@ class Line2KeyboardView: ViewBuilder {
         return comp
     }()
     
-    lazy var buttonSaveItem: PrimaryButton = {
+    lazy var saveItemButton: PrimaryButton = {
         let comp = PrimaryButton(text: "OK")
             .setAutoLayout { build in
                 build
@@ -102,7 +102,8 @@ class Line2KeyboardView: ViewBuilder {
             }
             .setActions { build in
                 build
-                    .setTap ({ component, tapGesture in
+                    .setTap ({ [weak self] _, _ in
+                        self?.delegate?.saveItemButtonTapped()
                     }, false)
             }
         return comp
@@ -140,14 +141,14 @@ class Line2KeyboardView: ViewBuilder {
     
     private func addButtonSaveItem() {
         viewSaveItem.add(insideTo: stackRight)
-        buttonSaveItem.add(insideTo: viewSaveItem)
+        saveItemButton.add(insideTo: viewSaveItem)
     }
     
     private func configAutoLayout() {
         stackView.applyAutoLayout()
         buttonNo0.applyAutoLayout()
         buttonComma.applyAutoLayout()
-        buttonSaveItem.applyAutoLayout()
+        saveItemButton.applyAutoLayout()
     }
     
     

@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         #if DEBUG
 //            coordinator = CreateBillCoordinator(nav)
-            coordinator = AddEveryoneItemsCoordinator(nav)
+            coordinator = CalculatorItemsCoordinator(nav)
         #endif
         
         coordinator.start()

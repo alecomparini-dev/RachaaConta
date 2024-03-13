@@ -80,7 +80,8 @@
 		02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */; };
 		02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */; };
 		02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */; };
-		02E9E0A12B9657230059E85A /* AddEveryoneItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */; };
+		02E9E0A12B9657230059E85A /* CalculatorItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */; };
+		02ECF1C32BA1C8460059795A /* AddItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ECF1C22BA1C8460059795A /* AddItemCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,7 +211,8 @@
 		02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenter.swift; sourceTree = "<group>"; };
 		02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsView.swift; sourceTree = "<group>"; };
 		02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewController.swift; sourceTree = "<group>"; };
-		02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEveryoneItemsCoordinator.swift; sourceTree = "<group>"; };
+		02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsCoordinator.swift; sourceTree = "<group>"; };
+		02ECF1C22BA1C8460059795A /* AddItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -720,12 +722,13 @@
 		02D97E722B8940E5009F57F8 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				02E9E09F2B96570A0059E85A /* AddEveryoneItensCoordinator */,
 				02D97E732B8940F0009F57F8 /* Protocol */,
 				02D97E762B894180009F57F8 /* NavigationController */,
 				02D97E742B8940FA009F57F8 /* HomeCoordinator */,
 				021078502B9104AA00201704 /* SearchPlaceOnMapCoordinator */,
 				02D97E752B894109009F57F8 /* CreateBillCoordinator */,
+				02E9E09F2B96570A0059E85A /* CalculatorItemsCoordinator */,
+				02ECF1C12BA1C81F0059795A /* AddItemCoordinator */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -933,12 +936,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		02E9E09F2B96570A0059E85A /* AddEveryoneItensCoordinator */ = {
+		02E9E09F2B96570A0059E85A /* CalculatorItemsCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				02E9E0A02B9657230059E85A /* AddEveryoneItemsCoordinator.swift */,
+				02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */,
 			);
-			path = AddEveryoneItensCoordinator;
+			path = CalculatorItemsCoordinator;
+			sourceTree = "<group>";
+		};
+		02ECF1C12BA1C81F0059795A /* AddItemCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				02ECF1C22BA1C8460059795A /* AddItemCoordinator.swift */,
+			);
+			path = AddItemCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1201,8 +1212,9 @@
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
 				02D97E7E2B89505E009F57F8 /* SearchPlaceOnMapCoordinator.swift in Sources */,
 				02D97E7A2B8941D8009F57F8 /* NavigationController.swift in Sources */,
-				02E9E0A12B9657230059E85A /* AddEveryoneItemsCoordinator.swift in Sources */,
+				02E9E0A12B9657230059E85A /* CalculatorItemsCoordinator.swift in Sources */,
 				02BD951F2B83773600539FDE /* SceneDelegate.swift in Sources */,
+				02ECF1C32BA1C8460059795A /* AddItemCoordinator.swift in Sources */,
 				02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */,
 				02D97E7C2B894C58009F57F8 /* HomeCoordinator.swift in Sources */,
 				021078592B91136D00201704 /* CreateBillCoordinator.swift in Sources */,

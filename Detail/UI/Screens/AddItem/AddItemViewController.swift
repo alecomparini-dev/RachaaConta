@@ -43,10 +43,30 @@ public class AddItemViewController: UIViewController {
     }
     
     
-    //  MARK: - PRIVATE AREA
+//  MARK: - PRIVATE AREA
     private func configure() {
-        
+        configDelegate()
     }
     
+    private func configDelegate() {
+        screen.delegate = self
+        screen.backButtonView.delegate = self
+    }
+    
+    
+}
+
+
+//  MARK: - EXTENSION - AddItemViewDelegate
+extension AddItemViewController: AddItemViewDelegate {
+
+}
+
+//  MARK: - EXTENSION - BackButtonViewDelegate
+extension AddItemViewController: BackButtonViewDelegate {
+    
+    public func backButtonImageTapped() {
+        coordinator?.gotoBack()
+    }
     
 }

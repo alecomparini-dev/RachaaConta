@@ -1,14 +1,13 @@
-//  Created by Alessandro Comparini on 04/03/24.
+//  Created by Alessandro Comparini on 13/03/24.
 //
 
 import Foundation
 import UI
 
-class AddEveryoneItemsCoordinator: Coordinator {
+class AddItemCoordinator: Coordinator {
     var coordinator: Coordinator?
-    let navigationController: NavigationController
-    
     var dataTransfer: Any?
+    let navigationController: NavigationController
     
     required init(_ navigationController: NavigationController) {
         self.navigationController = navigationController
@@ -17,23 +16,19 @@ class AddEveryoneItemsCoordinator: Coordinator {
     func start() {
         coordinator = self
         
-        var controller = CalculatorItemsViewController()
+        var controller = AddItemViewController()
         controller = navigationController.pushViewController(controller)
         controller.coordinator = self
     }
     
-    
 }
 
-
-extension AddEveryoneItemsCoordinator: CalculatorItemsViewControllerCoordinator {
+//  MARK: - EXTENSION - AddItemViewControllerCoordinator
+extension AddItemCoordinator: AddItemViewControllerCoordinator {
     
-    func gotoTrocar() {
-        let coordinator = CreateBillCoordinator(navigationController)
-        coordinator.start()
-        
+    func gotoBack() {
+        navigationController.popViewController()
         self.coordinator = nil
     }
-    
-    
+        
 }

@@ -59,8 +59,14 @@ public class AddItemViewController: UIViewController {
 
 //  MARK: - EXTENSION - AddItemViewDelegate
 extension AddItemViewController: AddItemViewDelegate {
-
+    
+    func saveItemButtonTapped() {
+        coordinator?.gotoBack()
+    }
+    
 }
+
+
 
 //  MARK: - EXTENSION - BackButtonViewDelegate
 extension AddItemViewController: BackButtonViewDelegate {

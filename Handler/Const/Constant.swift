@@ -27,6 +27,7 @@ public struct Const {
     public struct Images {
         public static let checkmark = "checkmark"
         public static let addressBill = "mappin.and.ellipse"
+        public static let magnifyingglass = "magnifyingglass"
     }
     
     public struct Font {

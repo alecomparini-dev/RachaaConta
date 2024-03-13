@@ -453,7 +453,6 @@
 		028A3D352B98E49100AE764F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				028A3D362B98FB9500AE764F /* DisplayCalculatorItemValueView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -612,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				02DB78DE2B97AB3200253B9D /* Buttons */,
+				028A3D362B98FB9500AE764F /* DisplayCalculatorItemValueView */,
 				02D97E652B89356E009F57F8 /* BackgroundView */,
 				02D97E662B893577009F57F8 /* StrokeView */,
 				022F19172B8FB22E00474CE7 /* NeumorphismViews */,

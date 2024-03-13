@@ -170,51 +170,6 @@ class CreateBillView: UIView {
     }()
     
     
-    
-    //TODO: CORRIGIR TINTCOLOR E IMAGECOLOR
-    lazy var _saveButton: ButtonImageBuilder = {
-        let comp = ButtonImageBuilder(ImageViewBuilder(systemName: Const.Images.checkmark))
-            .setTitle("Salvar")
-            .setFontFamily(Const.Font.titilliumWebRegular, 18)
-            .setTintColor(Theme.shared.currentTheme.onSurface)
-            .setImageSize(12)
-            .setImageWeight(.thin)
-            .setImagePadding(10)
-            .setBorder({ build in
-                build
-                    .setCornerRadius(8)
-            })
-            .setNeumorphism { build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainerLow)
-                    .setShape(.concave)
-                    .setLightPosition(.leftTop)
-                    .setIntensity(percent: 100)
-                    .setBlur(to: .light, percent: 3)
-                    .setBlur(to: .dark, percent: 10)
-                    .setDistance(to: .light, percent: 5)
-                    .setDistance(to: .dark, percent: 10)
-                    .setShadowColor(to: .dark, color: .black)
-                    .apply()
-            }
-            .setAutoLayout({ build in
-                build
-                    .trailing.equalToSafeArea(-24)
-                    .height.equalToConstant(45)
-                    .width.equalToConstant(130)
-                    .bottom.equalTo(keyboardLayoutGuide, .top, -24)
-            })
-            .setActions { build in
-                build
-                    .setTap { [weak self] component, tapGesture in
-                        guard let self else {return}
-                        delegate?.saveButtonTapped()
-                        nameBillTextField.setHideKeyboard()
-                    }
-            }
-        return comp
-    }()
-    
     lazy var saveButton: PrimaryButton = {
         let comp = PrimaryButton(text: "Salvar", image: ImageViewBuilder(systemName: Const.Images.checkmark))
             .setAutoLayout({ build in
@@ -226,7 +181,6 @@ class CreateBillView: UIView {
             })
         comp.button
             .setImageSize(12)
-//            .setImageWeight(.thin)
             .setImagePadding(10)
             .setActions { build in
             build

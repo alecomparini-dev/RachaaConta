@@ -7,7 +7,7 @@ import CustomComponentsSDK
 import Handler
 
 protocol AddItemViewDelegate: AnyObject {
-    
+    func saveItemButtonTapped()
 }
 
 class AddItemView: UIView {
@@ -21,6 +21,7 @@ class AddItemView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     
 //  MARK: - LAZY PROPERTIES
@@ -43,7 +44,104 @@ class AddItemView: UIView {
             })
         return comp
     }()
+
+    lazy var nameBillLabel: LabelBuilder = {
+        let comp = LabelBuilder("EH NÓIS CARAIO")
+            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
+            .setColor(Theme.shared.currentTheme.onSurface)
+            .setAutoLayout { build in
+                build
+                    .verticalAlignY.equalTo(backButtonView, .centerY)
+                    .trailing.equalToSafeArea(-16)
+            }
+        return comp
+    }()
     
+    lazy var nameBillUnderline: StrokeView = {
+       let comp = StrokeView()
+            .setAutoLayout { build in
+                build
+                    .top.equalTo(nameBillLabel, .bottom, 4)
+                    .trailing.equalTo(nameBillLabel, .trailing, 2)
+                    .width.equalToConstant(65)
+                    .height.equalToConstant(2)
+            }
+        return comp
+    }()
+    
+    lazy var nameItemTextField: TextFieldBuilder = {
+        let comp = TextFieldBuilder(placeHolder: "Descrição do Item 1")
+            .setClearButton({ build in
+                build
+                    .setSizeButton(CGSize(width: 18, height: 18))
+                    .setPosition(.left)
+                    .apply()
+            })
+            .setFontFamily(Const.Font.titilliumWebExtraLight, 26)
+            .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.6))
+            .setTextColor(Theme.shared.currentTheme.onSurface)
+            .setTintColor(Theme.shared.currentTheme.onSurface)
+            .setAutoCorrectionType(.no)
+            .setAutoCapitalization(.words)
+            .setKeyboard({ build in
+                build
+                    .setKeyboardType(.default)
+            })
+            .setTextAlignment(.right)
+            .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
+            .setAutoLayout({ build in
+                build
+                    .top.equalTo(backButtonView, .bottom, 40)
+                    .leading.trailing.equalToSafeArea(24)
+                    .height.equalToConstant(50)
+            })
+        return comp
+    }()
+       
+    lazy var underline: StrokeView = {
+        let comp = StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient)
+            .setAutoLayout({ build in
+                build
+                    .top.equalTo(nameItemTextField, .bottom, 2)
+                    .leading.trailing.equalTo(nameItemTextField)
+                    .height.equalToConstant(2)
+            })
+        return comp
+    }()
+    
+    lazy var displayCalculator: DisplayCalculatorItemValueView = {
+        let comp = DisplayCalculatorItemValueView(fontSizes: (quantity: 18, multiply: 16, unitValue: 18, totalValue: 20))
+            .setAlpha(0.7)
+            .setAutoLayout { build in
+                build
+                    .top.equalTo(underline, .bottom, 6)
+                    .trailing.equalTo(underline, .trailing, 4)
+                    .height.equalToConstant(25)
+            }
+        return comp
+    }()
+    
+    
+    lazy var saveItemButton: PrimaryButton = {
+        let comp = PrimaryButton(text: "Salvar Item")
+            .setAutoLayout({ build in
+                build
+                    .trailing.equalToSafeArea(-24)
+                    .height.equalToConstant(45)
+                    .width.equalToConstant(130)
+                    .bottom.equalTo(keyboardLayoutGuide, .top, -16)
+            })
+        comp.button.setActions { build in
+            build
+                .setTap { [weak self] _, _ in
+                    guard let self else {return}
+                    delegate?.saveItemButtonTapped()
+                }
+        }
+        return comp
+    }()
+    
+
 
 //  MARK: - PRIVATE AREA
     private func configure() {
@@ -54,11 +152,23 @@ class AddItemView: UIView {
     private func addElements() {
         backgroundView.add(insideTo: self)
         backButtonView.add(insideTo: self)
+        nameBillLabel.add(insideTo: self)
+        nameBillUnderline.add(insideTo: self)
+        nameItemTextField.add(insideTo: self)
+        underline.add(insideTo: self)
+        displayCalculator.add(insideTo: self)
+        saveItemButton.add(insideTo: self)
     }
     
     private func configAutoLayout() {
         backgroundView.applyAutoLayout()
         backButtonView.applyAutoLayout()
+        nameBillLabel.applyAutoLayout()
+        nameBillUnderline.applyAutoLayout()
+        nameItemTextField.applyAutoLayout()
+        underline.applyAutoLayout()
+        displayCalculator.applyAutoLayout()
+        saveItemButton.applyAutoLayout()
     }
     
 

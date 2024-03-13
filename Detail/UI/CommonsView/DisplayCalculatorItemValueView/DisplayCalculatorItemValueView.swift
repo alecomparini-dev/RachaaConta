@@ -7,8 +7,11 @@ import Handler
 import CustomComponentsSDK
 
 class DisplayCalculatorItemValueView: ViewBuilder {
+
+    private let fontSizes: (quantity: CGFloat, multiply: CGFloat, unitValue: CGFloat, totalValue: CGFloat)
     
-    override init() {
+    init(fontSizes: (quantity: CGFloat, multiply: CGFloat, unitValue: CGFloat, totalValue: CGFloat)? = nil) {
+        self.fontSizes = fontSizes ?? (quantity: 22, multiply: 18, unitValue: 22, totalValue: 26)
         super.init()
         configure()
     }
@@ -16,9 +19,9 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
 //  MARK: - LAZY PROPERTIES
     lazy var totalValueLabel: LabelBuilder = {
-//        let comp = LabelBuilder(" = 397,50")
-        let comp = LabelBuilder(" = total")
-            .setFontFamily(Const.Font.titilliumWebBold, 26)
+        let comp = LabelBuilder(" = 397,50")
+//        let comp = LabelBuilder(" = total")
+            .setFontFamily(Const.Font.titilliumWebBold, fontSizes.totalValue)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
@@ -29,9 +32,9 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     }()
 
     lazy var unitValueLabel: LabelBuilder = {
-//        let comp = LabelBuilder("515,90")
-        let comp = LabelBuilder("vlr unitário")
-            .setFontFamily(Const.Font.titilliumWebLight, 22)
+        let comp = LabelBuilder("515,90")
+//        let comp = LabelBuilder("vlr unitário")
+            .setFontFamily(Const.Font.titilliumWebLight, fontSizes.unitValue)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
                 build
@@ -44,7 +47,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
     lazy var multiplayLabel: LabelBuilder = {
         let comp = LabelBuilder(" x ")
-            .setFontFamily(Const.Font.titilliumWebBold, 18)
+            .setFontFamily(Const.Font.titilliumWebBold, fontSizes.multiply)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
@@ -55,9 +58,9 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     }()
     
     lazy var quantityLabel: LabelBuilder = {
-//        let comp = LabelBuilder("25")
-        let comp = LabelBuilder("qtd")
-            .setFontFamily(Const.Font.titilliumWebLight, 22)
+        let comp = LabelBuilder("25")
+//        let comp = LabelBuilder("qtd")
+            .setFontFamily(Const.Font.titilliumWebLight, fontSizes.quantity)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
                 build

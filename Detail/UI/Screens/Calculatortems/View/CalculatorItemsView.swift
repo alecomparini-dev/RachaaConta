@@ -6,6 +6,8 @@ import UIKit
 import CustomComponentsSDK
 import Handler
 
+
+
 class CalculatorItemsView: UIView {
     
     init() {
@@ -63,7 +65,6 @@ class CalculatorItemsView: UIView {
         return comp
     }()
     
-
     lazy var totalAmountBillLabel: LabelBuilder = {
         let comp = LabelBuilder()
             .setColor(Theme.shared.currentTheme.onSurface)

@@ -6,7 +6,12 @@ import UIKit
 import CustomComponentsSDK
 import Handler
 
+protocol AddItemViewDelegate: AnyObject {
+    
+}
+
 class AddItemView: UIView {
+    weak var delegate: AddItemViewDelegate?
     
     init() {
         super.init(frame: .zero)

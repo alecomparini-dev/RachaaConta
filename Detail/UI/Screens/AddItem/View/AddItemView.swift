@@ -144,28 +144,6 @@ class AddItemView: UIView {
         return comp
     }()
     
-
-//    lazy var backgroundSearchItensList: BoxShadowInsetBuilder = {
-//        let comp = BoxShadowInsetBuilder()
-//            .setBorder({ build in
-//                build
-//                    .setCornerRadius(8)
-//            })
-//            .setGradient({ build in
-//                build
-//                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -30)
-//                    .setAxialGradient(.rightToLeft)
-//                    .apply()
-//            })
-//            .setAutoLayout { build in
-//                build
-//                    .top.equalTo(displayCalculator, .bottom, 8)
-//                    .leading.trailing.equalToSafeArea(16)
-//                    .bottom.equalTo(saveItemButton, .top, -8)
-//            }
-//        return comp
-//    }()
-    
     lazy var backgroundSearchItensList: ViewBuilder = {
         let comp = ViewBuilder()
             .setBorder({ build in
@@ -189,26 +167,12 @@ class AddItemView: UIView {
   
     lazy var searchItensList: ListBuilder = {
         let comp = ListBuilder()
-            .setHidden(true)
             .setRowHeight(50)
             .setSeparatorStyle(.singleLine)
             .setPadding(top: 8, left: 0, bottom: 8, right: 0)
-            .setBorder({ build in
-                build
-                    .setCornerRadius(24)
-            })
-        
-            .setGradient({ build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.backgroundColor, percentageGradient: -60)
-                    .setAxialGradient(.leftToRight)
-//                    .apply()
-            })
-            
             .setAutoLayout { build in
                 build
-//                    .top.equalTo(backgroundSearchItensList, .top, 1)
-//                    ..equalTo(backgroundSearchItensList, .top, 1)
+                    .pin.equalToSuperview()
             }
         return comp
     }()
@@ -248,7 +212,7 @@ class AddItemView: UIView {
         underline.add(insideTo: self)
         displayCalculator.add(insideTo: self)
         backgroundSearchItensList.add(insideTo: self)
-        searchItensList.add(insideTo: self)
+        searchItensList.add(insideTo: backgroundSearchItensList)
         saveItemButton.add(insideTo: self)
     }
     

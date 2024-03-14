@@ -6,8 +6,9 @@ import CustomComponentsSDK
 
 class BoxShadowInsetBuilder: ViewBuilder {
     
-    private var shadowOffset: (top: CGFloat, left: CGFloat, right: CGFloat, bottom: CGFloat) = (top: 6, left: 6, right: 6, bottom: 6)
+    private var shadowOffset: (top: CGFloat, left: CGFloat, right: CGFloat, bottom: CGFloat) = (6, 6, 6, 6)
     
+    private var lightShadow: (color: UIColor, opacity: Float) = (.white, 0.4)
     private let cornerRadius: CGFloat
     
     public init(cornerRadius: CGFloat? = nil) {
@@ -25,18 +26,16 @@ class BoxShadowInsetBuilder: ViewBuilder {
         return self
     }
 
+    @discardableResult
+    func setLightShadow(_ color: UIColor = .white, opacity: Float = 0.4) -> Self {
+        lightShadow = (color, opacity)
+        return self
+    }
+
 
 //  MARK: - LAZY AREA
     lazy var topShadow: ViewBuilder = {
         let comp = ViewBuilder()
-            .setShadow({ build in
-                build
-                    .setRadius(8)
-                    .setColor(.black)
-                    .setOpacity(1)
-                    .setOffset(width: 0, height: 0)
-                    .applyLayer()
-            })
             .setAutoLayout { build in
                 build
                     .pinTop.equalToSuperview()
@@ -47,14 +46,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
     
     lazy var leftShadow: ViewBuilder = {
         let comp = ViewBuilder()
-            .setShadow({ build in
-                build
-                    .setRadius(8)
-                    .setColor(.black)
-                    .setOpacity(1)
-                    .setOffset(width: 0, height: 0)
-                    .applyLayer()
-            })
             .setAutoLayout { build in
                 build
                     .pinLeft.equalToSuperview()
@@ -65,14 +56,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
     
     lazy var rightShadow: ViewBuilder = {
         let comp = ViewBuilder()
-            .setShadow({ build in
-                build
-                    .setRadius(12)
-                    .setColor(.white)
-                    .setOpacity(0.4)
-                    .setOffset(width: 4, height: 0)
-                    .applyLayer()
-            })
             .setAutoLayout { build in
                 build
                     .pinRight.equalToSuperview()
@@ -83,14 +66,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
     
     lazy var bottomShadow: ViewBuilder = {
         let comp = ViewBuilder()
-            .setShadow({ build in
-                build
-                    .setRadius(12)
-                    .setColor(.white)
-                    .setOpacity(0.4)
-                    .setOffset(width: 4, height: 0)
-                    .applyLayer()
-            })
             .setAutoLayout { build in
                 build
                     .pinBottom.equalToSuperview()
@@ -102,10 +77,8 @@ class BoxShadowInsetBuilder: ViewBuilder {
     
 //  MARK: - APPLY
     public func apply() {
-        topShadow.applyAutoLayout()
-        leftShadow.applyAutoLayout()
-        rightShadow.applyAutoLayout()
-        bottomShadow.applyAutoLayout()
+        applyAutoLayouts()
+        setShadows()
     }
     
     
@@ -120,6 +93,64 @@ class BoxShadowInsetBuilder: ViewBuilder {
         leftShadow.add(insideTo: self)
         rightShadow.add(insideTo: self)
         bottomShadow.add(insideTo: self)
+    }
+    
+    private func applyAutoLayouts() {
+        topShadow.applyAutoLayout()
+        leftShadow.applyAutoLayout()
+        rightShadow.applyAutoLayout()
+        bottomShadow.applyAutoLayout()
+    }
+    
+    private func setShadows() {
+        setTopShadow()
+        setLeftShadow()
+        setRightShadow()
+        setBottomShadow()
+    }
+    
+    private func setTopShadow() {
+        topShadow.setShadow({ build in
+                build
+                    .setRadius(8)
+                    .setColor(.black)
+                    .setOpacity(1)
+                    .setOffset(width: 0, height: 0)
+                    .applyLayer()
+            })
+    }
+    
+    private func setLeftShadow() {
+        leftShadow.setShadow({ build in
+            build
+                .setRadius(8)
+                .setColor(.black)
+                .setOpacity(1)
+                .setOffset(width: 0, height: 0)
+                .applyLayer()
+        })
+    }
+    
+    private func setRightShadow() {
+        rightShadow.setShadow({ build in
+            build
+                .setRadius(8)
+                .setColor(lightShadow.color)
+                .setOpacity(lightShadow.opacity)
+                .setOffset(width: 6, height: 0)
+                .applyLayer()
+        })
+    }
+    
+    private func setBottomShadow() {
+        bottomShadow.setShadow({ build in
+            build
+                .setRadius(8)
+                .setColor(lightShadow.color)
+                .setOpacity(lightShadow.opacity)
+                .setOffset(width: 0, height: 6)
+                .applyLayer()
+        })
     }
     
     

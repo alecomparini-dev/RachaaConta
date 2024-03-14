@@ -43,8 +43,9 @@ class CalculatorItemsView: UIView {
     
     lazy var nameBillLabel: LabelBuilder = {
         let comp = LabelBuilder("EH NÓIS CARAIO")
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
+            .setFontFamily(Const.Font.titilliumWebExtraLight, 14)
             .setColor(Theme.shared.currentTheme.onSurface)
+            .setOpacity(0.7)
             .setAutoLayout { build in
                 build
                     .top.equalToSafeArea()
@@ -55,12 +56,25 @@ class CalculatorItemsView: UIView {
     
     lazy var nameBillUnderline: StrokeView = {
        let comp = StrokeView()
+            .setOpacity(0.5)
             .setAutoLayout { build in
                 build
                     .top.equalTo(nameBillLabel, .bottom, 4)
                     .trailing.equalTo(nameBillLabel, .trailing, 2)
                     .width.equalToConstant(65)
                     .height.equalToConstant(2)
+            }
+        return comp
+    }()
+    
+    lazy var symbolCurrencyLabel: LabelBuilder = {
+        let comp = LabelBuilder("R$")
+            .setColor(Theme.shared.currentTheme.onSurface)
+            .setFontFamily(Const.Font.titilliumWebExtraLight, 16)
+            .setAutoLayout { build in
+                build
+                    .top.equalTo(totalAmountBillLabel, .top, 6)
+                    .trailing.equalTo(totalAmountBillLabel, .leading, -4)
             }
         return comp
     }()
@@ -85,18 +99,38 @@ class CalculatorItemsView: UIView {
         return comp
     }()
     
-    lazy var symbolCurrencyLabel: LabelBuilder = {
-        let comp = LabelBuilder("R$")
-            .setColor(Theme.shared.currentTheme.onSurface)
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 16)
+    lazy var boxInsetListItems: BoxShadowInsetBuilder = {
+        let comp = BoxShadowInsetBuilder()
+            .setLightShadow(opacity: 0.2)
+            .setBorder({ build in
+                build
+                    .setCornerRadius(16)
+            })
+            .setGradient({ build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -20)
+                    .setAxialGradient(.leftBottomToRightTop)
+                    .apply()
+            })
             .setAutoLayout { build in
                 build
-                    .top.equalTo(totalAmountBillLabel, .top, 6)
-                    .trailing.equalTo(totalAmountBillLabel, .leading, -4)
+                    .top.equalTo(totalAmountBillLabel, .bottom, 12)
+                    .leading.trailing.equalToSafeArea(8)
+                    .bottom.equalTo(displayCalculator, .top, -12)
             }
+        comp.apply()
         return comp
     }()
 
+
+    lazy var listItems: ListBuilder = {
+        let comp = ListBuilder()
+            .setBackgroundColor(.black)
+        return comp
+    }()
+    
+    
+    
     lazy var displayCalculator: DisplayCalculatorItemValueView = {
         let comp = DisplayCalculatorItemValueView()
             .setAutoLayout { build in
@@ -154,6 +188,7 @@ class CalculatorItemsView: UIView {
         nameBillUnderline.add(insideTo: self)
         totalAmountBillLabel.add(insideTo: self)
         symbolCurrencyLabel.add(insideTo: self)
+        boxInsetListItems.add(insideTo: self)
         displayCalculator.add(insideTo: self)
         underlineItem.add(insideTo: self)
         keyboardList.add(insideTo: self)
@@ -166,6 +201,7 @@ class CalculatorItemsView: UIView {
         nameBillUnderline.applyAutoLayout()
         totalAmountBillLabel.applyAutoLayout()
         symbolCurrencyLabel.applyAutoLayout()
+        boxInsetListItems.applyAutoLayout()
         displayCalculator.applyAutoLayout()
         keyboardList.applyAutoLayout()
         underlineItem.applyAutoLayout()

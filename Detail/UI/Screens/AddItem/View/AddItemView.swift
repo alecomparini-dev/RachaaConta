@@ -10,6 +10,27 @@ protocol AddItemViewDelegate: AnyObject {
     func saveItemButtonTapped()
 }
 
+
+class ShadowView: ViewBuilder {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupShadow()
+    }
+    
+    
+    private func setupShadow() {
+        self.get.layer.shadowColor = UIColor.black.cgColor
+        self.get.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.get.layer.shadowRadius = 20
+        self.get.layer.shadowOpacity = 1
+        self.get.layer.masksToBounds = true
+        
+        // Se você quiser um efeito "inset", você pode ajustar o caminho da sombra
+        let path = UIBezierPath(rect: self.get.bounds.insetBy(dx: -10, dy: -10))
+        self.get.layer.shadowPath = path.cgPath
+    }
+}
+
 class AddItemView: UIView {
     weak var delegate: AddItemViewDelegate?
     
@@ -121,6 +142,70 @@ class AddItemView: UIView {
         return comp
     }()
     
+
+    lazy var backgroundSearchItensList: ViewBuilder = {
+        let comp = ViewBuilder()
+            .setHidden(true)
+            .setBackgroundColor(Theme.shared.currentTheme.backgroundColor)
+            .setBorder({ build in
+                build
+                    .setCornerRadius(24)
+            })
+            .setAutoLayout { build in
+                build
+                    .top.equalTo(displayCalculator, .bottom, 8)
+                    .leading.trailing.equalToSafeArea(16)
+                    .bottom.equalTo(saveItemButton, .top, -8)
+            }
+        return comp
+    }()
+    
+    lazy var shadowTopInsetSearchList: BoxShadowInsetBuilder = {
+        let comp = BoxShadowInsetBuilder(cornerRadius: 24)
+            .setBorder({ build in
+                build
+                    .setCornerRadius(24)
+            })
+            .setGradient({ build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.backgroundColor, percentageGradient: -60)
+                    .setAxialGradient(.leftToRight)
+//                    .apply()
+            })
+            .setBackgroundColor(Theme.shared.currentTheme.backgroundColor)
+            .setAutoLayout { build in
+                build
+                    .pin.equalTo(backgroundSearchItensList)
+            }
+        return comp
+    }()
+
+    lazy var searchItensList: ListBuilder = {
+        let comp = ListBuilder()
+            .setHidden(true)
+//            .setBackgroundColor(.red)
+            .setRowHeight(50)
+            .setSeparatorStyle(.singleLine)
+            .setPadding(top: 8, left: 0, bottom: 8, right: 0)
+            .setBorder({ build in
+                build
+                    .setCornerRadius(24)
+            })
+        
+            .setGradient({ build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.backgroundColor, percentageGradient: -60)
+                    .setAxialGradient(.leftToRight)
+//                    .apply()
+            })
+            
+            .setAutoLayout { build in
+                build
+//                    .top.equalTo(backgroundSearchItensList, .top, 1)
+//                    ..equalTo(backgroundSearchItensList, .top, 1)
+            }
+        return comp
+    }()
     
     lazy var saveItemButton: PrimaryButton = {
         let comp = PrimaryButton(text: "Salvar Item")
@@ -140,13 +225,12 @@ class AddItemView: UIView {
         }
         return comp
     }()
-    
-
 
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
         configAutoLayout()
+        shadowTopInsetSearchList.apply()
     }
     
     private func addElements() {
@@ -157,6 +241,9 @@ class AddItemView: UIView {
         nameItemTextField.add(insideTo: self)
         underline.add(insideTo: self)
         displayCalculator.add(insideTo: self)
+        backgroundSearchItensList.add(insideTo: self)
+        shadowTopInsetSearchList.add(insideTo: self)
+        searchItensList.add(insideTo: self)
         saveItemButton.add(insideTo: self)
     }
     
@@ -168,6 +255,9 @@ class AddItemView: UIView {
         nameItemTextField.applyAutoLayout()
         underline.applyAutoLayout()
         displayCalculator.applyAutoLayout()
+        backgroundSearchItensList.applyAutoLayout()
+        shadowTopInsetSearchList.applyAutoLayout()
+        searchItensList.applyAutoLayout()
         saveItemButton.applyAutoLayout()
     }
     

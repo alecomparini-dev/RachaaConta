@@ -22,7 +22,6 @@ class LineVerticalView: ViewBuilder {
     private func configGradient() {
         self.setGradient({ build in
             build
-                .setGradientColors(Theme.shared.currentTheme.backgroundColorGradient)
                 .setReferenceColor(Theme.shared.currentTheme.backgroundColor, percentageGradient: -60)
                 .setAxialGradient(.rightToLeft)
                 .apply()

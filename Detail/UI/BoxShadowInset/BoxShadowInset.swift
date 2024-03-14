@@ -6,7 +6,7 @@ import CustomComponentsSDK
 
 class BoxShadowInsetBuilder: ViewBuilder {
     
-    private var shadowOffset: (top: CGFloat, left: CGFloat, right: CGFloat, bottom: CGFloat) = (top: 8, left: 8, right: 8, bottom: 8)
+    private var shadowOffset: (top: CGFloat, left: CGFloat, right: CGFloat, bottom: CGFloat) = (top: 6, left: 6, right: 6, bottom: 6)
     
     private let cornerRadius: CGFloat
     
@@ -35,7 +35,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
                     .setColor(.black)
                     .setOpacity(1)
                     .setOffset(width: 0, height: 0)
-                    .apply()
+                    .applyLayer()
             })
             .setAutoLayout { build in
                 build
@@ -53,7 +53,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
                     .setColor(.black)
                     .setOpacity(1)
                     .setOffset(width: 0, height: 0)
-                    .apply()
+                    .applyLayer()
             })
             .setAutoLayout { build in
                 build
@@ -67,10 +67,10 @@ class BoxShadowInsetBuilder: ViewBuilder {
         let comp = ViewBuilder()
             .setShadow({ build in
                 build
-                    .setRadius(8)
-                    .setColor(.black)
-                    .setOpacity(1)
-                    .setOffset(width: 0, height: 0)
+                    .setRadius(12)
+                    .setColor(.white)
+                    .setOpacity(0.4)
+                    .setOffset(width: 4, height: 0)
                     .applyLayer()
             })
             .setAutoLayout { build in
@@ -85,10 +85,10 @@ class BoxShadowInsetBuilder: ViewBuilder {
         let comp = ViewBuilder()
             .setShadow({ build in
                 build
-                    .setRadius(8)
-                    .setColor(.black)
-                    .setOpacity(1)
-                    .setOffset(width: 0, height: 0)
+                    .setRadius(12)
+                    .setColor(.white)
+                    .setOpacity(0.4)
+                    .setOffset(width: 4, height: 0)
                     .applyLayer()
             })
             .setAutoLayout { build in

@@ -520,7 +520,6 @@
 		02B680022B9A28C500BC0228 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				02A92C342BA24C1900830F86 /* BoxShadowInset */,
 				02B680052B9A298E00BC0228 /* AddItemView.swift */,
 			);
 			path = View;
@@ -569,6 +568,7 @@
 		02BD94FD2B8375F800539FDE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				02A92C342BA24C1900830F86 /* BoxShadowInset */,
 				02BD950B2B8376C600539FDE /* Theme */,
 				02BD950D2B8376C600539FDE /* CommonsView */,
 				02D97E642B89352D009F57F8 /* Screens */,

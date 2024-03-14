@@ -68,11 +68,12 @@ class AddItemView: UIView {
 
     lazy var nameBillLabel: LabelBuilder = {
         let comp = LabelBuilder("EH NÓIS CARAIO")
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
+            .setFontFamily(Const.Font.titilliumWebExtraLight, 14)
             .setColor(Theme.shared.currentTheme.onSurface)
+            .setOpacity(0.7)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(backButtonView, .centerY)
+                    .top.equalToSafeArea()
                     .trailing.equalToSafeArea(-16)
             }
         return comp
@@ -80,11 +81,12 @@ class AddItemView: UIView {
     
     lazy var nameBillUnderline: StrokeView = {
        let comp = StrokeView()
+            .setOpacity(0.5)
             .setAutoLayout { build in
                 build
                     .top.equalTo(nameBillLabel, .bottom, 4)
                     .trailing.equalTo(nameBillLabel, .trailing, 2)
-                    .width.equalToConstant(65)
+                    .width.equalToConstant(50)
                     .height.equalToConstant(2)
             }
         return comp
@@ -112,7 +114,7 @@ class AddItemView: UIView {
             .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(backButtonView, .bottom, 40)
+                    .top.equalTo(backButtonView, .bottom, 8)
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })
@@ -143,47 +145,51 @@ class AddItemView: UIView {
     }()
     
 
+//    lazy var backgroundSearchItensList: BoxShadowInsetBuilder = {
+//        let comp = BoxShadowInsetBuilder()
+//            .setBorder({ build in
+//                build
+//                    .setCornerRadius(8)
+//            })
+//            .setGradient({ build in
+//                build
+//                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -30)
+//                    .setAxialGradient(.rightToLeft)
+//                    .apply()
+//            })
+//            .setAutoLayout { build in
+//                build
+//                    .top.equalTo(displayCalculator, .bottom, 8)
+//                    .leading.trailing.equalToSafeArea(16)
+//                    .bottom.equalTo(saveItemButton, .top, -8)
+//            }
+//        return comp
+//    }()
+    
     lazy var backgroundSearchItensList: ViewBuilder = {
         let comp = ViewBuilder()
-            .setHidden(true)
-            .setBackgroundColor(Theme.shared.currentTheme.backgroundColor)
             .setBorder({ build in
                 build
-                    .setCornerRadius(24)
+                    .setCornerRadius(8)
+            })
+            .setGradient({ build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -20)
+                    .setAxialGradient(.leftToRight)
+                    .apply()
             })
             .setAutoLayout { build in
                 build
                     .top.equalTo(displayCalculator, .bottom, 8)
                     .leading.trailing.equalToSafeArea(16)
-                    .bottom.equalTo(saveItemButton, .top, -8)
+                    .bottom.equalTo(saveItemButton, .top, -12)
             }
         return comp
     }()
-    
-    lazy var shadowTopInsetSearchList: BoxShadowInsetBuilder = {
-        let comp = BoxShadowInsetBuilder(cornerRadius: 24)
-            .setBorder({ build in
-                build
-                    .setCornerRadius(24)
-            })
-            .setGradient({ build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.backgroundColor, percentageGradient: -60)
-                    .setAxialGradient(.leftToRight)
-//                    .apply()
-            })
-            .setBackgroundColor(Theme.shared.currentTheme.backgroundColor)
-            .setAutoLayout { build in
-                build
-                    .pin.equalTo(backgroundSearchItensList)
-            }
-        return comp
-    }()
-
+  
     lazy var searchItensList: ListBuilder = {
         let comp = ListBuilder()
             .setHidden(true)
-//            .setBackgroundColor(.red)
             .setRowHeight(50)
             .setSeparatorStyle(.singleLine)
             .setPadding(top: 8, left: 0, bottom: 8, right: 0)
@@ -225,12 +231,12 @@ class AddItemView: UIView {
         }
         return comp
     }()
+    
 
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
         configAutoLayout()
-        shadowTopInsetSearchList.apply()
     }
     
     private func addElements() {
@@ -242,7 +248,6 @@ class AddItemView: UIView {
         underline.add(insideTo: self)
         displayCalculator.add(insideTo: self)
         backgroundSearchItensList.add(insideTo: self)
-        shadowTopInsetSearchList.add(insideTo: self)
         searchItensList.add(insideTo: self)
         saveItemButton.add(insideTo: self)
     }
@@ -256,7 +261,6 @@ class AddItemView: UIView {
         underline.applyAutoLayout()
         displayCalculator.applyAutoLayout()
         backgroundSearchItensList.applyAutoLayout()
-        shadowTopInsetSearchList.applyAutoLayout()
         searchItensList.applyAutoLayout()
         saveItemButton.applyAutoLayout()
     }

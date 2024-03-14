@@ -47,7 +47,7 @@ class CalculatorItemsView: UIView {
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
-                    .verticalAlignY.equalTo(backButtonView, .centerY)
+                    .top.equalToSafeArea()
                     .trailing.equalToSafeArea(-16)
             }
         return comp
@@ -78,7 +78,7 @@ class CalculatorItemsView: UIView {
             })
             .setAutoLayout { build in
                 build
-                    .top.equalTo(nameBillUnderline, .bottom, 6)
+                    .top.equalTo(nameBillUnderline, .bottom, 16)
                     .trailing.equalTo(nameBillLabel, .trailing)
                     .height.equalToConstant(76)
             }

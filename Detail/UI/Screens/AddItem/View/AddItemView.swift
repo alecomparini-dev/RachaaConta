@@ -170,7 +170,7 @@ class AddItemView: UIView {
         let comp = ViewBuilder()
             .setBorder({ build in
                 build
-                    .setCornerRadius(8)
+                    .setCornerRadius(16)
             })
             .setGradient({ build in
                 build

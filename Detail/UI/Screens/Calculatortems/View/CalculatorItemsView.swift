@@ -99,7 +99,7 @@ class CalculatorItemsView: UIView {
         return comp
     }()
     
-    lazy var backgroundListItems: BoxShadowInsetBuilder = {
+    lazy var boxInsetListItems: BoxShadowInsetBuilder = {
         let comp = BoxShadowInsetBuilder()
             .setLightShadow(opacity: 0.2)
             .setBorder({ build in
@@ -188,7 +188,7 @@ class CalculatorItemsView: UIView {
         nameBillUnderline.add(insideTo: self)
         totalAmountBillLabel.add(insideTo: self)
         symbolCurrencyLabel.add(insideTo: self)
-        backgroundListItems.add(insideTo: self)
+        boxInsetListItems.add(insideTo: self)
         displayCalculator.add(insideTo: self)
         underlineItem.add(insideTo: self)
         keyboardList.add(insideTo: self)
@@ -201,7 +201,7 @@ class CalculatorItemsView: UIView {
         nameBillUnderline.applyAutoLayout()
         totalAmountBillLabel.applyAutoLayout()
         symbolCurrencyLabel.applyAutoLayout()
-        backgroundListItems.applyAutoLayout()
+        boxInsetListItems.applyAutoLayout()
         displayCalculator.applyAutoLayout()
         keyboardList.applyAutoLayout()
         underlineItem.applyAutoLayout()

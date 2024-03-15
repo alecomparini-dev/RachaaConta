@@ -25,7 +25,6 @@ class SectionViewCell: ViewBuilder {
 //  MARK: - LAZY AREA
     lazy var titleLabel: LabelBuilder = {
         let comp = LabelBuilder(title)
-//            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
             .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
             .setColor(fontColor)
             .setAutoLayout { build in

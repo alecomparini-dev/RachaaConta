@@ -72,6 +72,27 @@ public class AddItemViewController: UIViewController {
         screen.searchItensList.setDelegate(self)
     }
     
+    private func createItemsViewCell(_ section: Int, _ row: Int) -> Any {
+        let cell = ItemsViewCell(viewModel.getItem(section, row))
+            .setGradient { build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainerLow, percentageGradient: 30)
+                    .setAxialGradient(.leftToRight)
+                    .apply()
+            }
+        
+        if viewModel.isLastRow(section, row) {
+            cell.setBorder { build in
+                build
+                    .setCornerRadius(16)
+                    .setRoundedCorners([.bottom])
+            }
+        }
+        
+        return cell
+    }
+
+    
 }
 
 
@@ -120,25 +141,8 @@ extension AddItemViewController: ListDelegate {
         return createItemsViewCell(section, row)
     }
     
-    private func createItemsViewCell(_ section: Int, _ row: Int) -> Any {
-        let cell = ItemsViewCell(viewModel.getItem(section, row))
-            .setGradient { build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainerLow, percentageGradient: 30)
-                    .setAxialGradient(.leftToRight)
-                    .apply()
-            }
-        
-        if viewModel.isLastRow(section, row) {
-            cell.setBorder { build in
-                build
-                    .setCornerRadius(16)
-                    .setRoundedCorners([.bottom])
-            }
-        }
-        
-        return cell
+    public func scrollViewWillBeginDragging(_ list: ListBuilder, _ scrollView: UIScrollView) {
+        screen.nameItemTextField.setHideKeyboard()
     }
-    
     
 }

@@ -7,6 +7,7 @@ public class HomeViewModelImpl: HomeViewModel {
     
     private var bills = [BillPresenterDTO]()
     
+    
 //  MARK: - INITIALIZERS
     
     private let fetchBillPresenter: FetchBillPresenter
@@ -14,7 +15,6 @@ public class HomeViewModelImpl: HomeViewModel {
     public init(fetchBillPresenter: FetchBillPresenter) {
         self.fetchBillPresenter = fetchBillPresenter
     }
-    
     
     
 //  MARK: - PUBLIC AREA

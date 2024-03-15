@@ -11,26 +11,6 @@ protocol AddItemViewDelegate: AnyObject {
 }
 
 
-class ShadowView: ViewBuilder {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupShadow()
-    }
-    
-    
-    private func setupShadow() {
-        self.get.layer.shadowColor = UIColor.black.cgColor
-        self.get.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.get.layer.shadowRadius = 20
-        self.get.layer.shadowOpacity = 1
-        self.get.layer.masksToBounds = true
-        
-        // Se você quiser um efeito "inset", você pode ajustar o caminho da sombra
-        let path = UIBezierPath(rect: self.get.bounds.insetBy(dx: -10, dy: -10))
-        self.get.layer.shadowPath = path.cgPath
-    }
-}
-
 class AddItemView: UIView {
     weak var delegate: AddItemViewDelegate?
     
@@ -114,7 +94,7 @@ class AddItemView: UIView {
             .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(backButtonView, .bottom, 8)
+                    .top.equalTo(backButtonView, .bottom, 4)
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })
@@ -144,35 +124,22 @@ class AddItemView: UIView {
         return comp
     }()
     
-    lazy var backgroundSearchItensList: ViewBuilder = {
-        let comp = ViewBuilder()
+    lazy var searchItensList: ListBuilder = {
+        let comp = ListBuilder()
             .setBorder({ build in
                 build
                     .setCornerRadius(16)
             })
-            .setGradient({ build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -20)
-                    .setAxialGradient(.leftToRight)
-                    .apply()
-            })
+            .setRowHeight(64)
+            .setSectionHeaderHeight(54)
+            .setShowsScroll(false, .vertical)
+            .setSeparatorStyle(.singleLine)
+            .setPadding(top: 0, left: 0, bottom: 16, right: 0)
             .setAutoLayout { build in
                 build
                     .top.equalTo(displayCalculator, .bottom, 8)
                     .leading.trailing.equalToSafeArea(16)
                     .bottom.equalTo(saveItemButton, .top, -12)
-            }
-        return comp
-    }()
-  
-    lazy var searchItensList: ListBuilder = {
-        let comp = ListBuilder()
-            .setRowHeight(50)
-            .setSeparatorStyle(.singleLine)
-            .setPadding(top: 8, left: 0, bottom: 8, right: 0)
-            .setAutoLayout { build in
-                build
-                    .pin.equalToSuperview()
             }
         return comp
     }()
@@ -211,8 +178,7 @@ class AddItemView: UIView {
         nameItemTextField.add(insideTo: self)
         underline.add(insideTo: self)
         displayCalculator.add(insideTo: self)
-        backgroundSearchItensList.add(insideTo: self)
-        searchItensList.add(insideTo: backgroundSearchItensList)
+        searchItensList.add(insideTo: self)
         saveItemButton.add(insideTo: self)
     }
     
@@ -224,7 +190,6 @@ class AddItemView: UIView {
         nameItemTextField.applyAutoLayout()
         underline.applyAutoLayout()
         displayCalculator.applyAutoLayout()
-        backgroundSearchItensList.applyAutoLayout()
         searchItensList.applyAutoLayout()
         saveItemButton.applyAutoLayout()
     }

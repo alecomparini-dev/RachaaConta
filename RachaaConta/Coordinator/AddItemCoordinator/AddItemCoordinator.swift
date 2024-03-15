@@ -16,7 +16,7 @@ class AddItemCoordinator: Coordinator {
     func start() {
         coordinator = self
         
-        var controller = AddItemViewController()
+        var controller = AddItemViewControllerFactory.make()
         controller = navigationController.pushViewController(controller)
         controller.coordinator = self
     }

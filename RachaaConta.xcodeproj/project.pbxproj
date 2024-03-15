@@ -46,6 +46,11 @@
 		028A3D412B99EF6300AE764F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D3F2B99EF5400AE764F /* PrimaryButton.swift */; };
 		028A3D452B9A055400AE764F /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D432B9A054000AE764F /* SecondaryButton.swift */; };
 		028BC9A42BA38B0300A89918 /* ListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BC9A22BA389EB00A89918 /* ListItemsView.swift */; };
+		028BC9AD2BA483B400A89918 /* AddItemViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BC9AB2BA4838B00A89918 /* AddItemViewModelImpl.swift */; };
+		028BC9AE2BA483B700A89918 /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BC9A82BA4830400A89918 /* AddItemViewModel.swift */; };
+		028BC9B72BA49EDD00A89918 /* AddItemViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BC9B62BA49EDD00A89918 /* AddItemViewControllerFactory.swift */; };
+		028BC9BC2BA4B34F00A89918 /* SectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BC9BA2BA4B32000A89918 /* SectionViewCell.swift */; };
+		028BC9C02BA4BF7A00A89918 /* ItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BC9BE2BA4BE6D00A89918 /* ItemsViewCell.swift */; };
 		02A92C372BA24C5400830F86 /* BoxShadowInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A92C352BA24C3500830F86 /* BoxShadowInset.swift */; };
 		02B4D60E2B8401B6005DF70B /* ButtonSideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
@@ -178,6 +183,11 @@
 		028A3D3F2B99EF5400AE764F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		028A3D432B9A054000AE764F /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		028BC9A22BA389EB00A89918 /* ListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsView.swift; sourceTree = "<group>"; };
+		028BC9A82BA4830400A89918 /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
+		028BC9AB2BA4838B00A89918 /* AddItemViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModelImpl.swift; sourceTree = "<group>"; };
+		028BC9B62BA49EDD00A89918 /* AddItemViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewControllerFactory.swift; sourceTree = "<group>"; };
+		028BC9BA2BA4B32000A89918 /* SectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewCell.swift; sourceTree = "<group>"; };
+		028BC9BE2BA4BE6D00A89918 /* ItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewCell.swift; sourceTree = "<group>"; };
 		02A92C352BA24C3500830F86 /* BoxShadowInset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxShadowInset.swift; sourceTree = "<group>"; };
 		02B4D60D2B8401B6005DF70B /* ButtonSideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSideBarMenuView.swift; sourceTree = "<group>"; };
 		02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFloatView.swift; sourceTree = "<group>"; };
@@ -489,6 +499,7 @@
 		028A3D462B9A27D700AE764F /* AddItem */ = {
 			isa = PBXGroup;
 			children = (
+				028BC9B82BA4AEF000A89918 /* CellView */,
 				02B680022B9A28C500BC0228 /* View */,
 				02B680002B9A28C100BC0228 /* AddItemViewController.swift */,
 			);
@@ -501,6 +512,120 @@
 				028BC9A22BA389EB00A89918 /* ListItemsView.swift */,
 			);
 			path = ListItemsView;
+			sourceTree = "<group>";
+		};
+		028BC9A52BA4727A00A89918 /* ItemsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9B12BA4863700A89918 /* FetchItemsPresenter */,
+				028BC9B02BA4860300A89918 /* FetchFavoriteItemsPresenter */,
+				028BC9B22BA4868B00A89918 /* AddFavoriteItemPresenter */,
+				028BC9B32BA4869A00A89918 /* RemoveFavoriteItemPresenter */,
+				028BC9B42BA486A400A89918 /* DeleteItemPresenter */,
+			);
+			path = ItemsPresenter;
+			sourceTree = "<group>";
+		};
+		028BC9A62BA47D3200A89918 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9A72BA482CE00A89918 /* AddItemViewModel */,
+				02DF272F2B85522A003A5979 /* HomeViewModel */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		028BC9A72BA482CE00A89918 /* AddItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9AA2BA4831800A89918 /* Impl */,
+				028BC9A82BA4830400A89918 /* AddItemViewModel.swift */,
+			);
+			path = AddItemViewModel;
+			sourceTree = "<group>";
+		};
+		028BC9AA2BA4831800A89918 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9AB2BA4838B00A89918 /* AddItemViewModelImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		028BC9AF2BA4849000A89918 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				023C63A72B8638A00009C432 /* BillPresenterDTO */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		028BC9B02BA4860300A89918 /* FetchFavoriteItemsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FetchFavoriteItemsPresenter;
+			sourceTree = "<group>";
+		};
+		028BC9B12BA4863700A89918 /* FetchItemsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FetchItemsPresenter;
+			sourceTree = "<group>";
+		};
+		028BC9B22BA4868B00A89918 /* AddFavoriteItemPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddFavoriteItemPresenter;
+			sourceTree = "<group>";
+		};
+		028BC9B32BA4869A00A89918 /* RemoveFavoriteItemPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RemoveFavoriteItemPresenter;
+			sourceTree = "<group>";
+		};
+		028BC9B42BA486A400A89918 /* DeleteItemPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DeleteItemPresenter;
+			sourceTree = "<group>";
+		};
+		028BC9B52BA49ECF00A89918 /* AddItemViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9B62BA49EDD00A89918 /* AddItemViewControllerFactory.swift */,
+			);
+			path = AddItemViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		028BC9B82BA4AEF000A89918 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9BD2BA4BE5B00A89918 /* ItemsView */,
+				028BC9B92BA4B30C00A89918 /* SectionView */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
+		028BC9B92BA4B30C00A89918 /* SectionView */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9BA2BA4B32000A89918 /* SectionViewCell.swift */,
+			);
+			path = SectionView;
+			sourceTree = "<group>";
+		};
+		028BC9BD2BA4BE5B00A89918 /* ItemsView */ = {
+			isa = PBXGroup;
+			children = (
+				028BC9BE2BA4BE6D00A89918 /* ItemsViewCell.swift */,
+			);
+			path = ItemsView;
 			sourceTree = "<group>";
 		};
 		02A92C342BA24C1900830F86 /* BoxShadowInset */ = {
@@ -581,7 +706,7 @@
 				02A92C342BA24C1900830F86 /* BoxShadowInset */,
 				02BD950B2B8376C600539FDE /* Theme */,
 				02BD950D2B8376C600539FDE /* CommonsView */,
-				02D97E642B89352D009F57F8 /* Screens */,
+				02D97E642B89352D009F57F8 /* ViewControllers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -663,7 +788,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		02D97E642B89352D009F57F8 /* Screens */ = {
+		02D97E642B89352D009F57F8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				02BD95072B8376C600539FDE /* Home */,
@@ -675,7 +800,7 @@
 				028A3D462B9A27D700AE764F /* AddItem */,
 				02D97E692B8935AA009F57F8 /* IndividualItems */,
 			);
-			path = Screens;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		02D97E652B89356E009F57F8 /* BackgroundView */ = {
@@ -860,7 +985,7 @@
 			children = (
 				023C63AA2B8639410009C432 /* CommonsDTO */,
 				02DF273B2B8615BF003A5979 /* BillPresenter */,
-				02DF272F2B85522A003A5979 /* HomeViewModel */,
+				028BC9A52BA4727A00A89918 /* ItemsPresenter */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -869,6 +994,7 @@
 			isa = PBXGroup;
 			children = (
 				02DF27232B8551CD003A5979 /* Presenter */,
+				028BC9A62BA47D3200A89918 /* ViewModels */,
 			);
 			path = InterfaceAdapter;
 			sourceTree = "<group>";
@@ -902,6 +1028,7 @@
 			isa = PBXGroup;
 			children = (
 				02DF27392B858D08003A5979 /* HomeViewControllerFactory */,
+				028BC9B52BA49ECF00A89918 /* AddItemViewControllerFactory */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -917,7 +1044,7 @@
 		02DF273B2B8615BF003A5979 /* BillPresenter */ = {
 			isa = PBXGroup;
 			children = (
-				023C63A72B8638A00009C432 /* BillPresenterDTO */,
+				028BC9AF2BA4849000A89918 /* DTO */,
 				02DF273C2B862825003A5979 /* FetchBillPresenter */,
 			);
 			path = BillPresenter;
@@ -1198,6 +1325,7 @@
 				02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */,
 				02DB78D62B976EBE00253B9D /* Line1KeyboardView.swift in Sources */,
 				028A3D412B99EF6300AE764F /* PrimaryButton.swift in Sources */,
+				028BC9C02BA4BF7A00A89918 /* ItemsViewCell.swift in Sources */,
 				022F191A2B8FB2AB00474CE7 /* NeumorphismSideBarView.swift in Sources */,
 				0210784A2B90B75C00201704 /* LightMapButtonView.swift in Sources */,
 				023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */,
@@ -1213,6 +1341,7 @@
 				021078572B910EE600201704 /* CreateBillViewController.swift in Sources */,
 				02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */,
 				02D97E872B8D68A7009F57F8 /* SideBarMenuViewController.swift in Sources */,
+				028BC9BC2BA4B34F00A89918 /* SectionViewCell.swift in Sources */,
 				028A3D3D2B99E89A00AE764F /* DefaultButton.swift in Sources */,
 				02BD95112B8376C600539FDE /* ThemeDark.swift in Sources */,
 				023C63E22B877D7E0009C432 /* StrokeView.swift in Sources */,
@@ -1231,6 +1360,7 @@
 				02E9E0A12B9657230059E85A /* CalculatorItemsCoordinator.swift in Sources */,
 				02BD951F2B83773600539FDE /* SceneDelegate.swift in Sources */,
 				02ECF1C32BA1C8460059795A /* AddItemCoordinator.swift in Sources */,
+				028BC9B72BA49EDD00A89918 /* AddItemViewControllerFactory.swift in Sources */,
 				02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */,
 				02D97E7C2B894C58009F57F8 /* HomeCoordinator.swift in Sources */,
 				021078592B91136D00201704 /* CreateBillCoordinator.swift in Sources */,
@@ -1241,10 +1371,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028BC9AD2BA483B400A89918 /* AddItemViewModelImpl.swift in Sources */,
 				02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */,
 				023C63A92B8638B80009C432 /* BillPresenterDTO.swift in Sources */,
 				023C63A32B8635B10009C432 /* FetchBillPresenter.swift in Sources */,
 				02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */,
+				028BC9AE2BA483B700A89918 /* AddItemViewModel.swift in Sources */,
 				023C63A62B8635C40009C432 /* FetchBillPresenterImpl.swift in Sources */,
 				023C63AC2B863A680009C432 /* AddressPresenterDTO.swift in Sources */,
 			);

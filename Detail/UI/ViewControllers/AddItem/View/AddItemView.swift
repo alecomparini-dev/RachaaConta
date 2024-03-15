@@ -94,7 +94,7 @@ class AddItemView: UIView {
             .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(backButtonView, .bottom, 8)
+                    .top.equalTo(backButtonView, .bottom, 4)
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })
@@ -124,35 +124,22 @@ class AddItemView: UIView {
         return comp
     }()
     
-    lazy var backgroundSearchItensList: ViewBuilder = {
-        let comp = ViewBuilder()
+    lazy var searchItensList: ListBuilder = {
+        let comp = ListBuilder()
             .setBorder({ build in
                 build
                     .setCornerRadius(16)
             })
-            .setGradient({ build in
-                build
-                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer, percentageGradient: -20)
-                    .setAxialGradient(.leftToRight)
-                    .apply()
-            })
+            .setRowHeight(64)
+            .setSectionHeaderHeight(54)
+            .setShowsScroll(false, .vertical)
+            .setSeparatorStyle(.singleLine)
+            .setPadding(top: 0, left: 0, bottom: 16, right: 0)
             .setAutoLayout { build in
                 build
                     .top.equalTo(displayCalculator, .bottom, 8)
                     .leading.trailing.equalToSafeArea(16)
                     .bottom.equalTo(saveItemButton, .top, -12)
-            }
-        return comp
-    }()
-  
-    lazy var searchItensList: ListBuilder = {
-        let comp = ListBuilder()
-            .setRowHeight(50)
-            .setSeparatorStyle(.singleLine)
-            .setPadding(top: 8, left: 0, bottom: 8, right: 0)
-            .setAutoLayout { build in
-                build
-                    .pin.equalToSuperview()
             }
         return comp
     }()
@@ -191,8 +178,7 @@ class AddItemView: UIView {
         nameItemTextField.add(insideTo: self)
         underline.add(insideTo: self)
         displayCalculator.add(insideTo: self)
-        backgroundSearchItensList.add(insideTo: self)
-        searchItensList.add(insideTo: backgroundSearchItensList)
+        searchItensList.add(insideTo: self)
         saveItemButton.add(insideTo: self)
     }
     
@@ -204,7 +190,6 @@ class AddItemView: UIView {
         nameItemTextField.applyAutoLayout()
         underline.applyAutoLayout()
         displayCalculator.applyAutoLayout()
-        backgroundSearchItensList.applyAutoLayout()
         searchItensList.applyAutoLayout()
         saveItemButton.applyAutoLayout()
     }

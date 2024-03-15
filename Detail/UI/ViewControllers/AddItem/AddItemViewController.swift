@@ -107,7 +107,12 @@ extension AddItemViewController: ListDelegate {
     }
     
     public func sectionViewCallback(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> UIView? {
-        let sectionView = (section == 0 ) ? SectionViewCell("FAVORITOS:").get : SectionViewCell("ITENS:").get
+        let sectionView = (section == 0 ) ? 
+        SectionViewCell(title: "FAVORITOS:", 
+                        color: Theme.shared.currentTheme.secondary,
+                        fontColor: Theme.shared.currentTheme.onSecondary).get :
+        SectionViewCell(title: "ITENS:").get
+        
         return sectionView
     }
     
@@ -116,7 +121,6 @@ extension AddItemViewController: ListDelegate {
     }
     
     private func createItemsViewCell(_ section: Int, _ row: Int) -> Any {
-        
         let cell = ItemsViewCell(viewModel.getItem(section, row))
             .setGradient { build in
                 build

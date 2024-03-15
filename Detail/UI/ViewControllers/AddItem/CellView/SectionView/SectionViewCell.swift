@@ -9,20 +9,25 @@ import Handler
 class SectionViewCell: ViewBuilder {
     
     private let title: String
+    private let color: UIColor
+    private let fontColor: UIColor
     
-    init(_ title: String) {
+    init(title: String, color: UIColor = Theme.shared.currentTheme.backgroundColor, fontColor: UIColor = Theme.shared.currentTheme.onSurface) {
         self.title = title
+        self.color = color
+        self.fontColor = fontColor
         super.init()
         configure()
     }
     
     
+    
 //  MARK: - LAZY AREA
     lazy var titleLabel: LabelBuilder = {
         let comp = LabelBuilder(title)
-            .setFontFamily(Const.Font.titilliumWebSemiBold, 16)
-//            .setColor(Theme.shared.currentTheme.onSurface)
-            .setColor(Theme.shared.currentTheme.onSurfaceInverse)
+//            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
+            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
+            .setColor(fontColor)
             .setAutoLayout { build in
                 build
                     .verticalAlignY.equalToSuperview()
@@ -38,7 +43,7 @@ class SectionViewCell: ViewBuilder {
         addElement()
         configConstraints()
         configBorder()
-        configBackgroundColor()
+        configNeumorphims()
     }
     
     private func addElement() {
@@ -50,27 +55,24 @@ class SectionViewCell: ViewBuilder {
     }
     
     private func configBorder() {
-        self
-            .setBorder { build in
-                build
-                    .setCornerRadius(18)
-                    .setRoundedCorners([.top])
-            }
+        self.setBorder { build in
+            build
+                .setCornerRadius(18)
+                .setRoundedCorners([.top])
+        }
     }
     
-    private func configBackgroundColor() {
-        
+    private func configNeumorphims() {
         self.setNeumorphism { build in
             build
-                .setReferenceColor(Theme.shared.currentTheme.secondary)
-//                .setReferenceColor(Theme.shared.currentTheme.primary)
+                .setReferenceColor(color)
                 .setShape(.convex)
                 .setLightPosition(.leftTop)
-                .setIntensity(to: .light, percent: 20)
+                .setIntensity(to: .light, percent: 30)
                 .setIntensity(to: .dark, percent: 100)
-                .setBlur(to: .light, percent: 8)
+                .setBlur(to: .light, percent: 3)
                 .setBlur(to: .dark, percent: 10)
-                .setDistance(to: .light, percent: 4)
+                .setDistance(to: .light, percent: 2)
                 .setDistance(to: .dark, percent: 10)
                 .setShadowColor(to: .dark, color: .black)
                 .apply()

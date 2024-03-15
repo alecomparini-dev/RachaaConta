@@ -163,7 +163,7 @@ class Line1KeyboardView: ViewBuilder {
     
     
     lazy var buttonMultiply: PrimaryButton = {
-        let img = ImageViewBuilder(systemName: "xmark")
+        let img = ImageViewBuilder(systemName: Const.Images.multiply)
         let size = Const.Default.sizeButtonKeyboard.width*0.8
         let comp = PrimaryButton(cornerRadius: size/2, image: img)
             .setAutoLayout { build in

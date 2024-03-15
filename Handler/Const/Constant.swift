@@ -28,6 +28,8 @@ public struct Const {
         public static let checkmark = "checkmark"
         public static let addressBill = "mappin.and.ellipse"
         public static let magnifyingglass = "magnifyingglass"
+        public static let xmark = "xmark"
+        public static let multiply = xmark
     }
     
     public struct Font {

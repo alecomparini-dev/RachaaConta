@@ -21,11 +21,12 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     lazy var totalValueLabel: LabelBuilder = {
         let comp = LabelBuilder(" = 397,50")
 //        let comp = LabelBuilder(" = total")
+            .setTextAlignment(.right)
             .setFontFamily(Const.Font.titilliumWebBold, fontSizes.totalValue)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
-                    .bottom.equalToSuperview()
+                    .verticalAlignY.equalToSuperview()
                     .trailing.equalToSuperview(-8)
             })
         return comp
@@ -34,6 +35,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     lazy var unitValueLabel: LabelBuilder = {
         let comp = LabelBuilder("515,90")
 //        let comp = LabelBuilder("vlr unitário")
+            .setTextAlignment(.right)
             .setFontFamily(Const.Font.titilliumWebLight, fontSizes.unitValue)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
@@ -59,6 +61,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
     lazy var quantityLabel: LabelBuilder = {
         let comp = LabelBuilder("25")
+            .setTextAlignment(.right)
 //        let comp = LabelBuilder("qtd")
             .setFontFamily(Const.Font.titilliumWebLight, fontSizes.quantity)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
@@ -79,10 +82,10 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     }
     
     private func addElements() {
-        totalValueLabel.add(insideTo: self )
-        unitValueLabel.add(insideTo: self )
-        multiplayLabel.add(insideTo: self )
         quantityLabel.add(insideTo: self )
+        multiplayLabel.add(insideTo: self )
+        unitValueLabel.add(insideTo: self )
+        totalValueLabel.add(insideTo: self )
     }
     
     private func configAutoLayout() {

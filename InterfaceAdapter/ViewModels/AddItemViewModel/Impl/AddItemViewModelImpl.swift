@@ -5,6 +5,7 @@ import Foundation
 
 public class AddItemViewModelImpl: AddItemViewModel {
     private var favoriteItems = [String]()
+    private var items = [String]()
     
     public init() { }
     
@@ -17,13 +18,35 @@ public class AddItemViewModelImpl: AddItemViewModel {
             "Comida",
             "Long Neck",
             "Porção",
-            "Prato Feito",
-            "Sanduba",
+        ]
+        
+        fetchItems()
+    }
+    
+    public func fetchItems() {
+        items = [
+            "Brhama 600",
+            "Original 300",
+            "Cerveja Lata",
+            "Bhrama Long Neck",
+            "Porção de Peixe",
+            "Porção de Batata",
+            "Porção de Cebola",
+            "Refrigerante",
+            "Coca Cola 2L",
+            "Coca Cola 600",
+            "Guaraná",
         ]
     }
     
     public func getItem(_ section: Int, _ index: Int) -> String {
-        return favoriteItems[index]
+        switch section {
+            case 0:
+                return favoriteItems[index]
+                
+            default:
+                return items[index]
+        }
     }
     
     public func numberOfSections() -> Int {
@@ -36,7 +59,7 @@ public class AddItemViewModelImpl: AddItemViewModel {
                 return favoriteItems.count
                 
             default:
-                return 20
+                return items.count
         }
     }
     
@@ -45,7 +68,13 @@ public class AddItemViewModelImpl: AddItemViewModel {
     }
     
     public func isLastRow(_ section: Int, _ row: Int) -> Bool {
-        return row == favoriteItems.count - 1
+        switch section {
+            case 0:
+                return row == favoriteItems.count - 1
+                
+            default:
+                return row == items.count - 1
+        }
     }
     
 }

@@ -30,12 +30,12 @@ public class CalculatorItemsViewController: UIViewController {
         configure()
     }
      
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -47,28 +47,28 @@ public class CalculatorItemsViewController: UIViewController {
     private func configure() {
         configDelegate()
         showKeyboardCollection()
+        showListItems()
     }
     
     private func configDelegate() {
         screen.backButtonView.delegate = self
         screen.keyboardList.setDelegate(self)
+        screen.listItems.setDelegate(self)
     }
     
     private func showKeyboardCollection() {
         screen.keyboardList.show()
     }
     
-}
-
-
-
-//  MARK: - EXTENSION - BackButtonViewDelegate
-extension CalculatorItemsViewController: ListDelegate {
-    public func numberOfSections(_ list: ListBuilder) -> Int { 1 }
+    private func showListItems() {
+        screen.listItems.show()
+    }
     
-    public func numberOfRows(_ list: ListBuilder, section: Int) -> Int { 3 }
+    private func rowViewCallBackListItems(_ row: Int) -> Any {
+        return ListItemsView()
+    }
     
-    public func rowViewCallBack(_ list: ListBuilder, section: Int, row: Int) -> Any {
+    private func rowViewCallBackKeyBoardList(_ row: Int) -> Any {
         switch row {
             case 0:
                 return Line0KeyboardView()
@@ -84,6 +84,32 @@ extension CalculatorItemsViewController: ListDelegate {
         default:
             return UIView()
         }
+
+    }
+    
+    
+}
+
+
+
+//  MARK: - EXTENSION - BackButtonViewDelegate
+extension CalculatorItemsViewController: ListDelegate {
+    public func numberOfSections(_ list: ListBuilder) -> Int {
+        return 1
+    }
+    
+    public func numberOfRows(_ list: ListBuilder, section: Int) -> Int {
+        if list.id == CalculatorItemsView.listItemsID { return 20 }
+        if list.id == CalculatorItemsView.keyboardID { return 3 }
+        return 0
+    }
+    
+    public func rowViewCallBack(_ list: ListBuilder, section: Int, row: Int) -> Any {
+        if list.id == CalculatorItemsView.listItemsID {
+            return rowViewCallBackListItems(row)
+        }
+        
+        return rowViewCallBackKeyBoardList(row)
     }
 
     public func sectionViewCallback(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> UIView? {
@@ -91,6 +117,7 @@ extension CalculatorItemsViewController: ListDelegate {
     }
     
     public func didSelectItemAt(_ list: ListBuilder, _ section: Int, _ row: Int) {
+        
     }
     
 }

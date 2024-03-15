@@ -7,8 +7,10 @@ import CustomComponentsSDK
 import Handler
 
 
-
 class CalculatorItemsView: UIView {
+
+    static let listItemsID = "listItemsID"
+    static let keyboardID = "keyboardID"
     
     init() {
         super.init(frame: .zero)
@@ -116,19 +118,28 @@ class CalculatorItemsView: UIView {
                 build
                     .top.equalTo(totalAmountBillLabel, .bottom, 12)
                     .leading.trailing.equalToSafeArea(8)
-                    .bottom.equalTo(displayCalculator, .top, -12)
+                    .bottom.equalTo(displayCalculator, .top, -16)
             }
         comp.apply()
         return comp
     }()
 
-
     lazy var listItems: ListBuilder = {
         let comp = ListBuilder()
-            .setBackgroundColor(.black)
+            .setID(CalculatorItemsView.listItemsID)
+            .setSectionHeaderHeight(0)
+            .setSectionFooterHeight(0)
+            .setRowHeight(45)
+            .setSeparatorStyle(.none)
+            .setShowsScroll(false, .vertical)
+            .setAutoLayout { build in
+                build
+                    .top.equalToSuperview(16)
+                    .bottom.equalToSuperview(-8)
+                    .leading.trailing.equalToSuperview()
+            }
         return comp
     }()
-    
     
     
     lazy var displayCalculator: DisplayCalculatorItemValueView = {
@@ -146,7 +157,7 @@ class CalculatorItemsView: UIView {
         let comp = StrokeView(gradientColor: Theme.shared.currentTheme.secondaryGradient)
             .setAutoLayout { build in
                 build
-                    .bottom.equalTo(keyboardList, .top, -20)
+                    .bottom.equalTo(keyboardList, .top, -16)
                     .leading.trailing.equalToSafeArea(8)
                     .height.equalToConstant(1)
             }
@@ -155,7 +166,7 @@ class CalculatorItemsView: UIView {
     
     lazy var keyboardList: ListBuilder = {
         let comp = ListBuilder()
-            .setHidden(true)
+            .setID(CalculatorItemsView.keyboardID)
             .setRowHeight(58)
             .setCustomRowHeight(forSection: 0, forRow: 1, 116)
             .setSectionHeaderHeight(0)
@@ -189,6 +200,7 @@ class CalculatorItemsView: UIView {
         totalAmountBillLabel.add(insideTo: self)
         symbolCurrencyLabel.add(insideTo: self)
         boxInsetListItems.add(insideTo: self)
+        listItems.add(insideTo: boxInsetListItems)
         displayCalculator.add(insideTo: self)
         underlineItem.add(insideTo: self)
         keyboardList.add(insideTo: self)
@@ -202,6 +214,7 @@ class CalculatorItemsView: UIView {
         totalAmountBillLabel.applyAutoLayout()
         symbolCurrencyLabel.applyAutoLayout()
         boxInsetListItems.applyAutoLayout()
+        listItems.applyAutoLayout()
         displayCalculator.applyAutoLayout()
         keyboardList.applyAutoLayout()
         underlineItem.applyAutoLayout()

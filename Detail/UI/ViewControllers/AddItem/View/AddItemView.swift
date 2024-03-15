@@ -11,26 +11,6 @@ protocol AddItemViewDelegate: AnyObject {
 }
 
 
-class ShadowView: ViewBuilder {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupShadow()
-    }
-    
-    
-    private func setupShadow() {
-        self.get.layer.shadowColor = UIColor.black.cgColor
-        self.get.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.get.layer.shadowRadius = 20
-        self.get.layer.shadowOpacity = 1
-        self.get.layer.masksToBounds = true
-        
-        // Se você quiser um efeito "inset", você pode ajustar o caminho da sombra
-        let path = UIBezierPath(rect: self.get.bounds.insetBy(dx: -10, dy: -10))
-        self.get.layer.shadowPath = path.cgPath
-    }
-}
-
 class AddItemView: UIView {
     weak var delegate: AddItemViewDelegate?
     

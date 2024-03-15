@@ -94,7 +94,7 @@ class AddItemView: UIView {
             .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(backButtonView, .bottom, 4)
+                    .top.equalTo(backButtonView, .bottom, -4)
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })
@@ -113,7 +113,7 @@ class AddItemView: UIView {
     }()
     
     lazy var displayCalculator: DisplayCalculatorItemValueView = {
-        let comp = DisplayCalculatorItemValueView(fontSizes: (quantity: 18, multiply: 16, unitValue: 18, totalValue: 20))
+        let comp = DisplayCalculatorItemValueView(fontSizes: (quantity: 16, multiply: 14, unitValue: 16, totalValue: 18))
             .setAlpha(0.7)
             .setAutoLayout { build in
                 build
@@ -125,22 +125,22 @@ class AddItemView: UIView {
     }()
     
     lazy var searchItensList: ListBuilder = {
-        let comp = ListBuilder()
+        let comp = ListBuilder(style: .plain)
             .setBorder({ build in
                 build
                     .setCornerRadius(16)
             })
-            .setRowHeight(64)
-            .setSectionHeaderHeight(54)
+            .setRowHeight(50)
+            .setSectionHeaderHeight(42)
             .setShowsScroll(false, .vertical)
             .setSeparatorStyle(.singleLine)
             .setPadding(top: 0, left: 0, bottom: 16, right: 0)
             .setAutoLayout { build in
                 build
-                    .top.equalTo(displayCalculator, .bottom, 8)
+                    .top.equalTo(displayCalculator, .bottom, 12)
                     .leading.trailing.equalToSafeArea(16)
                     .bottom.equalTo(saveItemButton, .top, -12)
-            }        
+            }
         return comp
     }()
     

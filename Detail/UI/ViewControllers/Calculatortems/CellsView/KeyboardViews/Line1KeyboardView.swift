@@ -147,21 +147,6 @@ class Line1KeyboardView: ViewBuilder {
         return comp
     }()
     
-//    lazy var buttonMultiply: DefaultButton = {
-//        let img = ImageViewBuilder(systemName: "xmark")
-//        let comp = DefaultButton(color: Theme.shared.currentTheme.primary, cornerRadius: (Const.Default.sizeButtonKeyboard.width*0.8)/2, img)
-//            .setAutoLayout { build in
-//                build
-//                    .horizontalAlignX.equalToSuperview()
-//                    .verticalAlignY.equalToSuperview(-2)
-//                    .size.equalToConstant(Const.Default.sizeButtonKeyboard.width*0.8)
-//            }
-//        comp.button.setTintColor(Theme.shared.currentTheme.onPrimary)
-//        comp.button.setImageWeight(.black)
-//        return comp
-//    }()
-    
-    
     lazy var buttonMultiply: PrimaryButton = {
         let img = ImageViewBuilder(systemName: Const.Images.multiply)
         let size = Const.Default.sizeButtonKeyboard.width*0.8

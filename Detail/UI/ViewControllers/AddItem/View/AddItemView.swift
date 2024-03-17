@@ -94,7 +94,7 @@ class AddItemView: UIView {
             .setAdjustsFontSizeToFitWidth(minimumFontSize: 16)
             .setAutoLayout({ build in
                 build
-                    .top.equalTo(backButtonView, .bottom, -4)
+                    .top.equalTo(backButtonView, .bottom, 4)
                     .leading.trailing.equalToSafeArea(24)
                     .height.equalToConstant(50)
             })

@@ -17,7 +17,7 @@ class SecondaryButton: DefaultButton {
          ligthPosition: K.Neumorphism.LightPosition = .leftTop,
          shape: K.Neumorphism.Shape = .concave) {
         self.fontFamily = fontFamily
-        super.init(text: text, cornerRadius: cornerRadius, image: image, neumorphism: (color: Theme.shared.currentTheme.primary, ligthPosition: ligthPosition , shape: shape))
+        super.init(text: text, cornerRadius: cornerRadius, image: image, neumorphism: (color: Theme.shared.currentTheme.secondary, ligthPosition: ligthPosition , shape: shape))
         configure()
     }
 
@@ -47,7 +47,7 @@ class SecondaryButton: DefaultButton {
         style.get.removeNeumorphism()
         style.setNeumorphism { build in
             build
-                .setReferenceColor(Theme.shared.currentTheme.primary)
+                .setReferenceColor(Theme.shared.currentTheme.secondary)
                 .setShape(.convex)
                 .setLightPosition(.leftTop)
                 .setIntensity(to: .light, percent: 25)

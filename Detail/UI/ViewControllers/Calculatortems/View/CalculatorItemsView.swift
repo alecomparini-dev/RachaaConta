@@ -86,9 +86,9 @@ class CalculatorItemsView: UIView {
             .setColor(Theme.shared.currentTheme.onSurface)
             .setTextAttributed({ build in
                 build
-                    .setText(text: "0,")
+                    .setText(text: "7699,")
                     .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebRegular, size: 75) ?? UIFont() )
-                    .setText(text: "00")
+                    .setText(text: "59")
                     .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebExtraLight, size: 30) ?? UIFont() )
                     .setAttributed(key: .baselineOffset, value: 0)
             })
@@ -132,10 +132,11 @@ class CalculatorItemsView: UIView {
             .setRowHeight(45)
             .setSeparatorStyle(.none)
             .setShowsScroll(false, .vertical)
+            .setPadding(top: 0, left: 0, bottom: 30, right: 0)
             .setAutoLayout { build in
                 build
                     .top.equalToSuperview(16)
-                    .bottom.equalToSuperview(-8)
+                    .bottom.equalToSuperview(-12)
                     .leading.trailing.equalToSuperview()
             }
         return comp

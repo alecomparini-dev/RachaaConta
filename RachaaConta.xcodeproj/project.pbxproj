@@ -85,6 +85,10 @@
 		02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27312B855247003A5979 /* HomeViewModel.swift */; };
 		02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */; };
 		02DF273E2B862875003A5979 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */; };
+		02E148182BA73B2B0036FE00 /* CalculatortemsViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E148162BA73AFD0036FE00 /* CalculatortemsViewModelImpl.swift */; };
+		02E148192BA73B2D0036FE00 /* CalculatortemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E148142BA73AF50036FE00 /* CalculatortemsViewModel.swift */; };
+		02E1481D2BA742ED0036FE00 /* BillItemPresenterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1481B2BA742230036FE00 /* BillItemPresenterDTO.swift */; };
+		02E148202BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1481F2BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift */; };
 		02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */; };
 		02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */; };
 		02E9E0A12B9657230059E85A /* CalculatorItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */; };
@@ -223,6 +227,10 @@
 		02DF27342B8552BD003A5979 /* HomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelImpl.swift; sourceTree = "<group>"; };
 		02DF273D2B862874003A5979 /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
 		02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBillPresenter.swift; sourceTree = "<group>"; };
+		02E148142BA73AF50036FE00 /* CalculatortemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatortemsViewModel.swift; sourceTree = "<group>"; };
+		02E148162BA73AFD0036FE00 /* CalculatortemsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatortemsViewModelImpl.swift; sourceTree = "<group>"; };
+		02E1481B2BA742230036FE00 /* BillItemPresenterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillItemPresenterDTO.swift; sourceTree = "<group>"; };
+		02E1481F2BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewControllerFactory.swift; sourceTree = "<group>"; };
 		02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsView.swift; sourceTree = "<group>"; };
 		02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewController.swift; sourceTree = "<group>"; };
 		02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsCoordinator.swift; sourceTree = "<group>"; };
@@ -529,8 +537,9 @@
 		028BC9A62BA47D3200A89918 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				028BC9A72BA482CE00A89918 /* AddItemViewModel */,
 				02DF272F2B85522A003A5979 /* HomeViewModel */,
+				02E148122BA73AD30036FE00 /* CalculatortemsViewModel */,
+				028BC9A72BA482CE00A89918 /* AddItemViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -984,7 +993,7 @@
 			isa = PBXGroup;
 			children = (
 				023C63AA2B8639410009C432 /* CommonsDTO */,
-				02DF273B2B8615BF003A5979 /* BillPresenter */,
+				02E148102BA73A8A0036FE00 /* Bill */,
 				028BC9A52BA4727A00A89918 /* ItemsPresenter */,
 			);
 			path = Presenter;
@@ -1027,6 +1036,7 @@
 		02DF27382B858CFD003A5979 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				02E1481E2BA75AC60036FE00 /* CalculatorItemsViewControllerFactory */,
 				02DF27392B858D08003A5979 /* HomeViewControllerFactory */,
 				028BC9B52BA49ECF00A89918 /* AddItemViewControllerFactory */,
 			);
@@ -1057,6 +1067,88 @@
 				02DF273F2B8632E9003A5979 /* FetchBillPresenter.swift */,
 			);
 			path = FetchBillPresenter;
+			sourceTree = "<group>";
+		};
+		02E1480C2BA738DB0036FE00 /* BillItemsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				02E1481A2BA7420E0036FE00 /* DTO */,
+				02E1480E2BA739A10036FE00 /* FetchBillItemsPresenter */,
+				02E1480D2BA739660036FE00 /* AddItemsToBillPresenter */,
+				02E1480F2BA739B00036FE00 /* RemoveItemsFromBillPresenter */,
+			);
+			path = BillItemsPresenter;
+			sourceTree = "<group>";
+		};
+		02E1480D2BA739660036FE00 /* AddItemsToBillPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddItemsToBillPresenter;
+			sourceTree = "<group>";
+		};
+		02E1480E2BA739A10036FE00 /* FetchBillItemsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FetchBillItemsPresenter;
+			sourceTree = "<group>";
+		};
+		02E1480F2BA739B00036FE00 /* RemoveItemsFromBillPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RemoveItemsFromBillPresenter;
+			sourceTree = "<group>";
+		};
+		02E148102BA73A8A0036FE00 /* Bill */ = {
+			isa = PBXGroup;
+			children = (
+				02DF273B2B8615BF003A5979 /* BillPresenter */,
+				02E1480C2BA738DB0036FE00 /* BillItemsPresenter */,
+				02E148112BA73A920036FE00 /* BillPeoplePresenter */,
+			);
+			path = Bill;
+			sourceTree = "<group>";
+		};
+		02E148112BA73A920036FE00 /* BillPeoplePresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BillPeoplePresenter;
+			sourceTree = "<group>";
+		};
+		02E148122BA73AD30036FE00 /* CalculatortemsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				02E148132BA73AE60036FE00 /* Impl */,
+				02E148142BA73AF50036FE00 /* CalculatortemsViewModel.swift */,
+			);
+			path = CalculatortemsViewModel;
+			sourceTree = "<group>";
+		};
+		02E148132BA73AE60036FE00 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				02E148162BA73AFD0036FE00 /* CalculatortemsViewModelImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		02E1481A2BA7420E0036FE00 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				02E1481B2BA742230036FE00 /* BillItemPresenterDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		02E1481E2BA75AC60036FE00 /* CalculatorItemsViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				02E1481F2BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift */,
+			);
+			path = CalculatorItemsViewControllerFactory;
 			sourceTree = "<group>";
 		};
 		02E9E0972B9652B10059E85A /* Calculatortems */ = {
@@ -1353,6 +1445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D97E782B8941B1009F57F8 /* Coordinator.swift in Sources */,
+				02E148202BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift in Sources */,
 				02D97E892B8DF913009F57F8 /* SideBarMenu+NavigationController+Extension.swift in Sources */,
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
 				02D97E7E2B89505E009F57F8 /* SearchPlaceOnMapCoordinator.swift in Sources */,
@@ -1371,14 +1464,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E1481D2BA742ED0036FE00 /* BillItemPresenterDTO.swift in Sources */,
 				028BC9AD2BA483B400A89918 /* AddItemViewModelImpl.swift in Sources */,
 				02DF27332B855276003A5979 /* HomeViewModel.swift in Sources */,
 				023C63A92B8638B80009C432 /* BillPresenterDTO.swift in Sources */,
 				023C63A32B8635B10009C432 /* FetchBillPresenter.swift in Sources */,
 				02DF27362B8552C8003A5979 /* HomeViewModelImpl.swift in Sources */,
+				02E148192BA73B2D0036FE00 /* CalculatortemsViewModel.swift in Sources */,
 				028BC9AE2BA483B700A89918 /* AddItemViewModel.swift in Sources */,
 				023C63A62B8635C40009C432 /* FetchBillPresenterImpl.swift in Sources */,
 				023C63AC2B863A680009C432 /* AddressPresenterDTO.swift in Sources */,
+				02E148182BA73B2B0036FE00 /* CalculatortemsViewModelImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

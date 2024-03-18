@@ -15,8 +15,8 @@ class CalculatorItemsCoordinator: Coordinator {
     
     func start() {
         coordinator = self
-        
-        var controller = CalculatorItemsViewController()
+    
+        var controller = CalculatorItemsViewControllerFactory.make()
         controller = navigationController.pushViewController(controller)
         controller.coordinator = self
     }

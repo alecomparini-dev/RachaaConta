@@ -72,9 +72,14 @@ public class AddItemViewController: UIViewController {
     }
     
     private func configWillAppear() {
-        screen.backgroundView.applyGradient()
+        configStyles()
         screen.searchItensList.show()
         viewModel.fetchFavoriteItems()
+    }
+    
+    private func configStyles() {
+        screen.backgroundView.applyGradient()
+        screen.backButtonView.applyNeumorphism()
     }
     
     private func createItemsViewCell(_ section: Int, _ row: Int) -> Any {

@@ -21,7 +21,7 @@ extension NavigationController {
     //  MARK: - PRIVATE AREA
     private func animationOpenMenu() {
         let controller = viewControllers.last
-        configAnimation(controller, viewControllerToPresent, .moveIn, .fromLeft, duration: 1)
+        configAnimation(controller, viewControllerToPresent, .moveIn, .fromLeft, duration: 0.8)
     }
     
     private func animationCloseMenu() {
@@ -36,7 +36,7 @@ extension NavigationController {
         transition.duration = duration
         transition.subtype = subType
         transition.type = type
-        transition.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        transition.timingFunction = CAMediaTimingFunction(name: .easeOut)
         fullScreenVC.modalPresentationStyle = .fullScreen
         transitionVC.view.window?.layer.add(transition, forKey: kCATransition)
         

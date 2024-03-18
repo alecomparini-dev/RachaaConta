@@ -7,6 +7,7 @@ import Presenter
 
 public protocol HomeViewControllerCoordinator: AnyObject {
     func gotoCreateBill()
+    func gotoSideBarMenu()
 }
 
 
@@ -82,6 +83,7 @@ public class HomeViewController: UIViewController {
     
     private func configDelegate() {
         screen.delegate = self
+        screen.buttonSideBarMenuView.delegate = self
         screen.listBillTableView.setDelegate(delegate: self)
         screen.listBillTableView.setDataSource(dataSource: self)
     }
@@ -97,6 +99,14 @@ extension HomeViewController: HomeViewDelegate {
         coordinator?.gotoCreateBill()
     }
     
+    
+}
+
+//  MARK: - EXTENSION - ButtonSideBarMenuViewDelegate
+extension HomeViewController: ButtonSideBarMenuViewDelegate {
+    func buttonSideBarMenuTapped() {
+        coordinator?.gotoSideBarMenu()
+    }
     
 }
 

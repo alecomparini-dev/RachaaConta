@@ -7,7 +7,7 @@ import UI
 class HomeCoordinator: Coordinator {
     var coordinator: Coordinator?
     
-    var navigationController: NavigationController
+    let navigationController: NavigationController
     
     var dataTransfer: Any?
     
@@ -40,6 +40,11 @@ extension HomeCoordinator: HomeViewControllerCoordinator {
         let coordinator = SearchPlaceOnMapCoordinator(navigationController)
         coordinator.start()
         self.coordinator = nil
+    }
+    
+    func gotoSideBarMenu() {
+        let coordinator = SideBarMenuCoordinator(navigationController)
+        coordinator.start()
     }
     
     

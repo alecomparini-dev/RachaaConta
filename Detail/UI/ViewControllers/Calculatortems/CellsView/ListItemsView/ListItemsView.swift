@@ -4,6 +4,7 @@
 import UIKit
 
 import CustomComponentsSDK
+import Presenter
 import Handler
 
 protocol ListItemsViewDelegate: AnyObject {
@@ -14,25 +15,14 @@ class ListItemsView: ViewBuilder {
     static let identifier = String(describing: ListItemsView.self)
     weak var delegate: ListItemsViewDelegate?
     
-    private var nameItem: String = " "
-    private var quantity: String = " "
-    private var unitValue: String = " "
-    private var totalValue: String = " "
-    
     private let fontSizes: (quantity: CGFloat, multiply: CGFloat, unitValue: CGFloat, totalValue: CGFloat) = (14,12,14,17)
     
-    override init() {
+    private let billItemPresenterDTO: BillItemPresenterDTO
+    
+    init(billItemPresenterDTO: BillItemPresenterDTO) {
+        self.billItemPresenterDTO = billItemPresenterDTO
         super.init()
         configure()
-    }
-    
-    
-//  MARK: - SETUP CELL
-    func setup(nameItem: String, quantity: String, unitValue: String, totalValue: String) {
-        self.nameItem = nameItem
-        self.quantity = quantity
-        self.unitValue = unitValue
-        self.totalValue = totalValue
     }
     
     
@@ -40,6 +30,7 @@ class ListItemsView: ViewBuilder {
 
     private lazy var stackDisplay: StackViewBuilder = {
         let comp = StackViewBuilder()
+//            .setBackgroundColor(.red)
             .setSpacing(0)
             .setAlignment(.fill)
             .setDistribution(.fillProportionally)
@@ -48,23 +39,23 @@ class ListItemsView: ViewBuilder {
                 build
                     .top.bottom.equalToSuperview()
                     .trailing.equalToSuperview(-12)
+//                    .width.equalTo(self, multiplier: 0.5)
             }
         return comp
     }()
     
     private lazy var totalValueLabel: LabelBuilder = {
-        let comp = LabelBuilder(totalValue)
+        let comp = LabelBuilder(billItemPresenterDTO.totalValue)
+            .setTextAlignment(.right)
             .setFontFamily(Const.Font.titilliumWebBold, fontSizes.totalValue)
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setAutoLayout({ build in
-                build
-                    .width.equalToConstant(58)
-            })
         return comp
     }()
 
     private lazy var unitValueLabel: LabelBuilder = {
-        let comp = LabelBuilder("\(unitValue)  = ")
+        let comp = LabelBuilder()
+            .setTextAlignment(.right)
+            .setText("\(billItemPresenterDTO.unitValue ?? "")  =  ")
             .setFontFamily(Const.Font.titilliumWebExtraLight, fontSizes.unitValue)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-30))
         return comp
@@ -73,14 +64,16 @@ class ListItemsView: ViewBuilder {
     
     private lazy var multiplayLabel: LabelBuilder = {
         let comp = LabelBuilder(" x ")
+            .setTextAlignment(.right)
             .setFontFamily(Const.Font.titilliumWebLight, fontSizes.multiply)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()
     
     private lazy var quantityLabel: LabelBuilder = {
-        let comp = LabelBuilder(quantity)
-            .setTextAlignment(.center)
+        let comp = LabelBuilder()
+            .setTextAlignment(.right)
+            .setText(billItemPresenterDTO.quantity)
             .setFontFamily(Const.Font.titilliumWebExtraLight, fontSizes.quantity)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-30))
         return comp
@@ -96,23 +89,23 @@ class ListItemsView: ViewBuilder {
                 build
                     .verticalAlignY.equalToSuperview()
                     .leading.equalToSuperview(4)
-//                    .height.equalToSuperview()
                     .width.equalToConstant(32)
             }
         return comp
     }()
     
     private lazy var nameItemLabel: LabelBuilder = {
-        let comp = LabelBuilder(nameItem)
+        let comp = LabelBuilder(billItemPresenterDTO.descriptionItem)
             .setTextAlignment(.left)
-            .setFontFamily(Const.Font.titilliumWebSemiBold, 12)
+            .setFontFamily(Const.Font.titilliumWebRegular, 14)
             .setColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setNumberOfLines(1)
             .setAutoLayout { build in
                 build
                     .verticalAlignY.equalTo(removeItemButton, .centerY)
                     .leading.equalTo(removeItemButton, .trailing)
-                    .trailing.equalTo(stackDisplay, .leading, -4)
+//                    .trailing.equalTo(stackDisplay, .leading, -4)
+                    .width.equalTo(self, multiplier: 0.5)
             }
         return comp
     }()

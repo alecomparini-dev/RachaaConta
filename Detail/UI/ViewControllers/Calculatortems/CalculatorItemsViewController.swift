@@ -2,7 +2,9 @@
 //
 
 import UIKit
+
 import CustomComponentsSDK
+import Presenter
 
 public protocol CalculatorItemsViewControllerCoordinator: AnyObject {
     func gotoAddItem()
@@ -12,6 +14,17 @@ public protocol CalculatorItemsViewControllerCoordinator: AnyObject {
 
 public class CalculatorItemsViewController: UIViewController {
     public weak var coordinator: CalculatorItemsViewControllerCoordinator?
+    
+    private let viewModel: CalculatortemsViewModel
+    
+    public init(viewModel: CalculatortemsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     lazy var screen: CalculatorItemsView = {
         let comp = CalculatorItemsView()
@@ -45,6 +58,7 @@ public class CalculatorItemsViewController: UIViewController {
     
 //  MARK: - PRIVATE AREA
     private func configure() {
+        fetchBillItems()
         configDelegate()
         showKeyboardCollection()
         showListItems()
@@ -64,8 +78,12 @@ public class CalculatorItemsViewController: UIViewController {
         screen.listItems.show()
     }
     
+    private func fetchBillItems() {
+        viewModel.fetchBillItems()
+    }
+    
     private func rowViewCallBackListItems(_ row: Int) -> Any {
-        return ListItemsView()
+        return ListItemsView(billItemPresenterDTO: viewModel.getBillItem(row))
     }
     
     private func rowViewCallBackKeyBoardList(_ row: Int) -> Any {
@@ -95,11 +113,11 @@ public class CalculatorItemsViewController: UIViewController {
 //  MARK: - EXTENSION - BackButtonViewDelegate
 extension CalculatorItemsViewController: ListDelegate {
     public func numberOfSections(_ list: ListBuilder) -> Int {
-        return 1
+        return viewModel.numberOfSections()
     }
     
     public func numberOfRows(_ list: ListBuilder, section: Int) -> Int {
-        if list.id == CalculatorItemsView.listItemsID { return 20 }
+        if list.id == CalculatorItemsView.listItemsID { return viewModel.numberOfRowsBillItems() }
         if list.id == CalculatorItemsView.keyboardID { return 3 }
         return 0
     }

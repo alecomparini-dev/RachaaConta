@@ -19,7 +19,6 @@ class ItemsViewCell: ViewBuilder {
     
 //  MARK: - LAZY AREA
     
-
     lazy var nameItemLabel: LabelBuilder = {
         let comp = LabelBuilder(nameItem)
             .setFontFamily(Const.Font.titilliumWebLight, 16)

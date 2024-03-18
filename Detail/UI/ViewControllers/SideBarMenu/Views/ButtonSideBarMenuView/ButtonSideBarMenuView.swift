@@ -5,7 +5,12 @@ import Foundation
 
 import CustomComponentsSDK
 
+protocol ButtonSideBarMenuViewDelegate: AnyObject {
+    func buttonSideBarMenuTapped()
+}
+
 class ButtonSideBarMenuView: NeumorphismSideBarView {
+    weak var delegate: ButtonSideBarMenuViewDelegate?
     
     override init() {
         super.init()
@@ -50,6 +55,7 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
     private func configure() {
         addElements()
         configAutoLayout()
+        configTap()
     }
     
     private func addElements() {
@@ -67,6 +73,15 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
 
     private func createUnderline() -> StrokeView {
         return StrokeView(gradientColor: [Theme.shared.currentTheme.primary,Theme.shared.currentTheme.primary])
+    }
+    
+    private func configTap() {
+        self
+            .setActions { build in
+                build.setTap { [weak self] _, _ in
+                    self?.delegate?.buttonSideBarMenuTapped()
+                }
+            }
     }
     
 }

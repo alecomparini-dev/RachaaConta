@@ -34,12 +34,13 @@ public class SearchPlaceOnMapViewController: UIViewController {
         configure()
     }
      
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -60,10 +61,15 @@ public class SearchPlaceOnMapViewController: UIViewController {
         screen.backButtonView.delegate = self
     }
 
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
+    }
+    
     private func configurationsDidAppear() {
         screen.configMapAutoLayout()
         screen.map.show()
     }
+    
     
     private func showComponentsAnimation() {
         UIView.animate(withDuration: 1, delay: 1, animations: { [weak self] in

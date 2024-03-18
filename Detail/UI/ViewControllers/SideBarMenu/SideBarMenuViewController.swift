@@ -3,7 +3,12 @@
 
 import UIKit
 
+public protocol SideBarMenuViewControllerCoordinator: AnyObject {
+    func gotoBack()
+}
+
 public class SideBarMenuViewController: UIViewController {
+    public weak var coordinator: SideBarMenuViewControllerCoordinator?
 
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -12,7 +17,6 @@ public class SideBarMenuViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     lazy var screen: SideBarMenuView = {
         let comp = SideBarMenuView()
@@ -29,10 +33,12 @@ public class SideBarMenuViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        screen.applyStyles()
     }
     
     public override func viewDidLayoutSubviews() {
@@ -44,5 +50,16 @@ public class SideBarMenuViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
+    
+    
+//  MARK: - PRIVATE AREA
+    private func configure() {
+        configDelegate()
+    }
+    
+    private func configDelegate() {
+        
+    }
+
     
 }

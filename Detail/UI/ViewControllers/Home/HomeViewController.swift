@@ -7,6 +7,7 @@ import Presenter
 
 public protocol HomeViewControllerCoordinator: AnyObject {
     func gotoCreateBill()
+    func gotoSideBarMenu()
 }
 
 
@@ -56,7 +57,7 @@ public class HomeViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configDelegate()
+        configWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +75,15 @@ public class HomeViewController: UIViewController {
         homeViewModel.fetchBills()
     }
     
+    private func configWillAppear() {
+        configDelegate()
+        configStyles()
+    }
+    
+    private func configStyles() {
+        screen.backgroundView.applyGradient()
+    }
+    
     private func configurationsDidAppear() {
         screen.clock.startClock()
         screen.configFilterBillView()
@@ -82,6 +92,7 @@ public class HomeViewController: UIViewController {
     
     private func configDelegate() {
         screen.delegate = self
+        screen.buttonSideBarMenuView.delegate = self
         screen.listBillTableView.setDelegate(delegate: self)
         screen.listBillTableView.setDataSource(dataSource: self)
     }
@@ -97,6 +108,14 @@ extension HomeViewController: HomeViewDelegate {
         coordinator?.gotoCreateBill()
     }
     
+    
+}
+
+//  MARK: - EXTENSION - ButtonSideBarMenuViewDelegate
+extension HomeViewController: ButtonSideBarMenuViewDelegate {
+    func buttonSideBarMenuTapped() {
+        coordinator?.gotoSideBarMenu()
+    }
     
 }
 

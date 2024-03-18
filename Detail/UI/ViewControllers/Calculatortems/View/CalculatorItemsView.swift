@@ -142,7 +142,6 @@ class CalculatorItemsView: UIView {
         return comp
     }()
     
-    
     lazy var displayCalculator: DisplayCalculatorItemValueView = {
         let comp = DisplayCalculatorItemValueView()
             .setAutoLayout { build in

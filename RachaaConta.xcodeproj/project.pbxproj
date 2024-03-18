@@ -89,6 +89,7 @@
 		02E148192BA73B2D0036FE00 /* CalculatortemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E148142BA73AF50036FE00 /* CalculatortemsViewModel.swift */; };
 		02E1481D2BA742ED0036FE00 /* BillItemPresenterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1481B2BA742230036FE00 /* BillItemPresenterDTO.swift */; };
 		02E148202BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1481F2BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift */; };
+		02E148242BA8AF4D0036FE00 /* SideBarMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E148232BA8AF4D0036FE00 /* SideBarMenuCoordinator.swift */; };
 		02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */; };
 		02E9E09E2B96555C0059E85A /* CalculatorItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */; };
 		02E9E0A12B9657230059E85A /* CalculatorItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */; };
@@ -231,6 +232,7 @@
 		02E148162BA73AFD0036FE00 /* CalculatortemsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatortemsViewModelImpl.swift; sourceTree = "<group>"; };
 		02E1481B2BA742230036FE00 /* BillItemPresenterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillItemPresenterDTO.swift; sourceTree = "<group>"; };
 		02E1481F2BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewControllerFactory.swift; sourceTree = "<group>"; };
+		02E148232BA8AF4D0036FE00 /* SideBarMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuCoordinator.swift; sourceTree = "<group>"; };
 		02E9E0992B9652CC0059E85A /* CalculatorItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsView.swift; sourceTree = "<group>"; };
 		02E9E09B2B9652D40059E85A /* CalculatorItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsViewController.swift; sourceTree = "<group>"; };
 		02E9E0A02B9657230059E85A /* CalculatorItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItemsCoordinator.swift; sourceTree = "<group>"; };
@@ -872,11 +874,7 @@
 			children = (
 				02D97E732B8940F0009F57F8 /* Protocol */,
 				02D97E762B894180009F57F8 /* NavigationController */,
-				02D97E742B8940FA009F57F8 /* HomeCoordinator */,
-				021078502B9104AA00201704 /* SearchPlaceOnMapCoordinator */,
-				02D97E752B894109009F57F8 /* CreateBillCoordinator */,
-				02E9E09F2B96570A0059E85A /* CalculatorItemsCoordinator */,
-				02ECF1C12BA1C81F0059795A /* AddItemCoordinator */,
+				02E148212BA8AF2A0036FE00 /* ViewControllers */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1149,6 +1147,27 @@
 				02E1481F2BA75AD70036FE00 /* CalculatorItemsViewControllerFactory.swift */,
 			);
 			path = CalculatorItemsViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		02E148212BA8AF2A0036FE00 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				02E148222BA8AF360036FE00 /* SideBarMenuCoordinator */,
+				02D97E742B8940FA009F57F8 /* HomeCoordinator */,
+				021078502B9104AA00201704 /* SearchPlaceOnMapCoordinator */,
+				02D97E752B894109009F57F8 /* CreateBillCoordinator */,
+				02E9E09F2B96570A0059E85A /* CalculatorItemsCoordinator */,
+				02ECF1C12BA1C81F0059795A /* AddItemCoordinator */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		02E148222BA8AF360036FE00 /* SideBarMenuCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				02E148232BA8AF4D0036FE00 /* SideBarMenuCoordinator.swift */,
+			);
+			path = SideBarMenuCoordinator;
 			sourceTree = "<group>";
 		};
 		02E9E0972B9652B10059E85A /* Calculatortems */ = {
@@ -1450,6 +1469,7 @@
 				02BD951D2B83773600539FDE /* AppDelegate.swift in Sources */,
 				02D97E7E2B89505E009F57F8 /* SearchPlaceOnMapCoordinator.swift in Sources */,
 				02D97E7A2B8941D8009F57F8 /* NavigationController.swift in Sources */,
+				02E148242BA8AF4D0036FE00 /* SideBarMenuCoordinator.swift in Sources */,
 				02E9E0A12B9657230059E85A /* CalculatorItemsCoordinator.swift in Sources */,
 				02BD951F2B83773600539FDE /* SceneDelegate.swift in Sources */,
 				02ECF1C32BA1C8460059795A /* AddItemCoordinator.swift in Sources */,

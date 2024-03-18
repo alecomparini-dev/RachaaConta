@@ -23,11 +23,17 @@ public class SideBarMenuView: UIView {
     lazy var backgroundView: BackgroundView = {
         let comp = BackgroundView()
             .setAutoLayout({ build in
-                build.pin.equalToSuperview()
+                build
+                    .pin.equalToSuperview()
             })
         return comp
     }()
     
+    
+//  MARK: - PUBLIC AREA
+    public func applyStyles() {
+        backgroundView.applyGradient()
+    }
     
     
 //  MARK: - PRIVATE AREA
@@ -43,5 +49,7 @@ public class SideBarMenuView: UIView {
     private func configAutoLayout() {
         backgroundView.applyAutoLayout()
     }
+    
+    
     
 }

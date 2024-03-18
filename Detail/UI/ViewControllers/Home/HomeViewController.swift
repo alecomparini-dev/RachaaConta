@@ -57,7 +57,7 @@ public class HomeViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configDelegate()
+        configWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +73,15 @@ public class HomeViewController: UIViewController {
     
     public func fetchBills() {
         homeViewModel.fetchBills()
+    }
+    
+    private func configWillAppear() {
+        configDelegate()
+        configStyles()
+    }
+    
+    private func configStyles() {
+        screen.backgroundView.applyGradient()
     }
     
     private func configurationsDidAppear() {

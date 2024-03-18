@@ -52,8 +52,7 @@ public class AddItemViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        screen.searchItensList.show()
-        viewModel.fetchFavoriteItems()
+        configWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +69,12 @@ public class AddItemViewController: UIViewController {
         screen.delegate = self
         screen.backButtonView.delegate = self
         screen.searchItensList.setDelegate(self)
+    }
+    
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
+        screen.searchItensList.show()
+        viewModel.fetchFavoriteItems()
     }
     
     private func createItemsViewCell(_ section: Int, _ row: Int) -> Any {

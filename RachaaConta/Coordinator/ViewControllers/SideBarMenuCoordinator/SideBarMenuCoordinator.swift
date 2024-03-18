@@ -1,8 +1,9 @@
 //  Created by Alessandro Comparini on 18/03/24.
 //
 
-import Foundation
+import UIKit
 import UI
+
 
 
 class SideBarMenuCoordinator: Coordinator {
@@ -23,7 +24,7 @@ class SideBarMenuCoordinator: Coordinator {
         
         controller = SideBarMenuViewController()
         
-        controller = navigationController.pushViewController(controller)
+        navigationController.present(controller)
         
         controller.coordinator = self
         

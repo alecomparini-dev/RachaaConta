@@ -49,6 +49,7 @@ public class CalculatorItemsViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -68,6 +69,10 @@ public class CalculatorItemsViewController: UIViewController {
         screen.backButtonView.delegate = self
         screen.keyboardList.setDelegate(self)
         screen.listItems.setDelegate(self)
+    }
+    
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
     }
     
     private func showKeyboardCollection() {

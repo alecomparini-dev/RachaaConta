@@ -8,21 +8,23 @@ import CustomComponentsSDK
 
 class BackgroundView: ViewBuilder {
     
+    private var gradient: GradientBuilder?
+    
     override init() {
         super.init(frame: .zero)
         configure()
     }
     
+    public func applyGradient() {
+        gradient?.apply()
+        gradient = nil
+    }
     
 //  MARK: - PRIVATE AREA
     private func configure() {
-        self.setGradient { build in
-            build
-                .setGradientColors(Theme.shared.currentTheme.backgroundColorGradient)
-                .setAxialGradient(.leftTopToRightBottom)
-                .apply()
-        }
-
+        gradient = GradientBuilder(self.get)
+            .setGradientColors(Theme.shared.currentTheme.backgroundColorGradient)
+            .setAxialGradient(.leftTopToRightBottom)
     }
 }
 

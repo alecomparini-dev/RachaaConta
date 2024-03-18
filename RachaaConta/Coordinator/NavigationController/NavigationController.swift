@@ -49,7 +49,6 @@ public final class NavigationController: UINavigationController {
     
     
     
-    
 //  MARK: - PRIVATE AREA
     private func setup() {
         navigationBar.isHidden = true

@@ -88,12 +88,16 @@ class FilterBillView: ViewBuilder {
     }()
     
     
+    public func applyGradient() {
+        
+    }
+    
     
 //  MARK: - Private Area
     private func configure() {
         addElements()
         configAutoLayout()
-        self.setTranslatesAutoresizingMaskIntoConstraints(true)
+//        self.setTranslatesAutoresizingMaskIntoConstraints(true)
     }
     
     private func addElements() {
@@ -109,7 +113,6 @@ class FilterBillView: ViewBuilder {
         underLineView.applyAutoLayout()
         filterTextField.applyAutoLayout()
     }
-    
     
     
 }

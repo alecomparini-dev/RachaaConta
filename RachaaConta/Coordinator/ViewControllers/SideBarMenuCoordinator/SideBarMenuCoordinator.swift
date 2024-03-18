@@ -38,7 +38,7 @@ extension SideBarMenuCoordinator: SideBarMenuViewControllerCoordinator {
     
     func gotoBack() {
         
-        navigationController.popViewController()
+        navigationController.dismiss()
         
         self.coordinator = nil
     }

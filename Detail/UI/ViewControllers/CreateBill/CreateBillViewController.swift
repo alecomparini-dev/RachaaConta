@@ -53,7 +53,12 @@ public class CreateBillViewController: UIViewController {
     }
     
     private func configWillAppear() {
+        configStyles()
+    }
+    
+    private func configStyles() {
         screen.backgroundView.applyGradient()
+        screen.backButtonView.applyNeumorphism()
     }
     
 }

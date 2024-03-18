@@ -24,16 +24,23 @@ public class SideBarMenuView: UIView {
         let comp = BackgroundView()
             .setAutoLayout({ build in
                 build
-                    .pin.equalToSuperview()
+                    .pinLeft.equalToSuperview()
+                    .trailing.equalToSuperview(-60)
             })
         return comp
     }()
     
-    
-//  MARK: - PUBLIC AREA
-    public func applyStyles() {
-        backgroundView.applyGradient()
-    }
+    lazy var backButtonView: BackButtonView = {
+        let comp = BackButtonView()
+            .setAutoLayout { build in
+                build
+                    .top.equalToSafeArea(8)
+                    .leading.equalToSuperview()
+                    .size.equalToConstant(50)
+            }
+        return comp
+    }()
+
     
     
 //  MARK: - PRIVATE AREA
@@ -44,10 +51,12 @@ public class SideBarMenuView: UIView {
     
     private func addElements() {
         backgroundView.add(insideTo: self)
+        backButtonView.add(insideTo: self)
     }
     
     private func configAutoLayout() {
         backgroundView.applyAutoLayout()
+        backButtonView.applyAutoLayout()
     }
     
     

@@ -72,7 +72,12 @@ public class CalculatorItemsViewController: UIViewController {
     }
     
     private func configWillAppear() {
+        configStyles()
+    }
+    
+    private func configStyles() {
         screen.backgroundView.applyGradient()
+        screen.backButtonView.applyNeumorphism()
     }
     
     private func showKeyboardCollection() {

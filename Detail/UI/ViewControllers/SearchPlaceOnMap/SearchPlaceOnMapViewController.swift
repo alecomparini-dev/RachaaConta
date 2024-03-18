@@ -62,14 +62,18 @@ public class SearchPlaceOnMapViewController: UIViewController {
     }
 
     private func configWillAppear() {
-        screen.backgroundView.applyGradient()
+        configStyles()
     }
-    
+
+    private func configStyles() {
+        screen.backgroundView.applyGradient()
+        screen.backButtonView.applyNeumorphism()
+    }
+
     private func configurationsDidAppear() {
         screen.configMapAutoLayout()
         screen.map.show()
     }
-    
     
     private func showComponentsAnimation() {
         UIView.animate(withDuration: 1, delay: 1, animations: { [weak self] in

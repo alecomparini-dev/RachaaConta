@@ -35,19 +35,18 @@ public class SideBarMenuViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        screen.applyStyles()
-    }
-    
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        configWillAppear()
     }
     
     
@@ -58,8 +57,26 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     private func configDelegate() {
-        
+        screen.backButtonView.delegate = self
+    }
+    
+    private func configWillAppear() {
+        configStyles()
+    }
+    
+    private func configStyles() {
+        screen.backgroundView.applyGradient()
+        screen.backButtonView.applyNeumorphism()
     }
 
+    
+}
+
+//  MARK: - EXTENSION
+extension SideBarMenuViewController: BackButtonViewDelegate {
+    
+    public func backButtonImageTapped() {
+        coordinator?.gotoBack()
+    }
     
 }

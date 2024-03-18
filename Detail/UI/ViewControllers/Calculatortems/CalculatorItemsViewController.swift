@@ -102,7 +102,6 @@ public class CalculatorItemsViewController: UIViewController {
         default:
             return UIView()
         }
-
     }
     
     

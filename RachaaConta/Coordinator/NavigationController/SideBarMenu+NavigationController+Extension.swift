@@ -21,7 +21,7 @@ extension NavigationController {
     //  MARK: - PRIVATE AREA
     private func animationOpenMenu() {
         let controller = viewControllers.last
-        configAnimation(controller, viewControllerToPresent, .moveIn, .fromLeft, duration: 0.8)
+        configAnimation(controller, viewControllerToPresent, .moveIn, .fromLeft, duration: 0.6)
     }
     
     private func animationCloseMenu() {

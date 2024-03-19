@@ -14,7 +14,7 @@ class HomeView: UIView {
     weak var delegate: HomeViewDelegate?
 
     private let constantHeight: CGFloat = 190
-    var height: NSLayoutConstraint!
+
     
     init() {
         super.init(frame: .zero)

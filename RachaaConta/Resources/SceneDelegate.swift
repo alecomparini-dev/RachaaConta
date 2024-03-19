@@ -26,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         #if DEBUG
 //            coordinator = CreateBillCoordinator(nav)
 //            coordinator = CalculatorItemsCoordinator(nav)
+        coordinator.start()
+        coordinator = SideBarMenuCoordinator(nav)
         #endif
         
         coordinator.start()

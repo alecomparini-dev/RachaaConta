@@ -15,6 +15,8 @@ public class HomeViewController: UIViewController {
     
     public weak var coordinator: HomeViewControllerCoordinator?
 
+    var myView: UIView!
+    
     var delta = 0
     var initialOffset: CGFloat?
     var lastContentOffset: CGFloat = 0.0
@@ -114,6 +116,7 @@ extension HomeViewController: HomeViewDelegate {
 
 //  MARK: - EXTENSION - ButtonSideBarMenuViewDelegate
 extension HomeViewController: ButtonSideBarMenuViewDelegate {
+
     func buttonSideBarMenuTapped() {
         coordinator?.gotoSideBarMenu()
     }

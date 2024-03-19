@@ -50,14 +50,13 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     
-    
 //  MARK: - PRIVATE AREA
     private func configure() {
         configDelegate()
     }
     
     private func configDelegate() {
-        screen.backButtonView.delegate = self
+
     }
     
     private func configWillAppear() {
@@ -65,8 +64,8 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     private func configStyles() {
-        screen.backgroundView.applyGradient()
-        screen.backButtonView.applyNeumorphism()
+        screen.applyGradient()
+
     }
 
     

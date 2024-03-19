@@ -5,6 +5,10 @@ import UIKit
 
 import CustomComponentsSDK
 
+protocol SideBarMenuViewDelegate: AnyObject {
+    func closeMenuButtonTapped()
+}
+
 public class SideBarMenuView: UIView {
     
     private var gradient: GradientBuilder?
@@ -31,12 +35,13 @@ public class SideBarMenuView: UIView {
         return comp
     }()
     
-    lazy var backButtonView: ViewBuilder = {
+    lazy var closeMenuButton: ViewBuilder = {
         let comp = ViewBuilder()
             .setBorder({ build in
                 build
                     .setCornerRadius(6)
             })
+            .setBackgroundColor(Theme.shared.currentTheme.surfaceContainerHighest)
             .setAutoLayout { build in
                 build
                     .top.equalToSafeArea(16)
@@ -49,21 +54,9 @@ public class SideBarMenuView: UIView {
 
     
 //  MARK: - PUBLIC AREA
-    public func applyGradient() {
+    public func applyStyles() {
         gradient?.apply()
-        
-        NeumorphismBuilder(backButtonView.get)
-            .setReferenceColor(Theme.shared.currentTheme.surfaceContainer)
-            .setShape(.concave)
-            .setLightPosition(.leftTop)
-            .setIntensity(to: .light, percent: 80)
-            .setIntensity(to: .dark, percent: 80)
-            .setBlur(to: .light, percent: 5)
-            .setBlur(to: .dark, percent: 15)
-            .setDistance(to: .light, percent: 4)
-            .setDistance(to: .dark, percent: 10)
-            .apply()
-
+        applyShadowBackButton()
     }
     
     
@@ -76,48 +69,58 @@ public class SideBarMenuView: UIView {
     
     private func addElements() {
         backgroundView.add(insideTo: self)
-        backButtonView.add(insideTo: self)
+        closeMenuButton.add(insideTo: self)
     }
     
     private func configAutoLayout() {
         backgroundView.applyAutoLayout()
-        backButtonView.applyAutoLayout()
+        closeMenuButton.applyAutoLayout()
+    }
+    
+    private func applyShadowBackButton() {
+        closeMenuButton.setShadow({ build in
+            build
+                .setColor(Theme.shared.currentTheme.surfaceContainerLowest)
+                .setOpacity(1)
+                .setRadius(5)
+                .setOffset(width: 6, height: 6)
+                .apply()
+        })
     }
     
     private func configGradient() {
         gradient = GradientBuilder(backgroundView.get)
             .setConicGradient(CGPoint(x: 0.8, y: 0.8))
+//            .setGradientColors([
+//                Theme.shared.currentTheme.surfaceContainerHigh,
+//                Theme.shared.currentTheme.surfaceContainer,
+//                Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(20),
+//                Theme.shared.currentTheme.surfaceContainer,
+//                Theme.shared.currentTheme.surfaceContainerHigh,
+//            ])
+//
+//                
+//            .setGradientColors([
+//                Theme.shared.currentTheme.surfaceContainerHigh,
+//                Theme.shared.currentTheme.surfaceContainerLow,
+//                Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(30),
+//                Theme.shared.currentTheme.surfaceContainer,
+//                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(20),
+//                Theme.shared.currentTheme.surfaceContainerHigh,
+//            ])
+//
+//        
             .setGradientColors([
-                Theme.shared.currentTheme.surfaceContainerHigh,
                 Theme.shared.currentTheme.surfaceContainer,
-                Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(20),
+                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(-20),
+                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(-35),
+                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(-20),
                 Theme.shared.currentTheme.surfaceContainer,
-                Theme.shared.currentTheme.surfaceContainerHigh,
+                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(30),
+                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(10),
+                Theme.shared.currentTheme.surfaceContainer,
             ])
-
-                
-            .setGradientColors([
-                Theme.shared.currentTheme.surfaceContainerHigh,
-                Theme.shared.currentTheme.surfaceContainerLow,
-                Theme.shared.currentTheme.surfaceContainerLow.adjustBrightness(30),
-                Theme.shared.currentTheme.surfaceContainer,
-                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(20),
-                Theme.shared.currentTheme.surfaceContainerHigh,
-            ])
-
         
-            .setGradientColors([
-                Theme.shared.currentTheme.surfaceContainer, //red
-                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(-15), //yellow
-                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(-30), //blue
-                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(-10), //black
-                Theme.shared.currentTheme.surfaceContainer, //green
-                Theme.shared.currentTheme.surfaceContainer.adjustBrightness(15), //white
-                Theme.shared.currentTheme.surfaceContainer, //red
-            ])
-
-        
-//            .setGradientColors([ .red, .yellow, .blue, .black, .green, .white, .red  ])
     }
     
     

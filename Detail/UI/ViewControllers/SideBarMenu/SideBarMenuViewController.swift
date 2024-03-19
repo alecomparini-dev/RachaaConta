@@ -56,7 +56,7 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     private func configDelegate() {
-
+        
     }
     
     private func configWillAppear() {
@@ -64,7 +64,7 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     private func configStyles() {
-        screen.applyGradient()
+        screen.applyStyles()
 
     }
 

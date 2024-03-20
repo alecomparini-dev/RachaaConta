@@ -28,7 +28,6 @@ class DefaultButton: ViewBuilder {
     }
 
     
-    
 //  MARK: - GET PROPERTIES
     var style: ViewBuilder { outlineView }
     

@@ -39,7 +39,6 @@
 		023C63DB2B86A9280009C432 /* AmountPaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63D92B86A2860009C432 /* AmountPaidView.swift */; };
 		023C63DF2B86C1570009C432 /* FilterBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63DD2B86C0100009C432 /* FilterBillView.swift */; };
 		023C63E22B877D7E0009C432 /* StrokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E02B877D6F0009C432 /* StrokeView.swift */; };
-		023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */; };
 		023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63E72B87CC990009C432 /* DateTimeBillView.swift */; };
 		023C63EC2B87DDBA0009C432 /* PersonBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C63EA2B87DC1D0009C432 /* PersonBillView.swift */; };
 		028A3D392B98FDF800AE764F /* DisplayCalculatorItemValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */; };
@@ -184,7 +183,6 @@
 		023C63D92B86A2860009C432 /* AmountPaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountPaidView.swift; sourceTree = "<group>"; };
 		023C63DD2B86C0100009C432 /* FilterBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBillView.swift; sourceTree = "<group>"; };
 		023C63E02B877D6F0009C432 /* StrokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeView.swift; sourceTree = "<group>"; };
-		023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismTextFieldView.swift; sourceTree = "<group>"; };
 		023C63E72B87CC990009C432 /* DateTimeBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeBillView.swift; sourceTree = "<group>"; };
 		023C63EA2B87DC1D0009C432 /* PersonBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBillView.swift; sourceTree = "<group>"; };
 		028A3D372B98FDE000AE764F /* DisplayCalculatorItemValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCalculatorItemValueView.swift; sourceTree = "<group>"; };
@@ -376,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				02AFD47C2BAA42E70023399A /* SideBarButtonNeumorphism */,
-				02D97E672B893581009F57F8 /* NeumorphismTextFieldView */,
 				022F19162B8FB1D400474CE7 /* NeumorphismSideBarView */,
 			);
 			path = Neumorphism;
@@ -860,14 +857,6 @@
 				023C63E02B877D6F0009C432 /* StrokeView.swift */,
 			);
 			path = StrokeView;
-			sourceTree = "<group>";
-		};
-		02D97E672B893581009F57F8 /* NeumorphismTextFieldView */ = {
-			isa = PBXGroup;
-			children = (
-				023C63E32B8797DF0009C432 /* NeumorphismTextFieldView.swift */,
-			);
-			path = NeumorphismTextFieldView;
 			sourceTree = "<group>";
 		};
 		02D97E682B89359C009F57F8 /* EveryoneItems */ = {
@@ -1469,7 +1458,6 @@
 				02B680072B9A29BA00BC0228 /* AddItemView.swift in Sources */,
 				0227313B2B8804F300E34668 /* ButtonSeeBillView.swift in Sources */,
 				02E9E09D2B9654890059E85A /* CalculatorItemsView.swift in Sources */,
-				023C63E52B8798C50009C432 /* NeumorphismTextFieldView.swift in Sources */,
 				023C63E92B87CF1F0009C432 /* DateTimeBillView.swift in Sources */,
 				0210784E2B90BA1900201704 /* ContainerSearchMapView.swift in Sources */,
 				02BD95102B8376C600539FDE /* HomeView.swift in Sources */,
@@ -2033,7 +2021,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alecomparini-dev/CustomComponentsSDK.git";
 			requirement = {
-				branch = "feature/03-19/shadow";
+				branch = "feature/03-20/change-neumorphism";
 				kind = branch;
 			};
 		};

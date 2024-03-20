@@ -103,6 +103,11 @@ class HomeView: UIView {
         return view
     }()
     
+    lazy var filterBillView: FilterBillView = {
+        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: safeAreaLayoutGuide.layoutFrame.width , height: constantHeight)))
+        return comp
+    }()
+
     lazy var listBillTableView: TableViewBuilder = {
         let comp = TableViewBuilder()
             .setBackgroundColor(.clear)
@@ -110,26 +115,9 @@ class HomeView: UIView {
             .setSeparatorStyle(.none)
             .setPadding(top: 65, left: 0, bottom: 100, right: 0)
             .setRegisterCell(BillTableCellView.self)
-            .setTableHeaderView(ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: 1 , height: constantHeight))))
             .setAutoLayout { build in
                 build
                     .pin.equalToSafeArea()
-            }
-        return comp
-    }()
-    
-    lazy var filterBillView: FilterBillView = {
-        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: listBillTableView.get.layer.frame.width , height: constantHeight)))
-        return comp
-    }()
-    
-    lazy var bottomBlur: BlurBuilder = {
-        let comp = BlurBuilder(style: .dark)
-            .setHidden(true)
-            .setAutoLayout { build in
-                build
-                    .top.equalTo(createBillButtonFloat, .top , -8)
-                    .pinBottom.equalToSuperview()
             }
         return comp
     }()
@@ -138,7 +126,8 @@ class HomeView: UIView {
 //  MARK: - PUBLIC AREA
     
     public func configFilterBillView() {
-        listBillTableView.setTableHeaderView(filterBillView)
+        addTableHeaderView()
+        filterBillView.configure()
     }
     
     
@@ -146,6 +135,7 @@ class HomeView: UIView {
     private func configure() {
         addElements()
         configAutoLayout()
+        
     }
     
     private func addElements() {
@@ -155,7 +145,6 @@ class HomeView: UIView {
         topViewAnimation.add(insideTo: self)
         clock.add(insideTo: self)
         buttonSideBarMenuView.add(insideTo: self)
-        bottomBlur.add(insideTo: self)
         createBillButtonFloat.add(insideTo: self)
     }
     
@@ -165,13 +154,11 @@ class HomeView: UIView {
         clock.applyAutoLayout()
         buttonSideBarMenuView.applyAutoLayout()
         createBillButtonFloat.applyAutoLayout()
-        bottomBlur.applyAutoLayout()
         topViewAnimation.applyAutoLayout()
-        
     }
     
-
-    private func configNeumorphism() {
-        buttonSideBarMenuView.applyNeumorphism()
+    private func addTableHeaderView() {
+        listBillTableView.setTableHeaderView(filterBillView)
     }
+
 }

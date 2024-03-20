@@ -84,14 +84,13 @@ public class HomeViewController: UIViewController {
     private func configDidAppear() {
         configStyles()
         screen.clock.startClock()
-//        screen.configFilterBillView()
-//        NeumorphismTextFieldView.set(screen.filterBillView.filterTextField)
     }
 
     private func configStyles() {
         screen.backgroundView.applyGradient()
-        screen.buttonSideBarMenuView.configStyles()
         screen.createBillButtonFloat.applyNeumorphism()
+        screen.buttonSideBarMenuView.configStyles()
+        screen.configFilterBillView()
     }
     
     private func configDelegate() {

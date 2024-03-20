@@ -13,7 +13,6 @@ class FilterBillView: ViewBuilder {
     override init(frame: CGRect) {
         self.frame = frame
         super.init(frame: frame)
-        self.configure()
     }
     
 
@@ -78,6 +77,19 @@ class FilterBillView: ViewBuilder {
                     .setCornerRadius(8)
             }
             .setClearButton()
+            .setNeumorphism({ build in
+                build
+                    .setReferenceColor(Theme.shared.currentTheme.surfaceContainer)
+                    .setShape(.concave)
+                    .setLightPosition(.leftTop)
+                    .setIntensity(to: .light, percent: 60)
+                    .setIntensity(to: .dark, percent: 100)
+                    .setBlur(to: .light, percent: 5)
+                    .setBlur(to: .dark, percent: 10)
+                    .setDistance(to: .light, percent: 4)
+                    .setDistance(to: .dark, percent: 10)
+                    .setShadowColor(to: .dark, color: .black)
+            })
             .setAutoLayout({ build in
                 build
                     .top.equalTo(underLineView, .bottom, 20)
@@ -87,19 +99,21 @@ class FilterBillView: ViewBuilder {
         return comp
     }()
     
-    
-    public func applyGradient() {
-        
-    }
-    
-    
-//  MARK: - Private Area
-    private func configure() {
+//  MARK: - PUBLIC AREA
+    public func configure() {
         addElements()
         configAutoLayout()
-//        self.setTranslatesAutoresizingMaskIntoConstraints(true)
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            underLineView.applyShadow()
+            filterTextField.applyNeumorphism()
+        }
     }
     
+    
+//  MARK: - PRIVATE AREA
+
     private func addElements() {
         backgroundView.add(insideTo: self)
         filterLabel.add(insideTo: self)

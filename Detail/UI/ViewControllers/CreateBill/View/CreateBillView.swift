@@ -101,14 +101,11 @@ class CreateBillView: UIView {
     lazy var addressImage: ImageViewBuilder = {
         let comp = ImageViewBuilder(systemName: Const.Images.addressBill)
             .setTintColor(Theme.shared.currentTheme.onSurfaceVariant)
-//            .setSize(22)
             .setSize(18)
             .setWeight(.thin)
             .setAutoLayout { build in
                 build
                     .top.leading.equalToSuperview(16)
-//                    .verticalAlignY.equalTo(painelAddress, .centerY)
-//                    .leading.equalTo(painelAddress, .leading, 16)
             }
         return comp
     }()

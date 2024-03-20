@@ -25,11 +25,12 @@ public class CreateBillViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configDidLoad()
     }
      
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configDidLayoutSubviews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -43,23 +44,30 @@ public class CreateBillViewController: UIViewController {
     
     
 //  MARK: - PRIVATE AREA
-    private func configure() {
+    private func configDidLoad() {
         configDelegate()
     }
     
+    private func configDidLayoutSubviews() {
+        screen.backButtonView.applyNeumorphism()
+        screen.underline.applyShadow()
+    }
+
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            screen.addAddressButton.applyNeumorphism()
+            screen.saveButton.style.applyNeumorphism()
+        }
+    }
+
     private func configDelegate() {
         screen.delegate = self
         screen.backButtonView.delegate = self
     }
     
-    private func configWillAppear() {
-        configStyles()
-    }
     
-    private func configStyles() {
-        screen.backgroundView.applyGradient()
-        screen.backButtonView.applyNeumorphism()
-    }
     
 }
 

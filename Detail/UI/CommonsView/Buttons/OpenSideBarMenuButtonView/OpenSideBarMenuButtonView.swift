@@ -5,12 +5,12 @@ import Foundation
 
 import CustomComponentsSDK
 
-protocol ButtonSideBarMenuViewDelegate: AnyObject {
-    func buttonSideBarMenuTapped()
+protocol OpenSideBarMenuButtonViewDelegate: AnyObject {
+    func openSideBarMenuButtonTapped()
 }
 
-class ButtonSideBarMenuView: NeumorphismSideBarView {
-    weak var delegate: ButtonSideBarMenuViewDelegate?
+class OpenSideBarMenuButtonView: ViewBuilder {
+    weak var delegate: OpenSideBarMenuButtonViewDelegate?
     
     override init() {
         super.init()
@@ -50,19 +50,45 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
         return img
     }()
     
+    lazy var stroke1: StrokeView = {
+        let comp = createUnderline()
+        return comp
+    }()
+    
+    lazy var stroke2: StrokeView = {
+        let comp = createUnderline()
+        return comp
+    }()
+    
+    lazy var stroke3: StrokeView = {
+        let comp = createUnderline()
+        return comp
+    }()
+    
+    
+//  MARK: - PUBLIC AREA
+    public func configStyles() {
+        stroke1.applyShadow()
+        stroke2.applyShadow()
+        stroke3.applyShadow()
+        self.applyNeumorphism()
+    }
+    
     
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
         configAutoLayout()
         configTap()
+        configBorder()
+        configNeumorphism()
     }
     
     private func addElements() {
         stackView.add(insideTo: self)
-        createUnderline().add(insideTo: stackView)
-        createUnderline().add(insideTo: stackView)
-        createUnderline().add(insideTo: stackView)
+        stroke1.add(insideTo: stackView)
+        stroke2.add(insideTo: stackView)
+        stroke3.add(insideTo: stackView)
         arrowOpenImageView.add(insideTo: self)
     }
     
@@ -72,16 +98,29 @@ class ButtonSideBarMenuView: NeumorphismSideBarView {
     }
 
     private func createUnderline() -> StrokeView {
-        return StrokeView(gradientColor: [Theme.shared.currentTheme.primary,Theme.shared.currentTheme.primary])
+        let stroke = StrokeView(gradientColor: [Theme.shared.currentTheme.primary,Theme.shared.currentTheme.primary])
+        
+        return stroke
     }
     
     private func configTap() {
         self
             .setActions { build in
                 build.setTap { [weak self] _, _ in
-                    self?.delegate?.buttonSideBarMenuTapped()
+                    self?.delegate?.openSideBarMenuButtonTapped()
                 }
             }
     }
     
+    private func configBorder() {
+        self.setBorder({ build in
+            build
+                .setCornerRadius(25)
+                .setRoundedCorners([.right])
+        })
+    }
+    
+    private func configNeumorphism() {
+        SideBarButtonNeumorphism(self).configNeumorphism()
+    }
 }

@@ -17,12 +17,16 @@ class ButtonFloatView: ButtonImageBuilder {
 
 //  MARK: - LAZY PROPERTIES
     
-    lazy var vStroke: StrokeView = {
-        let comp = StrokeView(gradientColor: plusGradientColor)
-            .setShadow({ build in
+    lazy var vStroke: ViewBuilder = {
+        let comp = ViewBuilder()
+            .setGradient({ build in
                 build
-                    .setOpacity(0)
+                    .setGradientColors(plusGradientColor)
+                    .setAxialGradient(.leftTopToRightBottom)
                     .apply()
+            })
+            .setBorder({ build in
+                build.setCornerRadius(2)
             })
             .setAutoLayout { build in
                 build
@@ -33,12 +37,16 @@ class ButtonFloatView: ButtonImageBuilder {
         return comp
     }()
     
-    lazy var hStroke: StrokeView = {
-        let comp = StrokeView(gradientColor: plusGradientColor)
-            .setShadow({ build in
+    lazy var hStroke: ViewBuilder = {
+        let comp = ViewBuilder()
+            .setGradient({ build in
                 build
-                    .setOpacity(0)
+                    .setGradientColors(plusGradientColor)
+                    .setAxialGradient(.leftTopToRightBottom)
                     .apply()
+            })
+            .setBorder({ build in
+                build.setCornerRadius(2)
             })
             .setAutoLayout { build in
                 build
@@ -46,7 +54,6 @@ class ButtonFloatView: ButtonImageBuilder {
                     .height.equalToConstant(4)
                     .width.equalToConstant(24)
             }
-
         return comp
     }()
     
@@ -101,7 +108,6 @@ class ButtonFloatView: ButtonImageBuilder {
 //                .setBlur(percent: 8)
 //                .setDistance(percent: 4)
 //                .setShadowColor( Theme.shared.currentTheme.tertiary)
-                .apply()
         }
     }
     

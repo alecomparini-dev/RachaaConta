@@ -1,11 +1,12 @@
-//  Created by Alessandro Comparini on 22/02/24.
+//  Created by Alessandro Comparini on 19/03/24.
 //
 
 import UIKit
-import CustomComponentsSDK
-import Handler
 
-class ButtonSeeBillView: ViewBuilder {
+import CustomComponentsSDK
+
+
+class ThreeDotsView: ViewBuilder {
     
     override init() {
         super.init()
@@ -14,30 +15,6 @@ class ButtonSeeBillView: ViewBuilder {
     
 
 //  MARK: - LAZY PROPERTIES
-
-    lazy var containerButton: ViewBuilder = {
-        let comp = ViewBuilder()
-            .setAutoLayout { build in
-                build
-                    .centerAlignXY.equalToSuperview()
-                    .width.equalToConstant(35)
-                    .height.equalToConstant(16)
-            }
-        return comp
-    }()
-    
-    lazy var seeBillLabel: LabelBuilder = {
-        let comp = LabelBuilder("ver conta")
-            .setFontFamily(Const.Font.titilliumWebRegular, 12)
-            .setColor(Theme.shared.currentTheme.onSurfaceVariant)
-            .setAutoLayout { build in
-                build
-                    .top.equalTo(containerButton, .bottom, 8)
-                    .horizontalAlignX.equalTo(containerButton, .centerX, -4)
-            }
-        return comp
-    }()
-    
     lazy var hStackContainer: StackViewBuilder = {
         let comp = StackViewBuilder()
             .setAlignment(.fill)
@@ -78,17 +55,13 @@ class ButtonSeeBillView: ViewBuilder {
     }
     
     private func addElements() {
-        containerButton.add(insideTo: self)
-        seeBillLabel.add(insideTo: self)
-        hStackContainer.add(insideTo: containerButton)
+        hStackContainer.add(insideTo: self)
         vStackLeftView.add(insideTo: hStackContainer)
         hStackRightView.add(insideTo: hStackContainer)
         addDots()
     }
     
     private func configAutoLayout() {
-        containerButton.applyAutoLayout()
-        seeBillLabel.applyAutoLayout()
         hStackContainer.applyAutoLayout()
     }
     

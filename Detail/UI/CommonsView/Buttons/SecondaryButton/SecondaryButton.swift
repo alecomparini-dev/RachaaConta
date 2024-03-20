@@ -17,7 +17,7 @@ class SecondaryButton: DefaultButton {
          ligthPosition: K.Neumorphism.LightPosition = .leftTop,
          shape: K.Neumorphism.Shape = .concave) {
         self.fontFamily = fontFamily
-        super.init(text: text, cornerRadius: cornerRadius, image: image, neumorphism: (color: Theme.shared.currentTheme.secondary, ligthPosition: ligthPosition , shape: shape))
+        super.init(text: text, cornerRadius: cornerRadius, image: image, neumorphismStyles: (color: Theme.shared.currentTheme.secondary, ligthPosition: ligthPosition , shape: shape))
         configure()
     }
 
@@ -57,7 +57,6 @@ class SecondaryButton: DefaultButton {
                 .setDistance(to: .light, percent: 4)
                 .setDistance(to: .dark, percent: 10)
                 .setShadowColor(to: .dark, color: .black)
-                .apply()
         }
     }
     

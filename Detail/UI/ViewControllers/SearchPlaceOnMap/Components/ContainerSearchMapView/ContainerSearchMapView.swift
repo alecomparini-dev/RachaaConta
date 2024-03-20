@@ -39,7 +39,7 @@ class ContainerSearchMapView: ViewBuilder {
                     .setRadius(8)
                     .setColor(.black)
                     .setOffset(width: 0, height: 0)
-                    .apply()
+//                    .apply()
             })
             .setAutoLayout { build in
                 build

@@ -11,23 +11,22 @@ class DefaultButton: ViewBuilder {
     private let text: String
     private let radius: CGFloat
     private let image: ImageViewBuilder
-    private let neumorphism: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape)
+    private let neumorphismStyles: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape)
     
     private var callback: callbackAlias?
     
     init(text: String = "",
          cornerRadius: CGFloat = 6 ,
          image: ImageViewBuilder = ImageViewBuilder(),
-         neumorphism: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape) = (color: Theme.shared.currentTheme.surfaceContainer, ligthPosition: .leftTop, shape: .concave) ) {
+         neumorphismStyles: (color: UIColor, ligthPosition: K.Neumorphism.LightPosition, shape: K.Neumorphism.Shape) = (color: Theme.shared.currentTheme.surfaceContainer, ligthPosition: .leftTop, shape: .concave) ) {
         self.text = text
         self.radius = cornerRadius
         self.image = image
-        self.neumorphism = neumorphism
+        self.neumorphismStyles = neumorphismStyles
         super.init()
         configure()
     }
 
-    
     
 //  MARK: - GET PROPERTIES
     var style: ViewBuilder { outlineView }
@@ -45,16 +44,15 @@ class DefaultButton: ViewBuilder {
             })
             .setNeumorphism { build in
                 build
-                    .setReferenceColor(neumorphism.color)
-                    .setShape(neumorphism.shape)
-                    .setLightPosition(neumorphism.ligthPosition)
+                    .setReferenceColor(neumorphismStyles.color)
+                    .setShape(neumorphismStyles.shape)
+                    .setLightPosition(neumorphismStyles.ligthPosition)
                     .setIntensity(to: .light, percent: 80)
                     .setIntensity(to: .dark, percent: 100)
                     .setBlur(to: .light, percent: 3)
                     .setBlur(to: .dark, percent: 5)
                     .setDistance(to: .light, percent: 3)
                     .setDistance(to: .dark, percent: 12)
-                    .apply()
             }
             .setAutoLayout { build in
                 build

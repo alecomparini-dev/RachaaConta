@@ -34,7 +34,6 @@ class StrokeView: ViewBuilder {
                 .setColor(.black)
                 .setOpacity(1)
                 .setRadius(3)
-                .apply()
         })
         
     }

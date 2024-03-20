@@ -46,7 +46,7 @@ public class SideBarMenuViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configWillAppear()
+        configDidAppear()
     }
     
     
@@ -56,22 +56,33 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     private func configDelegate() {
-        
+        screen.closeMenuButtonView.delegate = self
     }
     
-    private func configWillAppear() {
+    private func configDidAppear() {
         configStyles()
     }
     
     private func configStyles() {
         screen.applyStyles()
-
     }
 
     
 }
 
-//  MARK: - EXTENSION
+
+//  MARK: - EXTENSION - CloseSideBarMenuButtonViewDelegate
+extension SideBarMenuViewController: CloseSideBarMenuButtonViewDelegate {
+
+    func closeSideBarMenuButtonTapped() {
+        coordinator?.gotoBack()
+    }
+    
+}
+
+
+
+//  MARK: - EXTENSION - BackButtonViewDelegate
 extension SideBarMenuViewController: BackButtonViewDelegate {
     
     public func backButtonImageTapped() {

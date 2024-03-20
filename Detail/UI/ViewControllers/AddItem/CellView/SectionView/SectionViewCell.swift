@@ -42,7 +42,7 @@ class SectionViewCell: ViewBuilder {
         addElement()
         configConstraints()
         configBorder()
-        configNeumorphims()
+        configNeumorphism()
     }
     
     private func addElement() {
@@ -61,7 +61,7 @@ class SectionViewCell: ViewBuilder {
         }
     }
     
-    private func configNeumorphims() {
+    private func configNeumorphism() {
         self.setNeumorphism { build in
             build
                 .setReferenceColor(color)
@@ -74,7 +74,6 @@ class SectionViewCell: ViewBuilder {
                 .setDistance(to: .light, percent: 2)
                 .setDistance(to: .dark, percent: 10)
                 .setShadowColor(to: .dark, color: .black)
-                .apply()
         }
     }
     

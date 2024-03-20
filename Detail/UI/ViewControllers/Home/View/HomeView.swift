@@ -54,7 +54,7 @@ class HomeView: UIView {
         return comp
     }()
     
-    lazy var buttonSideBarMenuView: OpenSideBarMenuButtonView = {
+    lazy var openSideBarMenuButtonView: OpenSideBarMenuButtonView = {
         let view = OpenSideBarMenuButtonView()
             .setAutoLayout { build in
                 build
@@ -77,7 +77,7 @@ class HomeView: UIView {
             })
             .setAutoLayout({ build in
                 build
-                    .verticalAlignY.equalTo(buttonSideBarMenuView, .centerY)
+                    .verticalAlignY.equalTo(openSideBarMenuButtonView, .centerY)
                     .trailing.equalToSafeArea(-24)
                     .width.equalToConstant(110)
                     .height.equalToConstant(35)
@@ -144,7 +144,7 @@ class HomeView: UIView {
         topBlur.add(insideTo: self)
         topViewAnimation.add(insideTo: self)
         clock.add(insideTo: self)
-        buttonSideBarMenuView.add(insideTo: self)
+        openSideBarMenuButtonView.add(insideTo: self)
         createBillButtonFloat.add(insideTo: self)
     }
     
@@ -152,7 +152,7 @@ class HomeView: UIView {
         backgroundView.applyAutoLayout()
         listBillTableView.applyAutoLayout()
         clock.applyAutoLayout()
-        buttonSideBarMenuView.applyAutoLayout()
+        openSideBarMenuButtonView.applyAutoLayout()
         createBillButtonFloat.applyAutoLayout()
         topViewAnimation.applyAutoLayout()
     }

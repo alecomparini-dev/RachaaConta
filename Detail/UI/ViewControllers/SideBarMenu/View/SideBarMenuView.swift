@@ -5,7 +5,12 @@ import UIKit
 
 import CustomComponentsSDK
 
+protocol SideBarMenuViewDelegate: AnyObject {
+    func closeMenuRightViewTapped()
+}
+
 public class SideBarMenuView: UIView {
+    weak var delegate: SideBarMenuViewDelegate?
    
     private var gradient: GradientBuilder?
     
@@ -46,6 +51,24 @@ public class SideBarMenuView: UIView {
         return comp
     }()
     
+    lazy var closeMenuRightView: ViewBuilder = {
+        let comp = ViewBuilder()
+            .setBackgroundColor(.black.withAlphaComponent(0.01))
+            .setAutoLayout { build in
+                build
+                    .pinRight.equalToSuperview()
+                    .leading.equalTo(backgroundView, .trailing)
+            }
+            .setActions { build in
+                build
+                    .setTap { [weak self] _,_ in
+                        guard let self else {return}
+                        delegate?.closeMenuRightViewTapped()
+                    }
+            }
+        return comp
+    }()
+    
     
 
 //  MARK: - PUBLIC AREA
@@ -66,8 +89,15 @@ public class SideBarMenuView: UIView {
     private func addElements() {
         backgroundView.add(insideTo: self)
         closeMenuButtonView.add(insideTo: self)
+        closeMenuRightView.add(insideTo: self)
     }
     
+    private func configAutoLayout() {
+        backgroundView.applyAutoLayout()
+        closeMenuButtonView.applyAutoLayout()
+        closeMenuRightView.applyAutoLayout()
+    }
+        
     private func configTrace() {
         configTraceTop()
         configTraceMiddle()
@@ -86,7 +116,6 @@ public class SideBarMenuView: UIView {
         traceTop.add(insideTo: self)
         traceTop.applyAutoLayout()
     }
-    
     private func configTraceMiddle() {
         traceMiddle = StrokeView(gradientColor: Theme.shared.currentTheme.tertiaryGradient, cornerRadius: 0)
             .setAutoLayout { build in
@@ -112,12 +141,6 @@ public class SideBarMenuView: UIView {
         traceBottom.add(insideTo: self)
         traceBottom.applyAutoLayout()
     }
-    
-    private func configAutoLayout() {
-        backgroundView.applyAutoLayout()
-        closeMenuButtonView.applyAutoLayout()
-    }
-    
     private func configGradient() {
         gradient = GradientBuilder(backgroundView.get)
             .setConicGradient(CGPoint(x: 0.8, y: 0.75))

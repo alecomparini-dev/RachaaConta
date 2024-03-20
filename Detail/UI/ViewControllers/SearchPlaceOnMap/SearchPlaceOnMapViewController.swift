@@ -31,11 +31,12 @@ public class SearchPlaceOnMapViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configViewDidLoad()
     }
      
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configDidLayoutSubviews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -45,14 +46,30 @@ public class SearchPlaceOnMapViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configurationsDidAppear()
+        configDidAppear()
     }
     
         
 //  MARK: - PRIVATE AREA
-    private func configure() {
+    private func configViewDidLoad() {
         configDelegate()
     }
+
+    private func configDidLayoutSubviews() {
+        screen.lightMapButtonView.applyNeumorphism()
+        screen.backButtonView.applyNeumorphism()
+    }
+
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
+    }
+
+    private func configDidAppear() {
+        screen.configMapAutoLayout()
+        screen.map.show()
+        screen.containerSearchBlurView.containerShadow.applyShadow()
+    }
+
 
     private func configDelegate() {
         screen.delegate = self
@@ -61,20 +78,6 @@ public class SearchPlaceOnMapViewController: UIViewController {
         screen.backButtonView.delegate = self
     }
 
-    private func configWillAppear() {
-        configStyles()
-    }
-
-    private func configStyles() {
-        screen.backgroundView.applyGradient()
-        screen.backButtonView.applyNeumorphism()
-    }
-
-    private func configurationsDidAppear() {
-        screen.configMapAutoLayout()
-        screen.map.show()
-    }
-    
     private func showComponentsAnimation() {
         UIView.animate(withDuration: 1, delay: 1, animations: { [weak self] in
             guard let self else {return}

@@ -10,7 +10,7 @@ public protocol BackButtonViewDelegate: AnyObject {
     func backButtonImageTapped()
 }
 
-class BackButtonView: NeumorphismSideBarView {
+class BackButtonView: ViewBuilder {
     weak var delegate: BackButtonViewDelegate?
     
     override init() {
@@ -44,6 +44,8 @@ class BackButtonView: NeumorphismSideBarView {
     private func configure() {
         addElements()
         configAutoLayout()
+        configBorder()
+        configNeumorphism()
     }
     
     private func addElements() {
@@ -52,6 +54,18 @@ class BackButtonView: NeumorphismSideBarView {
     
     private func configAutoLayout() {
         backButtonImage.applyAutoLayout()
+    }
+    
+    private func configBorder() {
+        self.setBorder({ build in
+            build
+                .setCornerRadius(25)
+                .setRoundedCorners([.right])
+        })
+    }
+    
+    private func configNeumorphism() {
+        SideBarButtonNeumorphism(self).configNeumorphism()
     }
     
 }

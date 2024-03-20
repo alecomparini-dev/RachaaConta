@@ -89,13 +89,13 @@ public class HomeViewController: UIViewController {
     private func configStyles() {
         screen.backgroundView.applyGradient()
         screen.createBillButtonFloat.applyNeumorphism()
-        screen.buttonSideBarMenuView.configStyles()
+        screen.openSideBarMenuButtonView.configStyles()
         screen.configFilterBillView()
     }
     
     private func configDelegate() {
         screen.delegate = self
-        screen.buttonSideBarMenuView.delegate = self
+        screen.openSideBarMenuButtonView.delegate = self
         screen.listBillTableView.setDelegate(delegate: self)
         screen.listBillTableView.setDataSource(dataSource: self)
     }

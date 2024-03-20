@@ -56,6 +56,7 @@ public class SideBarMenuViewController: UIViewController {
     }
     
     private func configDelegate() {
+        screen.delegate = self
         screen.closeMenuButtonView.delegate = self
     }
     
@@ -69,6 +70,17 @@ public class SideBarMenuViewController: UIViewController {
 
     
 }
+
+
+//  MARK: - EXTENSION - CloseSideBarMenuButtonViewDelegate
+extension SideBarMenuViewController: SideBarMenuViewDelegate {
+    
+    func closeMenuRightViewTapped() {
+        coordinator?.gotoBack()
+    }
+    
+}
+
 
 
 //  MARK: - EXTENSION - CloseSideBarMenuButtonViewDelegate

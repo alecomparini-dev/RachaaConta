@@ -54,8 +54,8 @@ class HomeView: UIView {
         return comp
     }()
     
-    lazy var buttonSideBarMenuView: ButtonSideBarMenuView = {
-        let view = ButtonSideBarMenuView()
+    lazy var buttonSideBarMenuView: OpenSideBarMenuButtonView = {
+        let view = OpenSideBarMenuButtonView()
             .setAutoLayout { build in
                 build
                     .top.equalToSafeArea(8)
@@ -135,6 +135,12 @@ class HomeView: UIView {
     }()
     
     
+//  MARK: - PUBLIC AREA
+    
+    public func configFilterBillView() {
+        listBillTableView.setTableHeaderView(filterBillView)
+    }
+    
     
 //  MARK: - PRIVATE AREA
     private func configure() {
@@ -164,8 +170,8 @@ class HomeView: UIView {
         
     }
     
-    public func configFilterBillView() {
-        listBillTableView.setTableHeaderView(filterBillView)
+
+    private func configNeumorphism() {
+        buttonSideBarMenuView.applyNeumorphism()
     }
-    
 }

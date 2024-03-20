@@ -150,7 +150,6 @@ class CreateBillView: UIView {
                     .setDistance(to: .light, percent: 2)
                     .setDistance(to: .dark, percent: 10)
                     .setShadowColor(to: .dark, color: .black)
-                    .apply()
             }
             .setAutoLayout({ build in
                 build

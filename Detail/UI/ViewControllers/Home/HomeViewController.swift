@@ -64,7 +64,7 @@ public class HomeViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configurationsDidAppear()
+        configDidAppear()
     }
     
     
@@ -79,18 +79,18 @@ public class HomeViewController: UIViewController {
     
     private func configWillAppear() {
         configDelegate()
-        configStyles()
     }
     
+    private func configDidAppear() {
+        configStyles()
+        screen.clock.startClock()
+//        screen.configFilterBillView()
+//        NeumorphismTextFieldView.set(screen.filterBillView.filterTextField)
+    }
+
     private func configStyles() {
         screen.backgroundView.applyGradient()
-        screen.buttonSideBarMenuView.applyNeumorphism()
-    }
-    
-    private func configurationsDidAppear() {
-        screen.clock.startClock()
-        screen.configFilterBillView()
-        NeumorphismTextFieldView.set(screen.filterBillView.filterTextField)
+        screen.buttonSideBarMenuView.configStyles()
     }
     
     private func configDelegate() {
@@ -115,9 +115,9 @@ extension HomeViewController: HomeViewDelegate {
 }
 
 //  MARK: - EXTENSION - ButtonSideBarMenuViewDelegate
-extension HomeViewController: ButtonSideBarMenuViewDelegate {
+extension HomeViewController: OpenSideBarMenuButtonViewDelegate {
 
-    func buttonSideBarMenuTapped() {
+    func openSideBarMenuButtonTapped() {
         coordinator?.gotoSideBarMenu()
     }
     

@@ -116,7 +116,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
                     .setColor(.black)
                     .setOpacity(1)
                     .setOffset(width: 0, height: 0)
-                    .applyLayer()
+//                    .applyLayer()
             })
     }
     
@@ -127,7 +127,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
                 .setColor(.black)
                 .setOpacity(1)
                 .setOffset(width: 0, height: 0)
-                .applyLayer()
+//                .applyLayer()
         })
     }
     
@@ -138,7 +138,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
                 .setColor(lightShadow.color)
                 .setOpacity(lightShadow.opacity)
                 .setOffset(width: 6, height: 0)
-                .applyLayer()
+//                .applyLayer()
         })
     }
     
@@ -149,7 +149,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
                 .setColor(lightShadow.color)
                 .setOpacity(lightShadow.opacity)
                 .setOffset(width: 0, height: 6)
-                .applyLayer()
+//                .applyLayer()
         })
     }
     

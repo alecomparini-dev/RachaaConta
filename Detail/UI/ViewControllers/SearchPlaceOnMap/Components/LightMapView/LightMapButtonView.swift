@@ -74,7 +74,6 @@ class LightMapButtonView: ViewBuilder {
                 .setDistance(to: .light, percent: 4)
                 .setDistance(to: .dark, percent: 10)
                 .setShadowColor(to: .dark, color: .black)
-                .apply()
         }
     }
     

@@ -146,12 +146,12 @@ class BillTableCellView: UITableViewCell {
     
 //  MARK: - PRIVATE AREA
     private func configure() {
-        configStyleCell()
         addElements()
         configAutoLayout()
+        configStyles()
     }
     
-    private func configStyleCell() {
+    private func configStyles() {
         self.backgroundColor = .clear
         self.selectionStyle = .none
     }

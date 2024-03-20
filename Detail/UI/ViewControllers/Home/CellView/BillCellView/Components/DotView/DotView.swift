@@ -49,6 +49,7 @@ class DotView: ViewBuilder {
                 .setDistance(to: .dark, percent: 8)
                 .setShadowColor(to: .dark, hexColor: "#000000")
         }
+        self.applyNeumorphism()
     }
     
     

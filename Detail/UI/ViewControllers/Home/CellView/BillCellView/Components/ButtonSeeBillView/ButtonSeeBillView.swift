@@ -69,7 +69,6 @@ class ButtonSeeBillView: ViewBuilder {
         return comp
     }()
     
-
     
 //  MARK: - PRIVATE AREA
     private func configure() {
@@ -110,6 +109,14 @@ class ButtonSeeBillView: ViewBuilder {
         let dot3 = DotView(size: size, color)
         dot3.add(insideTo: viewDot3)
         viewDot3.add(insideTo: hStackRightView)
+        
+        configNeumorphism([dot1, dot2, dot3])
     }
+    
+    private func configNeumorphism(_ dots: [DotView]) {
+        dots.forEach({ $0.applyNeumorphism() })
+    }
+    
+    
     
 }

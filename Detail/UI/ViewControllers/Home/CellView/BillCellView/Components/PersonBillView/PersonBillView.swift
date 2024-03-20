@@ -75,6 +75,7 @@ class PersonBillView: ViewBuilder {
     private func configure() {
         addElements()
         configAutoLayout()
+        configStyle()
     }
     
     private func addElements() {
@@ -89,6 +90,14 @@ class PersonBillView: ViewBuilder {
         strokeVertical.applyAutoLayout()
         container.applyAutoLayout()
         stackView.applyAutoLayout()
+    }
+    
+    private func configStyle() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            strokeVertical.applyShadow()
+        }
+        
     }
     
 }

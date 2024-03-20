@@ -91,6 +91,7 @@ public class HomeViewController: UIViewController {
     private func configStyles() {
         screen.backgroundView.applyGradient()
         screen.buttonSideBarMenuView.configStyles()
+        screen.createBillButtonFloat.applyNeumorphism()
     }
     
     private func configDelegate() {

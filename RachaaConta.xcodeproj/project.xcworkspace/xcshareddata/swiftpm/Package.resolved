@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alecomparini-dev/CustomComponentsSDK.git",
       "state" : {
-        "branch" : "feature/03-20/change-neumorphism",
-        "revision" : "5b77b05aea981913483d1845963f073e5ae1523f"
+        "branch" : "develop",
+        "revision" : "e860b495afd437e708ea032324a41764e535aa7c"
       }
     }
   ],

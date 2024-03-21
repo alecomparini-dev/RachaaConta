@@ -2021,7 +2021,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alecomparini-dev/CustomComponentsSDK.git";
 			requirement = {
-				branch = "feature/03-20/change-neumorphism";
+				branch = develop;
 				kind = branch;
 			};
 		};

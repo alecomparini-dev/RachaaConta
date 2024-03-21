@@ -45,7 +45,7 @@ class CalculatorItemsView: UIView {
     
     lazy var nameBillLabel: LabelBuilder = {
         let comp = LabelBuilder("EH NÓIS CARAIO")
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 14)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 14)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setOpacity(0.7)
             .setAutoLayout { build in
@@ -72,7 +72,7 @@ class CalculatorItemsView: UIView {
     lazy var symbolCurrencyLabel: LabelBuilder = {
         let comp = LabelBuilder("R$")
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 16)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 16)
             .setAutoLayout { build in
                 build
                     .top.equalTo(totalAmountBillLabel, .top, 6)
@@ -87,9 +87,9 @@ class CalculatorItemsView: UIView {
             .setTextAttributed({ build in
                 build
                     .setText(text: "7699,")
-                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebRegular, size: 75) ?? UIFont() )
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.TitilliumWeb.regular, size: 75) ?? UIFont() )
                     .setText(text: "59")
-                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebExtraLight, size: 30) ?? UIFont() )
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.TitilliumWeb.extraLight, size: 30) ?? UIFont() )
                     .setAttributed(key: .baselineOffset, value: 0)
             })
             .setAutoLayout { build in

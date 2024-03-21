@@ -55,7 +55,7 @@ class PersonBillView: ViewBuilder {
     lazy var personLabel: LabelBuilder = {
         let comp = LabelBuilder(count)
             .setTextAlignment(.center)
-            .setFontFamily(Const.Font.titilliumWebRegular, 24)
+            .setFontFamily(Const.Font.TitilliumWeb.regular, 24)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()

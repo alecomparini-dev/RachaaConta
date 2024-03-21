@@ -49,7 +49,7 @@ class CreateBillView: UIView {
     lazy var nameBillTextField: TextFieldBuilder = {
         let comp = TextFieldBuilder(placeHolder: "* nome da conta")
             .setPadding(4)
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 26)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 26)
             .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.6))
             .setTextColor(Theme.shared.currentTheme.onSurface)
             .setTintColor(Theme.shared.currentTheme.onSurface)
@@ -112,7 +112,7 @@ class CreateBillView: UIView {
     
     lazy var addressLabel: LabelBuilder = {
         let comp = LabelBuilder("Deseja adicionar o endereço ?")
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 16)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 16)
             .setNumberOfLines(2)
             .setTextAlignment(.left)
             .setColor(Theme.shared.currentTheme.onSurface)
@@ -130,7 +130,7 @@ class CreateBillView: UIView {
         let comp = ButtonBuilder()
             .setTitle("Sim")
             .setTintColor(Theme.shared.currentTheme.onSurfaceInverse)
-            .setFontFamily(Const.Font.titilliumWebRegular, 12)
+            .setFontFamily(Const.Font.TitilliumWeb.regular, 12)
             .setBorder({ build in
                 build
                     .setCornerRadius(4)

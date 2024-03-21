@@ -74,7 +74,7 @@ class Line2KeyboardView: ViewBuilder {
     
     lazy var buttonComma: ButtonBuilder = {
         let comp = ButtonBuilder(",")
-            .setFontFamily(Const.Font.titilliumWebBold, 28)
+            .setFontFamily(Const.Font.TitilliumWeb.bold, 28)
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build

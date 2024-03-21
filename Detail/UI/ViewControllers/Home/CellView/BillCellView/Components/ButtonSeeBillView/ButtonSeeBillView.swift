@@ -28,7 +28,7 @@ class ButtonSeeBillView: ViewBuilder {
     
     lazy var seeBillLabel: LabelBuilder = {
         let comp = LabelBuilder("ver conta")
-            .setFontFamily(Const.Font.titilliumWebRegular, 12)
+            .setFontFamily(Const.Font.TitilliumWeb.regular, 12)
             .setColor(Theme.shared.currentTheme.onSurfaceVariant)
             .setAutoLayout { build in
                 build

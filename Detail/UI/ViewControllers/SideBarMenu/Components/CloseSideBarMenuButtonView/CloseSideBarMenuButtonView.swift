@@ -12,9 +12,9 @@ protocol CloseSideBarMenuButtonViewDelegate: AnyObject {
 
 class CloseSideBarMenuButtonView: ViewBuilder {
     weak var delegate: CloseSideBarMenuButtonViewDelegate?
-    
-    private var gradient: GradientBuilder?
-    
+        
+    private let sizeDots: CGFloat = 4
+   
     override init() {
         super.init()
         configure()
@@ -41,27 +41,52 @@ class CloseSideBarMenuButtonView: ViewBuilder {
             }
         return comp
     }()
-
-    lazy var stackView: StackViewBuilder = {
-        let comp = StackViewBuilder()
-            .setAxis(.vertical)
-            .setAlignment(.fill)
-            .setSpacing(3)
-            .setDistribution(.fillEqually)
+    
+    lazy var dot1: DotView = {
+        let comp = createDots()
             .setAutoLayout { build in
                 build
-                    .leading.equalToSuperview(8)
                     .verticalAlignY.equalToSuperview()
-                    .width.equalToConstant(22)
-                    .height.equalToConstant(12)
+                    .leading.equalToSuperview(11)
+                    .size.equalToConstant(sizeDots)
             }
         return comp
     }()
     
+    lazy var dot2: DotView = {
+        let comp = createDots()
+            .setAutoLayout { build in
+                build
+                    .top.equalToSuperview(17)
+                    .trailing.equalToSuperview(-13)
+                    .size.equalToConstant(sizeDots)
+            }
+        return comp
+    }()
+
+    lazy var dot3: DotView = {
+        let comp = createDots()
+            .setAutoLayout { build in
+                build
+                    .bottom.equalToSuperview(-16)
+                    .leading.equalTo(dot2, .leading)
+                    .size.equalToConstant(sizeDots)
+            }
+        return comp
+    }()
+
+
+    private func createDots() -> DotView {
+        return DotView(size: sizeDots, Theme.shared.currentTheme.surfaceContainerHighest.adjustBrightness(50))
+    }
+    
     
 //  MARK: - PUBLIC AREA
-    func applyShadowBackButton() {
+    func applyStyles() {
         containerButton.applyShadow()
+        dot1.applyNeumorphism()
+        dot2.applyNeumorphism()
+        dot3.applyNeumorphism()
     }
     
     
@@ -74,14 +99,20 @@ class CloseSideBarMenuButtonView: ViewBuilder {
     
     private func addElements() {
         containerButton.add(insideTo: self)
-        stackView.add(insideTo: containerButton)
+        dot1.add(insideTo: self)
+        dot2.add(insideTo: self)
+        dot3.add(insideTo: self)
+
     }
     
     private func configAutoLayout() {
         containerButton.applyAutoLayout()
-        stackView.applyAutoLayout()
+        dot1.applyAutoLayout()
+        dot2.applyAutoLayout()
+        dot3.applyAutoLayout()
     }
     
+
     private func configTap() {
         self
             .setActions { build in

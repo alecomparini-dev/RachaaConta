@@ -92,7 +92,7 @@ class SearchPlaceOnMapView: UIView {
     lazy var skipStepButton: ButtonBuilder = {
         let comp = ButtonBuilder("Pular Etapa")
             .setAlpha(0)
-            .setFontFamily(Const.Font.titilliumWebLight, 14)
+            .setFontFamily(Const.Font.TitilliumWeb.light, 14)
             .setTintColor(Theme.shared.currentTheme.onSurface)
             .setBackgroundColor(Theme.shared.currentTheme.surfaceContainer.withAlphaComponent(0.7))
             .setAutoLayout { build in

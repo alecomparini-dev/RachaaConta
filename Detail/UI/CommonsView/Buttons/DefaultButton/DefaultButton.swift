@@ -63,7 +63,7 @@ class DefaultButton: ViewBuilder {
     
     lazy var _button: ButtonImageBuilder = {
         var btn = ButtonImageBuilder(image)
-            .setFontFamily(Const.Font.titilliumWebRegular, 18)
+            .setFontFamily(Const.Font.TitilliumWeb.regular, 18)
             .setImagePadding(0)
             .setTitle(text)
             .setTitleColor(Theme.shared.currentTheme.onSurface)

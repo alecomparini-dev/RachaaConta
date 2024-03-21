@@ -49,7 +49,7 @@ class AmountPaidView: ViewBuilder {
     lazy var amountTitleLabel: LabelBuilder = {
         let comp = LabelBuilder("Valor Pago")
             .setTextAlignment(.natural)
-            .setFontFamily(Const.Font.titilliumWebLight, 16)
+            .setFontFamily(Const.Font.TitilliumWeb.light, 16)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()
@@ -57,7 +57,7 @@ class AmountPaidView: ViewBuilder {
     lazy var amountLabel: LabelBuilder = {
         let comp = LabelBuilder(amount)
             .setTextAlignment(.natural)
-            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
+            .setFontFamily(Const.Font.TitilliumWeb.semiBold, 18)
             .setColor(Theme.shared.currentTheme.onSurface)
         return comp
     }()

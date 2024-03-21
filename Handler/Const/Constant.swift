@@ -33,12 +33,22 @@ public struct Const {
     }
     
     public struct Font {
-        public static let titilliumWebSemiBold = "TitilliumWeb-SemiBold"
-        public static let titilliumWebBlack = "TitilliumWeb-Black"
-        public static let titilliumWebBold = "TitilliumWeb-Bold"
-        public static let titilliumWebExtraLight = "TitilliumWeb-ExtraLight"
-        public static let titilliumWebLight = "TitilliumWeb-Light"
-        public static let titilliumWebRegular = "TitilliumWeb-Regular"
+        public struct TitilliumWeb {
+            public static let semiBold = "TitilliumWeb-SemiBold"
+            public static let black = "TitilliumWeb-Black"
+            public static let bold = "TitilliumWeb-Bold"
+            public static let extraLight = "TitilliumWeb-ExtraLight"
+            public static let light = "TitilliumWeb-Light"
+            public static let regular = "TitilliumWeb-Regular"
+        }
+        
+        public struct Poppins {
+            public static let medium = "Poppins-Medium"
+            public static let regular = "Poppins-Regular"
+            public static let light = "Poppins-Light"
+            public static let thin = "Poppins-Thin"
+        }
+        
     }
 
 }

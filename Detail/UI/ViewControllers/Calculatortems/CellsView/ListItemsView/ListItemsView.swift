@@ -31,7 +31,7 @@ class ListItemsView: ViewBuilder {
     private lazy var totalValueLabel: LabelBuilder = {
         let comp = LabelBuilder(billItemPresenterDTO.totalValue)
             .setTextAlignment(.right)
-            .setFontFamily(Const.Font.titilliumWebBold, fontSizes.totalValue)
+            .setFontFamily(Const.Font.TitilliumWeb.bold, fontSizes.totalValue)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
@@ -46,7 +46,7 @@ class ListItemsView: ViewBuilder {
         let comp = LabelBuilder()
             .setTextAlignment(.right)
             .setText("\(billItemPresenterDTO.unitValue ?? "")  =")
-            .setFontFamily(Const.Font.titilliumWebExtraLight, fontSizes.unitValue)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, fontSizes.unitValue)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-30))
             .setAutoLayout { build in
                 build
@@ -59,7 +59,7 @@ class ListItemsView: ViewBuilder {
     
     private lazy var multiplayLabel: LabelBuilder = {
         let comp = LabelBuilder("x")
-            .setFontFamily(Const.Font.titilliumWebLight, fontSizes.multiply)
+            .setFontFamily(Const.Font.TitilliumWeb.light, fontSizes.multiply)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build
@@ -73,7 +73,7 @@ class ListItemsView: ViewBuilder {
         let comp = LabelBuilder()
             .setTextAlignment(.right)
             .setText(billItemPresenterDTO.quantity)
-            .setFontFamily(Const.Font.titilliumWebExtraLight, fontSizes.quantity)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, fontSizes.quantity)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-30))
             .setAutoLayout { build in
                 build
@@ -101,7 +101,7 @@ class ListItemsView: ViewBuilder {
     private lazy var nameItemLabel: LabelBuilder = {
         let comp = LabelBuilder(billItemPresenterDTO.descriptionItem)
             .setTextAlignment(.left)
-            .setFontFamily(Const.Font.titilliumWebLight, 14)
+            .setFontFamily(Const.Font.TitilliumWeb.light, 14)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setNumberOfLines(1)
             .setAutoLayout { build in

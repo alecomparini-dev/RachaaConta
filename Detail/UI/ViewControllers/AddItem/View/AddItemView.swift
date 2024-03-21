@@ -24,7 +24,6 @@ class AddItemView: UIView {
     }
     
     
-    
 //  MARK: - LAZY PROPERTIES
     lazy var backgroundView: BackgroundView = {
         let comp = BackgroundView()

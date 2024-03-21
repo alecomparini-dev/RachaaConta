@@ -40,11 +40,12 @@ public class CalculatorItemsViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configDidLoad()
     }
      
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configDidLayoutSubviews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -58,12 +59,23 @@ public class CalculatorItemsViewController: UIViewController {
     
     
 //  MARK: - PRIVATE AREA
-    private func configure() {
+    private func configDidLoad() {
         fetchBillItems()
         configDelegate()
         showKeyboardCollection()
         showListItems()
     }
+    
+    private func configDidLayoutSubviews() {
+        screen.backButtonView.applyNeumorphism()
+        screen.nameBillUnderline.applyShadow()
+        screen.underlineItem.applyShadow()
+    }
+    
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
+    }
+
     
     private func configDelegate() {
         screen.backButtonView.delegate = self
@@ -71,14 +83,6 @@ public class CalculatorItemsViewController: UIViewController {
         screen.listItems.setDelegate(self)
     }
     
-    private func configWillAppear() {
-        configStyles()
-    }
-    
-    private func configStyles() {
-        screen.backgroundView.applyGradient()
-        screen.backButtonView.applyNeumorphism()
-    }
     
     private func showKeyboardCollection() {
         screen.keyboardList.show()
@@ -99,15 +103,20 @@ public class CalculatorItemsViewController: UIViewController {
     private func rowViewCallBackKeyBoardList(_ row: Int) -> Any {
         switch row {
             case 0:
-                return Line0KeyboardView()
+                let line = Line0KeyboardView()
+                line.applyStyles()
+                return line
                 
             case 1:
-                return Line1KeyboardView()
+                let line = Line1KeyboardView()
+                line.applyStyles()
+                return line
                 
             case 2:
-                let line2 = Line2KeyboardView()
-                line2.delegate = self
-                return line2
+                let line = Line2KeyboardView()
+                line.applyStyles()
+                line.delegate = self
+                return line
                             
         default:
             return UIView()

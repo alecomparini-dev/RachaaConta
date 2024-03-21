@@ -49,12 +49,13 @@ public class HomeViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configDidLoad()
     }
     
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configDidLayoutSubviews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -69,28 +70,29 @@ public class HomeViewController: UIViewController {
     
     
 //  MARK: - PRIVATE AREA
-    private func configure() {
+    private func configDidLoad() {
         fetchBills()
     }
     
-    public func fetchBills() {
-        homeViewModel.fetchBills()
+    public func configDidLayoutSubviews() {
+        screen.createBillButtonFloat.applyNeumorphism()
+        screen.openSideBarMenuButtonView.configStyles()
+        screen.filterBillView.configure()
     }
     
     private func configWillAppear() {
         configDelegate()
+        screen.backgroundView.applyGradient()
+        screen.clock.startClock()
+        
     }
     
     private func configDidAppear() {
-        configStyles()
-        screen.clock.startClock()
+        
     }
 
-    private func configStyles() {
-        screen.backgroundView.applyGradient()
-        screen.createBillButtonFloat.applyNeumorphism()
-        screen.openSideBarMenuButtonView.configStyles()
-        screen.configFilterBillView()
+    public func fetchBills() {
+        homeViewModel.fetchBills()
     }
     
     private func configDelegate() {
@@ -162,6 +164,10 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        print("chamou")
+    }
+
     
     
 }

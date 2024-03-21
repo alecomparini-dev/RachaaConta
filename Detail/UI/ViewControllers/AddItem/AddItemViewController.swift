@@ -43,11 +43,12 @@ public class AddItemViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configDidLoad()
     }
         
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configDidLayoutSubviews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -57,29 +58,39 @@ public class AddItemViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        configDidAppear()
     }
     
     
 //  MARK: - PRIVATE AREA
-    private func configure() {
+    private func configDidLoad() {
         configDelegate()
     }
     
+    private func configDidLayoutSubviews() {
+        screen.backButtonView.applyNeumorphism()
+        screen.underline.applyShadow()
+        screen.nameBillUnderline.applyShadow()
+    }
+    
+    private func configWillAppear() {
+        screen.backgroundView.applyGradient()
+        screen.searchItensList.show()
+        viewModel.fetchFavoriteItems()
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.screen.saveItemButton.style.applyNeumorphism()
+        }
+    }
+    
+    private func configDidAppear() {
+        
+    }
+
     private func configDelegate() {
         screen.delegate = self
         screen.backButtonView.delegate = self
         screen.searchItensList.setDelegate(self)
-    }
-    
-    private func configWillAppear() {
-        configStyles()
-        screen.searchItensList.show()
-        viewModel.fetchFavoriteItems()
-    }
-    
-    private func configStyles() {
-        screen.backgroundView.applyGradient()
-        screen.backButtonView.applyNeumorphism()
     }
     
     private func createItemsViewCell(_ section: Int, _ row: Int) -> Any {
@@ -138,13 +149,21 @@ extension AddItemViewController: ListDelegate {
     }
     
     public func sectionViewCallback(_ list: CustomComponentsSDK.ListBuilder, section: Int) -> UIView? {
-        let sectionView = (section == 0 ) ? 
-        SectionViewCell(title: "FAVORITOS:", 
-                        color: Theme.shared.currentTheme.secondary,
-                        fontColor: Theme.shared.currentTheme.onSecondary).get :
-        SectionViewCell(title: "ITENS:").get
+        var sectionView: SectionViewCell!
         
-        return sectionView
+        if (section == 0 ) {
+           sectionView = SectionViewCell(title: "FAVORITOS:",
+                                          color: Theme.shared.currentTheme.secondary,
+                                          fontColor: Theme.shared.currentTheme.onSecondary)
+        } else {
+            sectionView = SectionViewCell(title: "ITENS:")
+        }
+        
+        DispatchQueue.main.async {
+            sectionView.applyNeumorphism()
+        }
+        
+        return sectionView.get
     }
     
     public func rowViewCallBack(_ list: CustomComponentsSDK.ListBuilder, section: Int, row: Int) -> Any {

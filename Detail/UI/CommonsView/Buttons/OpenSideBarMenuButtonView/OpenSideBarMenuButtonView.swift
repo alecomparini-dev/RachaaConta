@@ -68,10 +68,14 @@ class OpenSideBarMenuButtonView: ViewBuilder {
     
 //  MARK: - PUBLIC AREA
     public func configStyles() {
-        stroke1.applyShadow()
-        stroke2.applyShadow()
-        stroke3.applyShadow()
-        self.applyNeumorphism()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            stroke1.applyShadow()
+            stroke2.applyShadow()
+            stroke3.applyShadow()
+            applyNeumorphism()
+        }
+        
     }
     
     

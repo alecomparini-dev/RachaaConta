@@ -105,6 +105,17 @@ class Line0KeyboardView: ViewBuilder {
     }()
     
     
+//  MARK: - PUBLIC AREA
+    public func applyStyles() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            buttonNo7.style.applyNeumorphism()
+            buttonNo8.style.applyNeumorphism()
+            buttonNo9.style.applyNeumorphism()
+        }
+    }
+    
+    
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()

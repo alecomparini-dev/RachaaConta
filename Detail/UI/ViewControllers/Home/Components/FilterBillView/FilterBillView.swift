@@ -15,7 +15,12 @@ class FilterBillView: ViewBuilder {
         super.init(frame: frame)
     }
     
-
+    override init() {
+        self.frame = .zero
+        super.init()
+    }
+    
+    
 //  MARK: - LAZY PROPERTIES
     
     lazy var backgroundView: ViewBuilder = {
@@ -37,7 +42,6 @@ class FilterBillView: ViewBuilder {
             }
         return comp
     }()
-    
     
     lazy var filterLabel: LabelBuilder = {
         return LabelBuilder("Filtros:")
@@ -93,11 +97,12 @@ class FilterBillView: ViewBuilder {
             .setAutoLayout({ build in
                 build
                     .top.equalTo(underLineView, .bottom, 20)
-                    .leading.trailing.equalToSuperview(40)
+                    .leading.trailing.equalTo(backgroundView, 24)
                     .height.equalToConstant(45)
             })
         return comp
     }()
+    
     
 //  MARK: - PUBLIC AREA
     public func configure() {

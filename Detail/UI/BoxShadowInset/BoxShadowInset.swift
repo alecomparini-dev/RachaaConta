@@ -79,6 +79,17 @@ class BoxShadowInsetBuilder: ViewBuilder {
     public func apply() {
         applyAutoLayouts()
         setShadows()
+        applyStyles()
+    }
+    
+    private func applyStyles() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            topShadow.applyShadowLayer()
+            leftShadow.applyShadowLayer()
+            rightShadow.applyShadowLayer()
+            bottomShadow.applyShadowLayer()
+        }
     }
     
     
@@ -116,7 +127,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
                     .setColor(.black)
                     .setOpacity(1)
                     .setOffset(width: 0, height: 0)
-//                    .applyLayer()
             })
     }
     
@@ -127,7 +137,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
                 .setColor(.black)
                 .setOpacity(1)
                 .setOffset(width: 0, height: 0)
-//                .applyLayer()
         })
     }
     
@@ -138,7 +147,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
                 .setColor(lightShadow.color)
                 .setOpacity(lightShadow.opacity)
                 .setOffset(width: 6, height: 0)
-//                .applyLayer()
         })
     }
     
@@ -149,7 +157,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
                 .setColor(lightShadow.color)
                 .setOpacity(lightShadow.opacity)
                 .setOffset(width: 0, height: 6)
-//                .applyLayer()
         })
     }
     

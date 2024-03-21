@@ -3,6 +3,7 @@
 
 import UIKit
 import CustomComponentsSDK
+import Handler
 
 
 protocol HomeViewDelegate: AnyObject {
@@ -103,11 +104,26 @@ class HomeView: UIView {
         return view
     }()
     
-    lazy var filterBillView: FilterBillView = {
-        let comp = FilterBillView(frame: CGRect(origin: .zero, size: CGSize(width: safeAreaLayoutGuide.layoutFrame.width , height: constantHeight)))
+    
+    lazy var containerFilterBill: ViewBuilder = {
+        let comp = ViewBuilder(frame: CGRect(origin: .zero, size: CGSize(width: safeAreaLayoutGuide.layoutFrame.width , height: constantHeight)))
+        comp.get.translatesAutoresizingMaskIntoConstraints = true
         return comp
     }()
 
+    lazy var filterBillView: FilterBillView = {
+        let comp = FilterBillView()
+        return comp
+    }()
+
+    lazy var filterStack: StackViewBuilder = {
+        let stack = StackViewBuilder()
+            .setAutoLayout { build in
+                build.pin.equalTo(containerFilterBill)
+            }
+        return stack
+    }()
+    
     lazy var listBillTableView: TableViewBuilder = {
         let comp = TableViewBuilder()
             .setBackgroundColor(.clear)
@@ -115,6 +131,7 @@ class HomeView: UIView {
             .setSeparatorStyle(.none)
             .setPadding(top: 65, left: 0, bottom: 100, right: 0)
             .setRegisterCell(BillTableCellView.self)
+            .setTableHeaderView(containerFilterBill)
             .setAutoLayout { build in
                 build
                     .pin.equalToSafeArea()
@@ -123,19 +140,10 @@ class HomeView: UIView {
     }()
     
     
-//  MARK: - PUBLIC AREA
-    
-    public func configFilterBillView() {
-        addTableHeaderView()
-        filterBillView.configure()
-    }
-    
-    
 //  MARK: - PRIVATE AREA
     private func configure() {
         addElements()
         configAutoLayout()
-        
     }
     
     private func addElements() {
@@ -146,6 +154,9 @@ class HomeView: UIView {
         clock.add(insideTo: self)
         openSideBarMenuButtonView.add(insideTo: self)
         createBillButtonFloat.add(insideTo: self)
+        
+        filterStack.add(insideTo: containerFilterBill)
+        filterBillView.add(insideTo: filterStack)
     }
     
     private func configAutoLayout() {
@@ -155,10 +166,8 @@ class HomeView: UIView {
         openSideBarMenuButtonView.applyAutoLayout()
         createBillButtonFloat.applyAutoLayout()
         topViewAnimation.applyAutoLayout()
+        filterStack.applyAutoLayout()
     }
     
-    private func addTableHeaderView() {
-        listBillTableView.setTableHeaderView(filterBillView)
-    }
 
 }

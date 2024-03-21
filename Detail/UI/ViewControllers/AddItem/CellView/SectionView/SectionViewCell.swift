@@ -37,7 +37,6 @@ class SectionViewCell: ViewBuilder {
     
     
 //  MARK: - PRIVATE AREA
-    
     private func configure() {
         addElement()
         configConstraints()
@@ -75,6 +74,7 @@ class SectionViewCell: ViewBuilder {
                 .setDistance(to: .dark, percent: 10)
                 .setShadowColor(to: .dark, color: .black)
         }
+        
     }
     
 }

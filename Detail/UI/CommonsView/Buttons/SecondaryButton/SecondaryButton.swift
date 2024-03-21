@@ -11,7 +11,7 @@ class SecondaryButton: DefaultButton {
     private let fontFamily: (family: String, size: CGFloat)
     
     init(text: String = "",
-         fontFamily: (family: String, size: CGFloat) = (family: Const.Font.titilliumWebSemiBold, size: 18),
+         fontFamily: (family: String, size: CGFloat) = (family: Const.Font.TitilliumWeb.semiBold, size: 18),
          cornerRadius: CGFloat = 6 ,
          image: ImageViewBuilder = ImageViewBuilder(),
          ligthPosition: K.Neumorphism.LightPosition = .leftTop,

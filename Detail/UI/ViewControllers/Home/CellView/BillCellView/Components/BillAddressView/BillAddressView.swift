@@ -35,7 +35,7 @@ class BillAddressView: ViewBuilder {
         
     lazy var addressLabel: LabelBuilder = {
         let comp = LabelBuilder()
-            .setFontFamily(Const.Font.titilliumWebSemiBold, 14)
+            .setFontFamily(Const.Font.TitilliumWeb.semiBold, 14)
             .setNumberOfLines(2)
             .setTextAlignment(.left)
             .setColor(Theme.shared.currentTheme.onSurface)

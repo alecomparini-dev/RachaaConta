@@ -74,7 +74,7 @@ public class SideBarMenuView: UIView {
 //  MARK: - PUBLIC AREA
     public func applyStyles() {
         gradient?.apply()
-        closeMenuButtonView.applyShadowBackButton()
+        closeMenuButtonView.applyStyles()
         configTrace()
     }
     

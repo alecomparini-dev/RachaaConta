@@ -44,7 +44,7 @@ class BillTableCellView: UITableViewCell {
     
     lazy var titleLabel: LabelBuilder = {
         let comp = LabelBuilder(billPresenterDTO.title ?? "")
-            .setFontFamily(Const.Font.titilliumWebSemiBold, 18)
+            .setFontFamily(Const.Font.TitilliumWeb.semiBold, 18)
             .setShadow({ build in
                 build
                     .setRadius(4)

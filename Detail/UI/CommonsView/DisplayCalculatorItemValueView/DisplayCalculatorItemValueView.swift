@@ -22,7 +22,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
         let comp = LabelBuilder(" = 397,50")
 //        let comp = LabelBuilder(" = total")
             .setTextAlignment(.right)
-            .setFontFamily(Const.Font.titilliumWebBold, fontSizes.totalValue)
+            .setFontFamily(Const.Font.TitilliumWeb.bold, fontSizes.totalValue)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
@@ -36,7 +36,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
         let comp = LabelBuilder("515,90")
 //        let comp = LabelBuilder("vlr unitário")
             .setTextAlignment(.right)
-            .setFontFamily(Const.Font.titilliumWebLight, fontSizes.unitValue)
+            .setFontFamily(Const.Font.TitilliumWeb.light, fontSizes.unitValue)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
                 build
@@ -49,7 +49,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
     
     lazy var multiplayLabel: LabelBuilder = {
         let comp = LabelBuilder(" x ")
-            .setFontFamily(Const.Font.titilliumWebBold, fontSizes.multiply)
+            .setFontFamily(Const.Font.TitilliumWeb.bold, fontSizes.multiply)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout({ build in
                 build
@@ -63,7 +63,7 @@ class DisplayCalculatorItemValueView: ViewBuilder {
         let comp = LabelBuilder("25")
             .setTextAlignment(.right)
 //        let comp = LabelBuilder("qtd")
-            .setFontFamily(Const.Font.titilliumWebLight, fontSizes.quantity)
+            .setFontFamily(Const.Font.TitilliumWeb.light, fontSizes.quantity)
             .setColor(Theme.shared.currentTheme.onSurface.adjustBrightness(-20))
             .setAutoLayout({ build in
                 build

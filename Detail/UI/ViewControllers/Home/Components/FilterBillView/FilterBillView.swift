@@ -46,7 +46,7 @@ class FilterBillView: ViewBuilder {
     lazy var filterLabel: LabelBuilder = {
         return LabelBuilder("Filtros:")
             .setColor(Theme.shared.currentTheme.onSurface)
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 18)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 18)
             .setAutoLayout { build in
                 build
                     .top.equalTo(backgroundView, .top , 18)
@@ -67,7 +67,7 @@ class FilterBillView: ViewBuilder {
     
     lazy var filterTextField: TextFieldBuilder = {
         let comp = TextFieldBuilder(placeHolder: "Pesquisar...")
-            .setFontFamily(Const.Font.titilliumWebLight, 16)
+            .setFontFamily(Const.Font.TitilliumWeb.light, 16)
             .setPadding(15)
             .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.8))
             .setTintColor(Theme.shared.currentTheme.onSurface)

@@ -21,7 +21,7 @@ class ItemsViewCell: ViewBuilder {
     
     lazy var nameItemLabel: LabelBuilder = {
         let comp = LabelBuilder(nameItem)
-            .setFontFamily(Const.Font.titilliumWebLight, 16)
+            .setFontFamily(Const.Font.TitilliumWeb.light, 16)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setAutoLayout { build in
                 build

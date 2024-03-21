@@ -32,12 +32,12 @@ class DateTimeBillView: ViewBuilder {
             .setTextAttributed({ build in
                 build
                     .setText(text: "\(day) / " )
-                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebBold, size: 18) ?? UIFont())
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.TitilliumWeb.bold, size: 18) ?? UIFont())
                     .setAttributed(key: .foregroundColor, value: Theme.shared.currentTheme.onSurfaceVariant)
                     .setText(text: "\(month)" )
-                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebBold, size: 17) ?? UIFont())
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.TitilliumWeb.bold, size: 17) ?? UIFont())
                     .setText(text: "  \(dayWeek) \(time)")
-                    .setAttributed(key: .font, value: UIFont(name: Const.Font.titilliumWebExtraLight, size: 16) ?? UIFont())
+                    .setAttributed(key: .font, value: UIFont(name: Const.Font.TitilliumWeb.extraLight, size: 16) ?? UIFont())
             })
             .setAutoLayout { build in
                 build.pin.equalToSuperview(2)

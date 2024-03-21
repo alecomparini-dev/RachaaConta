@@ -47,7 +47,7 @@ class AddItemView: UIView {
 
     lazy var nameBillLabel: LabelBuilder = {
         let comp = LabelBuilder("EH NÓIS CARAIO")
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 14)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 14)
             .setColor(Theme.shared.currentTheme.onSurface)
             .setOpacity(0.7)
             .setAutoLayout { build in
@@ -79,7 +79,7 @@ class AddItemView: UIView {
                     .setPosition(.left)
                     .apply()
             })
-            .setFontFamily(Const.Font.titilliumWebExtraLight, 26)
+            .setFontFamily(Const.Font.TitilliumWeb.extraLight, 26)
             .setPlaceHolderColor(Theme.shared.currentTheme.onSurfaceVariant.withAlphaComponent(0.6))
             .setTextColor(Theme.shared.currentTheme.onSurface)
             .setTintColor(Theme.shared.currentTheme.onSurface)

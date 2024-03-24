@@ -56,6 +56,8 @@
 		02AFD4872BAC72960023399A /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AFD4832BAC72960023399A /* Poppins-Medium.ttf */; };
 		02AFD4882BAC72960023399A /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AFD4842BAC72960023399A /* Poppins-Light.ttf */; };
 		02AFD4892BAC72960023399A /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AFD4852BAC72960023399A /* Poppins-Thin.ttf */; };
+		02AFD48A2BACB6890023399A /* Handler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0210785F2B9145A500201704 /* Handler.framework */; };
+		02AFD48B2BACB6890023399A /* Handler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0210785F2B9145A500201704 /* Handler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02B4D60E2B8401B6005DF70B /* OpenSideBarMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D60D2B8401B6005DF70B /* OpenSideBarMenuButtonView.swift */; };
 		02B4D6142B8424A5005DF70B /* ButtonFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4D6132B8424A5005DF70B /* ButtonFloatView.swift */; };
 		02B680072B9A29BA00BC0228 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B680052B9A298E00BC0228 /* AddItemView.swift */; };
@@ -116,6 +118,13 @@
 			remoteGlobalIDString = 02DF27212B8551CD003A5979;
 			remoteInfo = Presenter;
 		};
+		02AFD48C2BACB6890023399A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02BD94E42B8375BA00539FDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0210785E2B9145A500201704;
+			remoteInfo = Handler;
+		};
 		02BD95332B83779A00539FDE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02BD94E42B8375BA00539FDE /* Project object */;
@@ -141,6 +150,7 @@
 			files = (
 				02BD95322B83779A00539FDE /* UI.framework in Embed Frameworks */,
 				023C63D12B868E240009C432 /* Presenter.framework in Embed Frameworks */,
+				02AFD48B2BACB6890023399A /* Handler.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +283,7 @@
 			files = (
 				02BD95312B83779A00539FDE /* UI.framework in Frameworks */,
 				023C63D02B868E240009C432 /* Presenter.framework in Frameworks */,
+				02AFD48A2BACB6890023399A /* Handler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,6 +1345,7 @@
 			dependencies = (
 				02BD95342B83779A00539FDE /* PBXTargetDependency */,
 				023C63D32B868E240009C432 /* PBXTargetDependency */,
+				02AFD48D2BACB6890023399A /* PBXTargetDependency */,
 			);
 			name = RachaaConta;
 			productName = RachaaConta;
@@ -1562,6 +1574,11 @@
 			isa = PBXTargetDependency;
 			target = 02DF27212B8551CD003A5979 /* Presenter */;
 			targetProxy = 023C63D22B868E240009C432 /* PBXContainerItemProxy */;
+		};
+		02AFD48D2BACB6890023399A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0210785E2B9145A500201704 /* Handler */;
+			targetProxy = 02AFD48C2BACB6890023399A /* PBXContainerItemProxy */;
 		};
 		02BD95342B83779A00539FDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1877,11 +1894,11 @@
 				DEVELOPMENT_TEAM = 2HCBZJR5K3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RachaaConta/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permita que o aplicativo acesse sua localização para listar os estabelecimentos próximos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1907,11 +1924,11 @@
 				DEVELOPMENT_TEAM = 2HCBZJR5K3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RachaaConta/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permita que o aplicativo acesse sua localização para listar os estabelecimentos próximos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

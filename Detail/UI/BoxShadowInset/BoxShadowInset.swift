@@ -9,6 +9,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
     private var shadowOffset: (top: CGFloat, left: CGFloat, right: CGFloat, bottom: CGFloat) = (6, 6, 6, 6)
     
     private var lightShadow: (color: UIColor, opacity: Float) = (.white, 0.4)
+    private var darkShadow: (color: UIColor, opacity: Float) = (.black, 1)
     private let cornerRadius: CGFloat
     
     public init(cornerRadius: CGFloat? = nil) {
@@ -29,6 +30,12 @@ class BoxShadowInsetBuilder: ViewBuilder {
     @discardableResult
     func setLightShadow(_ color: UIColor = .white, opacity: Float = 0.4) -> Self {
         lightShadow = (color, opacity)
+        return self
+    }
+    
+    @discardableResult
+    func setDarkShadow(_ color: UIColor = .black, opacity: Float = 1) -> Self {
+        darkShadow = (color, opacity)
         return self
     }
 
@@ -77,6 +84,7 @@ class BoxShadowInsetBuilder: ViewBuilder {
     
 //  MARK: - APPLY
     public func apply() {
+        addElements()
         applyAutoLayouts()
         setShadows()
         applyStyles()
@@ -85,10 +93,10 @@ class BoxShadowInsetBuilder: ViewBuilder {
     private func applyStyles() {
         DispatchQueue.main.async { [weak self] in
             guard let self else {return}
-            topShadow.applyShadowLayer()
-            leftShadow.applyShadowLayer()
-            rightShadow.applyShadowLayer()
-            bottomShadow.applyShadowLayer()
+            topShadow.applyShadow()
+            leftShadow.applyShadow()
+            rightShadow.applyShadow()
+            bottomShadow.applyShadow()
         }
     }
     
@@ -96,7 +104,6 @@ class BoxShadowInsetBuilder: ViewBuilder {
 //  MARK: - PRIVATE AREA
     private func configure() {
         self.get.layer.masksToBounds = false
-        addElements()
     }
     
     private func addElements() {
@@ -124,8 +131,8 @@ class BoxShadowInsetBuilder: ViewBuilder {
         topShadow.setShadow({ build in
                 build
                     .setRadius(8)
-                    .setColor(.black)
-                    .setOpacity(1)
+                    .setColor(darkShadow.color)
+                    .setOpacity(darkShadow.opacity)
                     .setOffset(width: 0, height: 0)
             })
     }
@@ -134,8 +141,8 @@ class BoxShadowInsetBuilder: ViewBuilder {
         leftShadow.setShadow({ build in
             build
                 .setRadius(8)
-                .setColor(.black)
-                .setOpacity(1)
+                .setColor(darkShadow.color)
+                .setOpacity(darkShadow.opacity)
                 .setOffset(width: 0, height: 0)
         })
     }

@@ -15,8 +15,10 @@
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-Thin.ttf</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Permita que o aplicativo acesse sua localização para listar os estabelecimentos próximos.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Split Bill precisa acessar sua câmera</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Split Bill precisa acessar sua galeria</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

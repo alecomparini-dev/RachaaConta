@@ -2,6 +2,7 @@
 //
 
 import UIKit
+import CustomComponentsSDK
 
 public protocol SideBarMenuViewControllerCoordinator: AnyObject {
     func gotoBack()
@@ -38,10 +39,12 @@ public class SideBarMenuViewController: UIViewController {
 
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configDiddLayoutSubviews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +56,21 @@ public class SideBarMenuViewController: UIViewController {
 //  MARK: - PRIVATE AREA
     private func configure() {
         configDelegate()
+        configProfilePicture()
+    }
+    
+    private func configProfilePicture() {
+        screen.profilePicture.setChooseSource(viewController: self) { build in
+            build
+                .setOpenCamera("Câmera") { imageViewBuilder in
+                    print("Camera")
+                }
+                .setOpenGallery("Galeria") { [weak self] imageViewBuilder in
+                    guard let self else {return}
+                    screen.profilePicture.applyShadow()
+                    screen.boxProfile.setBackgroundColor(Theme.shared.currentTheme.surfaceContainerHighest)
+                }
+        }
     }
     
     private func configDelegate() {
@@ -60,12 +78,17 @@ public class SideBarMenuViewController: UIViewController {
         screen.closeMenuButtonView.delegate = self
     }
     
-    private func configDidAppear() {
-        configStyles()
+    private func configWillAppear() {
+        
     }
     
-    private func configStyles() {
+    private func configDidAppear() {
+        screen.closeMenuButtonView.applyStyles()
+    }
+    
+    private func configDiddLayoutSubviews() {
         screen.applyStyles()
+        screen.boxProfile.apply()
     }
 
     

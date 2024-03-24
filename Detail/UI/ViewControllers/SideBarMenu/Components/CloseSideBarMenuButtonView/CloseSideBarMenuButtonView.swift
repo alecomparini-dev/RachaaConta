@@ -13,7 +13,7 @@ protocol CloseSideBarMenuButtonViewDelegate: AnyObject {
 class CloseSideBarMenuButtonView: ViewBuilder {
     weak var delegate: CloseSideBarMenuButtonViewDelegate?
         
-    private let sizeDots: CGFloat = 4
+    private let sizeDots: CGFloat = 5
    
     override init() {
         super.init()
@@ -42,7 +42,7 @@ class CloseSideBarMenuButtonView: ViewBuilder {
         return comp
     }()
     
-    lazy var dot1: DotView = {
+    lazy var dot1: ViewBuilder = {
         let comp = createDots()
             .setAutoLayout { build in
                 build
@@ -53,7 +53,7 @@ class CloseSideBarMenuButtonView: ViewBuilder {
         return comp
     }()
     
-    lazy var dot2: DotView = {
+    lazy var dot2: ViewBuilder = {
         let comp = createDots()
             .setAutoLayout { build in
                 build
@@ -64,7 +64,7 @@ class CloseSideBarMenuButtonView: ViewBuilder {
         return comp
     }()
 
-    lazy var dot3: DotView = {
+    lazy var dot3: ViewBuilder = {
         let comp = createDots()
             .setAutoLayout { build in
                 build
@@ -76,17 +76,10 @@ class CloseSideBarMenuButtonView: ViewBuilder {
     }()
 
 
-    private func createDots() -> DotView {
-        return DotView(size: sizeDots, Theme.shared.currentTheme.surfaceContainerHighest.adjustBrightness(50))
-    }
-    
     
 //  MARK: - PUBLIC AREA
     func applyStyles() {
         containerButton.applyShadow()
-        dot1.applyNeumorphism()
-        dot2.applyNeumorphism()
-        dot3.applyNeumorphism()
     }
     
     
@@ -111,7 +104,15 @@ class CloseSideBarMenuButtonView: ViewBuilder {
         dot2.applyAutoLayout()
         dot3.applyAutoLayout()
     }
-    
+
+    private func createDots() -> ViewBuilder {
+        return ViewBuilder()
+            .setBackgroundColor(Theme.shared.currentTheme.surfaceContainerHighest.adjustBrightness(80))
+            .setBorder { build in
+                build
+                    .setCornerRadius(sizeDots/2)
+            }
+    }
 
     private func configTap() {
         self

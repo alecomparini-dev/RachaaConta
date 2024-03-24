@@ -29,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        coordinator.start()
 //        coordinator = AddItemCoordinator(nav)
 
-        coordinator.start()
-        coordinator = SideBarMenuCoordinator(nav)
+//        coordinator.start()
+//        coordinator = SideBarMenuCoordinator(nav)
         #endif
         
         coordinator.start()

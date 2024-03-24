@@ -154,6 +154,7 @@ class BillTableCellView: UITableViewCell {
     private func configStyles() {
         self.backgroundColor = .clear
         self.selectionStyle = .none
+        dotView.applyNeumorphism()
     }
     
     private func addElements() {
